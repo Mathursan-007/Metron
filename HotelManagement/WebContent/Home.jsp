@@ -248,7 +248,7 @@
 					<a href="#"></a><li><i class="fa fa-linkedin"></i></li></a>
 				</ul>
 				</div>
-					<h2>Remo</h2>
+					<h2>Mathura Loganathan</h2>
 					<h3>Service Head</h3>
 					<p></p>
 			</div>

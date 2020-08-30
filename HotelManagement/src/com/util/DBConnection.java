@@ -16,7 +16,7 @@ public class DBConnection {
 				String url="jdbc:sqlserver://localhost:1433;databaseName=Hotel";
 			    connection=DriverManager.getConnection(url,"admin","admin");
 			 
-		}
+		}//sfhdkh
 			
 			    return connection;//hi
 	}

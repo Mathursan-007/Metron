@@ -18,8 +18,14 @@ public class DBConnection {
 			 
 		}//sfhdkh
 			
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 			    return connection;//hiiiiiiiiiiiiiee
 	}
 	
+=======
+			    return connection;//hi
+	}//hello
+	//pull
+>>>>>>> 4faba6f pull first
 	
 }

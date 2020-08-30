@@ -16,20 +16,12 @@ public class DBConnection {
 				String url="jdbc:sqlserver://localhost:1433;databaseName=Hotel";
 			    connection=DriverManager.getConnection(url,"admin","admin");
 			 
-		}//sfhdkh
+		}
 			
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
-			    return connection;//hiiiiiiiiiiiiiee
+			    return connection;
 	}
 	
-=======
-			    return connection;//hi
-	}//hello
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
-	//pull
->>>>>>> 4faba6f pull first
-=======
-	//pulll
->>>>>>> 936111c pull try
-	
-}
+}	
+
+			
+

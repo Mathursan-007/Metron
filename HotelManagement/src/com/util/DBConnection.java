@@ -25,7 +25,11 @@ public class DBConnection {
 =======
 			    return connection;//hi
 	}//hello
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 	//pull
 >>>>>>> 4faba6f pull first
+=======
+	//pulll
+>>>>>>> 936111c pull try
 	
 }

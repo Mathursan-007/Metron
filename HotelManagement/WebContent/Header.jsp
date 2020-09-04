@@ -48,9 +48,9 @@
 					<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Events </a>
 				
 					<div class="dropdown-menu bts" aria-labelledby="dropdownMenuLink" style="text-decoration:none;">
-					    <a class="dropdown-item" href="#">Rooms</a>
-					    <a class="dropdown-item" href="#">Events</a>
-					    <a class="dropdown-item" href="#">Restaurant</a>
+					    <a class="dropdown-item" href="#">Weddings</a>
+					    <a class="dropdown-item" href="#">Meetings & Confererences</a>
+					    <a class="dropdown-item" href="#">Banquets</a>
 					</div>
 				</li>
 				

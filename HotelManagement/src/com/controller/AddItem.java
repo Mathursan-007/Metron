@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,10 +47,12 @@ public class AddItem extends HttpServlet {
 		item.setItemno(Integer.parseInt(request.getParameter("itemno")));
 		item.setName(request.getParameter("name"));
 		item.setCategory(request.getParameter("category"));
-		item.setPrice(Integer.parseInt(request.getParameter("price")));
+		item.setPrice(Float.parseFloat(request.getParameter("price")));
 		
 		restaurantimpl.addItem(item);
 		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
+		dispatcher.forward(request, response);
 		
 		
 		

@@ -18,7 +18,7 @@ public class DBConnection {
 			 
 		} 
 			
-			    return connection;//
+			    return connection; 
 	}
 	
 }	

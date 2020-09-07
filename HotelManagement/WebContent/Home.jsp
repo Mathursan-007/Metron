@@ -84,7 +84,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated zoomIn ba" style="animation-delay: 1s"> Extra Services </h5>
 				<p class ="animated fadeInLeft ba" style="animation-delay: 2s"> This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#extra" class="btn btn-secondary"> More info </a> </p> 
 			   </div> 
 			   
 			</div>
@@ -192,6 +192,64 @@
 				  </div>
 			</div>
 	 </div>
+	 
+	 <!-- Extra Service cards -->
+	 
+	 <section class="features8 cid-s6WIoVrrkW mbr-parallax-background" id="features8-t" id="extra" style="background-image: url(images/bg4.jpg);min-height:100vh; ">
+
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(35, 35, 35);">
+    </div>
+	
+	 
+    <div class="container">
+        <div class="media-container-row">
+       
+
+            <div class="card  col-12 col-md-6 col-lg-4" style="margin-top:40px;">
+                <div class="card-img">
+                     <img src="images/GYM.jpg" alt="no image" style="border-radius: 100%;width:80%;height:150px;" >
+                </div>
+                <div class="card-box align-center">
+                    <h4 class="card-title mbr-fonts-style display-7" style="font-size: 30px;" >
+                        GYM</h4>
+                     
+                    <div class="mbr-section-btn text-center">
+                        <a href="#Room" class="btn btn-secondary display-4">More Info</a></div>
+                </div>
+            </div>
+
+            <div class="card  col-12 col-md-6 col-lg-4" style="margin-top:40px;">
+                <div class="card-img" >
+                    <img src="images/SPA.jpg" alt="no image" style="border-radius: 50%;width:80%;height:150px;" >
+                </div>
+                <div class="card-box align-center" >
+                    <h4 class="card-title mbr-fonts-style display-7" style="font-size: 30px;">
+                        SPA</h4>
+                    
+                    <div class="mbr-section-btn text-center"><a href="#Event" class="btn btn-secondary display-4">
+                            More Info
+                        </a></div>
+                </div>
+            </div>
+
+            <div class="card  col-12 col-md-6 col-lg-4" style="margin-top:40px;">
+                <div class="card-img">
+                   <img src="images/pool.jpg" alt="no image" style="border-radius: 50%;width:80%;height:150px;" >
+                </div>
+                <div class="card-box align-center">
+                    <h4 class="card-title mbr-fonts-style display-7" style="font-size: 30px; ">
+                        SWIMMING POOL</h4>
+                    < 
+                    <div class="mbr-section-btn text-center"><a href="#Restaurant" class="btn btn-secondary display-4">
+                            More Info
+                        </a></div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
 	
 	<div  id="team"></div>
 	<br>

@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Item;
 import com.service.RestaurantImpl;
+import com.service.RoomImpl;
 
 /**
- * Servlet implementation class UpdateItem
+ * Servlet implementation class DeleteRoom
  */
-@WebServlet("/UpdateItem")
-public class UpdateItem extends HttpServlet {
+@WebServlet("/DeleteRoom")
+public class DeleteRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateItem() {
+    public DeleteRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +39,12 @@ public class UpdateItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		Item item=new Item();
-		
-	    RestaurantImpl restaurantimpl=new RestaurantImpl();
-		
-		item.setItemno(Integer.parseInt(request.getParameter("itemno")));
-		item.setName(request.getParameter("name"));
-		item.setCategory(request.getParameter("category"));
-		item.setPrice(Float.parseFloat(request.getParameter("price")));
-		
-		restaurantimpl.updateItem(item);
+		String roomNo=request.getParameter("roomno");
+		RoomImpl roomimpl=new RoomImpl();
+		roomimpl.deleteRoom(roomNo);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 }

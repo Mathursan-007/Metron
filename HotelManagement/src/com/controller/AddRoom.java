@@ -9,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Item;
-import com.service.RestaurantImpl;
+
+import com.model.Room;
+import com.service.RoomImpl;
+
 
 /**
- * Servlet implementation class UpdateItem
+ * Servlet implementation class AddRoom
  */
-@WebServlet("/UpdateItem")
-public class UpdateItem extends HttpServlet {
+@WebServlet("/AddRoom")
+public class AddRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateItem() {
+    public AddRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +41,22 @@ public class UpdateItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		Item item=new Item();
+		Room room=new Room();
+		RoomImpl roomimpl=new RoomImpl();
 		
-	    RestaurantImpl restaurantimpl=new RestaurantImpl();
+		room.setRoomNo(request.getParameter("roomNo"));
+		room.setAvailability(request.getParameter("availability"));
+		room.setRoomSize(request.getParameter("roomSize"));
+		room.setMaxGuests(Integer.parseInt(request.getParameter("MaxGuests")));
+		room.setRoomTypeNo(Integer.parseInt(request.getParameter("roomType")));
 		
-		item.setItemno(Integer.parseInt(request.getParameter("itemno")));
-		item.setName(request.getParameter("name"));
-		item.setCategory(request.getParameter("category"));
-		item.setPrice(Float.parseFloat(request.getParameter("price")));
+		roomimpl.addRoom(room);
 		
-		restaurantimpl.updateItem(item);
 		
+		//request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 }

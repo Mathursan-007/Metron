@@ -10,19 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Item;
+import com.model.Room;
 import com.service.RestaurantImpl;
+import com.service.RoomImpl;
 
 /**
- * Servlet implementation class UpdateItem
+ * Servlet implementation class GetRoom
  */
-@WebServlet("/UpdateItem")
-public class UpdateItem extends HttpServlet {
+@WebServlet("/GetRoom")
+public class GetRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateItem() {
+    public GetRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,22 +42,16 @@ public class UpdateItem extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String roomNo=request.getParameter("roomno");
+		RoomImpl roomimpl=new RoomImpl();
+		Room room=new Room();
+		room=roomimpl.getRoom(roomNo);
 		
-		Item item=new Item();
 		
-	    RestaurantImpl restaurantimpl=new RestaurantImpl();
+		request.setAttribute("room", room);
 		
-		item.setItemno(Integer.parseInt(request.getParameter("itemno")));
-		item.setName(request.getParameter("name"));
-		item.setCategory(request.getParameter("category"));
-		item.setPrice(Float.parseFloat(request.getParameter("price")));
-		
-		restaurantimpl.updateItem(item);
-		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetRoom.jsp");
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 }

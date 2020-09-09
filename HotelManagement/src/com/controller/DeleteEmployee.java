@@ -44,7 +44,11 @@ public class DeleteEmployee extends HttpServlet {
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		employeeimpl.DeleteEmployee(empid);
 		
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
+=======
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
+>>>>>>> f270cfb Employee Management
 		dispatcher.forward(request, response);
 	}
 

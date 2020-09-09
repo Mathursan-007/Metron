@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>View Employee</title>
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 
 
 <style>
@@ -49,6 +50,42 @@
   				
   				<tr>
     				<th>NIC</th>
+=======
+<style>
+
+.viewtable{
+	width : 400px;
+	height : 800px; 
+	
+}
+
+</style>
+</head>
+<body>
+
+	<div class="viewtable">
+			<br>
+			<h1>Profile Details</h1>
+	
+	<fieldset>
+    
+        
+        	<table >
+  				<tr>
+    				<th>Employee ID </th>
+    				<td></td>
+    				
+  				</tr>
+  				
+  				<tr>
+    				<th>First Name</th>
+    				<td></td> 
+    				
+  				</tr>
+  				
+  				<tr>
+    				<th>Last Name</th>
+>>>>>>> f270cfb Employee Management
     				<td></td> 
     				
   				</tr>

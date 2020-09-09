@@ -48,7 +48,11 @@ public class GetEmployee extends HttpServlet {
 		
 		request.setAttribute("employee", employee);
 		
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetItem.jsp");
+=======
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
+>>>>>>> f270cfb Employee Management
 		dispatcher.forward(request, response);
 	}
 

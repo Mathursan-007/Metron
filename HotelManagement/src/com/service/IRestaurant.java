@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.model.Item;
+import com.model.RestaurantCustomer;
 import com.model.Table;
 
 public interface IRestaurant {
@@ -27,6 +28,17 @@ public interface IRestaurant {
 	public Table getTable(int tableno);
 	
 	public void updateTable(Table table);
+	
+	public int generateRcustid();
+	
+	public int getTableRid(int custid);
+	
+	public void addRcustomer(RestaurantCustomer rcustomer);
+	
+	public void reserveTable(int custid,int pid);
+	
+	public void addTableReservation(int rcustid);
+	
 	
 	
 	

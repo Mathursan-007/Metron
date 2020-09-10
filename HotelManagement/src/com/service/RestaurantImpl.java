@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.model.Item;
+import com.model.RestaurantCustomer;
 import com.model.Table;
 import com.util.DBConnection;
 
@@ -255,16 +256,19 @@ public class RestaurantImpl implements IRestaurant {
 		
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("select * from tables where TableNO=?");
+			pt=connection.prepareStatement("select * from Tables where TableNO=?");
 			pt.setInt(1, tableno);
 			ResultSet result=pt.executeQuery();
 			
 			
-		    table.setTableno(result.getInt(1));
-		    table.setType(result.getString(2));
-			table.setCapacity(result.getInt(3));
-			table.setPrice(result.getFloat(4));
+			while(result.next()) {
 				
+			    table.setTableno(result.getInt(1));
+			    table.setType(result.getString(2));
+				table.setCapacity(result.getInt(3));
+				table.setPrice(result.getFloat(4));
+			
+			}
 			
 			
 			
@@ -303,6 +307,146 @@ public class RestaurantImpl implements IRestaurant {
 		}
 		
 	}
+
+
+
+	@Override
+	public void addRcustomer(RestaurantCustomer rcustomer) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("insert into RestaurantCustomer(RCustomerID,FullName,NIC,Email,PhoneNo) values(?,?,?,?,?)");
+			pt.setInt(1, rcustomer.getRCustomerID());
+			pt.setString(2, rcustomer.getFullName());
+			pt.setString(3, rcustomer.getNIC());
+			pt.setString(4, rcustomer.getEmail());
+			pt.setString(5, rcustomer.getPhoneNo());
+			pt.execute();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	
+	@Override
+	public void addTableReservation(int rcustid) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("insert into TableReservation(CustID) values(?)");
+			pt.setInt(1, rcustid);
+			pt.execute();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+
+	@Override
+	public void reserveTable(int trid, int tableno) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("insert into ReservedTable values(?,?)");
+			pt.setInt(1, trid);
+			pt.setInt(2, tableno);
+			pt.execute();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+	@Override
+	public int generateRcustid() {
+		// TODO Auto-generated method stub
+		
+		int custid=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from RestaurantCustomer");
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()) {
+				
+				custid++;
+				
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return ++custid;
+	}
+
+
+
+	@Override
+	public int getTableRid(int rcustid) {
+		// TODO Auto-generated method stub
+		
+		int trid=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select TableRID from TableReservation where CustID=?");
+			pt.setInt(1, rcustid);
+			ResultSet res=pt.executeQuery();
+			
+			while(res.next()) {
+				
+				trid=res.getInt(1);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		return trid;
+	}
+
+
+
+	
 	
 	
 

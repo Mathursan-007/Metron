@@ -3,60 +3,184 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.service.IRestaurant" %>  
+<%@ page import="com.service.RestaurantImpl"%>   
+<%@ page import="com.model.Table" %> 
 <meta charset="ISO-8859-1">
 <title>Restaurant</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="restauarnt.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles/Restaurant.css">
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+<script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
 </head>
 <body>
-    
-       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-     <div class="row">
-        <div class="column">
-          <img src="images/rice1.jpg" alt="Snow" style="height:100%">
-       </div>
-       <div class="column">
-          <img src="images/rice2.jpg" alt="Forest" style="height:100%">
-      </div>
-      <div class="column">
-         <img src="images/rice3.jpg" alt="Mountains" style="height:100%">
-     </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"> </li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"> </li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"> </li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"> </li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="4"> </li>
+		</ol>
+		<div class="carousel-inner">
+		  <div class="carousel-item active">
+		     <div>
+		        <div class="a"></div>
+		        <div class="b"></div>
+		        <div class="c"></div>
+	         </div>
+		  </div>
+		  <div class="carousel-item">
+		     <div>
+				<div class="d"></div>
+				<div class="e"></div>
+				<div class="f"></div>
+	        </div>
+		  </div>
+		  <div class="carousel-item">
+		    <div>
+				<div class="g"></div>
+				<div class="h"></div>
+				<div class="i"></div>
+	       </div> 
+		  </div>
+		  <div class="carousel-item">
+		     <div>
+				<div class="j"></div>
+			    <div class="k"></div>
+	        </div>
+		  </div>
+		   <div class="carousel-item">
+		     <div>
+				<div class="l"></div>
+			    <div class="m"></div>
+			    <div class="n"></div>
+	        </div>
+		  </div>
+		</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+					<span class="sr-only">Previous </span>
+				</a>
+				
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"> </span>
+					<span class="sr-only">Next </span>
+				</a>
+	</div>	
+		
+    <div class="container">
+    <div class="row"> </div>
+    <h1 style="text-align: center">
+        <font color="White">Tables</font>
+    </h1>
+    <hr color="white"> <br>
+    <div class="row row-margin-bottom">
+        <div class="col-md-5 no-padding lib-item" data-category="view">
+            <div class="lib-panel">
+                <div class="row box-shadow">
+                    <div class="col-md-6"> <img class="lib-img-show" src="images/booth.jpg"  style="height:180px;"> </div>
+                    <div class="col-md-6">
+                        <div class="lib-row lib-header"> Booth <div class="lib-header-seperator"></div>
+                        </div>
+                        <div class="lib-row lib-desc">Booth seating offer better privacy, more comfort, more protection from traffic, more coziness, and more room than chairs do. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 no-padding lib-item" data-category="view">
+            <div class="lib-panel">
+                <div class="row box-shadow">
+                    <div class="col-md-6"> <img class="lib-img-show" src="images/outdoor.jpg" style="height:180px;"> </div>
+                    <div class="col-md-6">
+                        <div class="lib-row lib-header">Outdoor<div class="lib-header-seperator"></div>
+                        </div>
+                        <div class="lib-row lib-desc">A good option to relax your self where you can have your meals in an open space while feeling the fresh air .</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-     
-    </div>
-    <div class="item">
-      <img src="images/rice2.jpg" alt="Chicago">
-    </div>
-
-    <div class="item">
-      <img src="images/rice3.jpg" alt="New York">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
-       
-       
-   
+ <div class="container">
+    <div class="row"> </div>
+    <div class="row row-margin-bottom">
+        <div class="col-md-5 no-padding lib-item" data-category="view">
+            <div class="lib-panel">
+                <div class="row box-shadow">
+                    <div class="col-md-6"> <img class="lib-img-show" src="images/normal.jpg"> </div>
+                    <div class="col-md-6">
+                        <div class="lib-row lib-header"> Casual <div class="lib-header-seperator"></div>
+                        </div>
+                        <div class="lib-row lib-desc">A good option when you are having a formal meeting with someone or dining in with few people for a casual meetup.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 no-padding lib-item" data-category="view">
+            <div class="lib-panel">
+                <div class="row box-shadow">
+                    <div class="col-md-6"> <img class="lib-img-show" src="images/family.jpg" style="height:180px;"> </div>
+                    <div class="col-md-6">
+                        <div class="lib-row lib-header">Family Table<div class="lib-header-seperator"></div>
+                        </div>
+                        <div class="lib-row lib-desc"> Family meals offer the opportunity to connect with each other, communicate about family happenings, and give each other time and attention. </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+    
+    <div>
+
+		<form action="./ReserveTable" method="post">
+		
+		Full Name:<input type="text" name="fullname">
+		NIC:<input type="text" name="nic">
+		Email:<input type="text" name="email">
+		Phone Number:<input type="text" name="phone">
+		<br>
+		
+		<table border=1 >
+		           <tr>
+		               <th>TableNO</th>
+		               <th>Type</th>
+		               <th>Capacity</th>
+		               <th>Price</th>
+		               <th>Action</th>
+		            </tr>
+		            <%
+		              IRestaurant irestaurantservice=new RestaurantImpl();
+		              ArrayList<Table> Tables=new ArrayList<>();
+		              
+		              Tables=irestaurantservice.listtables();
+		              
+		             for(Table table:Tables){ %>
+		            <tr>
+		               <td><%=table.getTableno() %></td> 
+		               <td><%=table.getType()%></td> 
+		               <td><%=table.getCapacity() %></td>
+		               <td><%=table.getPrice()%></td>
+		               <td><input type="checkbox" name="tables" value="<%=table.getTableno() %>"></td>
+		            </tr>
+		            <%} %>
+		     
+		     
+		     </table>
+		   <input type="submit" value="Book Now">    
+		       
+		</form>
+   </div>   
 </body>
 </html>

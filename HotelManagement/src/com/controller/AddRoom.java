@@ -46,7 +46,7 @@ public class AddRoom extends HttpServlet {
 		RoomImpl roomimpl=new RoomImpl();
 		
 		room.setRoomNo(request.getParameter("roomNo"));
-		room.setAvailability(request.getParameter("availability"));
+		room.setAvailability("Available");
 		room.setRoomSize(request.getParameter("roomSize"));
 		room.setMaxGuests(Integer.parseInt(request.getParameter("MaxGuests")));
 		room.setRoomTypeNo(Integer.parseInt(request.getParameter("roomType")));
@@ -54,8 +54,8 @@ public class AddRoom extends HttpServlet {
 		roomimpl.addRoom(room);
 		
 		
-		//request.setAttribute("value", 1);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
+		request.setAttribute("value", 1);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -14,16 +14,17 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 			<script src="scripts/nav.js"></script>
 		
-		<!--  
+		  
 		<script>
+		window.location.href = 'FrontDeskRoomDashboard.jsp#Butt1';
 		var i=${value};
 		
 		if(i==1){
 			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt3';
-		}
+		} 
 		
 		</script>
-		-->
+		
 <style>
 .vidya{
 background: rgb(190,189,203);
@@ -102,7 +103,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 			
 			
-			<div style="background:blue;height:800px;" id="Butt3"></div>
+			<div id="Butt3"><%@include file="ListRooms.jsp" %></div>
 			
 			
 				

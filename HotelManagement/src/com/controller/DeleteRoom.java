@@ -43,7 +43,8 @@ public class DeleteRoom extends HttpServlet {
 		RoomImpl roomimpl=new RoomImpl();
 		roomimpl.deleteRoom(roomNo);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
+		request.setAttribute("value", 1);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

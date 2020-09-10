@@ -45,8 +45,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 .bree{
-background: rgb(79,80,98);
-background: linear-gradient(90deg, rgba(79,80,98,1) 0%, rgba(75,75,98,1) 50%, rgba(19,13,13,1) 100%);
+background: rgb(1,41,56);
+background: linear-gradient(90deg, rgba(1,41,56,1) 0%, rgba(12,111,117,1) 50%, rgba(1,41,56,1) 100%);
   font-family: 'Roboto', sans-serif;
 }
 .ListingRooms{

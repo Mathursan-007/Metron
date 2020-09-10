@@ -8,7 +8,18 @@ public class Room {
 	private String RoomSize;
 	private String RoomTypeName;
 	private double CostPerDay;
+	private int dashboardVal;
 	
+	
+	
+	public int getDashboardVal() {
+		return dashboardVal;
+	}
+	
+	public void setDashboardVal(int dash) {
+		this.dashboardVal=dash;;
+	}
+
 	public String getRoomTypeName() {
 		return RoomTypeName;
 	}
@@ -51,4 +62,5 @@ public class Room {
 	public void setRoomTypeNo(int roomTypeNo) {
 		RoomTypeNo = roomTypeNo;
 	}
+	
 }

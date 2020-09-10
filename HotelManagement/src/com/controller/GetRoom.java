@@ -46,11 +46,12 @@ public class GetRoom extends HttpServlet {
 		RoomImpl roomimpl=new RoomImpl();
 		Room room=new Room();
 		room=roomimpl.getRoom(roomNo);
+		room.setDashboardVal(2);
 		
 		
 		request.setAttribute("room", room);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetRoom.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

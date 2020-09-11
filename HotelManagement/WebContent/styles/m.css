@@ -25,7 +25,7 @@ margin-top:-5%;
 .card-container
 {
 width: 700px;
-height: 1200px;
+height: 1400px;
 background: #fff;
 border-radius: 6px;
 position:absolute;
@@ -53,25 +53,7 @@ padding-top: 80px;
 }
 
 
-button {
-display:inline-block;
-padding:0.7em 1.4em;
-margin:0 0.3em 0.3em 0;
-border-radius:0.15em;
-box-sizing:border-box;
-text-decoration:none;
-font-family:'Roboto', sans-serif;
-/*text-transform:uppercase;*/
-font-style:italic;
-font-weight:400;
-color:#ffffff;
-background-color:#1c2e4a;
-box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
-text-align:center;
-position:relative;
-cursor:pointer;
-transform: translate(625%, 80%);
-}
+
 
 button:active{
 top:0.1em;

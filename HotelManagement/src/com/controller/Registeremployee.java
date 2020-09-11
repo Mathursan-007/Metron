@@ -13,16 +13,16 @@ import com.model.Employee;
 import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class registeremploee
+ * Servlet implementation class registeremployee
  */
 @WebServlet("/registeremploee")
-public class Registeremploee extends HttpServlet {
+public class Registeremployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Registeremploee() {
+    public Registeremployee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -54,7 +54,7 @@ public class Registeremploee extends HttpServlet {
 		employee.setDesignation(request.getParameter("designation"));
 		employee.setDepartment(request.getParameter("department"));
 		
-		employeeimpl.registeremploee(employee);
+		employeeimpl.registeremployee(employee);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
 		dispatcher.forward(request, response);

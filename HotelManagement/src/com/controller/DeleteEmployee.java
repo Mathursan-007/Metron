@@ -45,7 +45,6 @@ public class DeleteEmployee extends HttpServlet {
 		employeeimpl.DeleteEmployee(empid);
 		
 
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
 
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
 

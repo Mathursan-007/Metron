@@ -20,11 +20,11 @@ public class EmployeeImpl implements IEmployee{
 	private static Statement st; 
 	
 	@Override
-	public void registeremploee(Employee employee) {
+	public void registeremployee(Employee employee) {
 		// TODO Auto-generated method stub
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("insert into Employee(empid,firstname,lastname,email,contact,age,address,designation,department) values(?,?,?,?,?,?,?,?,?)");
+			pt=connection.prepareStatement("insert into Employee(emp_ID,FirstName,LastName,NIC,email,contact_no,age,address,designation,dep_name) values(?,?,?,?,?,?,?,?,?)");
 			pt.setInt(1, employee.getempid());
 			pt.setString(2, employee.getFirstname());
 			pt.setString(3, employee.getLastname());
@@ -125,7 +125,7 @@ public class EmployeeImpl implements IEmployee{
 		
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("update Employee set empid=?,firstname=?,lastname=?,email=?,contact=?,age=?,address=?,designation=?,department=?");
+			pt=connection.prepareStatement("update Employee set emp_ID=?,FirstName=?,LastName=?,NIC=?,email=?,contact=?,age=?,address=?,designation=?,dep_name=?");
 			pt.setInt(1, employee.getempid());
 			pt.setString(2, employee.getFirstname());
 			pt.setString(3, employee.getLastname());

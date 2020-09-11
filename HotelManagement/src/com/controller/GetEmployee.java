@@ -47,8 +47,7 @@ public class GetEmployee extends HttpServlet {
 		employee=employeeimpl.getEmployee(empid);
 		
 		request.setAttribute("employee", employee);
-
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetItem.jsp");
+		
 
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
 

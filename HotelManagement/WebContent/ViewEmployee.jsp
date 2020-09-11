@@ -6,7 +6,6 @@
 <meta charset="ISO-8859-1">
 <title>View Employee</title>
 
-
 <style>
 
 .viewtable{
@@ -48,57 +47,7 @@
   				
   				<tr>
     				<th>NIC</th>
-=======
-=======
-<link rel="stylesheet" type="text/css" href="styles/m.css" />
-
->>>>>>> 8521f07 employee
-<style>
-
-.viewtable{
-	width : 400px;
-	height : 900px; 
-	
-}
-
-</style>
-</head>
-<body>
-
-
-	<div class="viewtable">
-			<br>
-			<h1>Profile Details</h1>
-	
-	<fieldset>
-    
-        
-        	<table >
-  				<tr>
-    				<th>Employee ID </th>
-    				<td></td>
-    				
-  				</tr>
-  				
-  				<tr>
-    				<th>First Name</th>
-    				<td></td> 
-    				
-  				</tr>
-  				
-  				<tr>
-    				<th>Last Name</th>
->>>>>>> f270cfb Employee Management
-    				<td></td> 
-    				
-  				</tr>
-  				
-  				<tr>
-    				<th>NIC</th>
-    				<td></td> 
-    				
-  				</tr>
-  				
+  					<td></td>
   				<tr>
     				<th>Email Address</th>
     				<td></td> 

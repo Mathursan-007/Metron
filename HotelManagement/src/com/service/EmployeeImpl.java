@@ -24,17 +24,16 @@ public class EmployeeImpl implements IEmployee{
 		// TODO Auto-generated method stub
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("insert into Employee(emp_ID,FirstName,LastName,NIC,email,contact_no,age,address,designation,dep_name) values(?,?,?,?,?,?,?,?,?)");
-			pt.setInt(1, employee.getempid());
-			pt.setString(2, employee.getFirstname());
-			pt.setString(3, employee.getLastname());
-			pt.setString(4, employee.getNIC());
-			pt.setString(5, employee.getEmail());
-			pt.setFloat(6, employee.getcontact());
-			pt.setInt(7, employee.getAge());
-			pt.setString(8, employee.getAddress());
-			pt.setString(9, employee.getDesignation());
-			pt.setString(10, employee.getDepartment());
+			pt=connection.prepareStatement("insert into Employee(FirstName,LastName,NIC,email,address,dep_name,designation) values(?,?,?,?,?,?,?)");
+			//pt.setInt(1, employee.getempid());
+			pt.setString(1, employee.getFirstname());
+			pt.setString(2, employee.getLastname());
+			pt.setString(3, employee.getNIC());
+			pt.setString(4, employee.getEmail());
+			//pt.setInt(6, employee.getAge());
+			pt.setString(5, employee.getAddress());
+			pt.setString(6, employee.getDepartment());
+			pt.setString(7, employee.getDesignation());
 			
 			pt.execute();
 			

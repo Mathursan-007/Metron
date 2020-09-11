@@ -51,7 +51,7 @@ bg.{
 	
 	<!-- form starts -->
 
-			<form action="./registeremployee" method="post" id="register" class="form">
+			<form action="./Registeremployee" method="post" id="register" class="form">
  				
  				<br>
  				<br>
@@ -60,7 +60,7 @@ bg.{
  
  				<div class="form-group">
  					<label for="ID">Enter Employee ID :  </label>	
- 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" required> <br>
+ 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" > <br>
  				</div>
  	
  				<div class="form-group">
@@ -70,27 +70,27 @@ bg.{
   	
   				<div class="form-group">
  					<label for="Full name"> Enter Last Name : </label>
-  					<input type="text" id="Last name" name="lastname" class="form-control" placeholder="Last name"required> <br>
+  					<input type="text" id="Last name" name="lastname" class="form-control" placeholder="Last name"> <br>
   				</div>
   				
   				<div class="form-group">
  					<label for="Full name"> Enter NIC : </label>
-  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC"required> <br>
+  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC"> <br>
   				</div>
   	
   				<div class="form-group">
  					<label for="Email">Email Address : </label>
- 					<input type="email" id="Email" name="email" class="form-control" placeholder="Email"required> <br>
+ 					<input type="email" id="Email" name="email" class="form-control" placeholder="Email"> <br>
  				</div>
  		
  				<div class="form-group">
  					<label for="phone">Contact Number : </label> 	
- 					<input type="tel" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" required> <br>
+ 					<input type="tel" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" > <br>
  				</div>
  				
  				<div class="form-group">
  					<label for="phone">Address : </label> 	
- 					<input type="text" id="address" name="address" class="form-control" placeholder="Address" required> <br>
+ 					<input type="text" id="address" name="address" class="form-control" placeholder="Address" > <br>
  				</div>
  	
  				<div class="form-group">
@@ -105,7 +105,7 @@ bg.{
  	
   				<div class="form-group">
     				<label for="confirm"> Designation:</label>
-    				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" required>  <br>
+    				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" >  <br>
     				<span id="error" style="color:red"></span>    <br>
     			</div>
  	

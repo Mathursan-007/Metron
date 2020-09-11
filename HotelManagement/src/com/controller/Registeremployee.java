@@ -15,7 +15,7 @@ import com.service.EmployeeImpl;
 /**
  * Servlet implementation class registeremployee
  */
-@WebServlet("/registeremploee")
+@WebServlet("/Registeremployee")
 public class Registeremployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,19 +44,20 @@ public class Registeremployee extends HttpServlet {
 		Employee employee=new Employee();
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		employee.setempid(Integer.parseInt(request.getParameter("empid")));
+		//employee.setempid(Integer.parseInt(request.getParameter("empid")));
 		employee.setFirstname(request.getParameter("firstname"));
 		employee.setLastname(request.getParameter("lastname"));
 		employee.setNIC(request.getParameter("nic"));
 		employee.setEmail(request.getParameter("email"));
-		employee.setcontact(Float.parseFloat(request.getParameter("contact")));
+		//employee.setcontact(Float.parseFloat(request.getParameter("contact")));
+		//employee.setAge(Integer.parseInt(request.getParameter("age")));
 		employee.setAddress(request.getParameter("address"));
 		employee.setDesignation(request.getParameter("designation"));
 		employee.setDepartment(request.getParameter("department"));
 		
 		employeeimpl.registeremployee(employee);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

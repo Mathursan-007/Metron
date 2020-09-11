@@ -6,9 +6,6 @@
 <meta charset="ISO-8859-1">
 <title>View Employee</title>
 
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
-
 
 <style>
 

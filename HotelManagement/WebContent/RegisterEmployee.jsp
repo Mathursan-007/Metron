@@ -12,8 +12,7 @@
 <meta charset="ISO-8859-1">
 <title> Register Employee </title>
 
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
-<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
+
 <link rel="stylesheet" type="text/css" href="styles/m.css" />
 
 <style>

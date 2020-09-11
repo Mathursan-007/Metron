@@ -28,12 +28,13 @@ public class EmployeeImpl implements IEmployee{
 			pt.setInt(1, employee.getempid());
 			pt.setString(2, employee.getFirstname());
 			pt.setString(3, employee.getLastname());
-			pt.setString(4, employee.getEmail());
-			pt.setFloat(5, employee.getcontact());
-			pt.setInt(6, employee.getAge());
-			pt.setString(7, employee.getAddress());
-			pt.setString(8, employee.getDesignation());
-			pt.setString(9, employee.getDepartment());
+			pt.setString(4, employee.getNIC());
+			pt.setString(5, employee.getEmail());
+			pt.setFloat(6, employee.getcontact());
+			pt.setInt(7, employee.getAge());
+			pt.setString(8, employee.getAddress());
+			pt.setString(9, employee.getDesignation());
+			pt.setString(10, employee.getDepartment());
 			
 			pt.execute();
 			
@@ -94,12 +95,13 @@ public class EmployeeImpl implements IEmployee{
 				employee.setempid(result.getInt(1));
 				employee.setFirstname(result.getString(2));
 				employee.setLastname(result.getString(3));
-				employee.setEmail(result.getString(4));
-				employee.setcontact(result.getFloat(5));
-				employee.setAge(result.getInt(6));
-				employee.setAddress(result.getString(7));
-				employee.setDesignation(result.getString(8));
-				employee.setDepartment(result.getString(9));
+				employee.setNIC(result.getString(4));
+				employee.setEmail(result.getString(5));
+				employee.setcontact(result.getFloat(6));
+				employee.setAge(result.getInt(7));
+				employee.setAddress(result.getString(8));
+				employee.setDesignation(result.getString(9));
+				employee.setDepartment(result.getString(10));
 				
 				
 			}
@@ -127,12 +129,13 @@ public class EmployeeImpl implements IEmployee{
 			pt.setInt(1, employee.getempid());
 			pt.setString(2, employee.getFirstname());
 			pt.setString(3, employee.getLastname());
-			pt.setString(4, employee.getEmail());
-			pt.setFloat(5, employee.getcontact());
-			pt.setInt(6, employee.getAge());
-			pt.setString(7, employee.getAddress());
-			pt.setString(8, employee.getDesignation());
-			pt.setString(9, employee.getDepartment());
+			pt.setString(4, employee.getNIC());
+			pt.setString(5, employee.getEmail());
+			pt.setFloat(6, employee.getcontact());
+			pt.setInt(7, employee.getAge());
+			pt.setString(8, employee.getAddress());
+			pt.setString(9, employee.getDesignation());
+			pt.setString(10, employee.getDepartment());
 			
 			pt.executeUpdate();
 			

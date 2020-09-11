@@ -5,6 +5,7 @@ public class Employee {
 	private int empid;
 	private String firstname;
 	private String lastname;
+	private String nic;
 	private String email;
 	private float contact;
 	private int age;
@@ -29,6 +30,12 @@ public class Employee {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	public String getNIC() {
+		return nic;
+	}
+	public void setNIC(String nic) {
+		this.nic = nic;
 	}
 	public String getEmail() {
 		return email;

@@ -81,7 +81,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<%@include file="RegisterEmployee.jsp"%>
 			</div>
 			
-			<div style="background:white;height:850px;" id="Butt2">
+			<div style="background:white;height:950px;" id="Butt2">
 			<%@include file="ViewEmployee.jsp"%>
 			</div>
 			

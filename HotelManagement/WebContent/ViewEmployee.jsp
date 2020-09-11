@@ -7,6 +7,7 @@
 <title>View Employee</title>
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 
 
 <style>
@@ -51,17 +52,22 @@
   				<tr>
     				<th>NIC</th>
 =======
+=======
+<link rel="stylesheet" type="text/css" href="styles/m.css" />
+
+>>>>>>> 8521f07 employee
 <style>
 
 .viewtable{
 	width : 400px;
-	height : 800px; 
+	height : 900px; 
 	
 }
 
 </style>
 </head>
 <body>
+
 
 	<div class="viewtable">
 			<br>
@@ -86,6 +92,12 @@
   				<tr>
     				<th>Last Name</th>
 >>>>>>> f270cfb Employee Management
+    				<td></td> 
+    				
+  				</tr>
+  				
+  				<tr>
+    				<th>NIC</th>
     				<td></td> 
     				
   				</tr>

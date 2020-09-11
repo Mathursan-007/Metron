@@ -13,6 +13,7 @@
 <title> Register Employee </title>
 
 <<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 <link rel="stylesheet" type="text/css" href="styles/m.css" />
 
 <style>
@@ -120,13 +121,17 @@ bg.{
 </div>
 </div>
 =======
+=======
+
+
+>>>>>>> 8521f07 employee
 <style>
 
 bg.{
 	position : center;
 	background-color: lightblue;
   	width: 200px;
-  	height: 800px;
+  	height: 900px;
 	overflow: auto;
 }
 
@@ -143,14 +148,24 @@ bg.{
 
 	<br>
 	
+	<div class = " card-container">
+	
+	<div class = "upper-container">
+	<h1 class="text-center"> Register </h1>
+	</div>
+	
+	<div class = "lower-container">	
+	
+	
 	<div class="container-fluid bg">
 	
 	<!-- form starts -->
 
 			<form action="addemployee" method="post" id="register" class="form">
- 	
- 				<h1 class="text-center"> Register </h1>
  				
+ 				<br>
+ 				<br>
+ 				<br>
  				<br>
  
  				<div class="form-group">
@@ -166,6 +181,11 @@ bg.{
   				<div class="form-group">
  					<label for="Full name"> Enter Last Name : </label>
   					<input type="text" id="Last name" name="lname" class="form-control" placeholder="Last name"required> <br>
+  				</div>
+  				
+  				<div class="form-group">
+ 					<label for="Full name"> Enter NIC : </label>
+  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC"required> <br>
   				</div>
   	
   				<div class="form-group">
@@ -206,6 +226,12 @@ bg.{
 		<!-- form ends -->
 	</div>
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Mathursan-007/Metron.git
 >>>>>>> f270cfb Employee Management
+=======
+
+</div>
+</div>
+>>>>>>> 8521f07 employee
 </body>
 </html>

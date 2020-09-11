@@ -47,6 +47,7 @@ public class Registeremploee extends HttpServlet {
 		employee.setempid(Integer.parseInt(request.getParameter("empid")));
 		employee.setFirstname(request.getParameter("firstname"));
 		employee.setLastname(request.getParameter("lastname"));
+		employee.setNIC(request.getParameter("nic"));
 		employee.setEmail(request.getParameter("email"));
 		employee.setcontact(Float.parseFloat(request.getParameter("contact")));
 		employee.setAddress(request.getParameter("address"));

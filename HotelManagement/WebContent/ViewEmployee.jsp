@@ -11,7 +11,7 @@
 .viewtable{
 	width : 400px;
 	height : 900px; 
-	
+	position: absolute;
 }
 
 </style>
@@ -19,9 +19,18 @@
 <body>
 
 
+<br>
+<br>
+<br>
+
 	<div class="viewtable">
 			<br>
 			<h1>Profile Details</h1>
+	
+	<div class="form-group">
+ 					<label for="ID">Enter Employee ID :  </label>	
+ 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" > <br>
+ 				</div>
 	
 	<fieldset>
     

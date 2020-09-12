@@ -38,6 +38,7 @@ bg.{
 
 	<br>
 	
+ 	
 	<div class = " card-container">
 	
 	<div class = "upper-container">
@@ -57,12 +58,11 @@ bg.{
  				<br>
  				<br>
  				<br>
- 
- 				<div class="form-group">
- 					<label for="ID">Enter Employee ID :  </label>	
- 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" > <br>
- 				</div>
- 	
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				
  				<div class="form-group">
  					<label for="Full name"> Enter First Name : </label>
   					<input type="text" id="First name" name="firstname" class="form-control" placeholder="First name"required> <br>

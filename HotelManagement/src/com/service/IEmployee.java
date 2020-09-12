@@ -12,7 +12,7 @@ public interface IEmployee {
 
 	public void registeremployee(Employee employee);
 	
-	//public ArrayList<Item> listitems();
+	//public ArrayList<Employee> listemployee();
 
 	
 	public void generateItemid();

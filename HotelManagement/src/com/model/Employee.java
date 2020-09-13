@@ -12,7 +12,16 @@ public class Employee {
 	private String address;
 	private String designation;
 	private String department;
+	private String val="True";
 	
+	
+	
+	public String getVal() {
+		return val;
+	}
+	public void setVal(String val) {
+		this.val = val;
+	}
 	public int getempid() {
 		return empid;
 	}

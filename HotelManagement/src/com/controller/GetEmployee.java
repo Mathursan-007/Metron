@@ -44,12 +44,13 @@ public class GetEmployee extends HttpServlet {
 		int empid=Integer.parseInt(request.getParameter("empid"));
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		Employee employee=new Employee();
-		employee=employeeimpl.getEmployee(empid);
+		employee = employeeimpl.getEmployee(empid);
+		employee.setVal("False");
 		
 		request.setAttribute("employee", employee);
 		
 
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 
 		dispatcher.forward(request, response);
 	}

@@ -28,7 +28,7 @@ bg.{
 .form{
 	width: 400px;
 	margin-left: 200px;
-	
+	margin-right: 200px;
 }
 
 </style>
@@ -79,17 +79,17 @@ bg.{
   				</div>
   	
   				<div class="form-group">
- 					<label for="Email">Email Address : </label>
- 					<input type="email" id="Email" name="email" class="form-control" placeholder="Email"> <br>
+ 					<label for="Email">Enter Email Address : </label>
+ 					<input type="email" id="Email" name="email" class="form-control" placeholder="xxx@xxx.com"> <br>
  				</div>
  		
  				<div class="form-group">
- 					<label for="phone">Contact Number : </label> 	
+ 					<label for="phone">Enter Contact Number : </label> 	
  					<input type="tel" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" > <br>
  				</div>
  				
  				<div class="form-group">
- 					<label for="phone">Address : </label> 	
+ 					<label for="phone">Enter Address : </label> 	
  					<input type="text" id="address" name="address" class="form-control" placeholder="Address" > <br>
  				</div>
  	
@@ -104,7 +104,7 @@ bg.{
  				</div>
  	
   				<div class="form-group">
-    				<label for="confirm"> Designation:</label>
+    				<label for="confirm">Enter Designation:</label>
     				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" >  <br>
     				<span id="error" style="color:red"></span>    <br>
     			</div>

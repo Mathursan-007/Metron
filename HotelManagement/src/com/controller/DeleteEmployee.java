@@ -40,13 +40,13 @@ public class DeleteEmployee extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int empid=Integer.parseInt(request.getParameter("empid"));
+		int empid=Integer.parseInt(request.getParameter("emp_ID"));
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		employeeimpl.DeleteEmployee(empid);
 		
 
 
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 
 		dispatcher.forward(request, response);
 	}

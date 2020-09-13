@@ -44,7 +44,7 @@ public class UpdateEmployee extends HttpServlet {
 		Employee employee=new Employee();
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		employee.setempid(Integer.parseInt(request.getParameter("empid")));
+		employee.setempid(Integer.parseInt(request.getParameter("emp_ID")));
 		employee.setFirstname(request.getParameter("firstname"));
 		employee.setLastname(request.getParameter("lastname"));
 		employee.setNIC(request.getParameter("nic"));
@@ -57,7 +57,7 @@ public class UpdateEmployee extends HttpServlet {
 		
 		employeeimpl.updateEmployee(employee);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ViewEmployee.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

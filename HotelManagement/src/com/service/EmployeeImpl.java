@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.model.Attendance;
 import com.model.Employee;
 import com.model.Item;
 import com.util.DBConnection;
@@ -24,16 +25,16 @@ public class EmployeeImpl implements IEmployee{
 		// TODO Auto-generated method stub
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("insert into Employee(FirstName,LastName,NIC,email,address,dep_name,designation) values(?,?,?,?,?,?,?)");
+			pt=connection.prepareStatement("insert into Employee(FirstName,LastName,NIC,email,DOB,address,dep_name,designation) values(?,?,?,?,?,?,?,?)");
 			//pt.setInt(1, employee.getempid());
 			pt.setString(1, employee.getFirstname());
 			pt.setString(2, employee.getLastname());
 			pt.setString(3, employee.getNIC());
 			pt.setString(4, employee.getEmail());
-			//pt.setInt(6, employee.getAge());
-			pt.setString(5, employee.getAddress());
-			pt.setString(6, employee.getDepartment());
-			pt.setString(7, employee.getDesignation());
+			pt.setString(5, employee.getDOB());
+			pt.setString(6, employee.getAddress());
+			pt.setString(7, employee.getDepartment());
+			pt.setString(8, employee.getDesignation());
 			
 			pt.execute();
 			
@@ -46,18 +47,7 @@ public class EmployeeImpl implements IEmployee{
 		}
 	}
 
-	/*@Override
-	 public ArrayList<Employee> listemployee() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
-
-	@Override
-	public void generateItemid() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void DeleteEmployee(int empid) {
 		// TODO Auto-generated method stub
@@ -96,7 +86,7 @@ public class EmployeeImpl implements IEmployee{
 				employee.setLastname(result.getString(4));
 				employee.setNIC(result.getString(5));
 				employee.setEmail(result.getString(6));
-				//employee.setAge(result.getInt(7));
+				employee.setDOB(result.getString(7));
 				employee.setAddress(result.getString(8));
 				employee.setDesignation(result.getString(9));
 				employee.setDepartment(result.getString(10));
@@ -123,18 +113,18 @@ public class EmployeeImpl implements IEmployee{
 		
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("update Employee set FirstName=?,LastName=?,NIC=?,email=?,address=?,designation=?,dep_name=? where emp_ID=?");
+			pt=connection.prepareStatement("update Employee set FirstName=?,LastName=?,NIC=?,email=?,DOB=?,address=?,designation=?,dep_name=? where emp_ID=?");
 			//pt.setInt(1, employee.getempid());
 			pt.setString(1, employee.getFirstname());
 			pt.setString(2, employee.getLastname());
 			pt.setString(3, employee.getNIC());
 			pt.setString(4, employee.getEmail());
 			//pt.setFloat(6, employee.getcontact());
-			//pt.setInt(7, employee.getAge());
-			pt.setString(5, employee.getAddress());
-			pt.setString(6, employee.getDesignation());
-			pt.setString(7, employee.getDepartment());
-			pt.setInt(8, employee.getempid());
+			pt.setString(5, employee.getDOB());
+			pt.setString(6, employee.getAddress());
+			pt.setString(7, employee.getDesignation());
+			pt.setString(8, employee.getDepartment());
+			pt.setInt(9, employee.getempid());
 			
 			pt.executeUpdate();
 			
@@ -145,5 +135,36 @@ public class EmployeeImpl implements IEmployee{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	
+	//Attendance
+	
+
+	@Override
+	public void insertAttendance(Attendance attendance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Attendance getAttendance(String attend_date, int empid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void updateAttendance(Attendance attendance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void DeleteAttendance(String attend_date, int empid) {
+		// TODO Auto-generated method stub
+		
 	}
 	}

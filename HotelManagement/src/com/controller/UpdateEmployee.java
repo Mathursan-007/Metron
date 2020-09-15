@@ -51,6 +51,7 @@ public class UpdateEmployee extends HttpServlet {
 		employee.setEmail(request.getParameter("email"));
 		//employee.setcontact(Float.parseFloat(request.getParameter("contact")));
 		//employee.setAge(Integer.parseInt(request.getParameter("age")));
+		employee.setDOB(request.getParameter("dob"));
 		employee.setAddress(request.getParameter("address"));
 		employee.setDesignation(request.getParameter("designation"));
 		employee.setDepartment(request.getParameter("department"));

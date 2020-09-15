@@ -13,105 +13,99 @@
 <title> Register Employee </title>
 
 
-<link rel="stylesheet" type="text/css" href="styles/m.css" />
+<link rel="stylesheet" type="text/css" href="styles/wa.css" />
 
 <style>
 
-bg.{
-	position : center;
-	background-color: lightblue;
-  	width: 200px;
-  	height: 900px;
-	overflow: auto;
-}
-
-.form{
-	width: 400px;
-	margin-left: 200px;
-	margin-right: 200px;
-}
 
 </style>
 
 </head>
 <body>
 
-	<br>
 	
- 	
-	<div class = " card-container">
+	<h1 class="text-center"  style="padding-top: 100px;"> Register </h1>
 	
-	<div class = "upper-container">
-	<h1 class="text-center"> Register </h1>
-	</div>
-	
-	<div class = "lower-container">	
-	
-	
-	<div class="container-fluid bg">
 	
 	<!-- form starts -->
 
 			<form action="./Registeremployee" method="post" id="register" class="form">
  				
- 				<br>
- 				<br>
- 				<br>
- 				<br>
- 				<br>
- 				<br>
- 				<br>
- 				<br>
- 				
+ 				<div class="Fname">
  				<div class="form-group">
  					<label for="Full name"> Enter First Name : </label>
   					<input type="text" id="First name" name="firstname" class="form-control" placeholder="First name"required> <br>
   				</div>
+  				</div>
   	
+  				<div class="Lname">
   				<div class="form-group">
  					<label for="Full name"> Enter Last Name : </label>
   					<input type="text" id="Last name" name="lastname" class="form-control" placeholder="Last name"> <br>
   				</div>
+  				</div>
   				
+  				<div class="Nic">
   				<div class="form-group">
  					<label for="Full name"> Enter NIC : </label>
-  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC"> <br>
+  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC" required> <br>
+  				</div>
   				</div>
   	
+  				<div class="Email">
   				<div class="form-group">
  					<label for="Email">Enter Email Address : </label>
- 					<input type="email" id="Email" name="email" class="form-control" placeholder="xxx@xxx.com"> <br>
+ 					<input type="email" id="Email" name="email" class="form-control" placeholder="xxx@xxx.com" required> <br>
+ 				</div>
  				</div>
  		
+ 				<div class="DOB">
+ 				<div class="form-group">
+ 					<label for="Full name"> Enter Date of birth : </label>
+  					<input type="date" id="dob" name="dob" class="form-control" placeholder="dd/mm/yy" required> <br>
+  				</div>
+  				</div>
+ 		
+ 				<div class="Contact">
  				<div class="form-group">
  					<label for="phone">Enter Contact Number : </label> 	
  					<input type="tel" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" > <br>
  				</div>
+ 				</div>
  				
+ 				<div class="Address">
  				<div class="form-group">
  					<label for="phone">Enter Address : </label> 	
  					<input type="text" id="address" name="address" class="form-control" placeholder="Address" > <br>
  				</div>
+ 				</div>
  	
+ 				<div class="Department">
  				<div class="form-group">
  					<label for="Batch">Department</label>
  					<select id="department" name="department" class="form-control">
  						<option selected> Select department </option>
  						<option value="Inventory"> Inventory </option>
  						<option value="Finance"> Finance </option>
- 						<option value="Finance"> Restaurant </option>
+ 						<option value="Restaurant"> Restaurant </option>
+ 						<option value="Event"> Event </option>
+ 						<option value="Room"> Room </option>
+ 						<option value="Extra Service"> Extra Service </option>
+ 						<option value="Transport"> Transport </option>
  					</select>	<br>
  				</div>
+ 				</div>
  	
+ 				<div class="Designation">
   				<div class="form-group">
     				<label for="confirm">Enter Designation:</label>
-    				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" >  <br>
+    				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" required>  <br>
     				<span id="error" style="color:red"></span>    <br>
     			</div>
+ 				</div>
  	
  	
- 	
- 				<button type="submit" class="btn btn-success btn-block"> Submit </button>
+ 				<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Submit </button>
 
  
  			</form>
@@ -119,11 +113,6 @@ bg.{
  			<br>
 	
 		<!-- form ends -->
-	</div>
-
-
-</div>
-</div>
-
+	
 </body>
 </html>

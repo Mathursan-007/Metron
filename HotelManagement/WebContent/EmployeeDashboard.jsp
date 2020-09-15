@@ -55,6 +55,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+			    <a href="#Butt7" id="test7" class="w3-bar-item w3-button w3-padding " onclick="button7()"><i class="fa fa-search"></i> Search Employee </a>
 			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-user-plus"></i> Register Employee </a>
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-address-card"></i>  View Employee Details </a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-calendar"></i>  Enter Attendance </a>
@@ -77,11 +78,15 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:white;height:1300px;" id="Butt1">
+			<div style="background:white;height:800px;" id="Butt7">
+			<%@include file="SearchEmployee.jsp"%>
+			</div>
+			
+			<div style="background:white;height:1700px;" id="Butt1">
 			<%@include file="RegisterEmployee.jsp"%>
 			</div>
 			
-			<div style="background:white;height:1400px;" id="Butt2">
+			<div style="background:white;height:1800px;" id="Butt2">
 			<%@include file="ViewEmployee.jsp"%>
 			</div>
 			

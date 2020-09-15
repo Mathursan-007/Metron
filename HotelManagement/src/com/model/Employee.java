@@ -8,7 +8,7 @@ public class Employee {
 	private String nic;
 	private String email;
 	private float contact;
-	private int age;
+	private String dob;
 	private String address;
 	private String designation;
 	private String department;
@@ -58,11 +58,11 @@ public class Employee {
 	public void setcontact(float contact) {
 		this.contact = contact;
 	}
-	public int getAge() {
-		return age;
+	public String getDOB() {
+		return dob;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setDOB(String dob) {
+		this.dob = dob;
 	}
 	public String getAddress() {
 		return address;

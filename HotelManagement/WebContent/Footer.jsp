@@ -11,10 +11,10 @@
 
    <!--   <link rel="stylesheet" href="assets/bootstrap/css/bootstraps.min.css"> -->
   <link rel="stylesheet" href="assets/theme/css/style1.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional1.css" type="text/css">
+ <link rel="stylesheet" href="assets/mobirise/css/mbr-additional1.css" type="text/css"> 
 
 </head>
-<body>
+<body class="bodyFoot">
 
 	<section class="cid-s72usOGOZ7" id="footer1-11">
 

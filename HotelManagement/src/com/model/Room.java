@@ -9,9 +9,55 @@ public class Room {
 	private String RoomTypeName;
 	private double CostPerDay;
 	private int dashboardVal;
+	private int standardRoomCount;
+	private int premiumRoomCount;
+	private int eliteRoomCount;
+	private String checkIn;
+	private String checkOut;
 	
 	
 	
+	
+	public String getCheckIn() {
+		return checkIn;
+	}
+
+	public void setCheckIn(String checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public String getCheckOut() {
+		return checkOut;
+	}
+
+	public void setCheckOut(String checkOut) {
+		this.checkOut = checkOut;
+	}
+
+	public int getStandardRoomCount() {
+		return standardRoomCount;
+	}
+
+	public void setStandardRoomCount(int standardRoomCount) {
+		this.standardRoomCount = standardRoomCount;
+	}
+
+	public int getPremiumRoomCount() {
+		return premiumRoomCount;
+	}
+
+	public void setPremiumRoomCount(int premiumRoomCount) {
+		this.premiumRoomCount = premiumRoomCount;
+	}
+
+	public int getEliteRoomCount() {
+		return eliteRoomCount;
+	}
+
+	public void setEliteRoomCount(int eliteRoomCount) {
+		this.eliteRoomCount = eliteRoomCount;
+	}
+
 	public int getDashboardVal() {
 		return dashboardVal;
 	}

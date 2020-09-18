@@ -22,7 +22,7 @@
 		
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto"> 
-				<li class="nav-item active" id="try">
+				<li class="nav-item" id="try">
 					<a class="nav-link" href="Home.jsp"> Home </a>
 				</li>
 				
@@ -39,7 +39,7 @@
 					<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Services </a>
 				
 					<div class="dropdown-menu bts" aria-labelledby="dropdownMenuLink" style="text-decoration:none;">
-					    <a class="dropdown-item" href="#">Rooms</a>
+					    <a class="dropdown-item" href="RoomCustomer.jsp">Rooms</a>
 					    <a class="dropdown-item" href="#">Restaurant</a>
 					</div>
 				</li>

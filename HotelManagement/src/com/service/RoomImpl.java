@@ -2,7 +2,11 @@ package com.service;
 
 import java.util.ArrayList;
 import java.sql.*;
+
+import com.microsoft.sqlserver.jdbc.SQLServerException;
+import com.model.GuestReservation;
 import com.model.Room;
+import com.model.RoomGuest;
 import com.util.DBConnection;
 
 
@@ -30,11 +34,13 @@ public class RoomImpl implements IRoom {
 				
 				pt.execute();
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		
 	}
 
+	
+	
 	@Override
 	public ArrayList<Room> listRooms() {
 		// TODO Auto-generated method stub
@@ -57,7 +63,7 @@ public class RoomImpl implements IRoom {
 			}
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return rooms;
@@ -77,25 +83,32 @@ public class RoomImpl implements IRoom {
 			pt.executeUpdate();
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
 
 	@Override
-	public void deleteRoom(String roomNo) {
+	public int deleteRoom(String roomNo) {
 		// TODO Auto-generated method stub
-		
+		int i=0;
 		try {
 			connection=DBConnection.initializedb();
 			pt=connection.prepareStatement("delete from Room where Room_no=?"); 
 			pt.setString(1,roomNo);
 			pt.execute();
-		} catch (Exception e) {
+			i=1;
+		} catch (SQLServerException e) {
 			
 			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} 
-		
+		return i;
 	}
 
 	@Override
@@ -117,10 +130,187 @@ public class RoomImpl implements IRoom {
 				
 			}
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return room;
+	}
+
+	@Override
+	public ArrayList<Room> getAvailableRooms(String checkIn, String checkOut,int roomType) {
+		// TODO Auto-generated method stub
+		ArrayList<Room> rooms=new ArrayList<>();
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareCall("SELECT Room_no From Room where Room_type_no=? AND Room_no NOT IN (SELECT b.Room_no FROM Room_Reservation_View b where (CheckIn_Date BETWEEN ? AND ?) OR (CheckOut_Date BETWEEN ? AND ?))");
+			pt.setInt(1, roomType);
+			pt.setString(2, checkIn);
+			pt.setString(3, checkOut);
+			pt.setString(4, checkIn);
+			pt.setString(5, checkOut);
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()) {
+				Room room = new Room();
+				
+				room.setRoomNo(result.getString(1));
+				rooms.add(room);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rooms;
+	}
+
+	@Override
+	public int setRoomAvailabilityCount(String checkIn, String checkOut,int typeNo) {
+		// TODO Auto-generated method stub
+		int count=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareCall("SELECT COUNT(*) From Room where Room_type_no=? AND Room_no NOT IN (SELECT b.Room_no FROM Room_Reservation_View b where (CheckIn_Date BETWEEN ? AND ?) OR (CheckOut_Date BETWEEN ? AND ?))");
+			pt.setInt(1, typeNo);
+			pt.setString(2, checkIn);
+			pt.setString(3, checkOut);
+			pt.setString(4, checkIn);
+			pt.setString(5, checkOut);
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()){
+				
+				count=result.getInt(1);
+			}
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+
+
+
+	@Override
+	public int generateGuestID() {
+		// TODO Auto-generated method stub
+		int count=0;
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareCall("SELECT COUNT(*) From Hotel_Guest");
+			
+			
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()){
+				
+				count=result.getInt(1)+1;
+			}
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+
+
+
+	@Override
+	public int generateReservationID() {
+		// TODO Auto-generated method stub
+		int count=0;
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareCall("SELECT COUNT(*) From Room_Reservation");
+			
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()){
+				
+				count=result.getInt(1)+1;
+			}
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+
+
+
+	@Override
+	public void addGuest(RoomGuest roomGuest) {
+		// TODO Auto-generated method stub
+		try {
+			
+			 connection=DBConnection.initializedb();
+				pt=connection.prepareStatement("INSERT INTO Hotel_Guest(HGuest_ID,NIC,Full_Name,Email,Contact_no) VALUES(?,?,?,?,?)");
+				
+				pt.setInt(1, roomGuest.getHGuest_ID());
+				pt.setString(2, roomGuest.getNIC());
+				pt.setString(3, roomGuest.getFull_Name());
+				pt.setString(4, roomGuest.getEmail());
+				pt.setString(5, roomGuest.getContact());
+				
+				
+				pt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	@Override
+	public void addReservation(GuestReservation guestReservation) {
+		// TODO Auto-generated method stub
+		try {
+			
+			 connection=DBConnection.initializedb();
+				pt=connection.prepareStatement("INSERT INTO Room_Reservation(Room_RID,No_Of_Rooms,No_Of_Guests,CheckIn_Date,CheckOut_Date,HGuest_ID) VALUES (?,?,?,?,?,?)");
+				pt.setInt(1, guestReservation.getRoom_RID());
+				pt.setInt(2, guestReservation.getNo_Of_Rooms());
+				pt.setInt(3, guestReservation.getNo_Of_Guests());
+				pt.setString(4, guestReservation.getCheckIn());
+				pt.setString(5, guestReservation.getCheckOut_Date());
+				pt.setInt(6, guestReservation.getHGuest_ID());
+				
+				
+				pt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	@Override
+	public void addReservedRooms(int Room_RID, String Room_no) {
+		// TODO Auto-generated method stub
+		
+		//Availability status insertion
+		try {
+			
+			 connection=DBConnection.initializedb();
+				pt=connection.prepareStatement("INSERT INTO Reserved_Rooms (Room_RID,Room_no,Availability_Status) VALUES (?,?,?)");
+				
+				String availability="Unavailable";
+				
+				pt.setInt(1, Room_RID);
+				pt.setString(2, Room_no);
+				pt.setString(3, availability);
+				
+				
+				
+				pt.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

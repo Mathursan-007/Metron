@@ -13,17 +13,8 @@
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 			<script src="scripts/nav.js"></script>
-		
 		  
-		<script>
-		window.location.href = 'FrontDeskRoomDashboard.jsp#Butt1';
-		var i=${value};
 		
-		if(i==1){
-			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt3';
-		} 
-		
-		</script>
 		
 <style>
 .vidya{
@@ -106,8 +97,23 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			</div> 
 		</div>
 		
-		<script src="scripts/Dashboard.js"></script>
+		<script>
+		
+		
+		window.location.href = 'FrontDeskRoomDashboard.jsp#Butt1';
+		var i=${value};
+		
+		if(i==1){
+			
+			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt3';
+		} else if(i==2) {
+			alert("The room you're trying to delete is reserved by a customer");
+			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt3';
+		}
+		
+		</script>
+		<script src="scripts/RoomManagementDashboard.js"></script>
 
-
+		
 </body>
 </html>

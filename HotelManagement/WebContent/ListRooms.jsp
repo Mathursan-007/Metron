@@ -61,15 +61,15 @@
 		               <td><%=room.getRoomSize() %></td>
 		               <td><%=room.getMaxGuests() %></td>
 		               <td><%=room.getCostPerDay() %></td>
-		               <td class="bisca">
+		               <td class="bisca d-flex flex-row">
 			               <form action="./GetRoom" method="post">
 			               <input type="hidden" name="roomno" value="<%=room.getRoomNo() %>">
-			               <input class="btn btn-info" type="submit" value="Edit">
+			               <button class="btn btn-info p-2" type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>   Edit</button>
 			               </form>
 			               
-			               <form action="./DeleteRoom" method="post" style="margin-top:5px;">
+			               <form action="./DeleteRoom" method="post" style="margin-left:10px;">
 			               <input type="hidden" name="roomno" value="<%=room.getRoomNo() %>">
-			               <input class="btn btn-danger" type="submit" value="Delete">
+			               <button class="btn btn-danger p-2" type="submit"><i class="fa fa-trash" aria-hidden="true"></i>   Delete</button>
 			               </form>
 		               </td>
 		            </tr>
@@ -98,13 +98,13 @@
 		        <form action="./AddRoom" method="post">
 		            <h2 class="text-center"><strong>Create</strong> a room.</h2>
 		            <div class="form-group">
-		            	<input class="form-control" type="text" name="roomNo" placeholder="Room No" required>
+		            	<input class="form-control" type="text" name="roomNo" placeholder="R123" maxlength = "4" pattern="[R]{1}[0-9]{3}" title="Should start with R and contain 3 digits" required>
 		            </div>
 		            
 		            <div class="form-group">
 		            	<select class="form-control" name="roomSize" id="" required>
 						    <option value="">--Please choose a room size--</option>
-						    <option value="Small">Small (1 bed)</option>
+						    <option value="Small">Small (1 bed) </option>
 						    <option value="Medium">Medium (2 beds)</option>
 						    <option value="Large">Large (3 beds)</option>
 						</select>

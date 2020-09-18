@@ -41,11 +41,20 @@ public class DeleteRoom extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roomNo=request.getParameter("roomno");
 		RoomImpl roomimpl=new RoomImpl();
-		roomimpl.deleteRoom(roomNo);
+		int i=roomimpl.deleteRoom(roomNo);
+		
+		if(i==1) {
+		
 		
 		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
+		} else {
+			request.setAttribute("value", 2);
+			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 	}
 
 }

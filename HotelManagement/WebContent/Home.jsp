@@ -21,7 +21,6 @@
   
   <link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="styles/homestyle.css">
-	<script src="scripts/nav.js"></script>
 
 	
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>

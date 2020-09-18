@@ -31,10 +31,7 @@
 <body>
 
 		<%@include file="Header.jsp" %>
-		<script>
-		document.getElementById("try").className = " ";
-		document.getElementById("login1").className = "active";
-		</script>
+		
 
 
 		<!-- Login -->

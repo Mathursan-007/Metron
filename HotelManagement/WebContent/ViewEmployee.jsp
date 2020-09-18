@@ -9,6 +9,18 @@
 
 <style>
 
+.view {
+	margin-top: 40px;
+}
+
+.empid{
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 60%;
+  margin-left: 16%;
+}
+
 .fname, .lname, .nic, .email, .dob, .add, .dep, .desig div {
   border-radius: 3px;
   background-color: #e6ccff;
@@ -18,6 +30,14 @@
   
 }
 
+.save button{
+	margin-right: 170px;
+}
+
+.delete button{
+	margin-left: 200px;
+}
+
 </style>
 </head>
 <body>
@@ -25,28 +45,23 @@
 	<%Employee employee =(Employee) request.getAttribute("employee");%>
 	
 	
-	<div class="viewtable" style="padding-top: 100px;">
+	<div class="viewtable" style="padding-top: 50px;">
 			
 			<h1><center>Profile Details</h1>
-	<br>
 	
-	<form action="./GetEmployee" method="post">
-	<div class="form-group">
+			<form class="empid" action="./GetEmployee" method="post">
+	<div class="form-group" style="padding-top: 100px;">
  					<label for="ID">Enter Employee ID :  </label>	
- 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" > <br>
+ 					<input type="text" id="ID" name="empid" class="form-control" placeholder=" Employee ID" > <br>
  				</div>
  		
 	
-	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Enter </button>
+	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Search </button>
 	</form>
-
-	<br>
-	<br>
-	<br>
 	
-		 
-	<%if(employee!=null && employee.getempid()>=1) { %>
-		<form action="./UpdateEmployee" method="post" id="register" class="form">
+	 
+	<%if(employee!=null && employee.getempid()>=1 && employee.getNIC()!=null) { %>
+		<form class="view" action="./UpdateEmployee" method="post" id="register" class="form">
 				
 				<div class="fname">
 				<div class="form-group">
@@ -107,16 +122,20 @@
     			
     			<input type="hidden" name="emp_ID" value="<%=employee.getempid() %>">
    		
-				<button type="submit" name="save" class="btn btn-success btn-lg rounded float-right"> Save changes </button>
+   				<div class="save">
+				<button type="submit" class="btn btn-success btn-lg rounded float-right"> Save changes </button>
+				</div>
 				
 				</form>
 				
 				
+				<div class="delete">
 				<form action="./DeleteEmployee" method="post"  class="form">
 				<input type="hidden" name="emp_ID" value="<%=employee.getempid() %>">
 				
-				<button type="submit" name="delete" class="btn btn-danger btn-lg rounded float-left"> Delete </button>
+				<button type="submit" class="btn btn-danger btn-lg rounded float-left"> Delete </button>
   				 </form>
+				</div>
 				
     			
     			<%} %>

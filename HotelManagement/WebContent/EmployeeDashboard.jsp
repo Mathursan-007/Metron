@@ -13,7 +13,13 @@
 		
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-			<script src="scripts/nav.js"></script>
+			<script>
+				window.location.href = 'EmployeeDashboard.jsp#Butt7';
+			
+			if(){
+				window.location.href = 'EmployeeDashboard.jsp#Butt2';
+			}
+			</script>
 		
 <style>
 .vidya{
@@ -86,7 +92,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<%@include file="RegisterEmployee.jsp"%>
 			</div>
 			
-			<div style="background:white;height:1800px;" id="Butt2">
+			<div style="background:white;height:2000px;" id="Butt2">
 			<%@include file="ViewEmployee.jsp"%>
 			</div>
 			

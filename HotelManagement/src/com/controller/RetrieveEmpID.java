@@ -13,16 +13,16 @@ import com.model.Employee;
 import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class GetEmployee
+ * Servlet implementation class RetrieveEmpID
  */
-@WebServlet("/GetEmployee")
-public class GetEmployee extends HttpServlet {
+@WebServlet("/RetreiveEmpID")
+public class RetrieveEmpID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetEmployee() {
+    public RetrieveEmpID() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,28 +40,16 @@ public class GetEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		int empid=Integer.parseInt(request.getParameter("empid"));
+
+		Employee employee=new Employee();
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		if(employeeimpl.checkEmp(empid)==false) {
-			
-			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-			dispatcher.forward(request, response);
-			
-		}else {
-			
-			Employee employee=new Employee();
-			employee = employeeimpl.getEmployee(empid);
-			
-			
-			request.setAttribute("employee", employee);
-            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-            dispatcher.forward(request, response);
-		}
+		employee.setempid(Integer.parseInt(request.getParameter("emp_ID")));
 		
+		employeeimpl.retrieveempid(employee);
 		
-		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

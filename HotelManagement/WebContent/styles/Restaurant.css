@@ -1,149 +1,139 @@
 @charset "ISO-8859-1";
 	.a{
-	    background-image: url("../images/starter1.jpg");
+	    background-image: url("../images/Starter1.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	
 	.b{
-		background-image: url("../images/starter2.jpg");
+		background-image: url("../images/Starter2.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.c{
-		background-image: url("../images/starter3.jpg");
+		background-image: url("../images/Starter3.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.d{
-		background-image: url("../images/rice1.jpg");
+		background-image: url("../images/Rice1.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.e{
-		background-image: url("../images/rice2.jpg");
+		background-image: url("../images/Rice2.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.f{
-		background-image: url("../images/rice3.jpg");
+		background-image: url("../images/Rice3.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.g{
-		background-image: url("../images/sidedish1.jpg");
+		background-image: url("../images/Sidedish1.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
-  	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
-		width:33%;
-		float: left;
-	}
-	
-	.h{
-		background-image: url("../images/sidedish2.jpg");
-	    background-position: center; /* Center the image */
-  	    background-repeat: no-repeat; /* Do not repeat the image */
-  	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
-		width:33%;
+  	    backgrund-size: cover; /* Resize the background image to cover the entire container */
+		height:600px;
+		width:50%;
 		float: left;
 	}
 	
 	.i{
-		background-image: url("../images/sidedish3.jpg");
+		background-image: url("../images/Sidedish3.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
-		width:33%;
+		height:600px;
+		width:50%;
 		float: left;
 	}
 	
 	.j{
-		background-image: url("../images/bread1.jpg");
+		background-image: url("../images/Bread1.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:50%;
 		float: left;
 	}
 	
 	.k{
-		background-image: url("../images/noodles.jpg");
+		background-image: url("../images/Noodles.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:50%;
 		float: left;
 	}
 	
 	.l{
-		background-image: url("../images/dessert1.jpg");
+		background-image: url("../images/Dessert1.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.m{
-		background-image: url("../images/dessert2.jpg");
+		background-image: url("../images/Dessert2.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
 	.n{
-		background-image: url("../images/drinks.jpg");
+		background-image: url("../images/Dessert3.jpg");
 	    background-position: center; /* Center the image */
   	    background-repeat: no-repeat; /* Do not repeat the image */
   	    background-size: cover; /* Resize the background image to cover the entire container */
-		height:400px;
+		height:600px;
 		width:33%;
 		float: left;
 	}
 	
-body {
-    padding: 20px;
+.jii {
+    
     font-family: 'Open Sans', sans-serif;
-    background-color: #000
+    background-color: #000;
 }
 
 .lib-panel {
@@ -206,3 +196,22 @@ body {
     padding: 0
 }
 
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.lib-panel:hover{
+  opacity: 0.3;
+  
+}
+
+.middle:hover {
+  opacity: 1;
+}

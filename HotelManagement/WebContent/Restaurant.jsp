@@ -3,10 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.service.IRestaurant" %>  
-<%@ page import="com.service.RestaurantImpl"%>   
-<%@ page import="com.model.Table" %> 
+
 <meta charset="ISO-8859-1">
 <title>Restaurant</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -17,11 +14,21 @@
 <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+
+
 
 </head>
 <body>
 
+	<%@include file="Header.jsp" %>
+
+	<div style="width:100%;height:80px;background:#c8c9cc;padding:12px;">
+	
+	</div> 
+
+	<div class="jii">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"> </li>
@@ -48,7 +55,6 @@
 		  <div class="carousel-item">
 		    <div>
 				<div class="g"></div>
-				<div class="h"></div>
 				<div class="i"></div>
 	       </div> 
 		  </div>
@@ -77,7 +83,7 @@
 				</a>
 	</div>	
 		
-    <div class="container">
+    <div class="container" style="padding-top:100px;">
     <div class="row"> </div>
     <h1 style="text-align: center">
         <font color="White">Tables</font>
@@ -95,6 +101,9 @@
                     </div>
                 </div>
             </div>
+            <div class="middle">
+                   <div><a href="BookTable.jsp"><button class="btn btn-primary" style="float:right;padding:10px;width:200px;"> Book Seat</button></a></div>
+            </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5 no-padding lib-item" data-category="view">
@@ -107,7 +116,11 @@
                         <div class="lib-row lib-desc">A good option to relax your self where you can have your meals in an open space while feeling the fresh air .</div>
                     </div>
                 </div>
+                
             </div>
+            <div class="middle">
+                   <div><a href="BookTable.jsp"><button class="btn btn-primary" style="float:right;padding:10px;width:200px;"> Book Seat</button></a></div>
+                 </div>
         </div>
     </div>
 </div>
@@ -124,7 +137,11 @@
                         <div class="lib-row lib-desc">A good option when you are having a formal meeting with someone or dining in with few people for a casual meetup.</div>
                     </div>
                 </div>
+               
             </div>
+             <div class="middle">
+                   <div><a href="BookTable.jsp"><button class="btn btn-primary" style="float:right;padding:10px;width:200px;"> Book Seat</button></a></div>
+                 </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5 no-padding lib-item" data-category="view">
@@ -137,50 +154,17 @@
                         <div class="lib-row lib-desc"> Family meals offer the opportunity to connect with each other, communicate about family happenings, and give each other time and attention. </div>
                     </div>
                 </div>
+               
             </div>
+             <div class="middle">
+                   <div><a href="BookTable.jsp"><button class="btn btn-primary" style="float:right;padding:10px;width:200px;"> Book Seat</button></a></div>
+                 </div>
         </div>
     </div>
-</div>	
-    
-    <div>
-
-		<form action="./ReserveTable" method="post">
-		
-		Full Name:<input type="text" name="fullname">
-		NIC:<input type="text" name="nic">
-		Email:<input type="text" name="email">
-		Phone Number:<input type="text" name="phone">
-		<br>
-		
-		<table border=1 >
-		           <tr>
-		               <th>TableNO</th>
-		               <th>Type</th>
-		               <th>Capacity</th>
-		               <th>Price</th>
-		               <th>Action</th>
-		            </tr>
-		            <%
-		              IRestaurant irestaurantservice=new RestaurantImpl();
-		              ArrayList<Table> Tables=new ArrayList<>();
-		              
-		              Tables=irestaurantservice.listtables();
-		              
-		             for(Table table:Tables){ %>
-		            <tr>
-		               <td><%=table.getTableno() %></td> 
-		               <td><%=table.getType()%></td> 
-		               <td><%=table.getCapacity() %></td>
-		               <td><%=table.getPrice()%></td>
-		               <td><input type="checkbox" name="tables" value="<%=table.getTableno() %>"></td>
-		            </tr>
-		            <%} %>
-		     
-		     
-		     </table>
-		   <input type="submit" value="Book Now">    
-		       
-		</form>
-   </div>   
+</div>
+<%@include file="Footer.jsp" %>	
+</div>
+	
+   
 </body>
 </html>

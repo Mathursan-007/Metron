@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Table;
 import com.service.RestaurantImpl;
 
 /**
- * Servlet implementation class AddTable
+ * Servlet implementation class ReleaseTable
  */
-@WebServlet("/AddTable")
-public class AddTable extends HttpServlet {
+@WebServlet("/ReleaseTable")
+public class ReleaseTable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddTable() {
+    public ReleaseTable() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,24 +41,16 @@ public class AddTable extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter out=response.getWriter();
-	
-       
-		
-		Table table=new Table();
-		
-		table.setType(request.getParameter("type"));
-		table.setCapacity(Integer.parseInt(request.getParameter("capacity")));
-		table.setPrice(Float.parseFloat(request.getParameter("price")));
+		int tableno=Integer.parseInt(request.getParameter("tableno"));
 		
 		RestaurantImpl restaurantimpl=new RestaurantImpl();
+		restaurantimpl.releaseTable(tableno);
 		
-		restaurantimpl.addTable(table); 
-         
-		out.println("<html><body onload=\"alert('Hello World')\"></body></html>");
-			  
-			 
+		PrintWriter out=response.getWriter();
+		
+	 
 		request.setAttribute("value", 4);
+		
 		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 		dispatcher.forward(request, response);
 		

@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	 	<script src="scripts/nav.js"></script>
+	 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 		
 <style>
 .vidya{
@@ -24,6 +27,8 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+
+
 
 </head>
 <body class="w3-light-grey">
@@ -54,11 +59,11 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding" onclick="button1()"><i class="fa fa-users fa-fw"></i> KOT</a>
-			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-users fa-fw"></i> POS</a>
-			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-eye fa-fw"></i>  Reservations</a>
-			    <a href="#Butt" id="test" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-users fa-fw"></i> Tables</a>
-			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-users fa-fw"></i> Items</a>
+			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding" onclick="button1()"><i class="fa fa-paste"></i> KOT</a>
+			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-credit-card"></i> POS</a>
+			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-hand-grab-o"></i>  Reservations</a>
+			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-list"></i> Tables</a>
+			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-cutlery"></i> Items</a>
 			   
 			  </div>
 			</nav>
@@ -73,20 +78,42 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 			<div style="background:red;height:800px;" id="Butt1"></div>
 			
-			
-			
 			<div style="background:black;height:800px;" id="Butt2"></div>
 			
+		<div style="background:blue;height:800px;" id="Butt3"></div> 
+		
+			<div style="margin-top:100px;height:800px;" id="Butt4"><%@include file="ListTables.jsp"%></div>
 			
-			
-			<div style="background:blue;height:800px;" id="Butt3"></div>
-			
-			
-			<div style="margin-top:20px;height:800px;" id="Butt4"><%@include file="ListItems.jsp"%></div>
+			<div style="padding-top:100px;height:800px;" id="Butt5"><%@include file="ListItems.jsp"%></div>
 
 			</div>
 		</div>
-		<script src="scripts/Dashboard.js"></script>
+		<script src="scripts/RestaurantDashboard.js"></script>
+
+		<script>
+		
+		var i=${value};
+		
+		if(i==5){
+			alert('Item added');
+			window.location.href = 'RestaurantDashboard.jsp#Butt5';
+		}else if(i==4){
+			
+			//alert('Table added');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt4';
+			
+		}else if(i==6){
+			
+			alert('Item already exists');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt5'; 
+		}
+		
+				
+			
+			
+			
+		
+		</script>
 
 </body>
 </html>

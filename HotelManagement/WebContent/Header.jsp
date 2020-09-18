@@ -36,11 +36,11 @@
 				
 								
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Services </a>
+					<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Experience </a>
 				
 					<div class="dropdown-menu bts" aria-labelledby="dropdownMenuLink" style="text-decoration:none;">
 					    <a class="dropdown-item" href="RoomCustomer.jsp">Rooms</a>
-					    <a class="dropdown-item" href="#">Restaurant</a>
+					    <a class="dropdown-item" href="Restaurant.jsp">Restaurant</a>
 					</div>
 				</li>
 

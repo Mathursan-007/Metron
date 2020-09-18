@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,18 +42,35 @@ public class AddItem extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		PrintWriter out=response.getWriter();
 		Item item=new Item();
 		RestaurantImpl restaurantimpl=new RestaurantImpl();
 		
-		item.setItemno(Integer.parseInt(request.getParameter("itemno")));
+		
 		item.setName(request.getParameter("name"));
 		item.setCategory(request.getParameter("category"));
 		item.setPrice(Float.parseFloat(request.getParameter("price")));
 		
-		restaurantimpl.addItem(item);
+		if(restaurantimpl.checkItem(item.getName())==false){
+			
+			restaurantimpl.addItem(item);
+			//out.print(restaurantimpl.checkItem(item.getName()));
+			
+			request.setAttribute("value", 5);
+			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
+			dispatcher.forward(request, response);
+			
+		}else if(restaurantimpl.checkItem(item.getName())==true){
+			
+			//out.print(restaurantimpl.checkItem(item.getName()));
+			
+			request.setAttribute("value", 6);
+			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
+			dispatcher.forward(request, response);
+			
+		}
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
-		dispatcher.forward(request, response);
+		
 		
 		
 		

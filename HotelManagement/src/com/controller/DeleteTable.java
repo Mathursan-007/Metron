@@ -46,7 +46,7 @@ public class DeleteTable extends HttpServlet {
         RestaurantImpl restaurantimpl=new RestaurantImpl();
 		restaurantimpl.deleteTable(tableno);
 		
-		
+		request.setAttribute("value", 4);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListTables.jsp");
 		dispatcher.forward(request, response);
 		

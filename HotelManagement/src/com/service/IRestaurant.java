@@ -2,6 +2,7 @@ package com.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.model.Item;
 import com.model.RestaurantCustomer;
@@ -39,6 +40,11 @@ public interface IRestaurant {
 	
 	public void addTableReservation(int rcustid);
 	
+	public void releaseTable(int tableno);
+	
+	public boolean checktime(Date date);
+	
+	public boolean checkItem(String name);
 	
 	
 	

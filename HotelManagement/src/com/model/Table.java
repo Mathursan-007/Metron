@@ -6,6 +6,8 @@ public class Table {
 	private int capacity;
 	private String type;
 	private float price;
+	private String status;
+	
 	public int getTableno() {
 		return Tableno;
 	}
@@ -29,6 +31,12 @@ public class Table {
 	}
 	public void setPrice(float price) {
 		this.price = price;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

@@ -1,6 +1,7 @@
 package com.service;
 
 import java.sql.CallableStatement;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ import com.model.Item;
 import com.model.RestaurantCustomer;
 import com.model.Table;
 import com.util.DBConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RestaurantImpl implements IRestaurant {
 	
@@ -208,6 +211,7 @@ public class RestaurantImpl implements IRestaurant {
 				table.setType(result.getString(2));
 				table.setCapacity(result.getInt(3));
 				table.setPrice(result.getFloat(4));
+				table.setStatus(result.getString(5));
 				
 				tables.add(table);
 				
@@ -370,6 +374,10 @@ public class RestaurantImpl implements IRestaurant {
 			pt.setInt(2, tableno);
 			pt.execute();
 			
+			ct=connection.prepareCall("exec BookTable ?");
+			ct.setInt(1, tableno);
+			ct.execute();
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -442,6 +450,73 @@ public class RestaurantImpl implements IRestaurant {
 		
 		
 		return trid;
+	}
+
+
+
+	@Override
+	public void releaseTable(int tableno) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("update Tables set status='Available' where TableNO=?");
+			pt.setInt(1, tableno);
+			pt.execute();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public boolean checktime(Date date) {
+		
+		    boolean check=true; 
+		    
+		    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");  
+		    String ctime=formatter.format(date);
+		    String time[]=ctime.split(":");
+		    if(Integer.parseInt(time[0])<9||Integer.parseInt(time[0])>21||(Integer.parseInt(time[0])==21&&Integer.parseInt(time[1])>1)) {
+		    	
+		    	check=false;
+				
+		    }
+		    
+		    return check;
+			
+	}
+
+
+
+	@Override
+	public boolean checkItem(String name) {
+		// TODO Auto-generated method stub
+		
+		boolean find=false;
+		
+		try {
+			
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from Item where Name=?");
+			pt.setString(1, name);
+			find=pt.execute();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return find;
 	}
 
 

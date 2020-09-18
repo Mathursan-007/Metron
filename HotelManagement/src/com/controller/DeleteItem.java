@@ -44,7 +44,9 @@ public class DeleteItem extends HttpServlet {
 		RestaurantImpl restaurantimpl=new RestaurantImpl();
 		restaurantimpl.deleteItem(itemno);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListItems.jsp");
+		
+		request.setAttribute("value", 5);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 		dispatcher.forward(request, response);
 		
 		

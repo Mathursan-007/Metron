@@ -53,7 +53,8 @@ public class UpdateRoom extends HttpServlet {
 		
 		roomimpl.updateRoom(room);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListRooms.jsp");
+		request.setAttribute("value", 1);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

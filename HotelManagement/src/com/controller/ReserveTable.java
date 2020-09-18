@@ -1,30 +1,29 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Item;
-import com.model.Room;
+import com.model.RestaurantCustomer;
 import com.service.RestaurantImpl;
-import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetRoom
+ * Servlet implementation class ReserveTable
  */
-@WebServlet("/GetRoom")
-public class GetRoom extends HttpServlet {
+@WebServlet("/ReserveTable")
+public class ReserveTable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRoom() {
+    public ReserveTable() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,17 +41,33 @@ public class GetRoom extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String roomNo=request.getParameter("roomno");
-		RoomImpl roomimpl=new RoomImpl();
-		Room room=new Room();
-		room=roomimpl.getRoom(roomNo);
-		room.setDashboardVal(2);
+		
+		RestaurantCustomer rcustomer=new RestaurantCustomer();
+		RestaurantImpl restaurantImpl=new RestaurantImpl();
+		
+		int rcustid=restaurantImpl.generateRcustid();
+		
+		rcustomer.setRCustomerID(rcustid);
+		rcustomer.setFullName(request.getParameter("fullname"));
+		rcustomer.setNIC(request.getParameter("nic"));
+		rcustomer.setPhoneNo(request.getParameter("phone"));
+		rcustomer.setEmail(request.getParameter("email"));
+		
+		restaurantImpl.addRcustomer(rcustomer);
+		restaurantImpl.addTableReservation(rcustid);
+		
+		int trid=restaurantImpl.getTableRid(rcustid);
+		
+		String[] tables=request.getParameterValues("tables");
+		//List list=Arrays.asList(tables);
+		
+		for(int i=0;i<tables.length;i++){
+			
+			restaurantImpl.reserveTable(trid, Integer.parseInt(tables[i]));
+			
+		}
 		
 		
-		request.setAttribute("room", room);
-		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
-		dispatcher.forward(request, response);
 	}
 
 }

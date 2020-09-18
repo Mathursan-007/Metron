@@ -1,15 +1,208 @@
 @charset "ISO-8859-1";
-
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  float: left;
-  width: 53.33%;
-  padding: 5px;
+	.a{
+	    background-image: url("../images/starter1.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	
+	.b{
+		background-image: url("../images/starter2.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.c{
+		background-image: url("../images/starter3.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.d{
+		background-image: url("../images/rice1.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.e{
+		background-image: url("../images/rice2.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.f{
+		background-image: url("../images/rice3.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.g{
+		background-image: url("../images/sidedish1.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.h{
+		background-image: url("../images/sidedish2.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.i{
+		background-image: url("../images/sidedish3.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.j{
+		background-image: url("../images/bread1.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:50%;
+		float: left;
+	}
+	
+	.k{
+		background-image: url("../images/noodles.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:50%;
+		float: left;
+	}
+	
+	.l{
+		background-image: url("../images/dessert1.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.m{
+		background-image: url("../images/dessert2.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+	.n{
+		background-image: url("../images/drinks.jpg");
+	    background-position: center; /* Center the image */
+  	    background-repeat: no-repeat; /* Do not repeat the image */
+  	    background-size: cover; /* Resize the background image to cover the entire container */
+		height:400px;
+		width:33%;
+		float: left;
+	}
+	
+body {
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000
 }
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.lib-panel {
+    margin-bottom: 20Px;
 }
+
+.lib-panel img {
+    width: 100%;
+    background-color: transparent;
+    
+}
+
+.lib-panel .row,
+.lib-panel .col-md-6 {
+    padding: 0;
+    background-color: #FFFFFF
+}
+
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0
+}
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 13px
+}
+
+.lib-panel .lib-row.lib-desc a {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 20px
+}
+
+.row-margin-bottom {
+    margin-bottom: 20px
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .10)
+}
+
+.no-padding {
+    padding: 0
+}
+

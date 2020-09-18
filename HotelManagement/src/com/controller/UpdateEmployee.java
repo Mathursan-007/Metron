@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Item;
-import com.model.Room;
-import com.service.RestaurantImpl;
-import com.service.RoomImpl;
+import com.model.Employee;
+import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class GetRoom
+ * Servlet implementation class UpdateEmployee
  */
-@WebServlet("/GetRoom")
-public class GetRoom extends HttpServlet {
+@WebServlet("/UpdateEmployee")
+public class UpdateEmployee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRoom() {
+    public UpdateEmployee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,16 +40,25 @@ public class GetRoom extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String roomNo=request.getParameter("roomno");
-		RoomImpl roomimpl=new RoomImpl();
-		Room room=new Room();
-		room=roomimpl.getRoom(roomNo);
-		room.setDashboardVal(2);
 		
+		Employee employee=new Employee();
+		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		request.setAttribute("room", room);
+		employee.setempid(Integer.parseInt(request.getParameter("emp_ID")));
+		employee.setFirstname(request.getParameter("firstname"));
+		employee.setLastname(request.getParameter("lastname"));
+		employee.setNIC(request.getParameter("nic"));
+		employee.setEmail(request.getParameter("email"));
+		//employee.setcontact(Float.parseFloat(request.getParameter("contact")));
+		//employee.setAge(Integer.parseInt(request.getParameter("age")));
+		employee.setDOB(request.getParameter("dob"));
+		employee.setAddress(request.getParameter("address"));
+		employee.setDesignation(request.getParameter("designation"));
+		employee.setDepartment(request.getParameter("department"));
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
+		employeeimpl.updateEmployee(employee);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import com.model.Room;
-import com.service.RoomImpl;
-
+import com.model.Employee;
+import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class AddRoom
+ * Servlet implementation class RetrieveEmpID
  */
-@WebServlet("/AddRoom")
-public class AddRoom extends HttpServlet {
+@WebServlet("/RetreiveEmpID")
+public class RetrieveEmpID extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddRoom() {
+    public RetrieveEmpID() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,21 +39,16 @@ public class AddRoom extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		Employee employee=new Employee();
+		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		Room room=new Room();
-		RoomImpl roomimpl=new RoomImpl();
+		employee.setempid(Integer.parseInt(request.getParameter("emp_ID")));
 		
-		room.setRoomNo(request.getParameter("roomNo"));
-		room.setAvailability("Available");
-		room.setRoomSize(request.getParameter("roomSize"));
-		room.setMaxGuests(Integer.parseInt(request.getParameter("MaxGuests")));
-		room.setRoomTypeNo(Integer.parseInt(request.getParameter("roomType")));
+		employeeimpl.retrieveempid(employee);
 		
-		roomimpl.addRoom(room);
-		
-		
-		request.setAttribute("value", 1);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

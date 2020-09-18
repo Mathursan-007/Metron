@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+.bt {
+    margin: 0;
+    padding: 0;
+  font-style: italic;
+  font-size: 16px;
+  list-style: none;
+  text-decoration: none;
+  padding-right:20%;
+}
+
+
+h2
+{
+margin: 0;
+padding: 0 0 20px;
+text-align: center;
+font-size: 30px;
+margin-top:-5%;
+
+}
+
+
+.card-container
+{
+width: 700px;
+height: 1400px;
+background: #fff;
+border-radius: 6px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-35%, -40%);
+box-shadow: 0px 1px 10px 1px #000;
+overflow: hidden;
+display: inline-block;
+}
+
+.upper-container
+{
+height: 110px;
+background: #ff8080;
+}
+
+
+.lower-container
+{
+height: 180px;
+background: #ffffff;
+padding: 20px;
+padding-top: 80px;
+}
+
+
+
+
+button:active{
+top:0.1em;
+}
+button:hover{
+background:#c0c0c0;
+color:#262626;
+}

@@ -17,6 +17,9 @@ public interface IEmployee {
 	
 	public void DeleteEmployee(int empid);
 	
+	public Employee searchEmployee(String nic);
+	
+	public void retrieveempid(Employee employee);
 	
 	//Attendance
 	
@@ -27,5 +30,7 @@ public interface IEmployee {
 	public void updateAttendance(Attendance attendance);
 	
 	public void DeleteAttendance(String attend_date, int empid);
+	
+	public boolean checkEmp(int empid);
 	
 }

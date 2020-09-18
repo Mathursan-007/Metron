@@ -9,20 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Employee;
-import com.service.EmployeeImpl;
+import com.model.Inventory;
+import com.model.Room;
+import com.service.IInventory;
+import com.service.InventoryImpl;
+import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetEmployee
+ * Servlet implementation class UpdateAsset
  */
-@WebServlet("/GetEmployee")
-public class GetEmployee extends HttpServlet {
+@WebServlet("/UpdateAsset")
+public class UpdateAsset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetEmployee() {
+    public UpdateAsset() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,28 +43,23 @@ public class GetEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		Inventory inventory=new Inventory();
 		
-		int empid=Integer.parseInt(request.getParameter("empid"));
-		EmployeeImpl employeeimpl=new EmployeeImpl();
+		IInventory inventoryImpl=new InventoryImpl();
 		
-		if(employeeimpl.checkEmp(empid)==false) {
-			
-			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-			dispatcher.forward(request, response);
-			
-		}else {
-			
-			Employee employee=new Employee();
-			employee = employeeimpl.getEmployee(empid);
-			
-			
-			request.setAttribute("employee", employee);
-            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-            dispatcher.forward(request, response);
-		}
+		inventory.setAssetID(request.getParameter("assetID"));
+		inventory.setAssetName(request.getParameter("assetName"));
+		inventory.setMinQuantity(Integer.parseInt(request.getParameter("minQuantity")));
+		inventory.setAvailableQuantity(Integer.parseInt(request.getParameter("availableQuantity")));
+		inventory.setTotalQuantity(Integer.parseInt(request.getParameter("totalQuantity")));
 		
 		
 		
+		inventoryImpl.updateAsset(inventory);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

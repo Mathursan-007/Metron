@@ -8,30 +8,25 @@
 <title>Search Employee</title>
 </head>
 <style>
-form.{
-	width : 400px;
-	height: 400px;
-	position : absolute;
-	left: 70%;
+
+.NIC, .Empid{
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 70%;
+  margin-left: 16%;
 }
+
 </style>
 <body>
 
+	<%Employee employees =(Employee) request.getAttribute("employee");%>
 
-	<form action="./GetEmployee" method="post">
-	<div class="form-group" style="padding-top: 100px;">
- 					<label for="ID">Enter Employee ID :  </label>	
- 					<input type="text" id="ID" name="empid" class="form-control" placeholder="Employee ID" > <br>
- 				</div>
- 		
+
 	
-	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Search </button>
-	</form>
 	
-	<br>
-	<br>
 	
-	<form action="./GetEmployee" method="post">
+	<form class="NIC" action="./SearchNic" method="post" style="padding-top: 100px;">
 	<div class="form-group">
  					<label for="nic">Enter NIC :  </label>	
  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC" > <br>
@@ -40,16 +35,22 @@ form.{
 	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Search </button>
 	</form>
 	
-	
-		<form action="./UpdateEmployee" method="post" id="register" class="form">
+		
+		<form class="Empid" action="./RetrieveEmpID" method="post" id="register" class="form">
 				
 				<div class="empid">
 				<div class="form-group">
  					<label for="empid"> Employee ID : </label>
-  					<input type="text" id="empid" value="" name="empid" class="form-control" > <br>
+ 					<%if(employees!=null) { %>
+  					<input type="text" id="empid" value="<%=employees.getempid() %>" name="empid" readonly class="form-control-plaintext" > <br>
+  				    <% } %>
   				</div>
   				</div>
+  				
+  				<input type="hidden" name="NIC" value="">
+  				
   		</form>
+  		
 
 </body>
 </html>

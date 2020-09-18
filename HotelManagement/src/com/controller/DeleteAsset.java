@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Employee;
-import com.service.EmployeeImpl;
+import com.service.IInventory;
+import com.service.InventoryImpl;
+import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetEmployee
+ * Servlet implementation class DeleteAsset
  */
-@WebServlet("/GetEmployee")
-public class GetEmployee extends HttpServlet {
+@WebServlet("/DeleteAsset")
+public class DeleteAsset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetEmployee() {
+    public DeleteAsset() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,28 +41,12 @@ public class GetEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String assetID=request.getParameter("assetID");
+		IInventory inventoryImpl=new InventoryImpl();
+		inventoryImpl.deleteAsset(assetID);
 		
-		int empid=Integer.parseInt(request.getParameter("empid"));
-		EmployeeImpl employeeimpl=new EmployeeImpl();
-		
-		if(employeeimpl.checkEmp(empid)==false) {
-			
-			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-			dispatcher.forward(request, response);
-			
-		}else {
-			
-			Employee employee=new Employee();
-			employee = employeeimpl.getEmployee(empid);
-			
-			
-			request.setAttribute("employee", employee);
-            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-            dispatcher.forward(request, response);
-		}
-		
-		
-		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

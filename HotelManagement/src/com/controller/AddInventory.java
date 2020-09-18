@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Employee;
-import com.service.EmployeeImpl;
+import com.model.Inventory;
+import com.service.IInventory;
+import com.service.InventoryImpl;
 
 /**
- * Servlet implementation class GetEmployee
+ * Servlet implementation class AddInventory
  */
-@WebServlet("/GetEmployee")
-public class GetEmployee extends HttpServlet {
+@WebServlet("/AddInventory")
+public class AddInventory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetEmployee() {
+    public AddInventory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,29 +40,25 @@ public class GetEmployee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+				
+		Inventory inventory = new Inventory();
+		inventory.setAssetID(request.getParameter("assetID"));
+		inventory.setAssetName(request.getParameter("assetName"));
+		inventory.setMinQuantity(Integer.parseInt(request.getParameter("minQuantity")));
+		inventory.setAvailableQuantity(Integer.parseInt(request.getParameter("availableQuantity")));
+		inventory.setTotalQuantity(Integer.parseInt(request.getParameter("totalQuantity")));
+
 		
-		int empid=Integer.parseInt(request.getParameter("empid"));
-		EmployeeImpl employeeimpl=new EmployeeImpl();
+		//System.out.println("asset name is"+request.getParameter("assetName"));
 		
-		if(employeeimpl.checkEmp(empid)==false) {
-			
-			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-			dispatcher.forward(request, response);
-			
-		}else {
-			
-			Employee employee=new Employee();
-			employee = employeeimpl.getEmployee(empid);
-			
-			
-			request.setAttribute("employee", employee);
-            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
-            dispatcher.forward(request, response);
-		}
+		IInventory iInventory = new InventoryImpl();
+		iInventory.addInventory(inventory); 
+
 		
-		
-		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }

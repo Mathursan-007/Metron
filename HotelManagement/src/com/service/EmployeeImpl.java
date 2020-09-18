@@ -88,9 +88,9 @@ public class EmployeeImpl implements IEmployee{
 				employee.setEmail(result.getString(6));
 				employee.setDOB(result.getString(7));
 				employee.setAddress(result.getString(8));
-				employee.setDesignation(result.getString(9));
-				employee.setDepartment(result.getString(10));
 				
+				employee.setDepartment(result.getString(9));
+				employee.setDesignation(result.getString(10));
 				
 			}
 			
@@ -107,6 +107,59 @@ public class EmployeeImpl implements IEmployee{
 		return employee;
 	}
 
+
+
+	@Override
+	public Employee searchEmployee(String nic) {
+		// TODO Auto-generated method stub
+		
+		Employee employee=new Employee();
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from Employee where NIC=?");
+			pt.setString(1, nic);
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()){
+				
+				employee.setempid(result.getInt(1));
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return employee;
+	}
+	
+
+	@Override
+	public void retrieveempid(Employee employee) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("update Employee set emp_ID=? where NIC=?");
+			pt.setInt(1, employee.getempid());
+			
+			pt.executeUpdate();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@Override
 	public void updateEmployee(Employee employee) {
 		// TODO Auto-generated method stub
@@ -138,6 +191,7 @@ public class EmployeeImpl implements IEmployee{
 	}
 
 	
+	
 	//Attendance
 	
 
@@ -167,4 +221,32 @@ public class EmployeeImpl implements IEmployee{
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	@Override
+	public boolean checkEmp(int empid) {
+		// TODO Auato-generated method stub
+		
+		boolean find=true;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from Employee where Emp_ID=?");
+			pt.setInt(1, empid);
+			find=pt.execute();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return find;
+		
+	}
+
+
 	}

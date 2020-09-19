@@ -15,9 +15,12 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 			<script>
 				window.location.href = 'EmployeeDashboard.jsp#Butt7';
-			
-			if(){
+			var i=${value}
+				
+			if(i==1){
 				window.location.href = 'EmployeeDashboard.jsp#Butt2';
+			}else (i==2){
+				
 			}
 			</script>
 		

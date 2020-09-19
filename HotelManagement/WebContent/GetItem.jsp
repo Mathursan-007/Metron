@@ -12,7 +12,7 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
-<body style="background-image:url('images/itembg.jpg'); background-repeat: no-repeat;background-size:1400px 800px;">
+<body style="background-image:url('images/Item.jpg'); background-repeat: no-repeat;background-size:1600px 800px;">
 <%Item item =(Item)request.getAttribute("item"); %>
   
       

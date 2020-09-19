@@ -43,6 +43,7 @@ public class AddItem extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		PrintWriter out=response.getWriter();
+		
 		Item item=new Item();
 		RestaurantImpl restaurantimpl=new RestaurantImpl();
 		
@@ -51,20 +52,26 @@ public class AddItem extends HttpServlet {
 		item.setCategory(request.getParameter("category"));
 		item.setPrice(Float.parseFloat(request.getParameter("price")));
 		
+	
+		
 		if(restaurantimpl.checkItem(item.getName())==false){
 			
-			restaurantimpl.addItem(item);
-			//out.print(restaurantimpl.checkItem(item.getName()));
 			
-			request.setAttribute("value", 5);
+			
+			//out.println(item.getName());
+			restaurantimpl.addItem(item);
+			request.setAttribute("value", "Item added");
+			
 			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 			dispatcher.forward(request, response);
 			
-		}else if(restaurantimpl.checkItem(item.getName())==true){
+		}else {
 			
 			//out.print(restaurantimpl.checkItem(item.getName()));
 			
-			request.setAttribute("value", 6);
+		//out.println(item.getName());
+			
+			request.setAttribute("value", "Item exists");
 			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 			dispatcher.forward(request, response);
 			

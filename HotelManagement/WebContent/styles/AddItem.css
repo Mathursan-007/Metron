@@ -90,7 +90,7 @@ textarea.input-box:focus,select.input-box:focus {
 .table th{
 	text-align:center;
     position: -webkit-sticky;
-    position: absolute;
+
     top: 0;
     z-index: 2;
 }

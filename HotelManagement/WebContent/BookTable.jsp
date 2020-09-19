@@ -161,7 +161,7 @@ function myFunction() {
                                 <h2 class="card-heading" style="margin-left:190px;">Enter Details</h2>
 				                    <div class="row rone">
 				                       <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="fullname" placeholder="Full Name" required></div>
-						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="nic" placeholder="NIC" required>
+						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="nic" placeholder="NIC" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V]" title="xxxxxxxxxV"required>
 						                 <div>
                                              <p id="phoneno" style="color:red"></p>
                                          </div>
@@ -169,7 +169,7 @@ function myFunction() {
 						             </div>
 						             <div class="row rone">
 						               <div class="form-group col-md-3 fone"><input type="email" class="form-control" name="email" placeholder="Email" required></div>
-						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="phone" Placeholder="Phone No." required></div>
+						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="phone" Placeholder="Phone No." pattern="[0][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="0xxxxxxxxx" required></div>
 						             </div>
 						             
 		 <br>
@@ -178,7 +178,7 @@ function myFunction() {
 								 </div>
 		<br>
 		                        <div>
-                                    <div class="col-md-5 ml-4" style="margin-left:200px;"><button type="submit" id="btn" value="Book Now"  class="btn btn-primary mt-3" disabled><span>Book Now</span></button> </div>
+                                    <div class="col-md-5 ml-4" style="margin-left:200px;"><button type="submit" id="btn" value="Book Now" onClick="return myFunction1()" class="btn btn-primary mt-3" disabled><span>Book Now</span></button> </div>
                                 </div>
 	</div>
     </div>
@@ -209,6 +209,21 @@ function updateCount() {
 	
 	  
 	}
+	
+
+function myFunction1() {
+	
+	var checkboxes = document.querySelectorAll('input[name="tables"]:checked');
+	
+	  if(checkboxes.length==0){
+	      
+		  alert('Select your tables');
+		  return false;
+		  
+	  }
+}
+
+
 </script>
        
         

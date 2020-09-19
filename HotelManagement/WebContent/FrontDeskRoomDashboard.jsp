@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Dashboard</title>
+		<title>RoomDashboard</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -77,19 +77,19 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:red;height:800px;" id="Butt1"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
 			
 			
 			
-			<div style="background:black;height:800px;" id="Butt2"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
 			
 			
 			
-			<div id="Butt3"><%@include file="ListRooms.jsp" %></div>
+			<div style="background:#8f9dd7;" id="Butt3"><%@include file="ListRooms.jsp" %></div>
 			
 			
 				
-			<div style="background:green;height:800px;" id="Butt4"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
 			
 			
 			<div  id="Butt5"> <%@include file="GetRoom.jsp" %></div>

@@ -1,0 +1,237 @@
+h2{
+ text-align: center;
+ font-size: 250%;
+ font-family: BodoniStd-BookItalic,serif;
+ color: #77328b;
+ 
+ }
+ 
+  body {
+  background-color: #faebd7;
+}
+ 
+ 
+ h3{
+ text-align: center;
+ font-weight: bold;
+ color: #191970;
+ font-size:24px;
+ margin-left: -30%;
+ font-family: BodoniStd-BookItalic,serif;
+ } 
+ 
+ p{
+ text-align: center;
+ 
+ } 
+ 
+  {box-sizing: border-box;}    
+body {
+	
+	font-family: Verdana, sans-serif;
+    font-size: 14px;
+   
+    
+    }
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+ /* Slideshow container */
+.slideshow-container {
+  max-width: 700px;
+  position: relative;
+  margin:auto;
+ 
+
+}
+
+
+
+/* Number text (1/6 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+/*Div for card images*/
+body {margin:25px;}
+
+div.polaroid {
+  width: 50%;
+  background-color: #bc955a;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  border-radius: 2px;
+  margin-left: 4%;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+/*Div for card images end*/
+
+hr.new1 {
+  border-top: 1px solid #bc955a; 
+}
+
+div.absolute {
+  position: absolute;
+  top: 700px;
+  right: 20px;
+  width: 500px;
+  height: 200px;
+  text-align: justify;
+  font-family: BodoniStd-BookItalic,serif;
+  font-size: 120%;
+  
+}
+
+
+
+div.absolute1 {
+  position: absolute;
+  top: 1200px;
+  right: 20px;
+  width: 500px;
+  height: 300px;
+  text-align: justify;
+  font-family: BodoniStd-BookItalic,serif;
+  font-size: 120%;
+  
+}
+
+
+div.absolute2 {
+  position: absolute;
+  top: 1750px;
+  right: 20px;
+  width: 500px;
+  height: 300px;
+  text-align: justify;
+  font-family: BodoniStd-BookItalic,serif;
+  font-size: 120%;
+  
+}
+
+.button {
+  background-color: #483D8B;
+  border-radius:10px;
+  color: white;
+  padding: 16px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:62%;
+  text-transform:uppercase;
+  font-weight:400;
+  position: absolute;
+  top: 900px;
+
+
+  
+}
+
+.button:hover {
+  background-color:#191970;
+  color: white;
+}  
+
+.button1 {
+  background-color: #483D8B;
+  border-radius:10px;
+  color: white;
+  padding: 16px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:62%;
+  text-transform:uppercase;
+  font-weight:400;
+  position: absolute;
+  top: 1400px;
+
+
+  
+}
+
+.button1:hover {
+  background-color:#191970;
+  color: white;
+}  
+
+.button2 {
+  background-color: #483D8B;
+  border-radius:10px;
+  color: white;
+  padding: 16px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:62%;
+  text-transform:uppercase;
+  font-weight:400;
+  position: absolute;
+  top: 1960px;
+
+
+  
+}
+
+.button2:hover {
+  background-color:#191970;
+  color: white;
+}  
+
+

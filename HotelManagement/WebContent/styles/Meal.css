@@ -1,0 +1,70 @@
+ h2{
+ text-align: center;
+ 
+ }
+
+.nana{
+	padding-top:100px;
+}
+.meal input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+.meal input[type=submit] {
+ 
+  width: 400px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left:10%;
+}
+
+.meal input[type=submit]:hover {
+  background-color: #45a049;
+
+}
+
+.meal, .meal1, .meal2, .area div {
+  border-radius: 3px;
+  background-color: #B0C4DE;
+  padding: 20px;
+  width: 70%;
+  margin-left: 16%;
+}
+
+
+
+.button {
+  background-color: #483D8B;
+  border-radius:10px;
+  color: white;
+  padding: 16px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left:38%;
+  text-transform:uppercase;
+  font-weight:400;
+}
+
+.button:hover {
+  background-color:#191970;
+  color: white;
+}  
+
+
+

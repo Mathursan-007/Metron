@@ -17,6 +17,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
 
+
  
 
   
@@ -25,7 +26,7 @@
      
                 <div style="margin:50px;">
                 <h1 class="itHead">TABLES</h1>
-                <input id="myInput2" type="text" onkeyup="myFunction2()"  placeholder="Search Table..">
+                  <input id="myInput2" type="text" onkeyup="myFunction2()"  placeholder="Search Table Status..">
 <br><br>
                 
                 <div class="scroll">
@@ -55,6 +56,7 @@
               
              <%}else{
              for(Table table:Tables){ %>
+               
                 <tr>
                <td><%=table.getTableno() %> </td> 
                <td><%=table.getType()%></td> 
@@ -93,7 +95,7 @@
      </div>
      
     
-<button class="btn btn-success" id="myBtn" style="margin:0;position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>Add Table</button>
+<button class="btn btn-success" id="myBtn" style="margin-top:10px;position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>Add Table</button>
 
 <div id="myModal" class="modal" id="myForm">
 
@@ -198,7 +200,7 @@ function myFunction2() {
 	    }       
 	  }
 	}
-	
+
 </script> 
  
 </body>

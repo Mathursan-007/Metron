@@ -56,10 +56,8 @@ public class AddTable extends HttpServlet {
 		
 		restaurantimpl.addTable(table); 
          
-		out.println("<html><body onload=\"alert('Hello World')\"></body></html>");
-			  
 			 
-		request.setAttribute("value", 4);
+		request.setAttribute("value", "Table added");
 		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 		dispatcher.forward(request, response);
 		

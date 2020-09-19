@@ -1,0 +1,165 @@
+.firstttt h2{
+ text-align: center;
+ font-family: verdana;
+ font-size: 250%;
+ font-weight: bold;
+  
+ 
+ }
+ 
+  .firstttt {
+  background-color: #faebd7;
+  transform: translate(0%, 1.8%);
+}
+ 
+.firstttt p{
+ text-align: center;
+ 
+ } 
+
+.firstttt h3, .absolute h3, .sec h3{
+ text-align: center;
+ font-weight: bold;
+ color: #191970;
+ font-size: 19px;
+ 
+ } 
+ 
+.firstttt h4, .absolute h4, .sec h4{
+ text-align: center;
+ color: black;
+ font-size: 13.5px;
+ font-weight: bold;
+
+ }  
+ 
+   
+.firstttt {font-family: Verdana, sans-serif; font-size: 14px;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+
+
+/* Number text (1/6 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+/*Div for card images*/
+.firstttt {margin:25px;}
+
+div.polaroid {
+  width: 40%;
+  background-color: #bc955a;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  border-radius: 2px;
+  margin-left: 4%;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+/*Div for card images end*/
+
+hr.new1 {
+  border-top: 1px solid #bc955a; 
+}
+	
+	
+
+div.absolute {
+  position: absolute;
+  top: 830px;
+  right: 80px;
+  width: 500px;
+  height: 200px;
+  text-align: center;
+  
+}
+
+
+div.absolute1 {
+  position: absolute;
+  top: 1200px;
+  right: 80px;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  
+}
+
+div.absolute2 {
+  position: absolute;
+  top: 1590px;
+  right: 80px;
+  width: 500px;
+  height: 300px;
+  text-align: center;
+  
+}
+
+/* lists styling */
+
+.man ul {
+  background: #bc955a;
+  padding: 20px;
+  
+}
+
+.man ul li {
+  background: #fcefcf;
+  margin: 5px;
+}
+
+ 

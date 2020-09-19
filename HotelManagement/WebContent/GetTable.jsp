@@ -11,7 +11,7 @@
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </head>
-<body style="background-image:url('images/tablebg.jpg'); background-repeat: no-repeat;background-size:1800px 1000px;">
+<body style="background-image:url('images/Table.jpg'); background-repeat: no-repeat;background-size:1800px 1000px;opacity:0.9;">
   <%Table table=(Table)request.getAttribute("table"); %>
    <div class="container" >
         <div class="row justify justify-content-center">

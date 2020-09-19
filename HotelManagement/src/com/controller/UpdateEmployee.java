@@ -58,6 +58,7 @@ public class UpdateEmployee extends HttpServlet {
 		
 		employeeimpl.updateEmployee(employee);
 		
+		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

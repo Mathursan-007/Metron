@@ -46,10 +46,10 @@ public class ReleaseTable extends HttpServlet {
 		RestaurantImpl restaurantimpl=new RestaurantImpl();
 		restaurantimpl.releaseTable(tableno);
 		
-		PrintWriter out=response.getWriter();
+		//PrintWriter out=response.getWriter();
 		
 	 
-		request.setAttribute("value", 4);
+		request.setAttribute("value", "Table released");
 		
 		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 		dispatcher.forward(request, response);

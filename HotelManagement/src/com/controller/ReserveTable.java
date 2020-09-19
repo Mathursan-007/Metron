@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,6 +67,10 @@ public class ReserveTable extends HttpServlet {
 			restaurantImpl.reserveTable(trid, Integer.parseInt(tables[i]));
 			
 		}
+		
+        request.setAttribute("value", "Table Reserved");
+		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/Restaurant.jsp");
+		dispatcher.forward(request, response);
 		
 		
 	}

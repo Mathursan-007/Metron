@@ -92,20 +92,39 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 
 		<script>
 		
-		var i=${value};
 		
-		if(i==5){
-			alert('Item added');
-			window.location.href = 'RestaurantDashboard.jsp#Butt5';
-		}else if(i==4){
+		var i='${value}';
+		
+		if(i=="Table added"){
+		
+			alert('Table added');
+			window.location.href = 'RestaurantDashboard.jsp#Butt4';
+		
+		}else if(i=="Table released"){
 			
-			//alert('Table added');
+			alert('Table released');
 		    window.location.href = 'RestaurantDashboard.jsp#Butt4';
 			
-		}else if(i==6){
+		}else if(i=="Table updated"){
+			
+			alert('Table updated');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt4';
+			
+		}else if(i=="Item added"){
+			
+			alert('Item added');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt5';
+			
+		}else if(i=="Item exists"){
 			
 			alert('Item already exists');
 		    window.location.href = 'RestaurantDashboard.jsp#Butt5'; 
+		
+		}else if(i=="Item updated"){
+			
+			alert('Item updated');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt5'; 
+		
 		}
 		
 				

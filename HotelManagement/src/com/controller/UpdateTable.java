@@ -53,7 +53,7 @@ public class UpdateTable extends HttpServlet {
 		
 		restaurantimpl.updateTable(table);
 		
-		request.setAttribute("value", 5);
+		request.setAttribute("value", "Table updated");
 		
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");

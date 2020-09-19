@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="styles/AddItem.css">
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
-</head>
+</head>  
 <body class="vee">
 	
 	<div style="margin:50px;">
@@ -102,6 +104,7 @@
 									          <option value="Starter">Starter</option>
 									          <option value="Rice">Rice</option>
 									          <option value="Noodles">Noodles</option>
+									          <option value="Bread">Bread</option>
 									          <option value="Vegetarian Dish">Vegetarian Dish</option>
 									          <option value="Non-Vegetarian Dish">Non-Vegetarian Dish</option>
 									          <option value="Drinks">Drinks</option>
@@ -163,24 +166,25 @@ function closeForm1() {
 	}
 
 
+
 function myFunction1() {
-  var input1, filter1, table1, tr1, td1, i, txtValue1;
-  input1 = document.getElementById("myInput1");
-  filter1 = input.value.toUpperCase();
-  table1 = document.getElementById("myTable1");
-  tr1 = table.getElementsByTagName("tr");
-  for (i = 0; i < tr1.length; i++) {
-    td1 = tr1[i].getElementsByTagName("td")[1];
-    if (td1) {
-      txtValue1 = td1.textContent || td1.innerText;
-      if (txtValue.toUpperCase().indexOf(filter1) > -1) {
-        tr1[i].style.display = "";
-      } else {
-        tr1[i].style.display = "none";
-      }
-    }       
-  }
-}
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("myInput1");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable1");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[1];
+	    if (td) {
+	      txtValue = td.textContent || td.innerText;
+	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}
 </script>	
     
 </body>

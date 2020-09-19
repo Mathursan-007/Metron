@@ -17,9 +17,20 @@
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
 
-
+<script>
+var i='${value}';
+		
+		if(i=="Table Reserved"){
+		
+			alert('Table Reserved');
+			window.location.href = 'RestaurantDashboard.jsp#Butt4';
+		
+		}
+		
+</script>
 
 </head>
+
 <body>
 
 	<%@include file="Header.jsp" %>
@@ -147,7 +158,7 @@
         <div class="col-md-5 no-padding lib-item" data-category="view">
             <div class="lib-panel">
                 <div class="row box-shadow">
-                    <div class="col-md-6"> <img class="lib-img-show" src="images/family.jpg" style="height:180px;"> </div>
+                    <div class="col-md-6"> <img class="lib-img-show" src="images/familytable.jpg" style="height:180px;"> </div>
                     <div class="col-md-6">
                         <div class="lib-row lib-header">Family Table<div class="lib-header-seperator"></div>
                         </div>

@@ -41,16 +41,17 @@
 					<div class="dropdown-menu bts" aria-labelledby="dropdownMenuLink" style="text-decoration:none;">
 					    <a class="dropdown-item" href="RoomCustomer.jsp">Rooms</a>
 					    <a class="dropdown-item" href="Restaurant.jsp">Restaurant</a>
+					    <a class="dropdown-item" href="Wellness.jsp">Wellness</a>
 					</div>
 				</li>
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Events </a>
+					<a class="nav-link dropdown-toggle" href="Buffet.jsp" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Events </a>
 				
 					<div class="dropdown-menu bts" aria-labelledby="dropdownMenuLink" style="text-decoration:none;">
-					    <a class="dropdown-item" href="#">Weddings</a>
-					    <a class="dropdown-item" href="#">Meetings & Confererences</a>
-					    <a class="dropdown-item" href="#">Banquets</a>
+					    <a class="dropdown-item" href="Weddings.jsp">Weddings</a>
+					    <a class="dropdown-item" href="Meetings&Conferences.jsp">Meetings & Confererences</a>
+					    <a class="dropdown-item" href="Buffet.jsp">Meal Plan</a>
 					</div>
 				</li>
 				

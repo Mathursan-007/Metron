@@ -1,0 +1,78 @@
+
+#customers{
+	
+	margin-left:5%;
+	width: 90%	
+	
+}
+
+.acbt{
+	padding-top:100px;
+}
+
+customers.inset {border-style: inset;}
+
+#customers td, #customers th {
+  border: 0 px solid #ffffff;
+  padding: 10px;
+  
+}
+
+#customers tr:nth-child(odd){background-color: #8fbc8f;}
+#customers tr:nth-child(even){background-color: #dfecdf;}
+
+
+
+#customers tr:hover {
+	
+	background-color: #437043;
+	color: white;
+	} 
+
+#customers th {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+  font-size:20px;
+}
+
+.button1 {
+  background-color: #568f8f;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  width: 80%;
+}
+
+.button1:hover {
+  background-color:#336699;
+  color: white;
+}  
+
+.button2 {
+  background-color: #568f8f;
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  width: 40%;
+  margin-left: 8%;
+}
+
+.button2:hover {
+  background-color:#336699;
+  color: white;
+}  

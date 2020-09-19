@@ -505,7 +505,8 @@ public class RestaurantImpl implements IRestaurant {
 			connection=DBConnection.initializedb();
 			pt=connection.prepareStatement("select * from Item where Name=?");
 			pt.setString(1, name);
-			find=pt.execute();
+			ResultSet res=pt.executeQuery();
+			find=res.next();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

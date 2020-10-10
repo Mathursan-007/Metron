@@ -87,32 +87,32 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:white;height:800px;" id="Butt7">
+			<div style="background:#8f9dd7;height:800px;" id="Butt7">
 			<%@include file="SearchEmployee.jsp"%>
 			</div>
 			
-			<div style="background:white;height:1700px;" id="Butt1">
+			<div style="background:#8f9dd7;height:1700px;" id="Butt1">
 			<%@include file="RegisterEmployee.jsp"%>
 			</div>
 			
-			<div style="background:white;height:2000px;" id="Butt2">
+			<div style="background:#8f9dd7;height:2000px;" id="Butt2">
 			<%@include file="ViewEmployee.jsp"%>
 			</div>
 			
 			
-			<div style="background:blue;height:800px;" id="Butt3"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt3"></div>
 			
 			
 				
-			<div style="background:green;height:800px;" id="Butt4"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
 			
 			
 			
-			<div style="background:yellow;height:800px;" id="Butt5"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt5"></div>
 			
 			
 			
-			<div style="background:white;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
 
 			</div> 
 		</div>

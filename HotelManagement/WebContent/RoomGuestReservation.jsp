@@ -16,8 +16,29 @@
 
 <link rel="stylesheet" href="styles/RoomGuestReservation.css">
 
+<style>
+	
+	.see form{
+	background-image: linear-gradient(to left bottom, #acb5b5, #aeb9b9, #b1bdbd, #b3c1c2, #b5c5c6);
+	border-radius:10px;
+	width:700px;
+	padding:90px;
+	}
+
+	.fer{
+	text-align:center;
+	color:#000;
+	}
+	
+	.sbmt{
+	background-image: linear-gradient(to left bottom, #606266, #797a7e, #939496, #aeaeaf, #c9c9c9);
+	}
+
+</style>
+
+
 </head>
-<body>
+<body class="sbmt">
 
 	<%@include file="Header.jsp" %>
 	
@@ -32,38 +53,42 @@
 	int type=room.getRoomTypeNo();
 	%>
 	
-	<div class="container-fluid" style="padding-top:100px;">
+	<div class="container-fluid see" style="padding-top:100px;">
 		<div>
-			<h1>Reservation of rooms from <%=room.getCheckIn()%> to <%=room.getCheckOut()%></h1>
+			<br>
+			<h1 class="fer" style="color:#fff;">Reservation of rooms from <%=room.getCheckIn()%> to <%=room.getCheckOut()%></h1>
+			<br>
 			
-			<form action="./MakeRoomPayment" method="post">
+			<form action="./MakeRoomPayment" method="post"  class="container">
 			
-					<h1>Guest Information</h1>
+					<h2 class="fer">Guest Information</h1>
+					<br>
 					
 					<div class="form-group">
-			            <input class="form-control" type="text" name="NIC" placeholder="Enter NIC/Passport number">
+			            <input class="form-control" type="text" name="NIC" placeholder="Enter NIC/Passport number" pattern="[0-9]{9}[V]{1}"  title="9 digits and V " required>
 		            </div>
 		            
 		            <div class="form-group">
-			            <input class="form-control" type="text" name="fullName" placeholder="Enter Full name">
+			            <input class="form-control" type="text" name="fullName" placeholder="Enter Full name" required>
 		            </div>
 		            
 		            <div class="form-group">
-			            <input class="form-control" type="email" name="email" placeholder="Enter personal email address">
+			            <input class="form-control" type="email" name="email" placeholder="Enter personal email address" required>
 		            </div>
 		            
 		            <div class="form-group">
-			            <input class="form-control" type="text" name="contact" placeholder="Enter contact number">
+			            <input class="form-control" type="text" name="contact" placeholder="Enter contact number" required>
 		            </div>
 		            
-		            <h1>Room Reservation</h1>
-		           
+		            <br>
+		            <h2 class="fer">Room Reservation</h1>
+		           	<br>
 		           
 			           	
 					 		<input class="form-control p-2" type="hidden" name="checkIn" value="<%=room.getCheckIn()%>">
 					 		
 					 		<input class="form-control p-2" type="hidden" name="checkOut" value="<%=room.getCheckOut()%>">
-						
+							<input type="hidden" name="type" value="<%=room.getRoomTypeNo() %>">
 					
 					
 					<div class="form-group">
@@ -81,10 +106,10 @@
 		            
 		            <div class="form-group">
 		            	<label for="Check-in Date" class="p-2">Enter number of guests: </label>
-			            <input class="form-control" type="text" name="MaxGuests" placeholder="Enter contact number">
+			            <input class="form-control" type="text" name="MaxGuests"  required>
 		            </div>
 		            
-		            <input type="submit" value="Make reservation">
+		            <input class="btn btn-success" type="submit" value="Make reservation">
 		            
 			</form>
 		</div>

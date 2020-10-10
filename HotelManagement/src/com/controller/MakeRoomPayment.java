@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,6 +72,43 @@ public class MakeRoomPayment extends HttpServlet {
 			roomimpl.addReservedRooms(ReservationID,RoomNumbers[i]);
 		}
 		
+		
+		//cost of room calculation
+		float s = 0;
+		String checkin=request.getParameter("checkIn");
+		String checkout=request.getParameter("checkOut");
+		int type=Integer.parseInt(request.getParameter("type"));
+		
+		
+		
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		 float daysBetween=0;
+
+		 try {
+		       java.util.Date dateBefore = myFormat.parse(checkin);
+		       java.util.Date dateAfter = myFormat.parse(checkout);
+		       long difference = dateAfter.getTime() - dateBefore.getTime();
+		       daysBetween = (difference / (1000*60*60*24));
+	               /* You can also convert the milliseconds to days using this method
+	                * float daysBetween = 
+	                *         TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS)
+	                */
+		       System.out.println("Number of Days between dates: "+daysBetween);
+		 } catch (Exception e) {
+		       e.printStackTrace();
+		 }
+		 
+		 if(type==1) {
+			 s=7500*daysBetween*RoomNumbers.length;
+		 } else if(type==2) {
+			 s=15000*daysBetween*RoomNumbers.length;
+		 } else {
+			 s=25000*daysBetween*RoomNumbers.length;
+		 }
+		 
+		 System.out.println(s);
+		 
+		request.setAttribute("Amount", s);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/MakeRoomPayment.jsp");
 		dispatcher.forward(request, response);

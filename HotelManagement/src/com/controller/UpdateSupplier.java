@@ -9,22 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.EmployeeImpl;
+import com.model.Supplier;
+import com.service.ISupplier;
+import com.service.SupplierImpl;
+
 
 /**
- * Servlet implementation class DeleteEmployee
- */
-@WebServlet("/DeleteEmployee")
-public class DeleteEmployee extends HttpServlet {
+ * Servlet implementation class UpdateSupplier
+ */
+@WebServlet("/UpdateSupplier")
+public class UpdateSupplier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteEmployee() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UpdateSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,15 +42,24 @@ public class DeleteEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		int empid=Integer.parseInt(request.getParameter("emp_ID"));
-		EmployeeImpl employeeimpl=new EmployeeImpl();
-		employeeimpl.DeleteEmployee(empid);
-		
 
-		request.setAttribute("value", 1);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
+		Supplier supplier=new Supplier();
+		
+		ISupplier supplierImpl=new SupplierImpl();
+		
+		supplier.setSupplier_ID(request.getParameter("Supplier_ID"));
+		supplier.setName(request.getParameter("Name"));
+		supplier.setType(request.getParameter("Type"));
+		supplier.setContact_No(request.getParameter("Contact_No"));
+		supplier.setEmail(request.getParameter("Email"));
+		supplier.setAddress(request.getParameter("Address"));
 
+		
+		
+		
+		supplierImpl.UpdateSupplier(supplier);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

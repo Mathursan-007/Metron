@@ -91,7 +91,7 @@ h2{
 
   <div class="form-group">
      
-	      PackageID:<input type="text" name="id" class="form-control" value="<%=item.getID()%>">
+	      <input type="hidden" name="id" class="form-control" value="<%=item.getID()%>">
 	      PackageName:<input  type="text" name="name" class="form-control" value="<%=item.getName()%>"> 
 	      Price:<input type="text" name="price" class="form-control" value="<%=item.getPrice()%>">  
 	      <input type="submit" class="button" value="Update">

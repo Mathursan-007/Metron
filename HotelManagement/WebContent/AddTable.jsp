@@ -16,8 +16,8 @@
           <option value="Family">Family</option>
           <option value="Outdoor">Outdoor</option> 
       </select>
-      Capacity:<input type="text" name="capacity">
-      Price:<input type="text" name="price">  
+      Capacity:<input type="number" name="capacity">
+      Price:<input type="number" name="price">  
       
       <input type="submit" value="Add">
     </form> 

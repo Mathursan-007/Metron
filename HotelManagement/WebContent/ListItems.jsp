@@ -20,14 +20,14 @@
 </head>  
 <body class="vee">
 	
-	<div style="margin:50px;">
+	
 	<h1 class="itHead">ITEMS</h1>
 	<input id="myInput1" type="text" onkeyup="myFunction1()"  placeholder="Search Item..">
 <br><br>
 	
 	
 	<div class="scroll">
-     <table class="table table-striped table-hover" border="1" id="myTable1" >
+     <table class="table table-striped table-hover" border="1" id="myTable1" style="background-color:white;">
      
        <thead class="thead-dark">
            <tr>
@@ -60,12 +60,12 @@
                <div class="btn-group" role="group">
                <form action="./GetItem" method="post">
                <input type="hidden" name="itemno" value="<%=item.getItemno() %>">
-               <button type="submit" class="btn btn-primary" value="View" style="margin-right:30px;"><i class="fa fa-eye" aria-hidden="true"></i>   View</button>
+               <button type="submit" class="btn btn-primary" value="View" style="margin-right:20px;"><i class="fa fa-eye" aria-hidden="true"></i>   View</button>
                </form>
-               <form action="./DeleteItem" method="post">
+             <!--    <form action="./DeleteItem" method="post">
                <input type="hidden" name="itemno" value="<%=item.getItemno() %>" style="float:right;width:30%;">
                <button type="submit" class="btn btn-danger" value="Delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-               </form>
+               </form>-->
                </div>
                </td>
             </tr>
@@ -115,7 +115,7 @@
                         <div class="form-group row">
                             <div class="col-md-12 mb-2">
                                    <label for="Price" style="color:white;text-align:center;"><b>Price(Rs.)</b></label>
-	                               <input type="text" placeholder="Enter Price(Rs.)" name="price" class="form-control input-box rm-border" required>
+	                               <input type="number" placeholder="Enter Price(Rs.)" name="price" class="form-control input-box rm-border" required>
                             </div>
                         </div>
                         <div class="form-group row justify-content-center mb-0">

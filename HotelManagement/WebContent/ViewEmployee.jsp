@@ -66,7 +66,7 @@
 				<div class="fname">
 				<div class="form-group">
  					<label for="Full name"> First Name : </label>
-  					<input type="text" id="First name" value="<%=employee.getFirstname() %>" name="firstname" class="form-control" > <br>
+  					<input type="text" id="First name" value="<%=employee.getFirstname() %>" name="firstname" readonly class="form-control" > <br>
   				</div>
   				</div>
   	

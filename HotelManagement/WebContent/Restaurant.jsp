@@ -23,7 +23,6 @@ var i='${value}';
 		if(i=="Table Reserved"){
 		
 			alert('Table Reserved');
-			window.location.href = 'RestaurantDashboard.jsp#Butt4';
 		
 		}
 		
@@ -175,7 +174,5 @@ var i='${value}';
 </div>
 <%@include file="Footer.jsp" %>	
 </div>
-	
-   
 </body>
 </html>

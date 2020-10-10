@@ -24,7 +24,17 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
-
+<script>
+var i=${value};
+		
+		if(i==2){
+			
+			window.location.href = 'ExtraserviceDashboard.jsp#Butt2';
+		}else if(i==3){
+			
+			window.location.href = 'ExtraserviceDashboard.jsp#Butt3';
+		}  
+</script>
 </head>
 <body class="w3-light-grey">
 
@@ -75,12 +85,12 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px; ">
 			
 			
-			<div style="height:800px; background:#309577;" id="Butt1" >
+			<div style="height:800px; background:#8f9dd7;" id="Butt1" >
 			</div>
 			
 			
 			
-			<div style="background:black;height:1500px;" id="Butt2">
+			<div style="background:#8f9dd7;height:1500px;" id="Butt2">
 			 
 			<%@include file="ListSpa.jsp" %> 
 			
@@ -90,7 +100,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 			
 			
-			<div style="background:blue;height:1500px;padding-top:100px;" id="Butt3"> 
+			<div style="background:#8f9dd7;height:1500px;padding-top:100px;" id="Butt3"> 
 			<%@include file="Listgym.jsp" %>
 			</div>
 			

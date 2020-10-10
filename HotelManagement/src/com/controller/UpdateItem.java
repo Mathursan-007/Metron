@@ -53,7 +53,7 @@ public class UpdateItem extends HttpServlet {
 		restaurantimpl.updateItem(item);
 		
 		
-		request.setAttribute("value", 5);
+		request.setAttribute("value", "Item updated");
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 		dispatcher.forward(request, response);

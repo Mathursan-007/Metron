@@ -342,14 +342,15 @@ public class RestaurantImpl implements IRestaurant {
 
 	
 	@Override
-	public void addTableReservation(int rcustid) {
+	public void addTableReservation(int rcustid,float amount) {
 		// TODO Auto-generated method stub
 		
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("insert into TableReservation(CustID) values(?)");
-			pt.setInt(1, rcustid);
-			pt.execute();
+			ct=connection.prepareCall("exec AddTableReservation ?,?");
+		    ct.setFloat(1, amount);
+			ct.setInt(2, rcustid);
+			ct.execute();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -520,7 +521,38 @@ public class RestaurantImpl implements IRestaurant {
 		return find;
 	}
 
-
+	public float getTablePrice(int tableno) {
+		
+		float amt=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select price from tables where TableNo=?");
+			pt.setInt(1, tableno);
+			ResultSet res=pt.executeQuery();
+			
+			while(res.next()) {
+				
+				amt=res.getFloat(1);
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return amt;
+		
+		
+		
+		
+	}
+	
 
 	
 	

@@ -56,8 +56,8 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-users fa-fw"></i> Button 1</a>
-			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-eye fa-fw"></i>  Button 2</a>
+			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-users fa-fw"></i> View Reservations</a>
+			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-eye fa-fw"></i>  Checked In Guests</a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-bed fa-fw"></i>  Room Details</a>
 			    <a href="#Butt5" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-pencil-square-o fa-fw"></i>  Edit Room</a>
 			    
@@ -92,7 +92,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
 			
 			
-			<div  id="Butt5"> <%@include file="GetRoom.jsp" %></div>
+			<div style="background:#8f9dd7;" id="Butt5"> <%@include file="GetRoom.jsp" %></div>
 
 			</div> 
 		</div>

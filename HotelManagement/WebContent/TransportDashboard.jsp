@@ -25,6 +25,16 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+<script>
+var i=${value};
+
+if(i==1){
+	
+	window.location.href = 'TransportDashboard.jsp#Butt2';
+} 
+
+</script>
+
 
 </head>
 <body class="w3-light-grey">
@@ -81,31 +91,31 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 			
 			
-			<div style="background:white;height:800px;" id="Butt1">
+			<div style="background:#8f9dd7;height:800px;" id="Butt1">
 			<%@include file="TransportHome.jsp" %></div>
 			
 			
 			
-			<div style="background:White;height:800px;" id="Butt2">
+			<div style="background:#8f9dd7;height:800px;" id="Butt2">
 			<%@include file="CarRental.jsp" %></div>
 			
 			
 			
-			<div style="background:white;height:800px;" id="Butt3">
+			<div style="background:#8f9dd7;height:800px;" id="Butt3">
 			<%@include file="cityTours.jsp" %></div>
 			
 			
 			
 				
-			<div style="background:white;height:800px;" id="Butt4">
+			<div style="background:#8f9dd7;height:800px;" id="Butt4">
 			</div>
 			
 			
-			<div style="background:white;height:800px;" id="Butt5">
+			<div style="background:#8f9dd7;height:800px;" id="Butt5">
 			<%@include file="viewcityTour.jsp" %></div>
 			
 			
-			<div style="background:white;height:800px;" id="Butt6">
+			<div style="background:#8f9dd7;height:800px;" id="Butt6">
 			<%@include file="AddPayment.jsp" %></div>
 			
 

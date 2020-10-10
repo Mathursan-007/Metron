@@ -26,7 +26,12 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
-
+<script>
+if(i==2){
+			
+			window.location.href = 'InventoryDashboard.jsp#Butt1';
+		} 
+</script>
 </head>
 <body class="w3-light-grey">
 
@@ -74,27 +79,27 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:white;height:800px;" id="Butt1">		
+			<div style="background:#8f9dd7;height:800px;" id="Butt1">		
 			<%@include file="NewStock.jsp" %>
 			</div>
 			
 			
 			
-			<div style="background:black;height:800px;" id="Butt2">
+			<div style="background:#8f9dd7;height:800px;" id="Butt2">
 			
 			</div>
 			
 			
 			
-			<div style="background:blue;height:800px;" id="Butt3"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt3"></div>
 			
 			
 				
-			<div style="background:green;height:800px;" id="Butt4"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
 			
-			<div style="background:red;height:800px;" id="Butt5"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt5"></div>
 			
-			<div style="background:pink;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
 			
 
 			</div> 

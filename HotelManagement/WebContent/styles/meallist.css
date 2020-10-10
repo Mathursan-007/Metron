@@ -18,14 +18,14 @@ customers.inset {border-style: inset;}
   
 }
 
-#customers tr:nth-child(odd){background-color: #8fbc8f;}
+#customers tr:nth-child(odd){background-color: #f0ffff;}
 #customers tr:nth-child(even){background-color: #dfecdf;}
 
 
 
 #customers tr:hover {
 	
-	background-color: #437043;
+	background-color: #000080;
 	color: white;
 	} 
 

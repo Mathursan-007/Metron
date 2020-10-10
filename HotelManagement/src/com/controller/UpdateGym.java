@@ -52,7 +52,7 @@ public class UpdateGym extends HttpServlet {
 		
 		extraserviceimp.updatepackage(gym);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/Listgym.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("//ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
 		
 	}

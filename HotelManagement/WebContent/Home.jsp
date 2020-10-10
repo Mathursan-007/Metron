@@ -67,7 +67,7 @@
 			</div>
 			
 			<div class="carousel-item">
-			<img src="images/rest22.jpg" class="d-block w-100" alt="...">
+			<img src="images/rest.jpg" class="d-block w-100" alt="...">
 			 
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated zoomIn ba" style="animation-delay: 1s"> Restaurant </h5>
@@ -83,7 +83,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated zoomIn ba" style="animation-delay: 1s"> Extra Services </h5>
 				<p class ="animated fadeInLeft ba" style="animation-delay: 2s"> This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="Wellness.jsp" class="btn btn-secondary"> More info </a> </p> 
 			   </div> 
 			   
 			</div>
@@ -240,7 +240,7 @@
 			</div>
 			<div class="col-md-3 profile text-center">
 				<div class="img-box">
-				<img src="images/man3.png" class="img-responsive" width="250px" height="350px">
+				<img src="images/mathura.png" class="img-responsive" width="250px" height="350px">
 				<ul>
 					<a href="#"></a><li><i class="fa fa-facebook"></i></li></a>
 					<a href="#"></a><li><i class="fa fa-twitter"></i></li></a>

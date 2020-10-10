@@ -24,14 +24,14 @@
 </head>
 <body>
      
-                <div style="margin:50px;">
+                
                 <h1 class="itHead">TABLES</h1>
                   <input id="myInput2" type="text" onkeyup="myFunction2()"  placeholder="Search Table Status..">
 <br><br>
                 
                 <div class="scroll">
  
-      <table class="table table-striped table-hover" border="1" id="myTable2">
+      <table class="table table-striped table-hover" border="1" id="myTable2" style="background-color:white;">
          <thead class="thead-dark">
            <tr>
                <th scope="col">TableNO</th>
@@ -123,13 +123,13 @@
                         <div class="form-group row">
                             <div class="col-md-12 mb-2">
                                   <label for="Category" style="color:white;text-align:center;"><b>Capacity</b></label>
-	                              <input type="text" placeholder="Enter Capacity" name="capacity" class="form-control input-box rm-border" required>
+	                              <input type="number" placeholder="Enter Capacity" name="capacity" class="form-control input-box rm-border" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12 mb-2">
                                    <label for="Price" style="color:white;text-align:center;"><b>Price</b></label>
-	                               <input type="text" placeholder="Enter Price(Rs.)" name="price" class="form-control input-box rm-border" required>
+	                               <input type="number" placeholder="Enter Price(Rs.)" name="price" class="form-control input-box rm-border" required>
                             </div>
                         </div>
                         <div class="form-group row justify-content-center mb-0">

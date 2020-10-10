@@ -38,7 +38,7 @@
 		<%float cost =(Float)request.getAttribute("Amount"); %>
 	<div class="container" style="padding-top:100px;">
     <div class="page-header text-center">
-        <h1>Credit Card Payment Gateway</h1>
+        <h1>Payment Details</h1>
     </div>
     <!-- Credit Card Payment Form - START -->
     <div class="container">
@@ -47,28 +47,27 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <h3 class="text-center">Payment Details</h3>
                             <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
                         </div>
                     </div>
                     
-                    <h1 style="text-align:center">Total cost for all the rooms Booked</h1>
+                    <h1 style="text-align:center">Total Amount</h1>
                     <h3 style="text-align:center">Rs. <%=cost %> </h3>
                     <div class="panel-body">
                         <form role="form">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group"> <label>CARD NUMBER</label>
-                                        <div class="input-group"> <input type="tel" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                        <div class="input-group"> <input type="number" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-7 col-md-7">
-                                    <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="tel" class="form-control" placeholder="MM / YY" /> </div>
+                                    <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="number" class="form-control" placeholder="MM / YY" /> </div>
                                 </div>
                                 <div class="col-xs-5 col-md-5 pull-right">
-                                    <div class="form-group"> <label>CV CODE</label> <input type="tel" class="form-control" placeholder="CVC" /> </div>
+                                    <div class="form-group"> <label>CV CODE</label> <input type="number" class="form-control" placeholder="CVC" /> </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -80,7 +79,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-xs-12"> <button class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                            <div class="col-xs-12"><a href="Restaurant.jsp"><button id="pay" class="btn btn-success btn-lg btn-block" onClick="myFunction()">Confirm Payment</button></a></div>
                         </div>
                     </div>
                 </div>
@@ -90,5 +89,13 @@
 </div>
 
 	<%@include file="Footer.jsp" %>
+	
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  alert('Table Reserved');
+}
+</script>	
+	
 </body>
 </html>

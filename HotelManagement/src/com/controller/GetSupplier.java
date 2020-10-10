@@ -9,22 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.ExtraServiceImp;
+import com.model.Supplier;
+import com.service.ISupplier;
+import com.service.SupplierImpl;
+
 
 /**
- * Servlet implementation class DeleteGym
- */
-@WebServlet("/DeleteGym")
-public class DeleteGym extends HttpServlet {
+ * Servlet implementation class GetSupplier
+ */
+@WebServlet("/GetSupplier")
+public class GetSupplier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteGym() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public GetSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,11 +41,20 @@ public class DeleteGym extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id=(request.getParameter("id"));
-		ExtraServiceImp extra=new ExtraServiceImp();
-		extra.deletegympackage(id);
+		// TODO Auto-generated method stub
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
+		
+		String Supplier_ID = (request.getParameter("Supplier_ID"));
+		System.out.println(Supplier_ID);
+		ISupplier supplierImpl=new SupplierImpl();
+		Supplier supplier=new Supplier();
+		supplier=supplierImpl.GetSupplier(Supplier_ID);
+		
+		
+		
+		request.setAttribute("supplier", supplier);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EditSupplier.jsp");
 		dispatcher.forward(request, response);
 	}
 

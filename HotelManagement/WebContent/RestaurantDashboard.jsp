@@ -76,15 +76,15 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:red;height:800px;" id="Butt1"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
 			
-			<div style="background:black;height:800px;" id="Butt2"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
 			
-		<div style="background:blue;height:800px;" id="Butt3"></div> 
+		<div style="background:#8f9dd7;height:800px;" id="Butt3"></div> 
 		
-			<div style="margin-top:100px;height:800px;" id="Butt4"><%@include file="ListTables.jsp"%></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt4"><%@include file="ListTables.jsp"%></div>
 			
-			<div style="padding-top:100px;height:800px;" id="Butt5"><%@include file="ListItems.jsp"%></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt5"><%@include file="ListItems.jsp"%></div>
 
 			</div>
 		</div>

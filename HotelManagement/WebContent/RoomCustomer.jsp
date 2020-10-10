@@ -34,19 +34,19 @@
 		  </ol>
 			  <div class="carousel-inner se">
 				    <div class="carousel-item active">
-				      <img class="d-block w-100" src="images/roo1.jpg" alt="First slide">
+				      <img class="d-block w-100" src="images\root1.jpg" alt="First slide">
 				      <div class="carousel-caption d-none d-md-block">
 						  </div>
 				    </div>
 				    
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="images/roo2.jpg" alt="Second slide">
+				      <img class="d-block w-100" src="images\root2.jpg" alt="Second slide">
 				      <div class="carousel-caption d-none d-md-block">
 					  </div>
 				    </div>
 				    
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="images/roo3.jpg" alt="Third slide">
+				      <img class="d-block w-100" src="images\root3.jpg" alt="Third slide">
 				      <div class="carousel-caption d-none d-md-block">
 					  </div>
 				    </div>
@@ -108,17 +108,17 @@
             <div class="p-0 col-md-6">
                 <div class="carousel slide" data-ride="carousel" id="carousel1">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/eli1.jpg" alt="first slide">
+                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/elit1.jpg" alt="first slide">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">STANDARD ROOM</h3>
                             </div>
                         </div>
-                        <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="images/eli2.jpg" data-holder-rendered="true">
+                        <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="images/elit2.jpg" data-holder-rendered="true">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">PREMIUM ROOM</h3>
                             </div>
                         </div>
-                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/eli3.jpg" data-holder-rendered="true">
+                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/elit3.jpg" data-holder-rendered="true">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">ELITE ROOM</h3>
                             </div>

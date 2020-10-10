@@ -47,6 +47,8 @@ public class ReserveTable extends HttpServlet {
 		RestaurantImpl restaurantImpl=new RestaurantImpl();
 		
 		int rcustid=restaurantImpl.generateRcustid();
+		String[] tables=request.getParameterValues("tables");
+		float amount=0;
 		
 		rcustomer.setRCustomerID(rcustid);
 		rcustomer.setFullName(request.getParameter("fullname"));
@@ -55,12 +57,21 @@ public class ReserveTable extends HttpServlet {
 		rcustomer.setEmail(request.getParameter("email"));
 		
 		restaurantImpl.addRcustomer(rcustomer);
-		restaurantImpl.addTableReservation(rcustid);
 		
+		
+         for(int i=0;i<tables.length;i++){
+			
+			amount+=restaurantImpl.getTablePrice(Integer.parseInt(tables[i]));
+			
+		 } 
+		
+         
+        restaurantImpl.addTableReservation(rcustid,amount); 
 		int trid=restaurantImpl.getTableRid(rcustid);
 		
-		String[] tables=request.getParameterValues("tables");
+		
 		//List list=Arrays.asList(tables);
+		
 		
 		for(int i=0;i<tables.length;i++){
 			
@@ -68,8 +79,10 @@ public class ReserveTable extends HttpServlet {
 			
 		}
 		
-        request.setAttribute("value", "Table Reserved");
-		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/Restaurant.jsp");
+		
+		request.setAttribute("Amount", amount);
+        //request.setAttribute("value", "Table Reserved");
+		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/MakeTablePayment.jsp");
 		dispatcher.forward(request, response);
 		
 		

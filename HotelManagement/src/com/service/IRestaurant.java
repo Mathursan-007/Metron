@@ -38,13 +38,15 @@ public interface IRestaurant {
 	
 	public void reserveTable(int custid,int pid);
 	
-	public void addTableReservation(int rcustid);
+	public void addTableReservation(int rcustid,float amount);
 	
 	public void releaseTable(int tableno);
 	
 	public boolean checktime(Date date);
 	
 	public boolean checkItem(String name);
+	
+	public float getTablePrice(int tableno);
 	
 	
 	

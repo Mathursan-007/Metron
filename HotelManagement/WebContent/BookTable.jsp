@@ -46,8 +46,13 @@ $(document).ready(function () {
 </script>
 <script>
 function myFunction() {
+	
+	
+	
   if(document.getElementById("myCheck").checked= true){
             document.getElementById("btn").disabled = false;
+  }else{
+	  document.getElementById("btn").disabled = true;
   }
 }
 

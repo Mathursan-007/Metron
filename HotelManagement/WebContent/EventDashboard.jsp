@@ -93,28 +93,28 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:#003b58;height:800px;" id="Butt1"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
 			
 			
-			<div style="background:black;height:800px;" id="Butt2"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
 			
 			
-			<div style="background:#E6E6FA;height:800px;" id="Butt3"><%@include file="AddMealPlan.jsp"%></div> 
+			<div style="background:#8f9dd7;height:800px;" id="Butt3"><%@include file="AddMealPlan.jsp"%></div> 
 			
 				
-			<div style="background:#8fbc8f;height:1000px;" id="Butt4"><%@include file="ListMealPlan.jsp"%></div>
+			<div style="background:#8f9dd7;height:1000px;" id="Butt4"><%@include file="ListMealPlan.jsp"%></div>
 			
 			
-			<div style="background:#003b58;height:800px;" id="Butt5"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt5"></div>
 			
 			
-			<div style="background:black;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
 			
 			
-			<div style="background:#003b58;height:800px;" id="Butt7"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt7"></div>
 			
 			
-			<div style="background:black;height:800px;" id="Butt8"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt8"></div>
 
 			</div> 
 		</div>	

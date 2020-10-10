@@ -9,24 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Utility;
-import com.service.IUtility;
-import com.service.UtilityImpl;
+import com.model.Supplier;
+import com.service.ISupplier;
+import com.service.SupplierImpl;
 
 /**
- * Servlet implementation class AddUtility
- */
-@WebServlet("/AddUtility")
-public class AddUtility extends HttpServlet {
+ * Servlet implementation class AddSupplier
+ */
+@WebServlet("/AddSupplier")
+public class AddSupplier extends HttpServlet {
 private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddUtility() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 /**
 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,16 +42,18 @@ response.getWriter().append("Served at: ").append(request.getContextPath());
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-Utility utility = new Utility();
-utility.setPayment_ID(Integer.parseInt(request.getParameter("paymentID")));
-utility.setDescription(request.getParameter("description"));
-utility.setAmount(Float.parseFloat(request.getParameter("amount")));
-utility.setDate(request.getParameter("Date"));
+Supplier supplier = new Supplier();
+supplier.setSupplier_ID(request.getParameter("Supplier_ID"));
+supplier.setName(request.getParameter("Name"));
+supplier.setType(request.getParameter("Type"));
+supplier.setContact_No(request.getParameter("Contact_No"));
+supplier.setEmail(request.getParameter("Email"));
+supplier.setAddress(request.getParameter("Address"));
 
 
 
-IUtility iUtility = new UtilityImpl();
-iUtility.AddUtility(utility);
+ISupplier iSupplier = new SupplierImpl();
+iSupplier.AddSupplier(supplier);
 
 
 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");

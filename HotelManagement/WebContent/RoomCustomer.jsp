@@ -15,6 +15,10 @@
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
 <link rel="stylesheet" href="styles/RoomAvailability.css">
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+
 
 </head>
 <body>
@@ -34,19 +38,19 @@
 		  </ol>
 			  <div class="carousel-inner se">
 				    <div class="carousel-item active">
-				      <img class="d-block w-100" src="images\root1.jpg" alt="First slide">
+				      <img class="d-block w-100" src="images\roo1.jpg" alt="First slide">
 				      <div class="carousel-caption d-none d-md-block">
 						  </div>
 				    </div>
 				    
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="images\root2.jpg" alt="Second slide">
+				      <img class="d-block w-100" src="images\roo2.jpg" alt="Second slide">
 				      <div class="carousel-caption d-none d-md-block">
 					  </div>
 				    </div>
 				    
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="images\root3.jpg" alt="Third slide">
+				      <img class="d-block w-100" src="images\roo3.jpg" alt="Third slide">
 				      <div class="carousel-caption d-none d-md-block">
 					  </div>
 				    </div>
@@ -68,12 +72,12 @@
 			<form class="d-flex flex-row" action="./GetRoomCounts" method="post" >
 				<div class="form-group p-2 d-flex flex-row">
 					<label for="Check-in Date" class="p-2">Check-in Date : </label>
-			 		<input class="form-control p-2" type="date" id="by" name="checkIn" required>
+			 		<input class="form-control p-2" id="txtstartdate" name="checkIn" placeholder="Check-in date" required>
 				</div>
 				
 				<div class="form-group p-2 d-flex flex-row deq">
 					<label for="Check-in Date" class="p-2 d">Check-out Date : </label>
-			 		<input class="form-control p-2" type="date" name="checkOut" id="txtDate" required>
+			 		<input class="form-control p-2" name="checkOut" id="txtenddate" placeholder="Check-out date" required>
 			 		
 				</div>
 				
@@ -108,17 +112,17 @@
             <div class="p-0 col-md-6">
                 <div class="carousel slide" data-ride="carousel" id="carousel1">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/elit1.jpg" alt="first slide">
+                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/eli1.jpg" alt="first slide">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">STANDARD ROOM</h3>
                             </div>
                         </div>
-                        <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="images/elit2.jpg" data-holder-rendered="true">
+                        <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="images/eli2.jpg" data-holder-rendered="true">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">PREMIUM ROOM</h3>
                             </div>
                         </div>
-                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/elit3.jpg" data-holder-rendered="true">
+                        <div class="carousel-item"> <img class="d-block img-fluid w-100" src="images/eli3.jpg" data-holder-rendered="true">
                             <div class="carousel-caption">
                                 <h3 class="sivaSambo">ELITE ROOM</h3>
                             </div>
@@ -244,13 +248,7 @@
 	
 	<%@include file="Footer.jsp" %>
 
-	<script>
-	
-	var today = new Date().toISOString().split('T')[0];
-
-	document.getElementsByName("checkIn")[0].setAttribute('min', today);
-	document.getElementsByName("checkOut")[0].setAttribute('min', today);
-	
+	<script>	
 	var x = document.getElementById("moonus");
 	 x.style.display = "none";
 	  if (<%=roomCount!=null %>) {
@@ -260,7 +258,14 @@
 	  }
 	
 	
+	  $("#txtstartdate").datepicker({
+		  minDate: 0,
+		  onSelect: function(date) {
+		    $("#txtenddate").datepicker('option', 'minDate', date);
+		  }
+		});
 
+		$("#txtenddate").datepicker({});
 </script>
 
 		

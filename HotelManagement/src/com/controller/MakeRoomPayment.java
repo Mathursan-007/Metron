@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.GuestReservation;
+import com.model.RoomBill;
 import com.model.RoomGuest;
 import com.service.RoomImpl;
 
@@ -44,10 +45,13 @@ public class MakeRoomPayment extends HttpServlet {
 		
 		GuestReservation guestReservation=new GuestReservation();
 		RoomGuest roomGuest=new RoomGuest();
+		RoomBill roomBill= new RoomBill();
 		
 		RoomImpl roomimpl=new RoomImpl();
 		int GuestID=roomimpl.generateGuestID();
 		int ReservationID=roomimpl.generateReservationID();
+		int RoomBillID = roomimpl.generateBillId();
+		System.out.println("Reservation ID" + ReservationID);
 		
 		roomGuest.setHGuest_ID(GuestID);
 		roomGuest.setNIC(request.getParameter("NIC"));
@@ -67,6 +71,7 @@ public class MakeRoomPayment extends HttpServlet {
 		guestReservation.setHGuest_ID(GuestID);
 		
 		roomimpl.addReservation(guestReservation);
+		roomimpl.addResrvationInfo(guestReservation,roomGuest);
 		
 		for(int i=0;i<RoomNumbers.length;i++) {
 			roomimpl.addReservedRooms(ReservationID,RoomNumbers[i]);
@@ -78,9 +83,11 @@ public class MakeRoomPayment extends HttpServlet {
 		String checkin=request.getParameter("checkIn");
 		String checkout=request.getParameter("checkOut");
 		int type=Integer.parseInt(request.getParameter("type"));
+		int noOfRooms = RoomNumbers.length;
 		
+		s=roomimpl.getRoomCost(checkin, checkout, type, noOfRooms);
 		
-		
+		/*
 		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
 		 float daysBetween=0;
 
@@ -93,7 +100,7 @@ public class MakeRoomPayment extends HttpServlet {
 	                * float daysBetween = 
 	                *         TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS)
 	                */
-		       System.out.println("Number of Days between dates: "+daysBetween);
+		   /*    
 		 } catch (Exception e) {
 		       e.printStackTrace();
 		 }
@@ -104,9 +111,18 @@ public class MakeRoomPayment extends HttpServlet {
 			 s=15000*daysBetween*RoomNumbers.length;
 		 } else {
 			 s=25000*daysBetween*RoomNumbers.length;
-		 }
+		 } */
+		
+		System.out.println("Amount : "+s);
 		 
-		 System.out.println(s);
+		 roomBill.setBill_ID(RoomBillID);
+		 roomBill.setBill_Type("Room Booking");
+		 roomBill.setAmount(s);
+		 roomBill.setRoom_RID(ReservationID);
+		 
+		 roomimpl.addBill(roomBill);
+		 
+		 
 		 
 		request.setAttribute("Amount", s);
 		

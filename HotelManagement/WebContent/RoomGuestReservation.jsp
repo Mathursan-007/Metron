@@ -65,7 +65,7 @@
 					<br>
 					
 					<div class="form-group">
-			            <input class="form-control" type="text" name="NIC" placeholder="Enter NIC/Passport number" pattern="[0-9]{9}[V]{1}"  title="9 digits and V " required>
+			            <input class="form-control" type="text" name="NIC" placeholder="Enter NIC/Passport number" pattern="(([0-9]{9}[V]{1})|([0-9]{12}))"  title="9 digits and V or 12 digits" required>
 		            </div>
 		            
 		            <div class="form-group">
@@ -106,7 +106,7 @@
 		            
 		            <div class="form-group">
 		            	<label for="Check-in Date" class="p-2">Enter number of guests: </label>
-			            <input class="form-control" type="text" name="MaxGuests"  required>
+			            <input class="form-control" type="text" name="MaxGuests" required>
 		            </div>
 		            
 		            <input class="btn btn-success" type="submit" value="Make reservation">

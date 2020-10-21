@@ -2,12 +2,34 @@ package com.model;
 
 public class GuestReservation {
 	private int Room_RID;
+	private int CID;
 	private int No_Of_Rooms;
 	private int No_Of_Guests;
 	private String CheckIn;
 	private String CheckOut_Date;
 	private int HGuest_ID;
+	private String fullName;
+	private float bill;
 	
+	
+	public float getBill() {
+		return bill;
+	}
+	public void setBill(float bill) {
+		this.bill = bill;
+	}
+	public int getCID() {
+		return CID;
+	}
+	public void setCID(int cID) {
+		CID = cID;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 	public int getRoom_RID() {
 		return Room_RID;
 	}

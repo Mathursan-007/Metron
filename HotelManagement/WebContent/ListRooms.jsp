@@ -43,10 +43,10 @@
 		      <tbody class="hovEvent">
 		        
 			          <%
-		              IRoom iroomservice=new RoomImpl();
+		              IRoom iroomservice2=new RoomImpl();
 		              ArrayList<Room> Rooms=new ArrayList<>();
 		              
-		              Rooms=iroomservice.listRooms();
+		              Rooms=iroomservice2.listRooms();
 		              
 		              if(Rooms.isEmpty()) { %>
 		            	  
@@ -113,9 +113,9 @@
 		            <div class="form-group">
 		            	<select class="form-control" name="roomType" id="" required>
 						    <option value="">--Please choose the room type--</option>
-						    <option value="1">Standard Room</option>
+						    <option value="1">Elite Room</option>
 						    <option value="2">Platinum Room</option>
-						    <option value="3">Elite Room</option>
+						    <option value="3">Standard Room</option>
 						</select>
 		            </div>
 		            

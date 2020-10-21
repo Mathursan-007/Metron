@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>RoomDashboard</title>
+		<title>Dashboard</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,7 +12,6 @@
 		
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-			<script src="scripts/nav.js"></script>
 		  
 		
 		
@@ -56,8 +55,8 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-users fa-fw"></i> View Reservations</a>
-			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-eye fa-fw"></i>  Checked In Guests</a>
+			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-users fa-fw"></i> Guest Reservations</a>
+			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-suitcase fa-fw"></i>  Checked-in Guests</a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-bed fa-fw"></i>  Room Details</a>
 			    <a href="#Butt5" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-pencil-square-o fa-fw"></i>  Edit Room</a>
 			    
@@ -77,22 +76,22 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
+			<div style="background:red;height:800px;" id="Butt1"><%@include file="ListReservationDetails.jsp" %></div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
+			<div style="background:black;height:800px;" id="Butt2"><%@include file="ListCheckInGuests.jsp" %></div>
 			
 			
 			
-			<div style="background:#8f9dd7;" id="Butt3"><%@include file="ListRooms.jsp" %></div>
+			<div id="Butt3"><%@include file="ListRooms.jsp" %></div>
 			
 			
 				
-			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
+			<div style="background:green;height:800px;" id="Butt4"></div>
 			
 			
-			<div style="background:#8f9dd7;" id="Butt5"> <%@include file="GetRoom.jsp" %></div>
+			<div  id="Butt5"> <%@include file="GetRoom.jsp" %></div>
 
 			</div> 
 		</div>
@@ -109,6 +108,11 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 		} else if(i==2) {
 			alert("The room you're trying to delete is reserved by a customer");
 			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt3';
+		} else if(i==3) {
+			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt1';
+		} else if(i==4) {
+			alert("The guest was successfully checked out");
+			window.location.href = 'FrontDeskRoomDashboard.jsp#Butt2';
 		}
 		
 		</script>

@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Room;
+import com.model.GuestReservation;
 import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetRoomCounts
+ * Servlet implementation class RoomCheckIn
  */
-@WebServlet("/GetRoomCounts")
-public class GetRoomCounts extends HttpServlet {
+@WebServlet("/RoomCheckIn")
+public class RoomCheckIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetRoomCounts() {
+    public RoomCheckIn() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,26 +39,23 @@ public class GetRoomCounts extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Room room=new Room();
 		RoomImpl roomimpl=new RoomImpl();
+		GuestReservation guestReservation = new GuestReservation();
 		
-		String checkIn=roomimpl.convertDate(request.getParameter("checkIn"));
-		String checkOut=roomimpl.convertDate(request.getParameter("checkOut"));
+		int CID=roomimpl.generateCID();
 		
-		
-		
-		room.setCheckIn(checkIn);
-		room.setCheckOut(checkOut);
-		room.setStandardRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,1));
-		room.setPremiumRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,2));
-		room.setEliteRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,3));
+		guestReservation = roomimpl.getReservation(Integer.parseInt(request.getParameter("rrid")));
+		guestReservation.setFullName(request.getParameter("fullName"));
 		
 		
+		guestReservation.setCID(CID);
 		
-		request.setAttribute("room", room);
+		roomimpl.addCheckedInDetails(guestReservation);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RoomCustomer.jsp");
+		request.setAttribute("value", 3);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskRoomDashboard.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 
 }

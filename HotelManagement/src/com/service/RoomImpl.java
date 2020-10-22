@@ -708,9 +708,12 @@ public class RoomImpl implements IRoom {
 	                * float daysBetween = 
 	                *         TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS)
 	                */
-		       
 		 } catch (Exception e) {
 		       e.printStackTrace();
+		 }
+		 
+		 if(daysBetween==0) {
+			 daysBetween=1;
 		 }
 		 
 		 if(type==1) {

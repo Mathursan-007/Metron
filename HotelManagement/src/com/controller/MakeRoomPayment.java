@@ -113,8 +113,6 @@ public class MakeRoomPayment extends HttpServlet {
 			 s=25000*daysBetween*RoomNumbers.length;
 		 } */
 		
-		System.out.println("Amount : "+s);
-		 
 		 roomBill.setBill_ID(RoomBillID);
 		 roomBill.setBill_Type("Room Booking");
 		 roomBill.setAmount(s);

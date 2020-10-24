@@ -9,23 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Inventory;
-import com.model.Room;
 import com.service.IInventory;
 import com.service.InventoryImpl;
-import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetAsset
+ * Servlet implementation class DeleteInflow
  */
-@WebServlet("/GetAsset")
-public class GetAsset extends HttpServlet {
+@WebServlet("/DeleteInflow")
+public class DeleteInflow extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAsset() {
+    public DeleteInflow() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,16 +40,16 @@ public class GetAsset extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String AssetID = request.getParameter("assetID");
+		int goodReqNo=Integer.parseInt(request.getParameter("goodRecNo"));
 		IInventory inventoryImpl=new InventoryImpl();
-		Inventory inventory=new Inventory();
-		inventory=inventoryImpl.getAsset(AssetID);
+		inventoryImpl.deleteInflowDetail(goodReqNo);
 		
+		request.setAttribute("value", 5);
+
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
+		dispatcher.forward(request, response);	
 		
-		request.setAttribute("inventory", inventory);
-		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EditAsset.jsp");
-		dispatcher.forward(request, response);
 	}
+	
 
 }

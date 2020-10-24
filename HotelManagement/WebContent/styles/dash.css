@@ -20,13 +20,13 @@ margin-top:-5%;
 
 .card-container
 {
-width: 1200px;
-/*height: 400px;*/
+width: 1150px;
+/*height: 660px;*/
 background: #fff;
 border-radius: 6px;
 position: absolute;
-margin-top:90px;
-margin-left:15px;
+margin-top:100px;
+margin-left:40px;
 box-shadow: 0px 1px 10px 1px #000;
 overflow: hidden;
 display: inline-block;
@@ -35,16 +35,20 @@ display: inline-block;
 .upper-container
 {
 width:1200px;
-height: 110px;
-background: #ff8080;
+height: 80px;
+background: #ffffff;
+/*border: 1px solid #000000;*/
+}
+hr.new1 {
+  border-bottom: 2px solid #000000;
 }
 
 .lower-container
 {
-height: 900px;
+height: 800px;
 background: #ffffff;
 padding: 20px;
-padding-top: 80px;
+padding-top: 70px;
 }
 
 	
@@ -60,20 +64,20 @@ button {
 	font-family:'Roboto', sans-serif;
 	font-style:italic;
 	font-weight:200;
-	color:#ffffff;
-	background-color:#1c2e4a;
+	color:#000000;
+	background-color:#c0c0c0;
 	box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
 	text-align:center;
 	position:relative;
 	cursor:pointer;
-	transform: translate(15%, 80%);
+	transform: translate(15%, 70%);
 }
 
 button:active{
 	top:0.1em;
 }
 button:hover{
-	background:#c0c0c0;
+	background:#ffffff;
 	color:#262626;
 }
 
@@ -93,13 +97,16 @@ tr, td{
 	font-family:cursive;
 	color:black;
 	font-size:19px;
+	text-align:center;
+	
 }
 
-tbody, thead{
-text-align:center;
+th{
+	background:#000000;
+	color:#ffffff;
 }
 
-input[type=submit]{
+/*input[type=submit]{
 	display:inline-block;
 	border-radius:0.15em;
 	box-sizing:border-box;
@@ -123,12 +130,130 @@ input[type=submit]:active{
 input[type=submit]:hover{
 	background:#c0c0c0;
 	color:#262626;
+}*/
+
+
+/*#myInput {
+  box-sizing: border-box
+  background-image: url('searchIcon2.png');
+  background-position: 50px 40px;
+  background-repeat: no-repeat;
+  width: 18%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  transform: translate(15%, 70%);
+  margin-left:57%;
+}*/
+
+.btnConfirm {
+  background-color: #008040;
+  border: none;
+  color: #ffffff;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+    transform: translate(0%, 0%);
+  
 }
 
-tr:nth-child(odd){
-	background:#ffffff;
+.btnConfirm:hover {
+  background-color: RoyalBlue;
 }
 
-tr:nth-child(even){
-	background:#ffffff;
+.btnCancel {
+  background-color: #ff0000;
+  border: none;
+  color: #ffffff;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: translate(0%, 0%);
+  
+  
+}
+
+.btnCancel:hover {
+  background-color: RoyalBlue;
+}
+
+.input-container {
+  display: flex;
+  width: 25%;
+  margin-bottom: 15px;
+  transform: translate(275%, -50%);
+}
+
+.input-containerTrans{
+	  display: flex;
+  width: 25%;
+  margin-bottom: 15px;
+  transform: translate(275%, -325%);
+}
+
+.input-containerIssue{
+	display: flex;
+  width: 25%;
+  margin-bottom: 15px;
+  transform: translate(275%, 50%);
+}
+/* Style the form icons */
+.icon {
+  padding: 15px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  font-size:20px;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+    border: 3px solid dodgerblue;
+  
+}
+
+.input-field:focus {
+  border: 3px solid #072F5F;
+}
+
+.cal{
+  transform: translate(2%, 30%);
+}
+.cal h5{
+	color:#000000;
+}
+
+.cl{
+	transform: translate(55%, -110%);
+	width:150px;
+	padding-left:20px;
+	border: 3px solid dodgerblue;
+	
+}
+
+.cal2{
+  transform: translate(2%, 10%);
+}
+.cal2 h5{
+	color:#000000;
+}
+
+
+.calBut{
+	transform: translate(23%, -165%);
+	text-style:bold;
+	
+}
+
+.cl3{
+	transform: translate(350%, -300%);
+	width:100px;
+	text-align:center;
+	border: 3px solid dodgerblue;
 }

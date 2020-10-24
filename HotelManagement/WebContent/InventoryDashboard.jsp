@@ -15,7 +15,25 @@
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 			<script src="scripts/nav.js"></script>
-		
+
+<script>
+        window.location.href = 'InventoryDashboard.jsp#Butt1';
+        var i=${value};
+       
+        if(i==1){
+            window.location.href = 'InventoryDashboard.jsp#Butt2';
+        }else if(i==2) {
+            window.location.href = 'InventoryDashboard.jsp#Butt3';
+        }else if(i==3) {
+            window.location.href = 'InventoryDashboard.jsp#Butt4';
+        }else if(i==4) {
+            window.location.href = 'InventoryDashboard.jsp#Butt5';
+        }else if(i==5) {
+            window.location.href = 'InventoryDashboard.jsp#Butt6';
+        }
+       
+</script>
+        	
 <style>
 .vidya{
 background: rgb(190,189,203);
@@ -65,8 +83,9 @@ if(i==2){
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Department Store</a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-level-down" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp      Low Stocks</a>
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-check-square" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Purchase Order</a>
-			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Outflows</a>
+			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Issued Details</a>
 			    <a href="#Butt6" id="test6" class="w3-bar-item w3-button w3-padding" onclick="button6()"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Inflows</a>
+			    <a href="#Butt7" id="test7" class="w3-bar-item w3-button w3-padding" onclick="button7()"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp Transaction</a>
 			    			  
 			  </div>
 			</nav>
@@ -79,27 +98,41 @@ if(i==2){
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1">		
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt1">	
 			<%@include file="NewStock.jsp" %>
 			</div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2">
-			
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt2">
+			<%@include file="DepartmentStock.jsp" %>
 			</div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt3"></div>
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt3">
+			<%@include file="LowStock.jsp" %>
+			</div>
 			
 			
 				
-			<div style="background:#8f9dd7;height:800px;" id="Butt4"></div>
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt4">
+			<%@include file="PurcharseOrder.jsp" %>
+			</div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt5"></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt5">
+			<%@include file="IssuedDetails.jsp" %>
+			</div>
+			
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt6">
+			<%@include file="InventoryInflow.jsp" %>
+			
+			</div>
+			
+			<div style="background:#8f9dd7;height:800px;transform: translate(0%, -11%);" id="Butt7">
+			<%@include file="InventoryTransaction.jsp" %>
+			</div>
 			
 
 			</div> 

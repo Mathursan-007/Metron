@@ -8,19 +8,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>My Profile</title>
+<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
+<title>New Stocks</title>
 
 <link rel="stylesheet" href="styles/dash.css" />
 <script src="https://kit.fontawesome.com/yourcode.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 <style>
 .tbs{
-       width: 100%;
-       height:550px;
-  overflow: auto;    
+    width: 100%;
+    height:40px;
+  	overflow: auto;    
                 
 }
+
+
 </style>
 </head>
 <body class="bt">
@@ -32,7 +46,14 @@
 <div class = "card-container">
 <div class = "upper-container">
 
-		<a href="AddAssets.jsp" class="button"><button>Add New Asset</button></a>
+		<a href="AddAssets.jsp" class="button"><button class="btn btn-success" style="margin-top:10px;">Add New Asset</button></a>
+			<a href="InventoryPDF.jsp" class="button"><button class="btn btn-info" style="margin-top:10px;">Print Report</button></a>
+		
+		
+		<div class="input-container">
+		<i class="fa fa-search icon"></i>
+		<input class="input-field" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+		</div>
 
 
 </div>
@@ -45,21 +66,22 @@
 
 <h2>List of Assets</h2>
 
+
 <table class = "table">
 <thead>
 <tr>
 <th>Asset ID</th>
 <th>Asset Name</th>
-<th>Minimum Quantity</th>
-<th>Available Quantity</th>
-<th>Total Quantity</th>
+<th>Safety Stock Level</th>
+<th>Available Stock</th>
+<th>Total Received Stock</th>
 <th></th>
 <th>Action</th>
 <th></th>
 </tr>
-</thead>
 
-<tbody>
+</thead>
+<tbody id="myTable">
 
 	          <%
               IInventory inventory = new InventoryImpl();
@@ -78,27 +100,31 @@
                <td><%=assets.getTotalQuantity() %></td>
                <td>
                
-               <input type="submit" value="Issue">
+               <form action="./GetIssue" method="post">
+               <input type="hidden" name="assetID" value="<%=assets.getAssetID() %>">
+               <input type="submit" class="btn btn-info" value="Issue">
+               </form>
                </td>
                <td>
 			   <form action="./GetAsset" method="post">
 			   <input type="hidden" name="assetID" value="<%=assets.getAssetID() %>">
-			   <input type="submit" class="btn-btn-primary"  value="Edit">
+			   <input type="submit" class="btn btn-primary"  value="Edit">
 			   </form>
 			   </td>
 			   <td>
 			   <form action="./DeleteAsset" method="post">
                <input type="hidden" name="assetID" value="<%=assets.getAssetID() %>">
-               <input type="submit" value="Delete">
+               <input type="submit" class="btn btn-danger" value="Delete">
                </form>
                </td>
             </tr>
             <%} %>
-        
-
-      </tbody>
-      
+            
+	</tbody>
+              
     </table>
+    
+ 
 </div>
 
 

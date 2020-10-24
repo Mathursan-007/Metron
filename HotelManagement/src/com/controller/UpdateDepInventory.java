@@ -9,23 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.DepInventory;
 import com.model.Inventory;
-import com.model.Room;
 import com.service.IInventory;
 import com.service.InventoryImpl;
-import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetAsset
+ * Servlet implementation class UpdateDepInventory
  */
-@WebServlet("/GetAsset")
-public class GetAsset extends HttpServlet {
+@WebServlet("/UpdateDepInventory")
+public class UpdateDepInventory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAsset() {
+    public UpdateDepInventory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,16 +42,20 @@ public class GetAsset extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String AssetID = request.getParameter("assetID");
+		DepInventory inventory=new DepInventory();
+		
 		IInventory inventoryImpl=new InventoryImpl();
-		Inventory inventory=new Inventory();
-		inventory=inventoryImpl.getAsset(AssetID);
 		
+		inventory.setDepAssetID(request.getParameter("assetID"));
+		inventory.setAssetName(request.getParameter("assetName"));
+		inventory.setCategory(request.getParameter("category"));
+		inventory.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+				
+		inventoryImpl.updateDepInventory(inventory);
 		
-		request.setAttribute("inventory", inventory);
-		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EditAsset.jsp");
-		dispatcher.forward(request, response);
-	}
+		request.setAttribute("value", 1);
+
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
+		dispatcher.forward(request, response);	}
 
 }

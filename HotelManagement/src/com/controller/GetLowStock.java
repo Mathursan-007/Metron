@@ -10,22 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Inventory;
-import com.model.Room;
 import com.service.IInventory;
 import com.service.InventoryImpl;
-import com.service.RoomImpl;
 
 /**
- * Servlet implementation class GetAsset
+ * Servlet implementation class GetLowStock
  */
-@WebServlet("/GetAsset")
-public class GetAsset extends HttpServlet {
+@WebServlet("/GetLowStock")
+public class GetLowStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAsset() {
+    public GetLowStock() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,13 +44,12 @@ public class GetAsset extends HttpServlet {
 		String AssetID = request.getParameter("assetID");
 		IInventory inventoryImpl=new InventoryImpl();
 		Inventory inventory=new Inventory();
-		inventory=inventoryImpl.getAsset(AssetID);
-		
+
+		inventory=inventoryImpl.getLowStock(AssetID);
 		
 		request.setAttribute("inventory", inventory);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EditAsset.jsp");
-		dispatcher.forward(request, response);
-	}
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/OrderForm.jsp");
+		dispatcher.forward(request, response);	}
 
 }

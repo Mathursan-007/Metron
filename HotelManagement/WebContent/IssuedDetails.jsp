@@ -1,0 +1,120 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page import="com.service.IInventory" %>  
+<%@ page import="com.service.InventoryImpl"%>   
+<%@ page import="com.model.InventoryIssue" %>  
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Issued Details</title>
+
+<link rel="stylesheet" href="styles/dash.css" />
+<script src="https://kit.fontawesome.com/yourcode.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#myInput5").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable5 tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<style>
+.tbs{
+    width: 100%;
+    height:550px;
+  	overflow: auto;    
+                
+}
+</style>
+</head>
+<body class="bt">
+
+
+<section></section>
+
+
+<div class = "card-container">
+<div class = "upper-container">
+
+
+		<div class="input-containerIssue">
+		<i class="fa fa-search icon"></i>
+		<input class="input-field" type="text" id="myInput5" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+		</div>
+
+</div>
+
+<div class = "lower-container tbs">
+
+<div class = "row justify-content-center">
+
+
+
+<h2>Issue Details</h2>
+
+<table class = "table">
+<thead>
+<tr>
+<th>Dep Req No</th>
+<th>Asset ID</th>
+<th>Asset Name</th>
+<th>Quantity</th>
+<th>Dep Asset ID</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="myTable5">
+
+	          <%
+              IInventory issuedInventoryImpl = new InventoryImpl();
+              ArrayList<InventoryIssue> issueInventory=new ArrayList<>();
+              
+              issueInventory = issuedInventoryImpl.issuedDetails();
+             
+             for(InventoryIssue assets:issueInventory){ %>
+            <tr>
+               <td><%=assets.getReqNo() %> </td> 
+            
+               <td><%=assets.getAssetID() %> </td> 
+               
+               <td><%=assets.getAssetName() %></td> 
+              
+               <td><%=assets.getQuantity() %></td>
+               
+               <td><%=assets.getDepAssetID() %></td>
+                      
+               <td><%=assets.getDate() %></td> 
+               
+               <td>
+               <form action="./DeleteIssue" method="post">
+               <input type="hidden" name="depReqNo" value="<%=assets.getReqNo() %>">
+               <input type="submit" class="btn btn-danger" value="Delete">
+               </form>
+               </td>
+      
+            </tr>
+            <%} %>
+        
+
+      </tbody>
+
+
+
+    </table>
+</div>
+
+
+</div>
+</div>
+
+</body>
+</html>

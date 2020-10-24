@@ -9,14 +9,13 @@
 </head>
 <body>
 
-
-  				<form method="post" action="./AddInventory" >
+  		<form method="post" action="./AddInventoryRequest" >
   				
   		<div class = "asset">
 					
   			<div class="form-group">
   			
-  					<h2>Add New Asset</h2>
+  					<h2>Request Order</h2>
   			
       			<label for="AssetID"> Asset ID : </label>
      		 	<input type="text" class="form-control" id="assetID" placeholder="Asset ID" pattern="[R/E/S][M/E/P/V][0-9][0-9][0-9][0-9]" name="assetID" required>
@@ -24,17 +23,12 @@
      		 	<label for="AssetName"> Asset Name : </label>
      		 	<input type="text" class="form-control" id="assetName" placeholder="Asset Name" name="assetName" required>
      		 	<br><br><br>
-     		 	<label for="MinQuantity"> Safety Stock Level : </label>
-     		 	<input type="number" class="form-control" id="minQuantity" placeholder="0" name="minQuantity" required>
+     		 	<label for="Quantity"> Quantity : </label>
+     		 	<input type="number" class="form-control" id="quantity" placeholder="0" name="quantity" required>
      		 	<br><br><br>
-     		 	<label for="AvailableQuantity"> Available Stock : </label>
-     		 	<input type="number" class="form-control" id="availableQuantity" placeholder="0" name="availableQuantity" required>
-     		 	<br><br><br>
-     		 	<label for="TotalQuantity"> Total Received Stock : </label>
-     		 	<input type="number" class="form-control" id="totalQuantity" placeholder="0" name="totalQuantity" required>
      		 	
      		 	    		<br><br>
-            <input type="submit" value="ADD" class="button">
+            <input type="submit" value="Submit" class="button">
     		</div>
     	 </div>
     	    

@@ -11,8 +11,37 @@ public class Inventory {
 	private int AvailableQuantity;
 	
 	private int TotalQuantity;
+
+	private int ReqNo;
 	
+	private String Date;
 	
+
+
+	public int getReqNo() {
+		return ReqNo;
+	}
+
+
+
+	public void setReqNo(int reqNo) {
+		ReqNo = reqNo;
+	}
+
+
+
+	public String getDate() {
+		return Date;
+	}
+
+
+
+	public void setDate(String date) {
+		this.Date = date;
+	}
+
+
+
 	public String getAssetID() {
 		return AssetID;
 	}
@@ -35,7 +64,7 @@ public class Inventory {
 		AssetName = assetName;
 	}
 
-
+	
 
 	public int getMinQuantity() {
 		return MinQuantity;

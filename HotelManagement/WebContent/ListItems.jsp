@@ -21,7 +21,7 @@
 <body class="vee">
 	
 	
-	<h1 class="itHead">ITEMS</h1>
+	<h1 class="itHead"  style="padding-top:100px;">ITEMS</h1>
 	<input id="myInput1" type="text" onkeyup="myFunction1()"  placeholder="Search Item..">
 <br><br>
 	
@@ -77,7 +77,7 @@
      </table>
      </div>
      
-<button class="btn btn-success" id="myBtn1" style="margin:0;position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>   Add Item</button>
+<button class="btn btn-success" id="myBtn1" style="margin-top:20px;position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>   Add Item</button>
 <!-- The Modal -->
 <div id="myModal1" class="modal" id="myForm1">
 

@@ -61,9 +61,9 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding" onclick="button1()"><i class="fa fa-paste"></i> KOT</a>
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-credit-card"></i> POS</a>
-			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-hand-grab-o"></i>  Reservations</a>
+			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-hand-grab-o"></i> Pending Orders</a>
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-list"></i> Tables</a>
-			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-cutlery"></i> Items</a>
+			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-utensils"></i> Items</a>
 			   
 			  </div>
 			</nav>
@@ -76,13 +76,13 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt1"><%@include file="KOT.jsp"%></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
+			<div style="background:#8f9dd7;height:1000px;" id="Butt2"><%@include file="POS.jsp"%></div>
 			
-		<div style="background:#8f9dd7;height:800px;" id="Butt3"></div> 
+		   <div style="background:#8f9dd7;height:1000px;" id="Butt3"><%@include file="ListCurrentOrder.jsp"%></div>
 		
-			<div style="background:#8f9dd7;height:800px;" id="Butt4"><%@include file="ListTables.jsp"%></div>
+			<div style="background:#8f9dd7;height:900px;" id="Butt4"><%@include file="ListTables.jsp"%></div>
 			
 			<div style="background:#8f9dd7;height:800px;" id="Butt5"><%@include file="ListItems.jsp"%></div>
 
@@ -125,6 +125,31 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			alert('Item updated');
 		    window.location.href = 'RestaurantDashboard.jsp#Butt5'; 
 		
+		}else if(i=="Item updated"){
+			
+			alert('Item updated');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt5'; 
+		
+		}else if(i=="Invalid Amount"){
+			
+			alert('Invalid Amount');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt2'; 
+		
+		}else if(i=="Payment added"){
+			
+			alert('Payment done Successfully');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt2'; 
+		
+		}else if(i=="Already Paid"){
+			
+			alert('Already Paid');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt2'; 
+			
+		}else if(i=="Order deleted"){
+			
+			alert('Order Canceled');
+		    window.location.href = 'RestaurantDashboard.jsp#Butt3'; 
+			
 		}
 		
 				

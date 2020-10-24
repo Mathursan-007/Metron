@@ -25,13 +25,13 @@
 <body>
      
                 
-                <h1 class="itHead">TABLES</h1>
-                  <input id="myInput2" type="text" onkeyup="myFunction2()"  placeholder="Search Table Status..">
+                <h1 class="itHead" style="padding-top:100px;" >TABLES</h1>
+                  <input id="myInput2" type="text" onkeyup="myFunction2()" style="margin-top:50px;" placeholder="Search Table Status..">
 <br><br>
                 
                 <div class="scroll">
  
-      <table class="table table-striped table-hover" border="1" id="myTable2" style="background-color:white;">
+      <table class="table table-striped table-hover" border="1" id="myTable2" style="background-color:white;left-margin:20px;">
          <thead class="thead-dark">
            <tr>
                <th scope="col">TableNO</th>
@@ -95,7 +95,7 @@
      </div>
      
     
-<button class="btn btn-success" id="myBtn" style="margin-top:10px;position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>Add Table</button>
+<button class="btn btn-success" id="myBtn" style="position:relative;left: 45%;"><i class="fa fa-plus" aria-hidden="true"></i>Add Table</button>
 
 <div id="myModal" class="modal" id="myForm">
 

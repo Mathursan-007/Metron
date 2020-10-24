@@ -64,6 +64,7 @@
 	Font fReservation = new Font(Font.FontFamily.COURIER, 15, Font.NORMAL);
 	
 	String txtReservation="Reservation ID : ";
+	
 	Paragraph p2 = new Paragraph(txtReservation,fReservation);
 	p2.setSpacingBefore(30); //leave space before
 	

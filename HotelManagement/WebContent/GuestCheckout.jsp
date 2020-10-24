@@ -58,7 +58,7 @@
 
 </head>
 <body class="csd">
-	<%@include file="Header.jsp" %>
+	<%@include file="Header2.jsp" %>
 	
 	<h1  style="margin-top:150px;text-align:center;font-size: 35px;">Check-out Details </h1>  <br>
 	

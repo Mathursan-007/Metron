@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.model.Item;
+import com.model.Order;
 import com.model.RestaurantCustomer;
 import com.model.Table;
+import com.model.TableReservation;
 
 public interface IRestaurant {
 	
@@ -48,6 +50,25 @@ public interface IRestaurant {
 	
 	public float getTablePrice(int tableno);
 	
+	public int generateOrderid();
+	
+	public void addOrder(int orderid,String Type,int rcustid);
+	
+	public ArrayList<Order> listOrders();
+	
+	public float getItemPrice(int itemno);
+	
+	public void AddItemToOrder(int orderid,int itemno,int qty,float subtot);
+	
+	public ArrayList<Item> printbill(int orderid);
+	
+	public void addOrderPayment(int orderid,float amount,String type);
+	
+	public boolean checkOrderStatus(int orderid);
+	
+	public void deleteOrder(int orderid);
+	
+	public void addGuestOrder(int orderid,int rreservationid,float amount,int billno);
 	
 	
 

@@ -6,7 +6,14 @@ public class Item {
 	private String name;
 	private String category;
 	private float price;
+	private int qty;
 	
+	public int getQty() {
+		return qty;
+	}
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
 	public int getItemno() {
 		return Itemno;
 	}

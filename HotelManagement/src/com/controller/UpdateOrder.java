@@ -1,8 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Item;
+import com.model.Order;
 import com.model.RestaurantCustomer;
 import com.service.RestaurantImpl;
 
 /**
- * Servlet implementation class ReserveTable
+ * Servlet implementation class UpdateOrder
  */
-@WebServlet("/ReserveTable")
-public class ReserveTable extends HttpServlet {
+@WebServlet("/UpdateOrder")
+public class UpdateOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReserveTable() {
+    public UpdateOrder() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,46 +47,45 @@ public class ReserveTable extends HttpServlet {
 		RestaurantCustomer rcustomer=new RestaurantCustomer();
 		RestaurantImpl restaurantImpl=new RestaurantImpl();
 		
-		int rcustid=restaurantImpl.generateRcustid();
-		String[] tables=request.getParameterValues("tables");
-		float amount=0;
-		
-		rcustomer.setRCustomerID(rcustid);
-		rcustomer.setFullName(request.getParameter("fullname"));
-		rcustomer.setNIC(request.getParameter("nic"));
-		rcustomer.setPhoneNo(request.getParameter("phone"));
-		rcustomer.setEmail(request.getParameter("email"));
-		
-		restaurantImpl.addRcustomer(rcustomer);
-		
-		 
-         for(int i=0;i<tables.length;i++){
-			
-			amount+=restaurantImpl.getTablePrice(Integer.parseInt(tables[i]));
-			
-		 } 
-		
-         
-        restaurantImpl.addTableReservation(rcustid,amount); 
-		int trid=restaurantImpl.getTableRid(rcustid);
+		String[] qty=request.getParameterValues("qts");
+		String[] item=request.getParameterValues("items");
+	    int orderid=Integer.parseInt(request.getParameter("orderid"));
 		
 		
-		//List list=Arrays.asList(tables);
+		Order order=new Order();
+		order.setOrderID(orderid);
 		
 		
-		for(int i=0;i<tables.length;i++){
-			
-			restaurantImpl.reserveTable(trid, Integer.parseInt(tables[i]));
-			
+        ArrayList<Item> items=new ArrayList<Item>();
+        
+        
+		int j=0;
+		
+		for(int i=0;i<item.length;i++) {
+		  
+			 Item it=new Item();
+			 
+			 while(Integer.parseInt(qty[j])==0) {
+				 j++;
+			 }
+			 
+			 float price=restaurantImpl.getItemPrice(Integer.parseInt(item[i]));
+	         restaurantImpl.AddItemToOrder(orderid,Integer.parseInt(item[i]),Integer.parseInt(qty[j]),Integer.parseInt(qty[j])*price);
+	         
+	         it.setName(restaurantImpl.getItem(Integer.parseInt(item[i])).getName());
+	         it.setQty(Integer.parseInt(qty[j]));
+	         items.add(it);
+	        
+	         j=j+1;
+		
 		}
 		
+		order.setItems(items);
 		
-		request.setAttribute("Amount", amount);
-        //request.setAttribute("value", "Table Reserved");
-		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/MakeTablePayment.jsp");
+		request.setAttribute("order",order);
+		RequestDispatcher dispatcher=request.getServletContext().getRequestDispatcher("/PrintUpdatedOrder.jsp");
 		dispatcher.forward(request, response);
-		
-		
+	
 	}
 
 }

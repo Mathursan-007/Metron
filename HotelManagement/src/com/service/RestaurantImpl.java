@@ -2,6 +2,7 @@ package com.service;
 
 import java.sql.CallableStatement;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,9 +11,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.model.Item;
+import com.model.Order;
 import com.model.RestaurantCustomer;
 import com.model.Table;
+import com.model.TableReservation;
 import com.util.DBConnection;
+
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -552,10 +558,368 @@ public class RestaurantImpl implements IRestaurant {
 		
 		
 	}
+
+
+
+	@Override
+	public int generateOrderid() {
+		// TODO Auto-generated method stub
+	int orderid=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from Orders");
+			ResultSet result=pt.executeQuery();
+			
+			while(result.next()) {
+				
+				if(result.getInt(1)==0) {
+					orderid++;
+				}else {
+					orderid=result.getInt(1);
+				}
+				
+				
+			}
+			
+			pt.close();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return ++orderid;
+	}
+
+
+
+	@Override
+	public void addOrder(int orderid,String Type,int rcustid) {
+		// TODO Auto-generated method stub
+		
+		  int id=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			
+			pt=connection.prepareStatement("insert into RestaurantCustomer(RCustomerID) values(?)");
+			pt.setInt(1, rcustid);
+			pt.execute();
+			
+			
+			pt=connection.prepareStatement("insert into RestaurantPayment(CustID) values(?)");
+			pt.setInt(1, rcustid);
+			pt.execute();
+			
+			pt=connection.prepareStatement("select PaymentID from RestaurantPayment where CustID=?");
+			pt.setInt(1, rcustid);
+			ResultSet result=pt.executeQuery(); 
+			
+			while(result.next()) {
+				
+				id=result.getInt(1);
+			}
+			
+			
+		    pt=connection.prepareCall("insert into Orders(OrderID,Type,PID) values(?,?,?)");
+			pt.setInt(1, orderid);
+			pt.setString(2,Type);
+			pt.setInt(3, id);
+			pt.execute();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+
+	@Override
+	public ArrayList<Order> listOrders() {
+		// TODO Auto-generated method stub
+		
+		
+        ArrayList<Order> orders=new ArrayList<>();
+		
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from currentOrder");
+			ResultSet result=pt.executeQuery();
+			
+			
+			while(result.next()) {
+				
+		      Order order=new Order();
+		      order.setOrderID(result.getInt(1));
+		      order.setType(result.getString(2));
+		      order.setSubtotatl(result.getFloat(3));
+		      
+		      orders.add(order);
+		      
+			
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orders;
+		
+	}
+		
+   
 	
 
+
+
+	@Override
+	public float getItemPrice(int itemno) {
+		// TODO Auto-generated method stub
+
+		float amt=0;
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select price from Item where ItemNo=?");
+			pt.setInt(1, itemno);
+			ResultSet res=pt.executeQuery();
+			
+			while(res.next()) {
+				
+				amt=res.getFloat(1);
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return amt;
+		
+		
+		
+	}
+
+
+
+	@Override
+	public void AddItemToOrder(int orderid, int itemno, int qty, float subtot) {
+		// TODO Auto-generated method stub
+		
+		
+		
+			 try {
+				connection=DBConnection.initializedb();
+				 pt=connection.prepareStatement("insert into Ordered_Items values(?,?,?,?)");
+			   	 pt.setInt(1, orderid);
+				 pt.setInt(2, itemno);
+				 pt.setInt(3, qty);
+				 pt.setFloat(4, subtot);
+				 pt.execute();
+				 
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+				
+	}
+
+
+
+	@Override
+	public ArrayList<Item> printbill(int orderid) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Item> items=new ArrayList<>();
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select * from RBill where OrderID=?");
+			pt.setInt(1, orderid);
+			ResultSet rs=pt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Item item=new Item();
+				item.setName(rs.getString(2));
+				item.setQty(rs.getInt(3));
+				item.setPrice(rs.getFloat(4));
+				
+				items.add(item);
+				
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return items;
+		
+	}
+
+
+
+	@Override
+	public void addOrderPayment(int orderid, float amount,String type) {
+		// TODO Auto-generated method stub
+		
+		int id=0;
+		
+		try {
+			
+			connection=DBConnection.initializedb();
+		    pt=connection.prepareStatement("select PID from Orders where OrderID=?");
+			pt.setInt(1,orderid);
+			ResultSet result=pt.executeQuery(); 
+			
+			
+			while(result.next()) {
+				
+				id=result.getInt(1);
+			}
+			pt.close();
+			
+			pt=connection.prepareStatement("update RestaurantPayment set Type=?,Amount=? where PaymentID=?");
+			pt.setString(1, type);
+			pt.setFloat(2, amount);
+			pt.setInt(3, id);
+			pt.execute();
+			pt.close();
+			
+			pt=connection.prepareStatement("update Orders set OrderStatus=? where OrderId=?");
+			pt.setString(1, "paid");
+			pt.setInt(2, orderid);
+			pt.executeUpdate();
+			pt.close();
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
+	public boolean checkOrderStatus(int orderid) {
+		
+		boolean status=false;
+		String st=" ";
+		
+		try {
+			connection=DBConnection.initializedb();
+			pt=connection.prepareStatement("select OrderStatus from Orders where OrderID=?");
+			pt.setInt(1, orderid);
+			ResultSet resultSet=pt.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				st=resultSet.getString(1);
+				
+			}
+			
+			if(st.equals("paid")) {
+				status=true;
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return status;
+		
+		
 	
+	}
+
+
+
+	@Override
+	public void deleteOrder(int orderid) {
+		// TODO Auto-generated method stub
+		
+		try {
+			connection=DBConnection.initializedb();
+			ct=connection.prepareCall("exec DeleteOrder ?");
+			ct.setInt(1, orderid);
+			ct.execute();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+
+
+	@Override
+	public void addGuestOrder(int orderid, int rreservationid, float amount, int billno) {
+		// TODO Auto-generated method stub
+		try {
+			connection=DBConnection.initializedb();
+			ct=connection.prepareCall("exec AddGuestOrder ?,?,?,?");
+			ct.setInt(1, orderid);
+			ct.setInt(2, rreservationid);
+			ct.setFloat(3, amount);
+			ct.setInt(4, billno);
+			ct.execute();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
 	
 
 }

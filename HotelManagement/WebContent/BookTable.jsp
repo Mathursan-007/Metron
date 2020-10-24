@@ -166,7 +166,7 @@ function myFunction() {
                                 <h2 class="card-heading" style="margin-left:190px;">Enter Details</h2>
 				                    <div class="row rone">
 				                       <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="fullname" placeholder="Full Name" required></div>
-						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="nic" placeholder="NIC" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][V]" title="xxxxxxxxxV"required>
+						               <div class="form-group col-md-3 fone"><input type="text" class="form-control" name="nic" placeholder="NIC" pattern="(([0-9]{9}[V]{1})|([0-9]{12}))" title="xxxxxxxxxV"required>
 						                 <div>
                                              <p id="phoneno" style="color:red"></p>
                                          </div>

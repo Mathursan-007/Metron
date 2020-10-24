@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Gym;
+import com.model.SpaReservation;
 import com.service.ExtraServiceImp;
 
 /**
- * Servlet implementation class AddGym
+ * Servlet implementation class Getdetails
  */
-@WebServlet("/AddGym")
-public class AddGym extends HttpServlet {
+@WebServlet("/Getdetails")
+public class Getdetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddGym() {
+    public Getdetails() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,17 +39,16 @@ public class AddGym extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		Gym gym= new Gym();
-		ExtraServiceImp extraserviceimp=new ExtraServiceImp();
+		// TODO Auto-generated method stub
+		String i=(request.getParameter("id"));
+		ExtraServiceImp imp=new ExtraServiceImp();
+		SpaReservation ds=new SpaReservation();
 		
-		gym.setID(request.getParameter("id"));
-		gym.setName(request.getParameter("name"));
-		gym.setDescription(request.getParameter("description"));
-		gym.setPrice(Float.parseFloat( request.getParameter("price")));
+		ds=imp.getpack(i);
 		
-		extraserviceimp.addGym(gym);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
+		request.setAttribute("pn",ds);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/AddSpaPayment.jsp");
 		dispatcher.forward(request, response);
 	}
 

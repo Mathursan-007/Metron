@@ -5,8 +5,42 @@ public class SpaReservation extends Reservation {
 
 	private String SpackageID;
 	private String Spackagename;
-	
+	private int Sparoom;
+	private float Amount;
+	private int PID;
+	private int sid;
+	private String status;
 	 
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public int getPID() {
+		return PID;
+	}
+	public void setPID(int pID) {
+		PID = pID;
+	}
+	public float getAmount() {
+		return Amount;
+	}
+	public void setAmount(float amount) {
+		Amount = amount;
+	}
+	public int getSparoom() {
+		return Sparoom;
+	}
+	public void setSparoom(int sparoom) {
+		Sparoom = sparoom;
+	}
 	public String getSpackageID() {
 		return SpackageID;
 	}
@@ -43,12 +77,18 @@ public class SpaReservation extends Reservation {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getTime() {
-		return time;
+	 
+	public String getStime() {
+		return Stime;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setStime(String stime) {
+		Stime = stime;
 	}
-	
+	public String getEtime() {
+		return Etime;
+	}
+	public void setEtime(String etime) {
+		Etime = etime;
+	}
 	
 }

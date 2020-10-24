@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Gym;
+import com.model.SpaReservation;
 import com.service.ExtraServiceImp;
 
 /**
- * Servlet implementation class AddGym
+ * Servlet implementation class AddTbill
  */
-@WebServlet("/AddGym")
-public class AddGym extends HttpServlet {
+@WebServlet("/AddTbill")
+public class AddTbill extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddGym() {
+    public AddTbill() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,16 +39,23 @@ public class AddGym extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		SpaReservation st=new SpaReservation();
+		ExtraServiceImp extraserviceimple=new ExtraServiceImp();
+		
+		st.setRID(request.getParameter("id"));
+		st.setSpackageID(request.getParameter("sid"));
+	    st.setSpackagename(request.getParameter("name"));
+	    st.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    st.setCusName(request.getParameter("cname"));
+	    st.setDate(request.getParameter("date"));
+	    st.setStime(request.getParameter("stime"));
+	    st.setEtime(request.getParameter("etime"));
+		
+	    extraserviceimple.addStotal(st);
+		
 		 
-		Gym gym= new Gym();
-		ExtraServiceImp extraserviceimp=new ExtraServiceImp();
 		
-		gym.setID(request.getParameter("id"));
-		gym.setName(request.getParameter("name"));
-		gym.setDescription(request.getParameter("description"));
-		gym.setPrice(Float.parseFloat( request.getParameter("price")));
-		
-		extraserviceimp.addGym(gym);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

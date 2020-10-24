@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Gym;
+import com.model.GymReservation;
+import com.model.SpaReservation;
 import com.service.ExtraServiceImp;
 
 /**
- * Servlet implementation class AddGym
+ * Servlet implementation class UpdateGymR
  */
-@WebServlet("/AddGym")
-public class AddGym extends HttpServlet {
+@WebServlet("/UpdateGymR")
+public class UpdateGymR extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddGym() {
+    public UpdateGymR() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,18 +40,22 @@ public class AddGym extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		Gym gym= new Gym();
-		ExtraServiceImp extraserviceimp=new ExtraServiceImp();
-		
-		gym.setID(request.getParameter("id"));
-		gym.setName(request.getParameter("name"));
-		gym.setDescription(request.getParameter("description"));
-		gym.setPrice(Float.parseFloat( request.getParameter("price")));
-		
-		extraserviceimp.addGym(gym);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
+		// TODO Auto-generated method stub
+		GymReservation gr=new GymReservation();
+		ExtraServiceImp extraservicei=new ExtraServiceImp();
+
+		gr.setRID(request.getParameter("rid"));
+		gr.setGpackageID(request.getParameter("id"));
+	    gr.setGpackagename(request.getParameter("name"));
+	    gr.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    gr.setCusName(request.getParameter("cname"));
+	    gr.setDate(request.getParameter("date"));
+	    
+	    extraservicei.updateGymR(gr);
+	    
+	    RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
+ 
 	}
 
 }

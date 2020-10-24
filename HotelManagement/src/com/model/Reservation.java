@@ -6,7 +6,9 @@ public class Reservation {
 	public int roomNo;
 	public String cusName;
 	public String date;
-	public String time;
+	public String Stime;
+	public String Etime;
+	
 	
 	
 

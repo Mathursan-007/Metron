@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.service.ExtraService" %>  
+<%@ page import="com.service.*"%> 
+<%@ page import="com.model.Gym" %>
+<%@ page import="com.model.*" %> 
+
+<%@ page import="com.model.SpaReservation" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -184,21 +191,51 @@ padding-bottom:200px;
 		<div class = "expense">
 
   <div class="form-group">
+  <% ExtraService ex=new ExtraServiceImp();
+  
+     ArrayList<Spa> pk=new ArrayList<>();
+     
+     pk=ex.listspa();
+     
+     
+     IRoom iroomservice=new RoomImpl();
+     ArrayList<Room> Rooms=new ArrayList<>();
+     
+    Rooms=iroomservice.listRooms();
+   
+     
+    // SpaReservation room =( SpaReservation)request.getAttribute("rr");
+     //ArrayList<SpaReservation> sparoom=new ArrayList<>();
+    //sparoom=ex.listroom(room.getDate(),room.getStime(),room.getEtime());
+  
+  %>
  
   <h2>ADD Reservation </h2>
  
-      <label for="paymentID">ReservationID : </label>
-      <input type="text" class="form-control" id="paymentID" placeholder="ReservationID" name="rid" required>
-      <br><br><br>
-      <label for="description">PackageID: </label>
-      <input type="text" class="form-control" id="description" placeholder="PackageID" name="id" required>
+      
+      <label for="description">PackageID: </label><br>
+      
+      	
+       <select id="sabe" onchange="update();" class="form-control" name="id">
+ 			
+ 			<option value="">Select PackageID</option>
+ 			<% for(Spa p:pk){ %>
+        <option value="<%=p.getID()%>"><%=p.getID()%></option>
+         <%} %>
+  </select>
+      
       <br><br><br>
       <label for="amount">PackageName: </label>
-      <input type="text" class="form-control" id="amount" placeholder="PackageName" name="name"required>
+      <input type="text" class="form-control" id="pname"   placeholder="PackageName" name="name"required>
       <br><br><br>
       
-      <label for="amount">RoomNo: </label>
-      <input type="text" class="form-control" id="amount" placeholder="RoomNo" name="no" required>
+       <label for="amount">RoomNo: </label>
+        <select class="form-control" name="id">
+        <option value="">Select RoomNO</option>
+        <%  for(Room room:Rooms){ %>
+        <option value="<%=room.getRoomNo()%>"><%=room.getRoomNo()%></option>
+         <%} %>
+           </select>
        <br><br><br>
         <label for="amount">CustomerName: </label>
       <input type="text" class="form-control" id="amount" placeholder="customername" name="cname" required>
@@ -206,9 +243,23 @@ padding-bottom:200px;
        <label for="amount">Date: </label>
       <input type="date" class="form-control" id="amount" placeholder="Date" name="date" required>
        <br><br><br>
-       <label for="amount">Time: </label>
-      <input type="text" class="form-control" id="amount" placeholder="Time" name="time" required>
+       <label for="amount">Start Time: </label>
+      <input type="time" class="form-control" id="amount" placeholder="Time" name="stime" required>
        <br><br><br>
+       <label for="amount">End Time: </label>
+      <input type="time" class="form-control" id="amount" placeholder="Time" name="etime" required>
+       <br><br><br>
+       
+       <!--  
+       <label for="amount">Available SpaRooom: </label>
+        
+      <select id="sabe" o class="form-control" name="room">
+      <//% for(SpaReservation roomss:sparoom){ %>
+      <option value="<//%=roomss.getRoomNo()%>"> <//%=roomss.getRoomNo()%></option>
+      <//%}%>
+       <br><br><br>
+       -->
+       
        
             <input type="submit" value="ADD" class="button">
     </div>
@@ -245,6 +296,49 @@ window.onclick = function(event) {
   }
 }
 </script>
+<script type="text/javascript">
+function update(){
+	var q=document.getElementById("sabe");
+	var w=q.options[q.selectedIndex].value;
 
+		if(w=="S001"){	
+		document.getElementById("pname").value="Thai Massage";
+		
+		}
+		else if(w=="S002"){
+			document.getElementById("pname").value="Hot Stone Massage";
+		}
+		else if(w=="S003"){
+			document.getElementById("pname").value="LED Light Therapy";
+		}
+		else if(w=="S004"){
+			document.getElementById("pname").value="Swedish Massage";
+		}
+		else if(w=="S005"){
+			document.getElementById("pname").value="Sandwich Massage";
+		}
+		
+		
+	}
+</script>
+<script>
+	
+	var today = new Date().toISOString().split('T')[0];
+
+	document.getElementsByName("date")[0].setAttribute('min', today);
+	
+	</script>
+	
+	<script>
+	var z=document.getElementByName("stime").value;
+	
+	var l=z+90;
+	
+	document.getElementByName("etime").value=l
+	
+	
+	
+	</script>
+ 
 </body>
 </html>

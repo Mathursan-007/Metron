@@ -120,6 +120,7 @@ h2{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+  margin-top:30px;
 }
 .wrapper {
     display: flex;
@@ -189,8 +190,11 @@ h2{
       <label for="description"> PackageName : </label>
       <input type="text" class="form-control" id="description" placeholder="PackageName" name="name" required>
       <br><br><br>
+      <label for="description">Description : </label>
+      <textarea type="text" class="form-control" id="description" placeholder="Description " name="description" required ></textarea>
+      <br><br><br>
       <label for="amount"> Amount : </label>
-      <input type="text" class="form-control" id="amount" placeholder="0" name="price" required>
+      <input  type="number" min="0" step=any class="form-control" id="amount" placeholder="0" name="price" required>
       <br><br><br>
      
             <input type="submit" value="ADD" class="button">

@@ -45,6 +45,7 @@ public class UpdateGym extends HttpServlet {
 
 		gym.setID(request.getParameter("id"));
 		gym.setName(request.getParameter("name"));
+		gym.setDescription(request.getParameter("description"));
 		gym.setPrice(Float.parseFloat(request.getParameter("price")));
 		
 		
@@ -52,7 +53,7 @@ public class UpdateGym extends HttpServlet {
 		
 		extraserviceimp.updatepackage(gym);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("//ExtraserviceDashboard.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
 		
 	}

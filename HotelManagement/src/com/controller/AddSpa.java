@@ -46,8 +46,10 @@ public class AddSpa extends HttpServlet {
 		
 		spa.setID(request.getParameter("id"));
 		spa.setName(request.getParameter("name"));
+		spa.setDescription(request.getParameter("description"));
 		spa.setPrice(Float.parseFloat(request.getParameter("price")));
 		
+		System.out.println(request.getParameter("description"));
 		extraserviceimp.addSpa(spa);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");

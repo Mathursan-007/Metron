@@ -44,13 +44,13 @@ public class AddGymR extends HttpServlet {
 		GymReservation gymr=new GymReservation();
 		ExtraServiceImp serviceimp=new ExtraServiceImp();
 		
-		gymr.setRID(request.getParameter("rid"));
+		 
 		gymr.setGpackageID(request.getParameter("id"));
 	    gymr.setGpackagename(request.getParameter("name"));
 	    gymr.setRoomNo(Integer.parseInt(request.getParameter("no")));
 	    gymr.setCusName(request.getParameter("cname"));
 	    gymr.setDate(request.getParameter("date"));
-	    gymr.setTime(request.getParameter("time"));
+	   
 		 
 		
 		serviceimp.addGymReservation(gymr);

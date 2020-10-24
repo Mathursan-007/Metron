@@ -17,20 +17,20 @@
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 70%;
-  text-align:center;
+  width: 20%;
+  text-align:left;
   margin-left:200px;
   transform:translate(-1%, 20%);
 }
 
 #customers td, #customers th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 2px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color: #fff;}
 
-#customers tr:hover {background-color: #ddd;}
+#customers tr:hover {background-color:#fff;}
 
 #customers th {
   padding-top: 12px;
@@ -47,6 +47,7 @@
            <tr>
                <th>PackageID</th>
                <th>PackageName</th>
+               <th>Description</th>
                <th>Price</th>
                <th>Action</th>
             </tr>
@@ -59,7 +60,8 @@
              for(Spa spa:spapackages){ %>
             <tr>
                <td><%=spa.getID()%></td> 
-               <td><%=spa.getName()%></td> 
+               <td><%=spa.getName()%></td>
+               <td><%=spa.getDescription()%></td> 
                <td><%=spa.getPrice()%></td>
                 
                <td>

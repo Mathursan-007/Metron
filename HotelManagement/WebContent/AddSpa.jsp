@@ -9,6 +9,8 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 </head>
+ 
+
 <style>
 
 h2{
@@ -108,28 +110,25 @@ h2{
 }
 
 /* The Close Button */
-.close {
+.close1 {
   color: #000;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.zzzzz{
-padding-bottom:200px;
-}
-
-.close:hover,
-.close:focus {
+.close1:hover,
+.close1:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+  margin-top:30px;
 }
 .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
     position: absolute;
     left: 90%;
     
@@ -138,8 +137,8 @@ padding-bottom:200px;
 .pulse {
     width: 70px;
     height: 70px;
-    background-color:black;
-    border-radius: 30%;
+    background-color: green;
+    border-radius: 50%;
     position: relative;
     animation: animate 3s linear infinite
 }
@@ -155,19 +154,19 @@ padding-bottom:200px;
 }
 @keyframes animate {
     0% {
-        box-shadow: 0 0 0 0 rgb(2, 109, 74, 0.7), 0 0 0 0 rgb(255, 109, 74, 0.7)
+        box-shadow: 0 0 0 0 rgb(255, 109, 74, 0.7), 0 0 0 0 rgb(255, 109, 74, 0.7)
     }
 
     40% {
-        box-shadow: 0 0 0 50px rgb(2, 109, 74, 0), 0 0 0 0 rgb(255, 109, 74, 0.7)
+        box-shadow: 0 0 0 50px rgb(255, 109, 74, 0), 0 0 0 0 rgb(255, 109, 74, 0.7)
     }
 
     80% {
-        box-shadow: 0 0 0 50px rgb(2, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0)
+        box-shadow: 0 0 0 50px rgb(255, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0)
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgb(25, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0)
+        box-shadow: 0 0 0 0 rgb(255, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0)
     }
 }
 </style>
@@ -179,6 +178,7 @@ padding-bottom:200px;
 <!-- The Modal -->
 <div id="myModal" class="modal">
 <div class="modal-content">
+<br><br><br>
     <span class="close">&times;</span>
 <form action="./AddSpa" method="post" >
 		<div class = "expense">
@@ -193,8 +193,12 @@ padding-bottom:200px;
       <label for="description"> PackageName : </label>
       <input type="text" class="form-control" id="description" placeholder="PackageName" name="name" required>
       <br><br><br>
+       
+      <label for="description">Description : </label>
+      <textarea type="text" class="form-control" id="description" placeholder="Description " name="description" required ></textarea>
+      <br><br><br>
       <label for="amount"> Amount : </label>
-      <input type="text" class="form-control" id="amount" placeholder="0" name="price" required>
+      <input  type="number" min="0" step=any class="form-control" id="amount" placeholder="0" name="price" required>
       <br><br><br>
      
             <input type="submit" value="ADD" class="button">
@@ -204,7 +208,6 @@ padding-bottom:200px;
     </form> </div>
 
 </div>
-
 <script>
 // Get the modal
 var modal = document.getElementById("myModal");

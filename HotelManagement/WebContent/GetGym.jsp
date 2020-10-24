@@ -83,7 +83,7 @@ h2{
 
 }
 </style>
-<body>
+<body style="background:#8f9dd7;">
 <%Gym item =(Gym)request.getAttribute("item");%>
   
      <form action="./UpdateGym" method="post">
@@ -93,6 +93,7 @@ h2{
      
 	      <input type="hidden" name="id" class="form-control" value="<%=item.getID()%>">
 	      PackageName:<input  type="text" name="name" class="form-control" value="<%=item.getName()%>"> 
+	      Desription:<input  type="text" name="description" class="form-control" value="<%=item.getDescription()%>"> 
 	      Price:<input type="text" name="price" class="form-control" value="<%=item.getPrice()%>">  
 	      <input type="submit" class="button" value="Update">
 	      </div>

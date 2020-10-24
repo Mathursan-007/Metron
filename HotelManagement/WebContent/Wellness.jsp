@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        <%@ page import="java.util.ArrayList" %>
+  <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.service.ExtraService" %>  
 <%@ page import="com.service.ExtraServiceImp"%> 
-<%@ page import="com.model.Gym" %>  
+<%@ page import="com.model.Gym" %>
+<%@ page import="com.model.Spa" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
 </head>
 <body>
   
-       <div><%@include file="Header.jsp" %></div>
+        
   
 <div class="ssss" >
     <h1 style="font-size:200px;">WELLNESS</h1>
@@ -42,35 +43,31 @@
 <%
               ExtraService gym=new ExtraServiceImp();
               ArrayList<Gym> pack=new ArrayList<>();
+              ArrayList<Spa> sa=new ArrayList<>();
+              
+              sa=gym.listspa();
               
               pack=gym.listgym();
               
           
-             for(Gym g:pack){ %>
+             %>
 
-
+       <%  for(Gym g:pack){ %>
          <div class="col-md-4">
              <div class="card">
-             
-               <%if(g.getName().equals("Beginner")) {%>
-                 <div> <img src="images/gym5.jpg" class="img-responsive image"> </div>
-                <% } else if(g.getName().equals("Intermidate")) { %> 
-                 <div> <img src="images/gym6.jpg" class="img-responsive image"> </div>
-                 <% } else if(g.getName().equals("Masters")) { %> 
-                 <div> <img src="images/gym7.jpg" class="img-responsive image"> </div>
-                 <% } %>
-                 <p class="rating">1.3</p>
-                 <div class="card-body">
+             <div> <img src="images/gym6.jpg" class="img-responsive image"> </div>
+             <div class="card-body">
                      <h5 class="card-title"><%=g.getName()%></h5>
-                     <p class="card-text"> Best for teenegers</p>
-                     <p class="card-text">Workout time 20minutes perday </p>
-                     <p class="card-text"><%=g.getPrice()%></p>
+                     <p class="card-text"><%=g.getDescription()%></p>
+                     <p class="card-text"> Price:<%=g.getPrice()%></p>
                      
                  </div>
              </div>
          </div>
+                  
+        <% } %>
           
-         <% } %>
+         
             </div>
          </div>
          
@@ -104,14 +101,18 @@
  <hr>
 <div class="container">
     <div class="row">
+   <% for(Spa s:sa){ %>
         <div class="one-third col-md-4"> <a href="#" class="img-caption">
-                <figure> <img src="images/spa3.jpg" alt="" />
+                <figure > <img src="images/spaaaaaa.jpg" alt="" />
                     <figcaption>
-                        <h3>DeepTissue Massage</h3> <span>Deep tissue massage will use firmer pressure and also include focused work on areas that are especially tight.<br> <br>Price:13000LKR </span>
+                        <h3><%=s.getName()%></h3> <span><%=s.getDescription() %><br> <br>Price:<%=s.getPrice()%></span>
                     </figcaption>
                 </figure>
             </a> </div>
-        <div class="one-third col-md-4"> <a href="#" class="img-caption">
+            <%} %>
+                </div>
+</div>
+     <!--     <div class="one-third col-md-4"> <a href="#" class="img-caption">
                 <figure> <img src="images/spa4.jpg" alt="" />
                     <figcaption>
                         <h3>Swedish Massage</h3> <span>Swedish massage typically covers the whole body with firm strokes but without much deep, focused work.<br> <br>Price:5000LKR</span>
@@ -132,7 +133,7 @@
         <div class="one-third col-md-4"> <a href="#" class="img-caption">
                 <figure> <img src="images/spa6.jpg" alt="" />
                     <figcaption>
-                        <h3>Thai Massage</h3> <span>you might want to branch out to different types of massage, which may or may not be available, like ​Thai massage or reflexology<br> <br>Price:15000LKR</span>
+                        <h3>Thai Massage</h3> <span>you might want to branch out to different types of massage, which may or may not be available, like  a Thai massage or reflexology<br> <br>Price:15000LKR</span>
                     </figcaption>
                 </figure>
             </a> </div>
@@ -149,9 +150,8 @@
                         <h3>HotStone Massage</h3> <span>Hot stone massage uses smooth, rounded basalt stones that have been heated in water and retains their heat well.<br> <br>Price:6000LKR</span>
                     </figcaption>
                 </figure>
-            </a> </div>
-    </div>
-</div>
+            </a> </div>-->
+
 <%@include file="Demo1.jsp" %><br><br><hr>
 <%@include file="Demo2.jsp" %>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Scroll up</button>

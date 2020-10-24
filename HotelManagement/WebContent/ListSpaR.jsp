@@ -2,8 +2,8 @@
     pageEncoding="ISO-8859-1"%>
         <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.service.ExtraService" %>  
-<%@ page import="com.service.ExtraServiceImp"%>   
-<%@ page import="com.model.SpaReservation" %>
+<%@ page import="com.service.*"%>   
+<%@ page import="com.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 #customers1 {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 70%;
+  width: 90%;
   text-align:center;
   margin-left:200px;
   transform:translate(-1%, 20%);
@@ -63,8 +63,8 @@ display: block;
 
 <body>
 <input type="text" id="myInput1" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
 
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
 <table id="customers1" class="table table-bordered table-striped mb-0">
 
  		
@@ -76,15 +76,25 @@ display: block;
                <th>PackageName</th>
                <th>RoomNo</th>
                <th>CustomerName</th>
-               <th>Date</th>
-               <th>Time</th>
-               <th>Action</th>
+               <th>Date    </th>
+               <th>Start Time</th>
+               <th>End Time</th>
+               <th>Edit</th>
+               <th>payment</th>
+               <th>Total bill</th>
+                
             </tr>
             </thead>
             <%
               ExtraService SRList=new ExtraServiceImp();
             ArrayList<SpaReservation> spar=new ArrayList();
-              
+            
+            SpaReservation sid=new SpaReservation();
+            
+            sid=SRList.getRID();
+            
+            
+             
               spar=SRList.listspareservation();
              
              for(SpaReservation r:spar){ %>
@@ -98,7 +108,9 @@ display: block;
                <td><%=r.getRoomNo()%></td>
                <td><%=r.getCusName()%></td>
                <td><%=r.getDate()%></td>
-               <td><%=r.getTime()%></td>
+               <td><%=r.getStime()%></td>
+               <td><%=r.getEtime()%></td>
+               
                 
                <td>
                <form action="./GetSpaR" method="post">
@@ -111,6 +123,25 @@ display: block;
                <input type="submit" class="btn btn-danger" style="margin-top:30px;" value="Delete">
                </form>
                </span>
+               </td>
+               <td>
+               <form action="./Getdetails" method="post">
+               <input type="hidden" name="id" class="btn btn-danger" value="<%=r.getRID()%>">
+               <input type="submit" class="btn btn-primary" style="margin-top:30px;" value="Pay">
+               </form>
+               </td>
+               <td>
+               <form action="./AddTbill" method="post">
+               <input type="hidden" name="id" class="btn btn-danger" value="<%=r.getRID()%>">
+                <input type="hidden" name="sid" class="btn btn-danger" value="<%=r.getSpackageID()%>">
+                 <input type="hidden" name="name" class="btn btn-danger" value="<%=r.getGpackagename()%>">
+                  <input type="hidden" name="no" class="btn btn-danger" value="<%=r.getRoomNo()%>">
+                   <input type="hidden" name="cname" class="btn btn-danger" value="<%=r.getCusName()%>">
+                     <input type="hidden" name="date" class="btn btn-danger" value="<%=r.getDate()%>">
+                       <input type="hidden" name="stime" class="btn btn-danger" value="<%=r.getStime()%>">
+                         <input type="hidden" name="etime" class="btn btn-danger" value="<%=r.getEtime()%>">
+               <input type="submit" class="btn btn-success" style="margin-top:30px;" value="ADD">
+               </form>
                </td>
             </tr>
             <%} %>

@@ -44,13 +44,14 @@ public class AddSpaR extends HttpServlet {
 		SpaReservation spar=new SpaReservation();
 		ExtraServiceImp extraserviceimp=new ExtraServiceImp();
 		
-		spar.setRID(request.getParameter("rid"));
+		 
 		spar.setSpackageID(request.getParameter("id"));
 	    spar.setSpackagename(request.getParameter("name"));
 	    spar.setRoomNo(Integer.parseInt(request.getParameter("no")));
 	    spar.setCusName(request.getParameter("cname"));
 	    spar.setDate(request.getParameter("date"));
-	    spar.setTime(request.getParameter("time"));
+	    spar.setStime(request.getParameter("stime"));
+	    spar.setEtime(request.getParameter("etime"));
 		 
 		
 		extraserviceimp.addSpaReservation(spar);

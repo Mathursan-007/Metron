@@ -50,14 +50,15 @@ public class UpdateSpaR extends HttpServlet {
 	    spar.setRoomNo(Integer.parseInt(request.getParameter("no")));
 	    spar.setCusName(request.getParameter("cname"));
 	    spar.setDate(request.getParameter("date"));
-	    spar.setTime(request.getParameter("time"));
+	    spar.setStime(request.getParameter("stime"));
+	    spar.setEtime(request.getParameter("etime"));
 		 
 		
 		
 		
 		extraserviceimp.updateSpaR(spar);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListSpaR.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}
 

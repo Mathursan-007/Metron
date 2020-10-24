@@ -46,6 +46,7 @@
            <tr>
                <th>PackageID</th>
                <th>PackageName</th>
+               <th>Description</th>
                <th>Price</th>
                <th>Action</th>
             </tr>
@@ -60,6 +61,7 @@
             <tr>
                <td><%=gym.getID()%></td> 
                <td><%=gym.getName()%></td> 
+               <td><%=gym.getDescription() %>
                <td><%=gym.getPrice()%></td>
                 
                <td>

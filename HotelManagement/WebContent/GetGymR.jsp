@@ -85,41 +85,38 @@ h2{
 }
 </style>
 <body style="background:#8f9dd7;">
-<%SpaReservation re =(SpaReservation)request.getAttribute("rid");%>
+<%GymReservation gre =(GymReservation)request.getAttribute("gid");%>
   
-     <form action="./UpdateSpaR" method="post">
+     <form action="./UpdateGymR" method="post">
      <div class = "expense">
 
   <div class="form-group">
-  <input type="hidden" class="form-control" id="paymentID" placeholder="ReservationID" name="rid" value="<%=re.getRID()%>" required>
+  <input type="hidden" class="form-control" id="paymentID" placeholder="ReservationID" name="rid" value="<%=gre.getRID()%>" required>
       <br><br><br>
       <label for="description">PackageID: </label>
-      <input type="text" class="form-control" id="description" placeholder="PackageID" name="id" value="<%=re.getSpackageID()%>" required>
+      <input type="text" class="form-control" id="description" placeholder="PackageID" name="id" value="<%=gre.getGpackageID()%>" required>
       <br><br><br>
       <label for="amount">PackageName: </label>
-      <input type="text" class="form-control" id="amount" placeholder="PackageName" name="name" value="<%=re.getGpackagename()%>" required>
+      <input type="text" class="form-control" id="amount" placeholder="PackageName" name="name" value="<%=gre.getGpackagename()%>" required>
       <br><br><br>
       
       <label for="amount">RoomNo: </label>
-      <input type="text" class="form-control" id="amount" placeholder="RoomNo" name="no" value="<%=re.getRoomNo()%>" required>
+      <input type="text" class="form-control" id="amount" placeholder="RoomNo" name="no" value="<%=gre.getRoomNo()%>" required>
        <br><br><br>
         <label for="amount">CustomerName: </label>
-      <input type="text" class="form-control" id="amount" placeholder="customername" name="cname" value="<%=re.getCusName()%>" required>
+      <input type="text" class="form-control" id="amount" placeholder="customername" name="cname" value="<%=gre.getCusName()%>" required>
        <br><br><br>
        <label for="amount">Date: </label>
-      <input type="date" class="form-control" id="amount" placeholder="Date" name="date" value="<%=re.getDate()%>" required>
+      <input type="date" class="form-control" id="amount" placeholder="Date" name="date" value="<%=gre.getDate()%>" required>
        <br><br><br>
-       <label for="amount">Start Time: </label>
-      <input type="time" class="form-control" id="amount" placeholder="Time" name="stime" value="<%=re.getStime() %>" required>
-       <br><br><br>
-        <label for="amount">End Time: </label>
-      <input type="time" class="form-control" id="amount" placeholder="Time" name="etime" value="<%=re.getEtime() %>" required>
-       <br><br><br>
+       
         
 	      <input type="submit" class="button" value="Update">
 	      </div>
 	      </div>
     </form> 
+
+
 
 </body>
 </html>

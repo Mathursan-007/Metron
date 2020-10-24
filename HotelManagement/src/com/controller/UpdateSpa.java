@@ -46,6 +46,7 @@ public class UpdateSpa extends HttpServlet {
 
 		spa.setID(request.getParameter("id"));
 		spa.setName(request.getParameter("name"));
+		spa.setDescription(request.getParameter("description"));
 		spa.setPrice(Float.parseFloat(request.getParameter("price")));
 		
 		
@@ -53,7 +54,7 @@ public class UpdateSpa extends HttpServlet {
 		
 		extraserviceimp.updatepackage(spa);
 		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListSpa.jsp");
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ExtraserviceDashboard.jsp");
 		dispatcher.forward(request, response);
 		
 	}

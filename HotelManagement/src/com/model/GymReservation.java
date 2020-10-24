@@ -4,6 +4,20 @@ public class GymReservation extends Reservation {
 
 	private String GpackageID;
 	private String Gpackagename;
+	private float Amount;
+	private int PID;
+	public int getPID() {
+		return PID;
+	}
+	public void setPID(int pID) {
+		PID = pID;
+	}
+	public float getAmount() {
+		return Amount;
+	}
+	public void setAmount(float amount) {
+		Amount = amount;
+	}
 	public String getGpackageID() {
 		return GpackageID;
 	}
@@ -41,11 +55,17 @@ public class GymReservation extends Reservation {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getTime() {
-		return time;
+	public String getStime() {
+		return Stime;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setStime(String stime) {
+		Stime = stime;
+	}
+	public String getEtime() {
+		return Etime;
+	}
+	public void setEtime(String etime) {
+		Etime = etime;
 	}
 	
 	

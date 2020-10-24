@@ -108,10 +108,21 @@ var i=${value};
 			 
 				
 			<div style="background:#8f9dd7;height:1500px;" id="Butt4">
-			<%@include file="ListSpaR.jsp" %>              
+			<%@include file="ListSpaR.jsp"%>              
                                                                    			                                           
 			</div>
-			
+			<div style="background:#8f9dd7;height:1500px;" id="Butt5">
+			               
+                                 <%@include file="ListGymR.jsp"%>                                  			                                           
+			</div>
+			<div style="background:#8f9dd7;height:1500px;" id="Butt6">
+			         <%@include file="ListSPayment.jsp"%>       
+                                                                   			                                           
+			</div>
+			<div style="background:#8f9dd7;height:1500px;" id="Butt7">
+			         <%@include file="ListGpayment.jsp" %>       
+                                                                   			                                           
+			</div>
 			
 
 			</div> 
@@ -137,6 +148,7 @@ function myFunction() {
   }
 }
 </script>
+ 
 
 </body>
 </html>

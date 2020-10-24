@@ -84,7 +84,7 @@ h2{
 
 }
 </style>
-<body>
+<body style="background:#8f9dd7;">
 <%Spa item =(Spa)request.getAttribute("item");%>
   
      <form action="./UpdateSpa" method="post">
@@ -92,11 +92,13 @@ h2{
 
   <div class="form-group">
  
+ <h2>Update SPA</h2>
    
      
-	      PackageID:<input type="text" class="form-control" name="id" value="<%=item.getID()%>">
+	      <input type="hidden" class="form-control" name="id" value="<%=item.getID()%>">
 	      PackageName:<input  type="text" class="form-control" name="name" value="<%=item.getName()%>"> 
-	      Price:<input type="text" class="form-control" name="price" value="<%=item.getPrice()%>">  
+	      Description: <input type="text" class="form-control" name="description" value="<%=item.getDescription()%>">
+	      Price:<input type="text" class="form-control" name="price" value="<%=item.getPrice()%>">   
 	      <input type="submit" class="button" value="Update">
 	      </div>
 	      </div>

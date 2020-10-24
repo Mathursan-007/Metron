@@ -35,17 +35,44 @@ public interface ExtraService {
 	
 	public ArrayList<SpaReservation> listspareservation();
 	
+	
+	
 	public SpaReservation getSID(String id);
 	
 	public void updateSpaR(SpaReservation sr);
 	
 	public void deleteSpaR(String id);
 	
+	public SpaReservation getpack(String id);
+	
+	public void addSpaPayment(SpaReservation sp);
+	
+	public void addStotal(SpaReservation sp);
+	
+	public ArrayList<SpaReservation> listspapayemt();
+	
+	public SpaReservation getRID();
+	
+	
 	public void addGymReservation(GymReservation gr);
 	
 	public ArrayList<GymReservation> listgymreservation();
+ 
+	public GymReservation getGID(String id);
 	
+	public void updateGymR(GymReservation sr);
 	
+	public void deleteGymR(String id);
+	
+	public GymReservation getGymR(String id);
+	
+	public void addGtotal(GymReservation sp);
+	
+	public void addGymPayment(GymReservation sp);
+	
+	public ArrayList<GymReservation> listgympayemt();
+	
+	 
 	
 	
 

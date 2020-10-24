@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Employee;
+import com.model.Salary;
 import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class registeremployee
+ * Servlet implementation class MonthlySalary
  */
-@WebServlet("/Registeremployee")
-public class Registeremployee extends HttpServlet {
+@WebServlet("/MonthlySalary")
+public class MonthlySalary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Registeremployee() {
+    public MonthlySalary() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,25 +41,28 @@ public class Registeremployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//doGet(request, response);
 		
-		Employee employee=new Employee();
-		EmployeeImpl employeeimpl=new EmployeeImpl();
+EmployeeImpl employeeimpl =new EmployeeImpl();
 		
-		//employee.setempid(Integer.parseInt(request.getParameter("empid")));
-		employee.setFirstname(request.getParameter("firstname"));
-		employee.setLastname(request.getParameter("lastname"));
-		employee.setNIC(request.getParameter("nic"));
-		employee.setEmail(request.getParameter("email"));
-		employee.setDOB(request.getParameter("dob"));;
-		employee.setcontact(request.getParameter("contact"));
-		employee.setAddress(request.getParameter("address"));
-		employee.setDesignation(request.getParameter("designation"));
-		employee.setDepartment(request.getParameter("department"));
+		//int empid = (Integer.parseInt(request.getParameter("empid")));
+		String month = (request.getParameter("month"));
 		
-		employeeimpl.registeremployee(employee);
+		//String fname = employeeimpl.getEmployee(empid).getFirstname()+" "+employeeimpl.getEmployee(empid).getLastname();
 		
-		request.setAttribute("value", 1);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
+		
+		
+		Salary salary = new Salary();
+		//salary.setFname(fname);
+		
+		ArrayList<Salary> summary = new ArrayList<>();
+		
+		summary = employeeimpl.MonthlySalary(month);
+		
+		salary.setSummary(summary);
+		
+		request.setAttribute("salary", salary);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/MonthlySalarySummary.jsp");
 		dispatcher.forward(request, response);
 	}
 

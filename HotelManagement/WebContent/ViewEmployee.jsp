@@ -7,6 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>View Employee</title>
 
+<script>
+	$().alert()
+</script>
+
 <style>
 
 .view {
@@ -45,18 +49,18 @@
 	<%Employee employee =(Employee) request.getAttribute("employee");%>
 	
 	
-	<div class="viewtable" style="padding-top: 50px;">
+	<div class="viewtable" style="padding-top: 100px;">
 			
 			<h1><center>Profile Details</h1>
 	
 			<form class="empid" action="./GetEmployee" method="post">
-	<div class="form-group" style="padding-top: 100px;">
+	<div class="form-group" style="padding-top: 50px;">
  					<label for="ID">Enter Employee ID :  </label>	
  					<input type="text" id="ID" name="empid" class="form-control" placeholder=" Employee ID" > <br>
  				</div>
  		
 	
-	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Search </button>
+	<button type="submit" class="btn btn-primary btn-lg rounded mx-auto d-block"> Search </button>
 	</form>
 	
 	 
@@ -94,7 +98,7 @@
  				<div class="dob">
  				<div class="form-group">
  					<label for="Full name"> Date of birth : </label>
-  					<input type="date" id="dob" value="<%=employee.getDOB() %>" name="dob" class="form-control" > <br>
+  					<input type="date" id="dob" value="<%=employee.getDOB() %>" name="dob" readonly class="form-control" > <br>
   				</div>
   				</div>
  				

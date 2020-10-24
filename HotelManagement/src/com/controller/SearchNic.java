@@ -45,7 +45,6 @@ public class SearchNic extends HttpServlet {
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		Employee employee=new Employee();
 		employee = employeeimpl.searchEmployee(nic);
-		employee.setVal("False");
 		
 		request.setAttribute("employee", employee);
 		

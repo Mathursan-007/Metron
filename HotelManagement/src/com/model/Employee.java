@@ -7,19 +7,18 @@ public class Employee {
 	private String lastname;
 	private String nic;
 	private String email;
-	private float contact;
+	private String contact;
 	private String dob;
 	private String address;
 	private String designation;
 	private String department;
-	private String val="True";
+	private int val;
 	
 	
-	
-	public String getVal() {
+	public int getVal() {
 		return val;
 	}
-	public void setVal(String val) {
+	public void setVal(int val) {
 		this.val = val;
 	}
 	public int getempid() {
@@ -52,10 +51,10 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public float getcontact() {
+	public String getcontact() {
 		return contact;
 	}
-	public void setcontact(float contact) {
+	public void setcontact(String contact) {
 		this.contact = contact;
 	}
 	public String getDOB() {
@@ -82,4 +81,5 @@ public class Employee {
 	public void setDepartment(String department) {
 		this.department = department;
 	}
+	
 }

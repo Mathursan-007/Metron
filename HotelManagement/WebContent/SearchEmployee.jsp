@@ -32,7 +32,7 @@
  					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC" > <br>
  				</div>
 	
-	<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Search </button>
+	<button type="submit" class="btn btn-primary btn-lg rounded mx-auto d-block"> Search </button>
 	</form>
 	
 		

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.model.Employee;
-import com.model.Attendance;
+import com.model.Salary;
 
 
 public interface IEmployee {
@@ -19,19 +19,18 @@ public interface IEmployee {
 	
 	public Employee searchEmployee(String nic);
 	
-	public void retrieveempid(Employee employee);
-	
-	
-	//Attendance
-	
-	public void insertAttendance(Attendance attendance);
-	
-	public Attendance getAttendance(String attend_date, int empid);
-	
-	public void updateAttendance(Attendance attendance);
-	
-	public void DeleteAttendance(String attend_date, int empid);
-	
 	public boolean checkEmp(int empid);
+	
+	//Salary
+	
+	public void enterAttendance(Salary salary);
+	
+	public int getAttendance(int empid, String month);
+	
+	public void insertSalary(Salary salary);
+	
+	public ArrayList<Salary> getSalary(int empid, String month, String month2);
+	
+	public ArrayList<Salary> MonthlySalary(String month);
 	
 }

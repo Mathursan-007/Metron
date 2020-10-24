@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Employee;
+import com.model.Salary;
 import com.service.EmployeeImpl;
 
 /**
- * Servlet implementation class registeremployee
+ * Servlet implementation class InsertSalary
  */
-@WebServlet("/Registeremployee")
-public class Registeremployee extends HttpServlet {
+@WebServlet("/InsertSalary")
+public class InsertSalary extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Registeremployee() {
+    public InsertSalary() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,22 +41,31 @@ public class Registeremployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 		
-		Employee employee=new Employee();
+		Salary salary=new Salary();
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		
-		//employee.setempid(Integer.parseInt(request.getParameter("empid")));
-		employee.setFirstname(request.getParameter("firstname"));
-		employee.setLastname(request.getParameter("lastname"));
-		employee.setNIC(request.getParameter("nic"));
-		employee.setEmail(request.getParameter("email"));
-		employee.setDOB(request.getParameter("dob"));;
-		employee.setcontact(request.getParameter("contact"));
-		employee.setAddress(request.getParameter("address"));
-		employee.setDesignation(request.getParameter("designation"));
-		employee.setDepartment(request.getParameter("department"));
+		int Empid = Integer.parseInt(request.getParameter("empid"));
+		String Month = request.getParameter("date");
+		int days = employeeimpl.getAttendance(Empid, Month);
 		
-		employeeimpl.registeremployee(employee);
+		salary.setEmpid(Integer.parseInt(request.getParameter("empid")));
+		salary.setMonth(request.getParameter("date"));
+		salary.setBasicSal(Float.parseFloat(request.getParameter("basicsalary")));
+		if(days > 20) {
+			salary.setOvertime(Float.parseFloat(request.getParameter("ot")));
+		}
+		else if(days < 14) {
+			salary.setLeave(Float.parseFloat(request.getParameter("leave")));
+		}
+		else {
+			//salary.setOvertime(0);
+			//salary.setLeave(0);
+		}
+		salary.setTotSalary(Float.parseFloat(request.getParameter("netsalary")));
+		
+		employeeimpl.insertSalary(salary);
 		
 		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");

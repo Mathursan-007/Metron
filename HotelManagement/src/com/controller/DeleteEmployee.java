@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Employee;
 import com.service.EmployeeImpl;
 
 /**
@@ -43,7 +44,6 @@ public class DeleteEmployee extends HttpServlet {
 		int empid=Integer.parseInt(request.getParameter("emp_ID"));
 		EmployeeImpl employeeimpl=new EmployeeImpl();
 		employeeimpl.DeleteEmployee(empid);
-		
 
 		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");

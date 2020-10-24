@@ -34,6 +34,9 @@
  				<div class="Fname">
  				<div class="form-group">
  					<label for="Full name"> Enter First Name : </label>
+  					<small id="firstnameInline" class="text-muted" style= "padding-left: 500px;">
+      					Must be filled
+    				</small>
   					<input type="text" id="First name" name="firstname" class="form-control" placeholder="First name"required> <br>
   				</div>
   				</div>
@@ -48,6 +51,9 @@
   				<div class="Nic">
   				<div class="form-group">
  					<label for="Full name"> Enter NIC : </label>
+ 					<small id="firstnameInline" class="text-muted" style= "padding-left: 530px;">
+      					Must be filled
+    				</small>
   					<input type="text" id="nic" name="nic" class="form-control" placeholder="NIC" required> <br>
   				</div>
   				</div>
@@ -55,13 +61,19 @@
   				<div class="Email">
   				<div class="form-group">
  					<label for="Email">Enter Email Address : </label>
+ 					<small id="firstnameInline" class="text-muted" style= "padding-left: 460px;">
+      					Must be filled
+    				</small>
  					<input type="email" id="Email" name="email" class="form-control" placeholder="xxx@xxx.com" required> <br>
  				</div>
  				</div>
  		
  				<div class="DOB">
  				<div class="form-group">
- 					<label for="Full name"> Enter Date of birth : </label>
+ 					<label for="DOB"> Enter Date of birth : </label>
+ 					<small id="firstnameInline" class="text-muted" style= "padding-left: 480px;">
+      					Must be filled
+    				</small>
   					<input type="date" id="dob" name="dob" class="form-control" placeholder="dd/mm/yy" required> <br>
   				</div>
   				</div>
@@ -69,13 +81,13 @@
  				<div class="Contact">
  				<div class="form-group">
  					<label for="phone">Enter Contact Number : </label> 	
- 					<input type="tel" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" > <br>
+ 					<input type="number" id="phone" name="contact" class="form-control" placeholder="07XXXXXXXX" pattern="[0-9]{10}"> <br>
  				</div>
  				</div>
  				
  				<div class="Address">
  				<div class="form-group">
- 					<label for="phone">Enter Address : </label> 	
+ 					<label for="address">Enter Address : </label> 	
  					<input type="text" id="address" name="address" class="form-control" placeholder="Address" > <br>
  				</div>
  				</div>
@@ -83,6 +95,9 @@
  				<div class="Department">
  				<div class="form-group">
  					<label for="Batch">Department</label>
+ 					<small id="firstnameInline" class="text-muted" style= "padding-left: 530px;">
+      					Must be filled
+    				</small>
  					<select id="department" name="department" class="form-control">
  						<option selected> Select department </option>
  						<option value="Inventory"> Inventory </option>
@@ -98,14 +113,17 @@
  	
  				<div class="Designation">
   				<div class="form-group">
-    				<label for="confirm">Enter Designation:</label>
+    				<label for="designation">Enter Designation:</label>
+    				<small id="firstnameInline" class="text-muted" style= "padding-left: 480px;">
+      					Must be filled
+    				</small>
     				<input type="text" id="designation" name="designation" class="form-control" placeholder="Designation" required>  <br>
     				<span id="error" style="color:red"></span>    <br>
     			</div>
  				</div>
  	
  	
- 				<button type="submit" class="btn btn-success btn-lg rounded mx-auto d-block"> Submit </button>
+ 				<button type="submit" class="btn btn-primary btn-lg rounded mx-auto d-block"> Submit </button>
 
  
  			</form>

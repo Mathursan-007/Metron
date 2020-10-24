@@ -21,10 +21,16 @@
 		var i=${value};
 		
 		if(i==1){
-			window.location.href = 'EventDashboard.jsp#Butt4';
-		} 
+			window.location.href = 'EventDashboard.jsp#Butt2'; 
+		}else if (i==2){
+			window.location.href = 'EventDashboard.jsp#Butt4'; 
+		}else if (i==3){
+			window.location.href = 'EventDashboard.jsp#Butt6'; 
+		}
 		
 		</script>
+
+				
 				
 		
 <style>
@@ -76,8 +82,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-list-alt fa-fw"></i>   View Meal Plan Details</a> 
 			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-plus-square fa-fw"></i>  Add Venue</a>
 			    <a href="#Butt6" id="test6" class="w3-bar-item w3-button w3-padding" onclick="button6()"><i class="fa fa-check-square fa-fw"></i>  View Venue Details</a>
-			    <a href="#Butt7" id="test7" class="w3-bar-item w3-button w3-padding" onclick="button7()"><i class="fa fa-cc-mastercard fa-fw"></i>  New Payment</a>
-			    <a href="#Butt8" id="test8" class="w3-bar-item w3-button w3-padding" onclick="button8()"><i class="fa fa-list-alt fa-fw"></i>  View Payment Details</a>
+
 			      
 			   
 			  </div>                                                                                                                
@@ -93,10 +98,10 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
+			<div style="background:#8f9dd7;height:1600px;" id="Butt1"><%@include file="AddEventReservation.jsp"%></div>
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2"></div>
+			<div style="background:#8f9dd7;height:800px;" id="Butt2"><%@include file="ListEventReservation.jsp"%></div>
 			
 			
 			<div style="background:#8f9dd7;height:800px;" id="Butt3"><%@include file="AddMealPlan.jsp"%></div> 
@@ -105,21 +110,41 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div style="background:#8f9dd7;height:1000px;" id="Butt4"><%@include file="ListMealPlan.jsp"%></div>
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt5"></div>
+			<div style="background:#8f9dd7;height:1000px;" id="Butt5"><%@include file="AddVenue.jsp"%></div>
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:1000px;" id="Butt6"><%@include file="ListVenue.jsp"%></div>
 			
-			
-			<div style="background:#8f9dd7;height:800px;" id="Butt7"></div>
-			
-			
-			<div style="background:#8f9dd7;height:800px;" id="Butt8"></div>
 
 			</div> 
 		</div>	
 
 		<script src="scripts/Event.js"></script>
+		
+		
+		<script>
+	function myFunction() {
+  	// Declare variables
+ 	 var input, filter, table, tr, td, i, txtValue;
+  	 input = document.getElementById("myInput");
+ 	 filter = input.value.toUpperCase();
+ 	 table = document.getElementById("customers");
+ 	 tr = table.getElementsByTagName("tr");
+
+  	// Loop through all table rows, and hide those who don't match the search query
+  	for (i = 0; i < tr.length; i++) {
+   	 td = tr[i].getElementsByTagName("td")[2];
+   	 if (td) {
+     	 txtValue = td.textContent || td.innerText;
+      	if (txtValue.toUpperCase().indexOf(filter) > -1) {
+       	 tr[i].style.display = "";
+      	} else {
+       	 tr[i].style.display = "none";
+     	 }
+    	}
+  	}
+	}
+		</script>
 
 
 </body>

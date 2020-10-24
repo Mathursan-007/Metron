@@ -57,7 +57,7 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  margin-left:38%;
+  margin-left:35%;
   text-transform:uppercase;
   font-weight:400;
 }
@@ -68,4 +68,22 @@
 }  
 
 
+.qqqq {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left:73%;
+ 
+  
+}
 
+.qqqq:hover {
+	background: #eee;
+	text-decoration: none;
+
+}
+
+.qqqq,info {color: dodgerblue;}

@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.EventReservation;
 import com.service.EventImpl;
 
-
 /**
- * Servlet implementation class DeleteMealPlan
+ * Servlet implementation class GetEventReservation
  */
-@WebServlet("/DeleteMealPlan") 
-public class DeleteMealPlan extends HttpServlet {
+@WebServlet("/GetEventReservation")
+public class GetEventReservation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public DeleteMealPlan() {
+    public GetEventReservation() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -40,16 +41,18 @@ public class DeleteMealPlan extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		int packageId= Integer.parseInt(request.getParameter("PackageId"));
+		int reservationId = Integer.parseInt(request.getParameter("EReserveId"));  
 		EventImpl eventimpl = new EventImpl();
-		eventimpl.deleteMealPlan(packageId);   
+		EventReservation eventreservation = new EventReservation();
+		eventreservation = eventimpl.getEventReservation(reservationId); 
 		
-		request.setAttribute("value", 2);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
+		float price = eventimpl.getVenueCost(request.getParameter("venuetype"));
+		
+		request.setAttribute("EventReservation", eventreservation); 
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetEventReservation.jsp");
 		dispatcher.forward(request, response);
 		
-	
 		
 	}
 

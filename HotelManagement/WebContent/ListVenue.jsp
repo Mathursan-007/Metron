@@ -10,9 +10,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="styles/meallists.css">
 <title>Venue List</title>
 </head>
 <body>
+
+<div class="acbt"></div>
 
 	<caption> <h2>Venues List</h2> </caption>
 		
@@ -23,8 +26,6 @@
                 <th>Venue Type</th>
                 <th>Price</th>
                 <th>Capacity</th>
-                <th>Availability</th>
-                <th>E_Reservation_ID</th>
                 <th>Actions</th>
                
                
@@ -33,10 +34,10 @@
            
            <%
             
-            IEvent ievent = new EventImpl();
+            IEvent ievents = new EventImpl();
             ArrayList <Venue> Venues = new ArrayList<>();
             
-            Venues = ievent.listVenues();
+            Venues = ievents.listVenues();
             
             for(Venue venue: Venues){ %>
             
@@ -45,21 +46,14 @@
            		<td><%=venue.getVenueType() %> </td>
            		<td><%=venue.getPrice() %> </td>
            		<td><%=venue.getCapacity() %> </td>
-           		<td><%=venue.getAvailability() %> </td>
-           		<td><%=venue.getEReservationID() %> </td>
+         
            		
            		<td>
-           		<form action ="./GetMealPlan" method = "post">
+           		<form action ="./GetVenue" method = "post">
            		<input type ="hidden" name="venueid" value ="<%=venue.getVenueID()%>">
-           		<input type="submit" value="View" class="button button1">
+           		<input type="submit" value="View" class="btn btn-success">
            		</form>
-           		
-           		<br> 
-           		
-           		<form action ="./DeleteMealPlan" method = "post">
-           		<input type ="hidden" name="venueid" value ="<%=venue.getVenueID()%>">
-           		<input type="submit" value="Delete" class="button button1">
-           		</form>
+           	
            		</td>
            		
            		</tr>

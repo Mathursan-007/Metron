@@ -1,29 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+       <%@ page import="com.model.Venue" %>   
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Venues</title>
+<title>View Venue</title>
 <link rel="stylesheet" href="styles/Meal.css">
 </head>
 <body>
 
-<h2 class="nana">Venue</h2>
 
-	<form action="./AddVenue" method="post">
-	
-	
-	
+<%Venue venue = (Venue)request.getAttribute("venue");%>
+
+
+<h2 class="nana">View Venues Form</h2>
+
+<form action="./UpdateVenue" method="post">
+
+
 	<div class="meal">
 
 			<div class="form-group">
 			
 					<label for="venueid"> Venue ID : </label> <input type="text"
-					class="form-control" id="packageId" placeholder="Venue ID"
-					name="venueid" required>
-			</div>
-		</div>
+					class="form-control" id="venueId" placeholder="Venue ID"
+					name="venueid" value= "<%=venue.getVenueID()%>" >    
+				     
+				      
+					
+			</div>     
+		</div>  
 			
 		
 		
@@ -32,7 +41,7 @@
 
 				<label for="venuetype"> Venue Type : </label> <select
 					id="venuetype" name="venuetype" class="form-control">
-					<option selected>Choose one Venue</option>
+					<option selected> <%=venue.getVenueType() %></option>
 					<option value="Empire BallRoom">Empire BallRoom</option>
 					<option value="Imperial BallRoom">Imperial BallRoom</option>
 					<option value="Rainbow BallRoom">Rainbow BallRoom</option>
@@ -50,7 +59,7 @@
 
 				<label for="price"> Price : </label> <select id="price" name="price"
 					class="form-control">
-					<option selected>Select Price</option>
+					<option selected> <%=venue.getPrice() %></option>
 					<option value="700500">Rs 700500</option>
 					<option value="650500">Rs 650500</option>
 					<option value="600000">Rs 600000</option>
@@ -75,14 +84,24 @@
 			
 					<label for="capacity"> Capacity : </label> <input type="text"
 					class="form-control" id="Capacity" placeholder="Capacity"
-					name="capacity" required>
+					name="capacity" value= "<%=venue.getCapacity()%>" >
 			</div>
 		</div>
 				
-		
+	
+		<div class="meal">
+
+			<div class="form-group">
+			
+					<label for="availability"> Availability : </label> <input type="text"
+					class="form-control" id="Availability" placeholder="Availability"
+					name="avail" value= "<%=venue.getAvailability()%>" >
+			</div>
+		</div>	
+	
 			<Br>
 		 
-		 <input type="submit" value="Add Venue" class="button">
+		 <input type="submit" value="Update Venue" class="button">
 	</form>
 
 

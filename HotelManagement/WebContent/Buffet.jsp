@@ -1,17 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="com.service.IEvent"%>
+<%@ page import="com.service.EventImpl"%>
+
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
 <title>Meal plan</title>
-
-
-<link rel="stylesheet" href="styles/mealUI.css"> 
+<%@include file="Header.jsp"%>
+<link rel="stylesheet" href="styles/mealui.css"> 
 
 </head>
 <body >
-<%@include file="Header.jsp" %>
+
+<%  float price1, price2, price3;   
+
+EventImpl eventimpl = new EventImpl();
+price1 = eventimpl.getMealPrice(111); 
+price2 = eventimpl.getMealPrice(222); 
+price3 = eventimpl.getMealPrice(333); 
+
+
+%>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
  <div class="firstttt">  
 
 <h2> Meal Plan For Events</h2>
@@ -128,7 +144,7 @@ Couldn't find what you are looking for, just ask one of our event specialists wh
 <div class="absolute">
  				<h3> Deluxe Buffet </h3>	
  				
- 				<h4> Rs 1500 per person </h4>
+ 				<h4> Rs <%=price1 %> per person </h4>
  				<br> 
  				Please Choose One Salad/Appetizer 
  				<br> <br>
@@ -152,7 +168,7 @@ Couldn't find what you are looking for, just ask one of our event specialists wh
 <div class="absolute1">
 				<h3> Enhanced Buffet </h3>
  			
- 				<h4> Rs 3000 per person </h4>
+ 				<h4> Rs <%=price2 %> per person </h4>
  				<br>
  				Choose Two Salad/Appetizer
 				<br> <br>
@@ -180,7 +196,7 @@ Couldn't find what you are looking for, just ask one of our event specialists wh
 <div class="absolute2">
 				<h3> Premium Buffet </h3>
  				
- 				<h4> Rs 4500 per person </h4>
+ 				<h4> Rs <%=price3 %> per person </h4>
  				<br>
  				Choose Three Salad/Appetizer 
 				<br> <br>
@@ -316,6 +332,36 @@ Couldn't find what you are looking for, just ask one of our event specialists wh
 
 </div>
  </div>
+ 
+ <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+ 
+ 
 
 </body>
+<br> <br> <br>
+
+<%@include file="Footer.jsp"%>
+
 </html>
+
+

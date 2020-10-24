@@ -1,11 +1,16 @@
 package com.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.model.Venue;
+import com.service.EventImpl;
 
 /**
  * Servlet implementation class UpdateVenue
@@ -35,7 +40,27 @@ public class UpdateVenue extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+	
+		
+		
+		Venue venue = new Venue();
+		
+		EventImpl eventimpl = new EventImpl();
+		
+		venue.setVenueID(Integer.parseInt(request.getParameter("venueid")));
+		venue.setVenueType(request.getParameter("venuetype"));
+		venue.setPrice(Float.parseFloat(request.getParameter("price")));
+		venue.setCapacity(Integer.parseInt(request.getParameter("capacity")));
+		venue.setAvailability(request.getParameter("avail"));
+		
+		
+		eventimpl.updateVenue(venue); 
+		
+		request.setAttribute("value", 3);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
+		dispatcher.forward(request, response); 		
+		
+		
 	}
 
 }

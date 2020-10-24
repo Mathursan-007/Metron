@@ -5,7 +5,15 @@
 
 .nana{
 	padding-top:100px;
+	
 }
+	
+.repp {
+  background-color: #8f9dd7;
+  
+}	
+	
+
 .meal input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -39,17 +47,21 @@
   border-radius: 3px;
   background-color: #B0C4DE;
   padding: 20px;
-  width: 70%;
-  height:20%;
-  margin-left: 16%;
+  width: 40%;
+  height:10%;
+  margin-left: 30%;
+  text-align: left;
+  color: #000080;
+  font-weight: bold;
+  font-size: 120%;
+ font-family: BodoniStd-BookItalic,serif;
 }
 
 
 
-.button {
-  background-color: #483D8B;
+.zac {
+
   border-radius:10px;
-  color: white;
   padding: 16px 100px;
   text-align: center;
   text-decoration: none;
@@ -61,11 +73,4 @@
   text-transform:uppercase;
   font-weight:400;
 }
-
-.button:hover {
-  background-color:#191970;
-  color: white;
-}  
-
-
 

@@ -50,7 +50,7 @@ public class AddMealPlan extends HttpServlet {
 		
 		eventimpl.addMealPlan(mealplan);  
 		
-		request.setAttribute("value", 1);
+		request.setAttribute("value", 2);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
 		dispatcher.forward(request, response);	
   

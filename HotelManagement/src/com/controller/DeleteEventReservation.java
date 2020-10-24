@@ -11,18 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.service.EventImpl;
 
-
 /**
- * Servlet implementation class DeleteMealPlan
+ * Servlet implementation class DeleteEventReservation
  */
-@WebServlet("/DeleteMealPlan") 
-public class DeleteMealPlan extends HttpServlet {
+@WebServlet("/DeleteEventReservation")
+public class DeleteEventReservation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public DeleteMealPlan() {
+    public DeleteEventReservation() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -40,17 +40,13 @@ public class DeleteMealPlan extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		int packageId= Integer.parseInt(request.getParameter("PackageId"));
+		int reservationId= Integer.parseInt(request.getParameter("EReserveId"));
 		EventImpl eventimpl = new EventImpl();
-		eventimpl.deleteMealPlan(packageId);   
+		eventimpl.deleteEventReservation(reservationId);   
 		
-		request.setAttribute("value", 2);
+		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
 		dispatcher.forward(request, response);
-		
-	
-		
 	}
 
 }

@@ -1,14 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="com.service.IEvent"%>
+<%@ page import="com.service.EventImpl"%>    
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Weddings</title>
+<%@include file="Header.jsp"%>
 <link rel="stylesheet" href="styles/wedd.css"> 
 
 </head>
 <body>
+
+<%  float price1, price2, price3;   
+
+EventImpl eventimpl = new EventImpl();
+price1 = eventimpl.getVenuePrice(1); 
+price2 = eventimpl.getVenuePrice(2); 
+price3 = eventimpl.getVenuePrice(3); 
+
+
+%>
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<div class="wedddd">  
 
 
 <h2> Weddings At Metron </h2>
@@ -82,7 +103,7 @@ function showSlides() {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 1500); // Change image every 1.5 seconds
+  setTimeout(showSlides, 1600); // Change image every 1.0 seconds
 }
 </script>
 
@@ -101,16 +122,19 @@ function showSlides() {
 </div>
 
 <div class="absolute">
-				<h3> Empire BallRoom </h3>
+				<h3> Empire BallRoom - Rs <%=price1 %></h3> <br>
 				
 			
  				The grand colonial style ballroom with a magnificent <br> seven-tier chandelier, 
- 				accommodates up to 600 guests. <br> The pillar-less architecture adds to the splendour of this <br>venue.
+ 				accommodates up to 900 guests. <br> The pillar-less architecture adds to the splendour of this <br>venue.
 
 				
 </div>
 
-<input type="submit" value="Make An Inquiry" class="button" href="Home.jsp#zooka">  
+
+ <form action ="Home.jsp#zooka" method = "post">
+<input type="submit" value="Make An Inquiry" class="button">
+</form>
 
 <hr class="new1">
 
@@ -122,13 +146,14 @@ function showSlides() {
 </div>
 
 <div class="absolute1">
-				<h3> Imperial BallRoom </h3>
+				<h3> Imperial BallRoom - Rs <%=price2 %> </h3> <br>
 				
-				The two-tiered room, with meticulously restored walnut <br> ceiling provides a spectacular setting for weddings. The <br> Victorian style and  stately stone columns, evokes a regal<br> beauty that adds surprise to your celebration.
+				The two-tiered room, with meticulously restored walnut <br> ceiling provides a spectacular setting for weddings and <br> accomodates up to 600 guests. The  Victorian style and <br> stately stone columns, evokes a regal beauty that adds <br> surprise to your celebration. 
 			
-</div>
-
-<input type="submit" value="Make An Inquiry" class="button1">  
+</div> 
+ <form action ="Home.jsp#zooka" method = "post">
+<input type="submit" value="Make An Inquiry" class="button1">
+</form>  
 
 <hr class="new1">
 
@@ -140,15 +165,46 @@ function showSlides() {
 </div>
 
 <div class="absolute2">
-				<h3> Rainbow BallRoom </h3>
+				<h3> Rainbow BallRoom - Rs <%=price3 %> </h3> <br>
 				
-			  This wood-panneled hall with stunning crystal chandeliers <br> and a creamy color palette, accomodates up to 300 guests.<br> Mark your special day at our magnificient ballroom with a <br> seperate dance floor and a host of other unique facilities.
+				
+			  This wood-panneled hall with stunning crystal chandeliers <br> and a creamy color palette, accomodates up to 400 guests.<br> Mark your special day at our magnificient ballroom with a <br> seperate dance floor and a host of other unique facilities.
 			  
 
 </div>
-
+ <form action ="Home.jsp#zooka" method = "post">
 <input type="submit" value="Make An Inquiry" class="button2">  
+</form>
+</div>
+
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
 
 </body>
+<br> <br> <br>
+
+<%@include file="Footer.jsp"%>
+
 </html>
+

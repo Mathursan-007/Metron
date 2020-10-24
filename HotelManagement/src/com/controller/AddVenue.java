@@ -50,13 +50,13 @@ public class AddVenue extends HttpServlet {
 		venue.setPrice(Float.parseFloat(request.getParameter("price")));
 		venue.setCapacity(Integer.parseInt(request.getParameter("capacity")));  
 		venue.setAvailability(request.getParameter("avail"));   
-		venue.setEReservationID(Integer.parseInt(request.getParameter("rid"))); 
+
 		 
 		eventimpl.addVenue(venue);          
 		
-		
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/ListVenue.jsp");
-		dispatcher.forward(request, response);	
+		request.setAttribute("value", 3);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

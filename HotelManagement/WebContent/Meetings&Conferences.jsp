@@ -1,14 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="com.service.IEvent"%>
+<%@ page import="com.service.EventImpl"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meetings & Conferences</title>
+<%@include file="Header.jsp"%>
 <link rel="stylesheet" href="styles/meeting.css"> 
 </head>
 <body>
 
+<%  float price4, price5, price6;   
+
+EventImpl eventimpl = new EventImpl();
+price4 = eventimpl.getVenuePrice(4); 
+price5 = eventimpl.getVenuePrice(5); 
+price6 = eventimpl.getVenuePrice(6); 
+
+
+%>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+ <div class="secccc">  
 
 <h2> Meetings & Conferences At Metron </h2>
 
@@ -86,7 +105,7 @@ function showSlides() {
 <div class="polaroid">
   <img src="images/cedar.jpg" alt="5 Terre" style="width:100%">
   <div class="container">
-  <p>Cedar</p>
+  <p>Cedar -  Rs <%=price4 %></p>
   </div>
 </div>
 
@@ -97,6 +116,7 @@ function showSlides() {
  			
  			<div class = "absolute4">
  			
+ 		
  			Setup - Banquet , Capacity - 80
  			<br> <br>
  			Setup - Boardroom , Capacity - 30
@@ -105,15 +125,16 @@ function showSlides() {
 
  				
 </div>
+ <form action ="Home.jsp#zooka" method = "post">
 <input type="submit" value="Make An Inquiry" class="button"> 
-
+</form>
 <hr class="new1">
 
 
 <div class="polaroid">
   <img src="images/ebony.jpg" alt="5 Terre" style="width:100%">
   <div class="container">
-  <p>Ebony</p>
+  <p>Ebony - Rs <%=price5 %> </p>
   </div>
 </div>
 
@@ -132,8 +153,9 @@ function showSlides() {
  			
  				
 </div>
-
+<form action ="Home.jsp#zooka" method = "post">
 <input type="submit" value="Make An Inquiry" class="button1">  
+</form>
  			
 
 <hr class="new1">
@@ -141,7 +163,7 @@ function showSlides() {
 <div class="polaroid">
   <img src="images/angasana.jpg" alt="5 Terre" style="width:100%">
   <div class="container">
-  <p>Aspen</p>
+  <p>Aspen - Rs <%=price6 %></p>
   </div>
 </div>
 
@@ -151,7 +173,7 @@ function showSlides() {
 			Intimate yet stylish, the Aspen Meeting Room adds freshness and vibrancy to elevate the ambience of your private of business event. A separate entrance also ensures privacy for your special guests.
  			
  			<div class = "absolute5">
- 			
+ 		
  			Setup - Boardroom , Capacity - 25
  			<br> <br>
  			Setup - Banquet , Capacity - 35
@@ -161,10 +183,37 @@ function showSlides() {
  				
 </div>
 
-
+<form action ="Home.jsp#zooka" method = "post">
 <input type="submit" value="Make An Inquiry" class="button2">  
- 			
+</form>
+ </div>			
+
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
 
 
 </body>
+<br> <br> <br>
+<%@include file="Footer.jsp"%>
 </html>
+

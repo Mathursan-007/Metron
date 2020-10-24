@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Venue;
 import com.service.EventImpl;
 
-
 /**
- * Servlet implementation class DeleteMealPlan
+ * Servlet implementation class SearchAvailability
  */
-@WebServlet("/DeleteMealPlan") 
-public class DeleteMealPlan extends HttpServlet {
+@WebServlet("/SearchAvailability")
+public class SearchAvailability extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public DeleteMealPlan() {
+    public SearchAvailability() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -39,18 +41,21 @@ public class DeleteMealPlan extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
+		String searchDate = request.getParameter("date");  
+		int venueType = Integer.parseInt(request.getParameter("eventname"));
 		
-		
-		int packageId= Integer.parseInt(request.getParameter("PackageId"));
+		ArrayList <Venue> Halls = new ArrayList<>(); 
+		System.out.println(searchDate + venueType);
+		Venue venue = new Venue();
 		EventImpl eventimpl = new EventImpl();
-		eventimpl.deleteMealPlan(packageId);   
 		
-		request.setAttribute("value", 2);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
+		Halls = eventimpl.listAvailableHalls(venueType, searchDate);  
+		
+		request.setAttribute("halls", Halls);  
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/VenueAvailability.jsp");
 		dispatcher.forward(request, response);
 		
-	
-		
 	}
-
+                     
 }

@@ -7,8 +7,7 @@ public class Venue {
 	private float Price;
 	private int Capacity;
 	private String Availability;
-	private int EReservationID;
-	
+	private int HallID;
 	
 	public int getVenueID() {
 		return VenueID;
@@ -40,12 +39,14 @@ public class Venue {
 	public void setAvailability(String availability) {
 		Availability = availability;
 	}
-	public int getEReservationID() {
-		return EReservationID;
+
+	public int getHallID() {
+		return HallID;
 	}
-	public void setEReservationID(int eReservationID) {
-		EReservationID = eReservationID;
+	public void setHallID(int hallID) {
+		HallID = hallID;
 	}
+	
 	
 	
 	

@@ -1,5 +1,51 @@
 @charset "ISO-8859-1";
 
+body{
+	background:#E6E6FA;
+	
+}
+
+.incom
+{
+	margin-top:60px;
+	margin-left:900px;
+}
+
+.search1
+{
+	margin-top:-35px;
+	margin-left:800px;
+}
+
+.filter1
+{
+	margin-top:-45px;
+	margin-left:50px;
+}
+
+.filter
+{
+	margin-top:-115px;
+	margin-left:50px;
+	
+}
+
+.filter2
+{
+
+	margin-top:-85px;
+	margin-left:50px;
+	
+}
+
+.filter3
+{
+
+	margin-top:-85px;
+	margin-left:50px;
+	
+}
+
 .bt {
     margin: 0;
     padding: 0;
@@ -11,6 +57,15 @@
 }
 
 
+h3
+{
+
+	text-align: center;
+	font-size: 30px;
+	margin-top:0%;
+	font-style:italic;
+
+}
 h2
 {
 	margin: 0;
@@ -18,12 +73,37 @@ h2
 	text-align: center;
 	font-size: 30px;
 	margin-top:-5%;
+	font-style:italic;
 
 }
 
+h1
+{
+	margin: 0;
+	padding: 0 0 20px;
+	margin-left:1000px;
+	font-size: 30px;
+	margin-top:-28%;
+
+}
+
+.t1 button
+{
+	
+	margin-top:110px;
+}
+
+.search
+{
+	
+	margin-top:6px;
+}
+
+
+
 .card-container
 {
-	width: 1000px;
+	width: 1100px;
 	background: #fff;
 	border-radius: 6px;
 	position:absolute;
@@ -36,22 +116,107 @@ h2
 
 .upper-container
 {
-	height: 120px;
-	background: #ff8080;
+	height: 50px;
+	background: #ffffff;
+	
 }
 
+.upper-container1
+{
+	height: 120px;
+	background: #808080;
+	color:#000000;
+	
+}
+
+
+
+
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 4px;
+  margin-left:10px;
+}
+
+#myInput1 {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 60px;
+  margin-left:10px;
+}
+
+#myInput2{
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 40px;
+  margin-left:10px;
+}
+
+
+#myInput3{
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 40px;
+  margin-left:10px;
+}
+
+#myInput4{
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 40px;
+  margin-left:10px;
+}
+
+#myInput5{
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 3px solid #000080;
+  margin-bottom: 12px;
+  margin-top: 40px;
+  margin-left:10px;
+}
 
 .lower-container
 {
 	height: 90px;
 	background: #ffffff;
 	padding: 20px;
-	padding-top: 80px;
+	padding-top: 70px;
 }
 
 
 
-button {
+.new button {
 display:inline-block;
 padding:0.7em 1.4em;
 margin:0 0.3em 0.3em 0;
@@ -69,6 +234,7 @@ text-align:center;
 position:relative;
 cursor:pointer;
 transform: translate(625%, 80%);
+margin-left:100px;
 }
 
 button:active{
@@ -84,6 +250,13 @@ table{
 width:1100px;
 margin-left:0%;
 }
+
+th{
+	background:#000000;
+	color:#ffffff;
+}
+
+
 
 td{
 padding-left:10%;
@@ -102,7 +275,27 @@ tbody, thead{
 text-align:center;
 }
 
-button[type=submit]{
+/*button {
+display:inline-block;
+padding:0.7em 1.4em;
+margin:0 0.3em 0.3em 0;
+border-radius:4px;
+box-sizing:border-box;
+text-decoration:none;
+font-family:'Roboto', sans-serif;
+/*text-transform:uppercase;*/
+font-style:italic;
+font-weight:400;
+color:#ffffff;
+background-color:#1c2e4a;
+box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+text-align:center;
+position:relative;
+cursor:pointer;
+transform: translate(625%, 80%);
+}*/
+
+input[type=submit]{
 display:inline-block;
 border-radius:4px;
 box-sizing:border-box;
@@ -115,14 +308,14 @@ box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
 text-align:center;
 position:relative;
 cursor:pointer;
-transform: translate(15%, 0%);
+transform: translate(1%, 0%);
 }
 
-button[type=submit]:active{
+input[type=submit]:active{
 top:0.1em;
 }
 
-button[type=submit]:hover{
+input[type=submit]:hover{
 background:#c0c0c0;
 color:#262626;
 }

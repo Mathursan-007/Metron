@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Utility;
-import com.service.IUtility;
-import com.service.UtilityImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 
 /**
@@ -45,18 +46,19 @@ public class UpdateUtility extends HttpServlet {
 
 		Utility utility=new Utility();
 		
-		IUtility utilityImpl=new UtilityImpl();
+		IFinance financeImpl=new FinanceImpl();
 		
 		utility.setPayment_ID(Integer.parseInt(request.getParameter("paymentID")));
-		utility.setDescription(request.getParameter("description"));
+		utility.setCategory(request.getParameter("category"));
 		utility.setAmount(Float.parseFloat(request.getParameter("amount")));
 		utility.setDate(request.getParameter("Date"));
 
 		
 		
 		
-		utilityImpl.UpdateUtility(utility);
+		financeImpl.UpdateUtility(utility);
 		
+		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

@@ -23,51 +23,11 @@ function w3_close() {
 
 
 //button styles js
-function button1() {
-
-	   var element = document.getElementById("test1");
-	   element.classList.add("w3-blue");
-	   element.style.textAlign= "center";
-
-	   var element = document.getElementById("test2");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-
-	    var element = document.getElementById("test3");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-
-	   var element = document.getElementById("test4");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-	   
-	   var element = document.getElementById("test5");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-
-	   var element = document.getElementById("test6");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-
-	    var element = document.getElementById("test7");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-
-	   var element = document.getElementById("test8");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-	   
-
-	}
 	
 function button2() {
 	   var element = document.getElementById("test2");
 	   element.classList.add("w3-blue");
 	   element.style.textAlign= "center";
-	   
-	   var element = document.getElementById("test1");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
 
 	    var element = document.getElementById("test3");
 	   element.classList.remove("w3-blue");
@@ -105,11 +65,7 @@ function button3() {
 
 	   var element = document.getElementById("test2");
 	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-	   
-	   var element = document.getElementById("test1");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
+	   element.style.textAlign= "";   
 
 	   var element = document.getElementById("test4");
 	   element.classList.remove("w3-blue");
@@ -149,10 +105,6 @@ function button4() {
 	   element.classList.remove("w3-blue");
 	   element.style.textAlign= "";
 	   
-	   var element = document.getElementById("test1");
-	   element.classList.remove("w3-blue");
-	   element.style.textAlign= "";
-	   
 	   var element = document.getElementById("test5");
 	   element.classList.remove("w3-blue");
 	   element.style.textAlign= "";
@@ -182,10 +134,6 @@ function button5() {
    element.style.textAlign= "";
 
    var element = document.getElementById("test2");
-   element.classList.remove("w3-blue");
-   element.style.textAlign= "";
-   
-   var element = document.getElementById("test1");
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
    
@@ -221,10 +169,6 @@ function button6() {
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
    
-   var element = document.getElementById("test1");
-   element.classList.remove("w3-blue");
-   element.style.textAlign= "";
-   
    var element = document.getElementById("test5");
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
@@ -257,10 +201,6 @@ function button7() {
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
    
-   var element = document.getElementById("test1");
-   element.classList.remove("w3-blue");
-   element.style.textAlign= "";
-   
    var element = document.getElementById("test5");
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
@@ -290,10 +230,6 @@ function button8() {
    element.style.textAlign= "";
 
    var element = document.getElementById("test2");
-   element.classList.remove("w3-blue");
-   element.style.textAlign= "";
-   
-   var element = document.getElementById("test1");
    element.classList.remove("w3-blue");
    element.style.textAlign= "";
    

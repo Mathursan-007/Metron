@@ -14,7 +14,7 @@
 <body>
 
 
-  <form action="./AddUtility" method="post">
+  <form action="./AddExpense" method="post">
  
   <div class = "expense">
 
@@ -22,12 +22,16 @@
  
   <h2>Add Expense</h2>
  
-      <label for="paymentID">Payment_ID : </label>
-      <input type="number" class="form-control" id="paymentID" placeholder="Payment_ID" name="paymentID"  required>
+     
+      <label for="Payment_ID">Payment_ID : </label>
+      <input type="number" class="form-control" id="Payment_ID" name="Payment_ID" required>
       <br><br><br>
-      <label for="description"> Category : </label>
-      <select class="form-control" input type="text" name="category" id="category" placeholder="Category" required>
-      						<option value="">--Choose a Utility Expense--</option>
+      <label for="Category"> Category : </label>
+      <select class="form-control" input type="text" name="Category" id="Category"  required>
+      						<option value="">--Choose a department--</option>
+      						<option value="Stock">Stock</option>
+      						<option value="Salary">Salary</option>
+						    <option value="Miscellaneous">Miscellaneous</option>
 						    <option value="Water Bill">Water Bill</option>
 						    <option value="Electricity Bill">Electricity Bill</option>
 						    <option value="Gas Bill">Gas Bill</option>
@@ -36,8 +40,8 @@
 						    <option value="Rental">Rental</option>
 						</select>
       <br><br><br>
-      <label for="amount"> Amount : </label>
-      <input type="text" class="form-control" id="amount" placeholder="0" name="amount" required>
+      <label for="Amount"> Amount : </label>
+      <input type="text" class="form-control" id="Amount" placeholder="0" name="Amount" required>
       <br><br><br>
       <label for="Date"> Date : </label>
       <input type="date" class="form-control" id="Date" placeholder="dd//mm/yyyy" name="Date" required>

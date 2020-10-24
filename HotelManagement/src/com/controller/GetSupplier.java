@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Supplier;
-import com.service.ISupplier;
-import com.service.SupplierImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 
 /**
- * Servlet implementation class GetSupplier
- */
+ * Servlet implementation class GetSupplier
+ */
 @WebServlet("/GetSupplier")
 public class GetSupplier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GetSupplier() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public GetSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,9 +47,9 @@ public class GetSupplier extends HttpServlet {
 		
 		String Supplier_ID = (request.getParameter("Supplier_ID"));
 		System.out.println(Supplier_ID);
-		ISupplier supplierImpl=new SupplierImpl();
+		IFinance financeImpl=new FinanceImpl();
 		Supplier supplier=new Supplier();
-		supplier=supplierImpl.GetSupplier(Supplier_ID);
+		supplier=financeImpl.GetSupplier(Supplier_ID);
 		
 		
 		

@@ -10,23 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Supplier;
-import com.service.ISupplier;
-import com.service.SupplierImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 /**
- * Servlet implementation class AddSupplier
- */
+ * Servlet implementation class AddSupplier
+ */
 @WebServlet("/AddSupplier")
 public class AddSupplier extends HttpServlet {
 private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddSupplier() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 /**
 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,10 +53,10 @@ supplier.setAddress(request.getParameter("Address"));
 
 
 
-ISupplier iSupplier = new SupplierImpl();
-iSupplier.AddSupplier(supplier);
+IFinance iFinance = new FinanceImpl();
+iFinance.AddSupplier(supplier);
 
-
+request.setAttribute("value", 2);
 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 dispatcher.forward(request, response);
 

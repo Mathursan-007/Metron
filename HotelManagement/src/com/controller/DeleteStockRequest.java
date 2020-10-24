@@ -12,19 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.service.FinanceImpl;
 import com.service.IFinance;
 
-
-
 /**
- * Servlet implementation class DeleteSupplier
+ * Servlet implementation class DeleteStockRequest
  */
-@WebServlet("/DeleteSupplier")
-public class DeleteSupplier extends HttpServlet {
+@WebServlet("/DeleteStockRequest")
+public class DeleteStockRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteSupplier() {
+    public DeleteStockRequest() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,12 +40,14 @@ public class DeleteSupplier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String Supplier_ID = (request.getParameter("Supplier_ID"));
+		
+		int Request_No = (Integer.parseInt(request.getParameter("Request_No")));
 		IFinance financeImpl=new FinanceImpl();
-		financeImpl.DeleteSupplier(Supplier_ID);
+		financeImpl.DeleteStockRequest(Request_No);
 		
 		
-		request.setAttribute("value", 2);
+		
+		request.setAttribute("value", 4);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

@@ -2,7 +2,7 @@
 
 <%@ page import="com.service.IFinance" %>  
 <%@ page import="com.service.FinanceImpl"%>  
-<%@ page import="com.model.Supplier" %> 
+<%@ page import="com.model.Income" %> 
 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,14 +11,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Suppliers</title>
+<title>Income</title>
 
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
 
 <script>
 $(document).ready(function(){
-  $("#myInput2").on("keyup", function() {
+  $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -28,6 +31,7 @@ $(document).ready(function(){
 </script>
 
 <style>
+
 .tbs{
 		width:100%;
 		height:500px;
@@ -42,16 +46,19 @@ $(document).ready(function(){
 
 		<div class = " card-container">
 			<div class = "upper-container">
-				
-			 <div class = "incom">	
-			 <a href="AddSupplier.jsp"><button class="btn btn-success">Add Supplier</button></a>
-			 </div>
-			 
-			 
-			 <div class = "filter2">			
-			<input type="text" id="myInput2" onkeyup="myFunction()" placeholder="Search Supplier" title="Type supplier">			
+			
+			<div class = "incom">
+			<a href="AddIncome.jsp"><button class="btn btn-success">Add Income</button></a>
 			</div>
 			
+			<div class = "search1">
+			<a href="SearchIncome.jsp"><button class="btn btn-info">Search</button></a>
+			</div>	
+			
+			
+			<div class = "filter1">			
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Department" title="Type department">
+			</div>
 			</div>
 			
 			
@@ -59,17 +66,16 @@ $(document).ready(function(){
 			
 			
 				
-				<h2>Supplier Details</h2>
+				<h2>Income Transactions</h2>
 	
 		<table class = "table">
 			<thead>
 				<tr>
-					<th>Supplier_ID</th>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Contact_No</th>
-					<th>Email</th>
-					<th>Address</th>
+					<th>Income_ID</th>
+					<th>Payment_ID</th>
+					<th>Category</th>
+					<th>Amount</th>
+					<th>Date</th>
 					<th>Action</th>
 					<th></th>
 				</tr>
@@ -77,35 +83,34 @@ $(document).ready(function(){
 			<tbody id="myTable">
 <tr>
          <%
-              IFinance supplier = new FinanceImpl();
-              ArrayList<Supplier> Details=new ArrayList<>();
+              IFinance income = new FinanceImpl();
+              ArrayList<Income> Transaction=new ArrayList<>();
              
-              Details = supplier.listDetails();
+              Transaction = income.listTransaction();
              
-             for(Supplier suppl:Details){ %>
+             for(Income incom:Transaction){ %>
             <tr>
-               <td><%=suppl.getSupplier_ID()%> </td>
+               <td><%=incom.getIncome_ID()%> </td> 
                
-               <td><%=suppl.getName()%></td>
+               <td><%=incom.getPayment_ID()%></td>
              
-               <td><%=suppl.getType()%></td>
+               <td><%=incom.getCategory()%></td>
                
-               <td><%=suppl.getContact_No()%></td>
+               <td><%=incom.getAmount()%></td>
                
-               <td><%=suppl.getEmail()%></td>
-               
-               <td><%=suppl.getAddress()%></td>
+               <td><%=incom.getDate()%></td>
                
                
-               <form action="./GetSupplier" method="post"><input type="hidden" name="Supplier_ID" value="<%=suppl.getSupplier_ID()%>">
+               
+               <form action="./GetIncome" method="post"><input type="hidden" name="Income_ID" value="<%=incom.getIncome_ID()%>">
                
                <td><button type = "submit" class = "btn btn-primary" name = "edit">View</button></a></td>
                
 			   </form>
 			   
-			   <form action="./DeleteSupplier" method="post">
+			   <form action="./DeleteIncome" method="post">
 			   
-               <input type="hidden" name="Supplier_ID" value="<%=suppl.getSupplier_ID()%>">
+               <input type="hidden" name="Income_ID" value="<%=incom.getIncome_ID()%>">
                
                <td><button type = "submit" class = "btn btn-danger" name = "delete">Delete</button></a></td>
                

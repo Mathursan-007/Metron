@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Supplier;
-import com.service.ISupplier;
-import com.service.SupplierImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 
 /**
- * Servlet implementation class UpdateSupplier
- */
+ * Servlet implementation class UpdateSupplier
+ */
 @WebServlet("/UpdateSupplier")
 public class UpdateSupplier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UpdateSupplier() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UpdateSupplier() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,7 +46,7 @@ public class UpdateSupplier extends HttpServlet {
 
 		Supplier supplier=new Supplier();
 		
-		ISupplier supplierImpl=new SupplierImpl();
+		IFinance financeImpl=new FinanceImpl();
 		
 		supplier.setSupplier_ID(request.getParameter("Supplier_ID"));
 		supplier.setName(request.getParameter("Name"));
@@ -55,10 +56,11 @@ public class UpdateSupplier extends HttpServlet {
 		supplier.setAddress(request.getParameter("Address"));
 
 		
+	
+		financeImpl.UpdateSupplier(supplier);
 		
 		
-		supplierImpl.UpdateSupplier(supplier);
-		
+		request.setAttribute("value", 2);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

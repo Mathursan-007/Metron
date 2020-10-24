@@ -9,23 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Expense;
-import com.model.Utility;
+import com.model.Income;
 import com.service.FinanceImpl;
 import com.service.IFinance;
 
-
 /**
- * Servlet implementation class AddUtility
+ * Servlet implementation class AddIncome
  */
-@WebServlet("/AddUtility")
-public class AddUtility extends HttpServlet {
+@WebServlet("/AddIncome")
+public class AddIncome extends HttpServlet {
 private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddUtility() {
+    public AddIncome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,18 +42,20 @@ response.getWriter().append("Served at: ").append(request.getContextPath());
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-Utility utility = new Utility();
-utility.setPayment_ID(Integer.parseInt(request.getParameter("paymentID")));
-utility.setCategory(request.getParameter("category"));
-utility.setAmount(Float.parseFloat(request.getParameter("amount")));
-utility.setDate(request.getParameter("Date"));
+	Income income = new Income();
+//income.setIncome_ID(Integer.parseInt(request.getParameter("Income_ID")));
+income.setPayment_ID(Integer.parseInt(request.getParameter("Payment_ID")));
+income.setCategory(request.getParameter("Category"));
+income.setAmount(Float.parseFloat(request.getParameter("Amount")));
+income.setDate(request.getParameter("Date"));
+
+
 
 
 IFinance iFinance = new FinanceImpl();
-iFinance.AddUtility(utility);
+iFinance.AddIncome(income);
 
-
-request.setAttribute("value", 1);
+request.setAttribute("value", 3);
 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 dispatcher.forward(request, response);
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>FinanceDashboard</title>
+		<title>Dashboard</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,6 +13,29 @@
 		<link rel="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 			<script src="scripts/nav.js"></script>
+			
+			<script>
+		window.location.href = 'FinanceDashboard.jsp#Butt2';
+		var i=${value};
+		
+		if(i==1){
+			window.location.href = 'FinanceDashboard.jsp#Butt5';
+		}else if(i==2) {
+			window.location.href = 'FinanceDashboard.jsp#Butt4';
+		}else if(i==3) {
+			window.location.href = 'FinanceDashboard.jsp#Butt2';
+		}else if(i==4) {
+			window.location.href = 'FinanceDashboard.jsp#Butt3';
+		}else if(i==5) {
+			window.location.href = 'FinanceDashboard.jsp#Butt6';
+		}else if(i==6) {
+			window.location.href = 'FinanceDashboard.jsp#Butt7';
+		}else if(i==7) {
+			window.location.href = 'FinanceDashboard.jsp#Butt8';
+		}
+		
+		
+		</script>
 		
 <style>
 .vidya{
@@ -24,14 +47,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
-<script>
-var i=${value};
-		
-		if(i==1){
-			
-			window.location.href = 'FinanceDashboard.jsp#Butt5';
-		} 
-</script>
+
 </head>
 <body class="w3-light-grey">
 
@@ -61,7 +77,6 @@ var i=${value};
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-pie-chart" aria-hidden="true"></i> &nbsp Dashboard</a>
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-eur" aria-hidden="true"></i> &nbsp Income </a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-paypal" aria-hidden="true"></i> &nbsp Expense </a>
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-users" aria-hidden="true"></i> &nbsp Suppliers </a>
@@ -81,28 +96,24 @@ var i=${value};
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 			
-			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1"></div>
-			
-			
-			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2"><%@include file="EditUtility.jsp" %></div>
+		
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt2"><%@include file="Income.jsp" %></div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt3"></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt3"><%@include file="Expense.jsp" %></div>
 			
 			
 				
-			<div style="background:#8f9dd7;height:800px;" id="Butt4"><%@include file="Supplier.jsp" %></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt4"><%@include file="Supplier.jsp" %></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt5"><%@include file="Utility.jsp" %></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt5"><%@include file="Utility.jsp" %></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt6"></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt6"><%@include file="SalaryRequest.jsp" %></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt7"></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt7"><%@include file="StockRequest.jsp" %></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt8"></div>
+			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt8"><%@include file="FinanceReport.jsp" %></div>
 
 			</div> 
 		</div>

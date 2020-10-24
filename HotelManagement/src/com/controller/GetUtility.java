@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.Utility;
-import com.service.IUtility;
-import com.service.UtilityImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 
 /**
@@ -46,9 +47,9 @@ public class GetUtility extends HttpServlet {
 		
 		int Payment_ID = (Integer.parseInt(request.getParameter("Payment_ID")));
 		System.out.println(Payment_ID);
-		IUtility utilityImpl=new UtilityImpl();
+		IFinance financeImpl=new FinanceImpl();
 		Utility utility=new Utility();
-		utility=utilityImpl.GetUtility(Payment_ID);
+		utility=financeImpl.GetUtility(Payment_ID);
 		
 		
 		

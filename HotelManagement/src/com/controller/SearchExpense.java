@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Expense;
 import com.service.FinanceImpl;
-import com.service.IFinance;
-
-
 
 /**
- * Servlet implementation class DeleteSupplier
+ * Servlet implementation class SearchExpense
  */
-@WebServlet("/DeleteSupplier")
-public class DeleteSupplier extends HttpServlet {
+@WebServlet("/SearchExpense")
+public class SearchExpense extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteSupplier() {
+    public SearchExpense() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,14 +40,33 @@ public class DeleteSupplier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String Supplier_ID = (request.getParameter("Supplier_ID"));
-		IFinance financeImpl=new FinanceImpl();
-		financeImpl.DeleteSupplier(Supplier_ID);
 		
 		
-		request.setAttribute("value", 2);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
+		
+		Expense expense = new Expense();
+		
+		String start= (request.getParameter("Start_Date"));
+		String end= (request.getParameter("End_Date"));
+		FinanceImpl financeimpl=new FinanceImpl();
+		
+		expense.setStart_Date(start);
+		expense.setEnd_Date(end);
+		
+		
+		System.out.print("Category : " + expense.getCategory());
+		System.out.print("Amount : " + expense.getAmount());
+		
+		request.setAttribute("expense", expense);
+	
+		
+		request.setAttribute("value", 7);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/SearchExpense.jsp");
+
 		dispatcher.forward(request, response);
+		
+		
+		
+		
 	}
 
 }

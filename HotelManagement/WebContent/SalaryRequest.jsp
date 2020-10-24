@@ -2,7 +2,7 @@
 
 <%@ page import="com.service.IFinance" %>  
 <%@ page import="com.service.FinanceImpl"%>  
-<%@ page import="com.model.Supplier" %> 
+<%@ page import="com.model.SalaryRequest" %> 
 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,14 +11,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Suppliers</title>
+<title>SalaryRequest</title>
 
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
 
 <script>
 $(document).ready(function(){
-  $("#myInput2").on("keyup", function() {
+  $("#myInput4").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
@@ -42,16 +43,14 @@ $(document).ready(function(){
 
 		<div class = " card-container">
 			<div class = "upper-container">
-				
-			 <div class = "incom">	
-			 <a href="AddSupplier.jsp"><button class="btn btn-success">Add Supplier</button></a>
-			 </div>
-			 
-			 
-			 <div class = "filter2">			
-			<input type="text" id="myInput2" onkeyup="myFunction()" placeholder="Search Supplier" title="Type supplier">			
-			</div>
+					
 			
+			<div style = "margin-left:50px">
+			
+			<input type="text" id="myInput4" onkeyup="myFunction()" placeholder="Search Employee" title="Type Id">
+		
+			
+			</div>
 			</div>
 			
 			
@@ -59,17 +58,15 @@ $(document).ready(function(){
 			
 			
 				
-				<h2>Supplier Details</h2>
+				<h2>Salary Transactions</h2>
 	
 		<table class = "table">
 			<thead>
 				<tr>
-					<th>Supplier_ID</th>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Contact_No</th>
-					<th>Email</th>
-					<th>Address</th>
+					<th>Request_ID</th>
+					<th>Employee_ID</th>
+					<th>Total_Salary</th>
+					<th>Date</th>
 					<th>Action</th>
 					<th></th>
 				</tr>
@@ -77,37 +74,42 @@ $(document).ready(function(){
 			<tbody id="myTable">
 <tr>
          <%
-              IFinance supplier = new FinanceImpl();
-              ArrayList<Supplier> Details=new ArrayList<>();
+              IFinance salary = new FinanceImpl();
+              ArrayList<SalaryRequest> Infor=new ArrayList<>();
              
-              Details = supplier.listDetails();
+              Infor = salary.listSalary();
              
-             for(Supplier suppl:Details){ %>
+             for(SalaryRequest sal:Infor){ %>
             <tr>
-               <td><%=suppl.getSupplier_ID()%> </td>
+               <td><%=sal.getRequest_ID()%> </td>
                
-               <td><%=suppl.getName()%></td>
+               <td><%=sal.getEmployee_ID()%></td>
              
-               <td><%=suppl.getType()%></td>
+               <td><%=sal.getTotal_Salary()%></td>
                
-               <td><%=suppl.getContact_No()%></td>
+              <td><%=sal.getDate()%></td>
                
-               <td><%=suppl.getEmail()%></td>
+         
+         
                
-               <td><%=suppl.getAddress()%></td>
                
-               
-               <form action="./GetSupplier" method="post"><input type="hidden" name="Supplier_ID" value="<%=suppl.getSupplier_ID()%>">
-               
-               <td><button type = "submit" class = "btn btn-primary" name = "edit">View</button></a></td>
-               
-			   </form>
+               <form action="./DeleteSalaryRequest" method="post">
 			   
-			   <form action="./DeleteSupplier" method="post">
+               <input type="hidden" name="Request_ID" value="<%=sal.getRequest_ID()%>">
+               
+               <td><button type = "submit" class = "btn btn-success" name = "confirm">Confirm</button></a></td>
+               
+               
+                <form action="./DeleteSalaryRequest" method="post">
 			   
-               <input type="hidden" name="Supplier_ID" value="<%=suppl.getSupplier_ID()%>">
+               <input type="hidden" name="Request_ID" value="<%=sal.getRequest_ID()%>">
                
                <td><button type = "submit" class = "btn btn-danger" name = "delete">Delete</button></a></td>
+               
+               
+			   
+			   
+		
                
                
          

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.IUtility;
-import com.service.UtilityImpl;
+import com.service.FinanceImpl;
+import com.service.IFinance;
+
 
 
 /**
@@ -42,9 +43,11 @@ public class DeleteUtility extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int Payment_ID = (Integer.parseInt(request.getParameter("paymentID")));
-		IUtility utilityImpl=new UtilityImpl();
-		utilityImpl.DeleteUtility(Payment_ID);
+		IFinance financeImpl=new FinanceImpl();
+		financeImpl.DeleteUtility(Payment_ID);
 		
+		
+		request.setAttribute("value", 1);
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 
-<%@ page import="com.service.IUtility" %>  
-<%@ page import="com.service.UtilityImpl"%>  
+<%@ page import="com.service.IFinance" %>  
+<%@ page import="com.service.FinanceImpl"%>  
 <%@ page import="com.model.Utility" %> 
 
 
@@ -14,8 +14,21 @@
 <title>Utility Transaction</title>
 
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#myInput3").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 <style>
+
 .tbs{
 		width:100%;
 		height:500px;
@@ -28,10 +41,18 @@
 
 
 
+
+
 		<div class = " card-container">
 			<div class = "upper-container">
-				
-			 <a href="AddUtility.jsp" class="button"><button>Add Expense</button></a>
+			
+			<div class = "incom">
+			<a href="AddUtility.jsp"><button class="btn btn-success">Add Utility</button></a>
+			</div>
+			 
+			 <div class = "filter3">			
+			<input type="text" id="myInput3" onkeyup="myFunction()" placeholder="Search Utility" title="Type utility">		
+			</div>
 			
 			</div>
 			
@@ -46,7 +67,7 @@
 			<thead>
 				<tr>
 					<th>Payment_ID</th>
-					<th>Description</th>
+					<th>Category</th>
 					<th>Amount</th>
 					<th>Date</th>
 					<th>Action</th>
@@ -54,10 +75,10 @@
 					<th></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="myTable">
 <tr>
          <%
-              IUtility utility = new UtilityImpl();
+              IFinance utility = new FinanceImpl();
               ArrayList<Utility> Expense=new ArrayList<>();
              
               Expense = utility.listExpense();
@@ -66,7 +87,7 @@
             <tr>
                <td><%=util.getPayment_ID()%> </td>
                
-               <td><%=util.getDescription()%></td>
+               <td><%=util.getCategory()%></td>
              
                <td><%=util.getAmount()%></td>
                
@@ -75,7 +96,7 @@
                
                <form action="./GetUtility" method="post"><input type="hidden" name="Payment_ID" value="<%=util.getPayment_ID()%>">
                
-               <td><button type = "submit" class = "btn btn-primary" name = "edit">Edit</button></a></td>
+               <td><button type = "submit" class = "btn btn-primary" name = "edit">View</button></a></td>
                
 			   </form>
 			   
@@ -83,7 +104,7 @@
 			   
                <input type="hidden" name="paymentID" value="<%=util.getPayment_ID()%>">
                
-               <td><button type = "submit" class = "btn btn-primary" name = "delete">Delete</button></a></td>
+               <td><button type = "submit" class = "btn btn-danger" name = "delete">Delete</button></a></td>
                
                
          
@@ -95,7 +116,7 @@
                
             </tr>
             <%} %>
-       
+   </tr>    
 
       </tbody>
 

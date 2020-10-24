@@ -9,22 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.FinanceImpl;
+import com.model.Expense;
 import com.service.IFinance;
-
+import com.service.FinanceImpl;
 
 
 /**
- * Servlet implementation class DeleteSupplier
+ * Servlet implementation class GetExpense
  */
-@WebServlet("/DeleteSupplier")
-public class DeleteSupplier extends HttpServlet {
+@WebServlet("/GetExpense")
+public class GetExpense extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteSupplier() {
+    public GetExpense() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,14 +42,21 @@ public class DeleteSupplier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String Supplier_ID = (request.getParameter("Supplier_ID"));
+		
+		
+		int Expense_ID = (Integer.parseInt(request.getParameter("Expense_ID")));
+		System.out.println(Expense_ID);
 		IFinance financeImpl=new FinanceImpl();
-		financeImpl.DeleteSupplier(Supplier_ID);
+		Expense expense=new Expense();
+		expense=financeImpl.GetExpense(Expense_ID);
 		
 		
-		request.setAttribute("value", 2);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
+		
+		request.setAttribute("expense", expense);
+		
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EditExpense.jsp");
 		dispatcher.forward(request, response);
 	}
 
 }
+

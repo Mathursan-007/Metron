@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,22 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.FinanceImpl;
-import com.service.IFinance;
 
+import com.model.Income;
+import com.service.FinanceImpl;
 
 
 /**
- * Servlet implementation class DeleteSupplier
+ * Servlet implementation class SearchIncome
  */
-@WebServlet("/DeleteSupplier")
-public class DeleteSupplier extends HttpServlet {
+@WebServlet("/SearchIncome")
+public class SearchIncome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteSupplier() {
+    public SearchIncome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,14 +43,36 @@ public class DeleteSupplier extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String Supplier_ID = (request.getParameter("Supplier_ID"));
-		IFinance financeImpl=new FinanceImpl();
-		financeImpl.DeleteSupplier(Supplier_ID);
+		
+		Income income = new Income();
+		
+		String start= (request.getParameter("Start_Date"));
+		String end= (request.getParameter("End_Date"));
+		FinanceImpl financeimpl=new FinanceImpl();
+		
+		income.setStart_Date(start);
+		income.setEnd_Date(end);
 		
 		
-		request.setAttribute("value", 2);
-		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
+		System.out.print("Category : " + income.getCategory());
+		System.out.print("Amount : " + income.getAmount());
+		
+		
+		
+		request.setAttribute("income", income);
+		
+		request.setAttribute("Start_Date", start);
+		request.setAttribute("End_Date", end);
+		
+	
+		request.setAttribute("value", 7);
+		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/SearchIncome.jsp");
+
 		dispatcher.forward(request, response);
+		
+		
+		
+		
 	}
 
 }

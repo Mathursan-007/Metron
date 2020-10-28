@@ -33,8 +33,22 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 </head>
 <body class="w3-light-grey">
 
+
+<%
+//response.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+//response.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+//response.setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
+//response.setHeader("Pragma","no-cache"); //HTTP 1.0 backward c
+  
+ 
+   
+   String un=(String)session.getAttribute("un");
+   if(un!=null){
+   
+	   
+   %>
 		
-		<%@include file="Header.jsp" %>
+		<%@include file="Header2.jsp" %>
 		<script>
 		document.getElementById("try").className = " ";
 		</script>
@@ -55,7 +69,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  
 			  <div class="w3-container" style="margin-top:20px;">
-			    <h5 style="text-align:center;">Welcome User</h5>
+			    <h5 style="text-align:center;">Welcome</h5>
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
@@ -88,6 +102,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 
 			</div>
 		</div>
+		
 		<script src="scripts/RestaurantDashboard.js"></script>
 
 		<script>
@@ -158,6 +173,10 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 		
 		</script>
+<%}else if(un==null){
 
+	response.sendRedirect("Login.jsp");
+
+}%> 
 </body>
 </html>

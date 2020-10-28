@@ -91,6 +91,8 @@ public int getNodays() {
    public void setNodays(int Nodays) {
     this.Nodays=Nodays;
    }
+
+   
 }
 
 

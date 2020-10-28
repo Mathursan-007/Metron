@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.CarRentalImpl;
+
+import com.service.ITransport;
+import com.service.TransportImpl;
 
 /**
  * Servlet implementation class DeleteCarRental
@@ -39,7 +41,7 @@ public class DeleteCarRental extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=Integer.parseInt(request.getParameter("id"));
-		CarRentalImpl carRentalimpl=new CarRentalImpl();
+		TransportImpl carRentalimpl=new TransportImpl();
 		carRentalimpl.DeleteCarRental(id);
 
 		request.setAttribute("value", 1);

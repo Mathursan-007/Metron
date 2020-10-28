@@ -13,8 +13,11 @@
 
 </head>
 <body class="viii">
+<%
+   String un=(String)session.getAttribute("un");
+   if(un!=null){%>
 
-	<%@include file="Header.jsp" %>
+	<%@include file="Header2.jsp" %>
 
 		<div class="sections pb-0 ase">
     <div class="container">
@@ -62,6 +65,10 @@
 	}
 		
 </script>
+   <%}else if(un==null){
 
+	response.sendRedirect("Login.jsp");
+
+}%> 
 </body>
 </html>

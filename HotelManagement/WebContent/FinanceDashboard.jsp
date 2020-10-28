@@ -50,9 +50,12 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 
 </head>
 <body class="w3-light-grey">
+<%
+   String un=(String)session.getAttribute("un");
+   if(un!=null){%>
 
 		
-		<%@include file="Header.jsp" %>
+		<%@include file="Header2.jsp" %>
 		<script>
 		document.getElementById("try").className = " ";
 		</script>
@@ -119,6 +122,10 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 		</div>
 		<script src="scripts/Utility.js"></script>
 
+   <%}else if(un==null){
 
+	response.sendRedirect("Login.jsp");
+
+}%> 
 </body>
 </html>

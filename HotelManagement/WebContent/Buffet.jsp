@@ -11,17 +11,19 @@
 <meta charset="ISO-8859-1">
 <title>Meal plan</title>
 <%@include file="Header.jsp"%>
-<link rel="stylesheet" href="styles/mealui.css"> 
+<link rel="stylesheet" href="styles/mealUI.css"> 
 
 </head>
 <body >
 
-<%  float price1, price2, price3;   
+<%  
 
-EventImpl eventimpl = new EventImpl();
-price1 = eventimpl.getMealPrice(111); 
-price2 = eventimpl.getMealPrice(222); 
-price3 = eventimpl.getMealPrice(333); 
+  float price1, price2, price3;   
+
+  EventImpl eventimpl = new EventImpl();
+  price1 = eventimpl.getMealPrice(111); 
+  price2 = eventimpl.getMealPrice(222); 
+  price3 = eventimpl.getMealPrice(333); 
 
 
 %>

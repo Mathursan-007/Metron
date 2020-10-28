@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+       <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.model.Package" %>  
+<%@ page import="com.service.TransportImpl"%> 
+<%@ page import="com.service.ITransport"%>  
+<%@ page import="com.model.Driver" %>  
+<%@ page import="com.model.Vehicle" %> 
+
 <!DOCTYPE html>
 <html>
 
@@ -58,88 +65,122 @@ title="close side menu" id="myOverlay"></div>
 <div class="col-10">
 <div class="card">
 <div class="card-body">
-<form>
+<form  name="AddcityTour "action="./AddcityTour" method="post">
+								
 <h3 align="center">Add City Tour</h3>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault01">Customer name</label>
-<input type="text" class="form-control" id="validationDefault01"
-placeholder="" value="" required>
+<label>Trip ID</label>
+<input type="number" class="form-control" id=""
+placeholder="" value=""  name="id" required>
 </div>
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Room No</label>
-<input type="text" class="form-control" id="validationDefault02"
-placeholder="" value="" required>
+<label>Customer Name</label>
+<input type="text" class="form-control" id=""
+placeholder="" value="" name="cusName" required>
 </div>
 </div>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Package</label>
-<select id="inputState" class="form-control">
+ <%
+              ITransport ipackageImpl=new TransportImpl();
+              ArrayList<Package> Packages=new ArrayList<>();
+             
+              Packages=ipackageImpl.listPackages();
+            %>
+<label>Package</label>
+<select id="inputState" class="form-control" name="packages">
 <option selected>Choose...</option>
-<option Value=1>Colombo</option>
-<option Value=2>Galle</option>
-<option Value=3>Trincomalee</option>
-<option Value=4>Kandy</option>
-<option Value=5>Nuwra-Eliya</option>
+     <%   for(Package packages :Packages)
+    	 
+            { %>
+<option Value=<% out.print(packages.getId()); %>><% out.print(packages.getPackageName()); %></option>
+<% } %>
 </select>
 </div>
 <div class="col-md-6 mb-3">
-<label for="validationDefault01">No Of People</label>
-<input type="text" class="form-control" id="validationDefault01"
-placeholder="" value="" required>
+<label>No Of People</label>
+<input type="text" class="form-control" id=""
+placeholder="" value="" name="noperson" required>
 </div>
 </div>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Total Amount</label>
-<input type="text" class="form-control" id="validationDefault02"
-placeholder="" value="" required>
-</div>
-<div class="col-md-6 mb-3">
-<label for="validationDefault02">Date</label>
-<input type="text" class="form-control" id="validationDefault02"
-placeholder="" value="" required>
-</div>
-</div>
-<div class="form-row">
-<div class="col-md-6 mb-3">
-<label for="validationDefault02">Time</label>
-<input type="text" class="form-control" id="validationDefault02"
-        placeholder="" value="" required>
+<label>Date</label>
+<input type="date" class="form-control" id=""
+placeholder="" value="" name="date" required>
 </div>
 
-<div class="col-md-6 mb-3">
-<label for="validationDefault02">Vehicle</label>
-<select id="inputState" class="form-control">
-<option Value=1>Thomas</option>
-<option Value=2>Johnson</option>
-<option Value=3>Mithun</option>
-<option Value=4>Karthick</option>
-<option Value=5>Selvam</option>
-</select>
-</div>
 
+<div class="col-md-6 mb-3">
+<label>Time</label>
+<input type="time" class="form-control" id=""
+        placeholder="" name="time" required>
+</div>
 </div>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Driver</label>
-<select id="inputState" class="form-control">
+<label >Vehicle</label>
+<select id="inputState" class="form-control" name="vehicle">
 <option selected>Choose...</option>
-<option Value=1>Thomas</option>
-<option Value=2>Johnson</option>
-<option Value=3>Mithun</option>
-<option Value=4>Karthick</option>
-<option Value=5>Selvam</option>
+ <option selected>Choose...</option>
+              <%
+              ITransport vehicleImpl=new TransportImpl();
+              ArrayList<Vehicle> Vehicles=new ArrayList<>();
+             Vehicles=vehicleImpl.listVehcileByAvail();
+        		%>
+        		<%
+        		   for(Vehicle vehicle:Vehicles)
+                { %>
+																		
+			<option Value="<%=vehicle.getId() %>"><%=vehicle.getModelNo() %></option>
+													
+													<% } %>										
+												
 </select>
+</div>
+
+
+<div class="col-md-6 mb-3">
+<label>Driver</label>
+<select id="inputState" class="form-control" name="driver">
+<option selected>Choose...</option>
+ 											
+			  <%
+              ITransport driverImpl=new TransportImpl();
+              ArrayList<Driver> Drivers=new ArrayList<>();
+             Drivers=driverImpl.listDriversByAvail();
+        		%>
+        		<%
+        		   for(Driver driver:Drivers)
+            { %>
+		<option Value="<%=driver.getId() %>"><%=driver.getDriverName() %></option>
+													
+			<% } %>
+		 </select>
+</div>
+</div>
+<div class="form-row">
+   <div class="col-md-6 mb-3">
+<label>Room No</label>
+<input type="text" class="form-control" id=""
+        placeholder="" name="roomNo" required>
 </div>
                                             </div>
-<br>
-<div class="form-row">
 
-<div class="col-2">
-                                           <div class="col-md-6 mb-3">
-<a href="ViewcityTour.jsp" class="btn btn-primary">Save</a>
+
+<div class="form-row">
+   <div class="col-md-6 mb-3">
+
+
+											   <div align="right">
+												<div class="col-md-6 mb-3">
+												<button class="btn btn-primary" type="submit">Save</button>
+												</div>
+												</div>
+												</div>
+												</div>
+												
 </form>
 </div>
                                         </div>

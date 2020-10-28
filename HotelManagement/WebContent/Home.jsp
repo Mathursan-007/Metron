@@ -32,7 +32,16 @@
 <body>
 	
 	<!-- Nav & Slider -->
-	<%@include file="Header.jsp" %>
+	
+<% 	
+	 if(session.getAttribute("un")!=null){%>
+		 <%@include file="Header2.jsp" %>
+	   
+  <% }else{%>
+  <%@include file="Header.jsp" %>
+  <% } %>
+		
+	
 		
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -50,7 +59,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated bounceInRight bas" style="animation-delay: 1s"> Rooms </h5>
 				<p class ="animated bounceInLeft bas" style="animation-delay: 2s" > This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated bounceInRight" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+			
 			   </div> 
 				
 			</div>
@@ -61,7 +70,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated slideInDown bas" style="animation-delay: 1s"> Events </h5>
 				<p class ="animated fadeInUp bas" style="animation-delay: 2s"> This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+				
 			   </div>
 			   
 			</div>
@@ -72,7 +81,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated zoomIn ba" style="animation-delay: 1s"> Restaurant </h5>
 				<p class ="animated fadeInLeft ba" style="animation-delay: 2s"> This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+				 
 			   </div> 
 			   
 			</div>
@@ -94,7 +103,7 @@
 			<div class="carousel-caption d-none d-md-block">
 				<h5 class ="animated zoomIn ba" style="animation-delay: 1s"> Transport Service </h5> 
 				<p class ="animated fadeInLeft ba" style="animation-delay: 2s"> This is our hotel and we don't have nothing to do!!!! </p>
-				<p class ="animated zoomIn" style="animation-delay: 3s"> <a href="#" class="btn btn-secondary"> More info </a> </p> 
+		
 			   </div> 
 			   
 			</div>	
@@ -133,7 +142,7 @@
                     <p class="mbr-text mbr-fonts-style display-7">
                        We offer the most finest rooms and comfort that you have ever experienced&nbsp;</p>
                     <div class="mbr-section-btn text-center">
-                        <a href="#Room" class="btn btn-secondary display-4">Reserve Now</a></div>
+                        <a href="RoomCustomer.jsp" class="btn btn-secondary display-4">Reserve Now</a></div>
                 </div>
             </div>
 
@@ -147,7 +156,7 @@
                     <p class="mbr-text mbr-fonts-style display-7">
                        Perfect for corporate events, meetings, weddings, galas, fundraisers, educational events and more.
                     </p>
-                    <div class="mbr-section-btn text-center"><a href="#Event" class="btn btn-secondary display-4">
+                    <div class="mbr-section-btn text-center"><a href="Weddings.jsp" class="btn btn-secondary display-4">
                             Reserve Now
                         </a></div>
                 </div>
@@ -162,7 +171,7 @@
                         Restaurant Booking</h4>
                     <p class="mbr-text mbr-fonts-style display-7">
                        Come dine at our restaurant and experience the taste of the cuisines we have to offer</p>
-                    <div class="mbr-section-btn text-center"><a href="#Restaurant" class="btn btn-secondary display-4">
+                    <div class="mbr-section-btn text-center"><a href="BookTable.jsp" class="btn btn-secondary display-4">
                             Reserve Now
                         </a></div>
                 </div>
@@ -269,7 +278,7 @@
 			<div class="cards">
 			<i class="fa fa-map-marker" aria-hidden="true" ></i>
 				<p>Address</p>
-				 <p>Kandy, SriLanka</p>
+				 <p>Colombo-05, SriLanka</p>
 			</div>	 
 			
 			<div class="cards">

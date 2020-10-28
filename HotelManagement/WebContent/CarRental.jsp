@@ -2,9 +2,10 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.model.CarRental" %>  
-<%@ page import="com.service.CarRentalImpl"%> 
-<%@ page import="com.service.ICarRental"%>  
- 
+<%@ page import="com.service.TransportImpl"%> 
+<%@ page import="com.service.ITransport"%>  
+ <%@ page import="com.model.Driver" %>  
+
 <!DOCTYPE html>
 <html>
 
@@ -31,6 +32,10 @@
             background: rgb(190, 189, 203);
             background: radial-gradient(circle, rgba(190, 189, 203, 1) 0%, rgba(174, 174, 221, 1) 100%, rgba(121, 148, 153, 1) 100%);
         }
+         .black{ 
+       background-color:black;
+       color:white;
+       }
     </style>
 
 </head>
@@ -71,33 +76,33 @@
                                         <div class="col-2">
                                             <div align="left">
                                             	<form action="./AddCarRental" method="post">
-                                                <a href="AddCarRental.jsp" class="btn btn-primary">Add</a></form>
+                                                <a href="AddCarRental.jsp" class="btn btn-success">Add</a></form>
                                             </div>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="table-responsive">
                                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
-                                            <thead>
+                                            <thead class="black">
                                                 <tr>
                                                      <th>trip Id</th>
                                                     <th>Customer Name</th>
                                                     <th>Room No</th>
                                                     <th>Date</th>
                                                     <th>Time</th>
-                                                    <th>Vehicle </th>
                                                     <th>Driver </th>
+                                                    <th>Vehicle </th>
                                                     <th>No of Days </th>
                                                     <th>Destination </th>
                                                     
-                                                    <th>Total Amount</th>
+                                                    <th>Amount</th>
                                                    
                                                     <th width="2%">Actions</th>
 
                                                 </tr>
                                                  </thead>
               <%
-              ICarRental icarRentalImpl=new CarRentalImpl();
+              ITransport icarRentalImpl=new TransportImpl();
               ArrayList<CarRental> CarRentals=new ArrayList<>();
              
               CarRentals=icarRentalImpl.listCarRentals();
@@ -113,21 +118,24 @@
                                                     <td><%=carRental.getRoomNo() %></td>
                                                     <td><%=carRental.getDate() %></td>
                                                     <td><%=carRental.getTime() %></td>
-                                                    <td><%=carRental.getVehicle() %></td>
-                                                    <td><%=carRental.getDriver() %></td>
+                                                    <td><%= icarRentalImpl.changeName(carRental.getDriver()) %></td>
+                                                    
+                                                <td> <%=icarRentalImpl.changeVehicleName( carRental.getVehicle()) %></td>
+                                                  
+                                                    
                                                  <td><%=carRental.getNodays() %></td>
                                                    <td><%=carRental.getDestination() %></td>
                                                     <td><%=carRental.getAmount() %></td>
                 <td>                          
                     <form action="./GetCarRental" method="post"  >                  
                <input type="hidden" name="id" value="<%=carRental.getId() %>">
-               <input type="submit" value="View">
+               <input type="submit" value="View" class="btn btn-primary">
                </form>
              
                <form action="./DeleteCarRental" method="post">
              
                <input type="hidden" name="id" value="<%=carRental.getId( )%>">
-               <input type="submit" value="Delete">
+               <input type="submit" value="Delete" class="btn btn-danger">
                </form>
                          </td>                     
                            </tr>
@@ -147,7 +155,7 @@
         </div>
     </div>
 </body>
-</body>
+
 
 <script src="scripts/Employee.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

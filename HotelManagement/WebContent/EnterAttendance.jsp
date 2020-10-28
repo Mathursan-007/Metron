@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ page import="java.util.ArrayList" %>
+ <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.service.IEmployee" %>  
 <%@ page import="com.service.EmployeeImpl"%>   
 <%@ page import="com.model.Salary" %>

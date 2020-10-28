@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.CarRental;
-import com.service.CarRentalImpl;
-import com.service.ICarRental;
+
+import com.service.ITransport;
+import com.service.TransportImpl;
 
 /**
  * Servlet implementation class GetCarRental
@@ -43,7 +44,7 @@ public class GetCarRental extends HttpServlet {
 		
 		int id=Integer.parseInt(request.getParameter("id"));
 		
-		ICarRental carRentalimpl=new CarRentalImpl();
+		ITransport carRentalimpl=new TransportImpl();
 		CarRental carRental=new CarRental();
 		carRental=carRentalimpl.GetCarRental(id);
 

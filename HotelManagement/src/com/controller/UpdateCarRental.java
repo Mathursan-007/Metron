@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.CarRental;
-import com.service.CarRentalImpl;
-import com.service.ICarRental;
+import com.service.ITransport;
+import com.service.TransportImpl;
 
 /**
  * Servlet implementation class UpdateCarRental
@@ -43,15 +43,15 @@ public class UpdateCarRental extends HttpServlet {
 		
 		CarRental carRental=new CarRental();
 		   
-		ICarRental carRentalimpl=new CarRentalImpl();
+		ITransport carRentalimpl=new TransportImpl();
 
 		carRental.setId(Integer.parseInt(request.getParameter("id")));
 		carRental.setCustomerName(request.getParameter("cusName"));
 		carRental.setRoomNo(request.getParameter("roomNo"));
 		carRental.setDate(request.getParameter("date"));
 		carRental.setTime(request.getParameter("time"));
-		carRental.setVehicle(Integer.parseInt(request.getParameter("vehicle")));
 		carRental.setDriver(Integer.parseInt(request.getParameter("driver")));
+		carRental.setVehicle(Integer.parseInt(request.getParameter("vehicle")));
 		carRental.setNodays(Integer.parseInt(request.getParameter("noOfDays")));
 		carRental.setDestination(request.getParameter("destination"));
 		carRental.setAmount(Float.parseFloat(request.getParameter("totalAmount")));

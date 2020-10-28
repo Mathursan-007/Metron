@@ -50,50 +50,53 @@ document.getElementById("try").className = " ";
 title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:00px;margin-top:0px;transform: translate(0%, 15%);width:100%;height:550px;overflow: auto;">
+<div class="w3-main" style="margin-left:350px;margin-top:43px;">
 <div class="page-wrapper">
 <div class="container-fluid">
 <div class="page-breadcrumb">
 <div class="row">
 <div class="col-10">
 <div class="card">
+
 <div class="card-body">
-<form name="AddPayment" action=".AddPayment" Method="post">
+<form name="AddPayment" action="./AddPayment" Method="post">
 <h5 align="center">Add Payment</h5>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault01">Trip ID</label>
-<input type="text" class="form-control" id="validationDefault02"
+<label>Payment ID</label>
+<input type="text" class="form-control" id="" name="id"
 placeholder="" value="" required>
 </div>
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Customer Name</label>
-<input type="text" class="form-control" id="validationDefault01"
-placeholder="" value="" required>
+<label>TripID</label>
+<input type="text" class="form-control" id="" name="tid"
+placeholder="<%= request.getParameter("id") %>" value="<%= request.getParameter("id") %>" required>
 </div>
 </div>
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Date</label>
-<input type="text" class="form-control" id="validationDefault02"
+<label>TripType</label>
+<input type="text" class="form-control" id="" name="ttype"
 placeholder="" value="" required>
 </div>
 <div class="col-md-6 mb-3">
-<label for="validationDefault01">Time</label>
-<input type="text" class="form-control" id="validationDefault02"
-placeholder="" value="" required>
+<label>Customer Name</label>
+<input type="text" class="form-control" id="" name="customerName"
+placeholder="<% out.print(request.getParameter("cusName")); %>" value="<% out.print(request.getParameter("cusName")); %>" required>
 </div>
 </div>
+
 <div class="form-row">
 <div class="col-md-6 mb-3">
-<label for="validationDefault02">Total Amount</label>
-<input type="text" class="form-control" id="validationDefault02"
-placeholder="" value="" required>
+
+<label >Total Amount</label>
+<input type="text" class="form-control" id="" name="amount"
+placeholder="<%=  ( Integer.parseInt(request.getParameter("totalAmount"))*Integer.parseInt(request.getParameter("noOfDays"))) %>" value="<%=  ( Integer.parseInt(request.getParameter("totalAmount"))*Integer.parseInt(request.getParameter("noOfDays"))) %>" required>
                                             </div>
                                            
                                             <div class="col-md-6 mb-3">
-<label for="validationDefault01">Payment Method</label>
-<input type="text" class="form-control" id="validationDefault01"
+<label>Payment Method</label>
+<input type="text" class="form-control" id="" name="pmethod"
 placeholder="" value="" required>
 </div>
 </div>
@@ -115,7 +118,10 @@ href="#credit-card"
 class="nav-link active "> <i
 class="fas fa-credit-card mr-2"></i>
 Credit Card </a> </li>
-<li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fab fa-paypal mr-2"></i>Cash </a> </li>
+<li class="nav-item"> <a data-toggle="pill"
+href="#paypal" class="nav-link "> <i
+class="fab fa-paypal mr-2"></i>
+Cash </a> </li>
 </ul>
 </div> <!-- End -->
 <!-- Credit card form content -->
@@ -233,7 +239,6 @@ Confirm Payment </button></div>
 </div>
 </div>
 </div>
-
 </div>
 </div>
 
@@ -243,6 +248,13 @@ Confirm Payment </button></div>
 
 
 </body>
-
+<script src="scripts/Transport.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="scripts/nav.js"></script>
+<link rel="stylesheet" href="styles/dropdown.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
 </html>
 

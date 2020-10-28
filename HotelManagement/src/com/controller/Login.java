@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 
@@ -52,40 +53,52 @@ public class Login extends HttpServlet {
 		if(authenticationImpl.login(un, pwd)==true) {
 		  if(un.equalsIgnoreCase("adminfrontdesk")) {
 			  
-			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("FrontDeskCards.jsp");
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
+			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FrontDeskCards.jsp");
 			  dispatcher.forward(request, response);
 			  
 		  }else if(un.equalsIgnoreCase("adminrestaurant")) {
 			  
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
 			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/RestaurantDashboard.jsp");
 			  dispatcher.forward(request, response);
 			  
 		  }else if(un.equalsIgnoreCase("adminevent")) {
 			  
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
 			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EventDashboard.jsp");
 			  dispatcher.forward(request, response);
 			  
 		  }	else if(un.equalsIgnoreCase("adminemployee")) {
 			  
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
 			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 			  dispatcher.forward(request, response);
 			  
 		  }	else if(un.equalsIgnoreCase("admininventory")) {
 			  
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
 			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/InventoryDashboard.jsp");
 			  dispatcher.forward(request, response);
 			  
 		  }	else if(un.equalsIgnoreCase("adminfinance")) {
 			  
+			  HttpSession session=request.getSession();
+			  session.setAttribute("un", un);
 			  RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 			  dispatcher.forward(request, response);
 		  
 		  }		  
 			
-		}else 	if(authenticationImpl.login(un, pwd)==false) {
+		}else 	if(authenticationImpl.login(un, pwd)==false||request.getSession()==null) {
 			
-			//Boolean user=false;
-			//request.setAttribute("user", user);
+			
+			request.setAttribute("un", "fail");
 			RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/Login.jsp");
 			dispatcher.forward(request, response);
 			

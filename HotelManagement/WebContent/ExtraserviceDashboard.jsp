@@ -37,9 +37,11 @@ var i=${value};
 </script>
 </head>
 <body class="w3-light-grey">
+<%
+   String un=(String)session.getAttribute("un");
+   if(un!=null){%>
 
-		
-		<%@include file="Header.jsp" %>
+		<%@include file="Header2.jsp" %>
 		<script>
 		document.getElementById("try").className = " ";
 		</script>
@@ -149,6 +151,11 @@ function myFunction() {
 }
 </script>
  
+   <%}else if(un==null){
 
+	response.sendRedirect("Login.jsp");
+
+}%> 
+		
 </body>
 </html>

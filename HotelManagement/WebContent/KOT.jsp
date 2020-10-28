@@ -115,6 +115,9 @@ function checkitem() {
 		  alert('Select Items');
 		  return false;
 		  
+	  }else{
+		  confirm('Print KOT?');
+		  setTimeout("location.reload(true);",2000);
 	  }
 }
 

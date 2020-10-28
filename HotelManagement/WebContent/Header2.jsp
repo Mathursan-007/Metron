@@ -58,9 +58,10 @@
 				<li class="nav-item" id="try3">
 					<a class="nav-link" href="Home.jsp#zooka"> Contact us </a> 
 				</li>
-				
-				<li class="nav-item" id="login1">
-					<a class="nav-link" href="Login.jsp" onclick="myFunction()"> Logout </a>
+				<li class="nav-item" id="try3">
+				 <form action="./Logout" method="post">
+					<button type="submit" class="nav-link" > Logout </button> 
+				</form>
 				</li>
 			</ul>
 		</div>

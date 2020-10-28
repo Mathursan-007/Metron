@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.CarRental;
-import com.service.CarRentalImpl;
-import com.service.ICarRental;
+
+import com.service.ITransport;
+import com.service.TransportImpl;
+
 
 /**
  * Servlet implementation class AddCarRental
@@ -44,25 +46,33 @@ public class AddCarRental extends HttpServlet {
 
 		CarRental carRental=new CarRental();
 
-		ICarRental  carRentalImpl =new CarRentalImpl();
-		
+		ITransport  carRentalImpl =new TransportImpl();
+		Integer id=Integer.parseInt(request.getParameter("id"));
 		carRental.setId(Integer.parseInt(request.getParameter("id")));
+		String cusName=request.getParameter("cusName");
 		carRental.setCustomerName(request.getParameter("cusName"));
 		carRental.setRoomNo((request.getParameter("roomNo")));
 		carRental.setDate(request.getParameter("date"));
 		carRental.setTime(request.getParameter("time"));
-		carRental.setVehicle(Integer.parseInt(request.getParameter("vehicle")));
 		carRental.setDriver(Integer.parseInt(request.getParameter("driver")));
-		carRental.setNodays(Integer.parseInt(request.getParameter("noOfDays")));
+		carRental.setVehicle(Integer.parseInt(request.getParameter("vehicle")));
+		
+		int nod=Integer.parseInt(request.getParameter("noOfDays"));
+		carRental.setNodays(nod);
 		carRental.setDestination(request.getParameter("destination"));
+		Float amount1=(Float.parseFloat(request.getParameter("totalAmount")));
 		carRental.setAmount(Float.parseFloat(request.getParameter("totalAmount")));
 		
-
+		Float amount=nod*amount1;
 		carRentalImpl.insertCarRental(carRental);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/TransportDashboard.jsp");
+		carRentalImpl.updateDriver(Integer.parseInt(request.getParameter("driver")));
+		carRentalImpl.updateVehicle(Integer.parseInt(request.getParameter("vehicle")));
+		System.out.println("tripid:"+id);
+		System.out.println("amount:"+amount);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddPayment.jsp");
 		dispatcher.forward(request, response);
-
+		
 	}
 
 }

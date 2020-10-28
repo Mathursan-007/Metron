@@ -25,19 +25,12 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 	<link rel="stylesheet" href="styles/dropdown.css">
 <script src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
 <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
-<script>
-var i=${value};
-
-if(i==1){
-	
-	window.location.href = 'TransportDashboard.jsp#Butt2';
-} 
-
-</script>
-
 
 </head>
 <body class="w3-light-grey">
+<%
+   String un=(String)session.getAttribute("un");
+   if(un!=null){%>
 
 		
 		<%@include file="Header.jsp" %>
@@ -54,24 +47,28 @@ if(i==1){
 			
 			<!-- Sidebar/menu -->
 			<nav class="w3-sidebar w3-collapse w3-animate-left vidya" style="z-index:3;width:300px;" id="mySidebar"><br>
-			  <div class="w3-container w3-row">
-			    <div class="w3-col s4">
-			      <img src="images/user.jpg" style="width:80px;height:80px;border-radius:50%;margin-top:30px;margin-left:90px;">
-			    </div>
-			  </div>
+			<div class="w3-container w3-row">
+				<div class="w3-col s4">
+					<img src="https://f0.pngfuel.com/png/348/800/man-wearing-blue-shirt-illustration-png-clip-art-thumbnail.png"
+						style="width:80px;height:80px;border-radius:50%;margin-top:30px;margin-left:90px;">
+				</div>
+			</div>
+
+			<div class="w3-container" style="margin-top:20px;">
+				<h5 style="text-align:center;">Welcome User</h5>
+			</div>
+			<div class="w3-bar-block">
 			  
-			  <div class="w3-container" style="margin-top:20px;">
-			    <h5 style="text-align:center;">Transport Manager</h5>
-			  </div>
-			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-train fa-fw"></i> Tranport Services</a>
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-car fa-fw"></i>  CarRental</a>
-			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-bus fa-fw"></i>CityTour </a>
+			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-bus fa-fw"></i>City Tour </a>
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-plane fa-fw"></i> Tour packages</a>
-			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-eye fa-fw"></i>View cityTour</a>
+			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-eye fa-fw"></i>Vehicle</a>
 			    <a href="#Butt6" id="test6" class="w3-bar-item w3-button w3-padding" onclick="button6()"><i class="fa fa-calculator fa-fw"></i> Payment</a>
-			    <a href="#Butt7" id="test7" class="w3-bar-item w3-button w3-padding" onclick="button7()"><i class="fa fa-users fa-fw"></i> City tour</a>
+			    <a href="#Butt7" id="test7" class="w3-bar-item w3-button w3-padding" onclick="button7()"><i class="fa fa-users fa-fw"></i> Drivers</a>
+			    
+			    
 			    
 			 
 			  	
@@ -91,38 +88,48 @@ if(i==1){
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt1">
+			<div style="background:white;height:800px;" id="Butt1">
 			<%@include file="TransportHome.jsp" %></div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt2">
+			<div style="background:White;height:800px;" id="Butt2">
 			<%@include file="CarRental.jsp" %></div>
 			
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt3">
-			<%@include file="cityTours.jsp" %></div>
+			<div style="background:white;height:800px;" id="Butt3">
+			<%@include file="viewcityTour.jsp" %></div>
 			
 			
 			
 				
-			<div style="background:#8f9dd7;height:800px;" id="Butt4">
+			<div style="background:white;height:800px;" id="Butt4">
+			<%@include file="Package.jsp" %></div>
 			</div>
 			
+			<div style="background:white;height:800px;" id="Butt5">
+			<%@include file="Vehicle.jsp" %></div>
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt5">
-			<%@include file="viewcityTour.jsp" %></div>
-			
-			
-			<div style="background:#8f9dd7;height:800px;" id="Butt6">
-			<%@include file="AddPayment.jsp" %></div>
+			<div style="background:white;height:800px;" id="Butt6">
+			<%@include file="Payment.jsp" %></div>
+		
 			
 
-		</div>
+	
+			<div style="background:white;height:800px;" id="Butt7">
+			<%@include file="Driver.jsp" %></div>
+			
+
+		
+		
 		
 		<script src="scripts/Transport.js"></script>
+<%}else if(un==null){
 
+	response.sendRedirect("Login.jsp");
+
+}%> 
 
 </body>
 </html>

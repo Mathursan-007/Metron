@@ -46,7 +46,7 @@ public class RetrieveEmpID extends HttpServlet {
 		
 		employee.setempid(Integer.parseInt(request.getParameter("emp_ID")));
 		
-		employeeimpl.retrieveempid(employee);
+		//employeeimpl.retrieveempid(employee);
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/EmployeeDashboard.jsp");
 		dispatcher.forward(request, response);

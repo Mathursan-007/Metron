@@ -26,10 +26,9 @@
 			<div class="form-group">
 			
 					<label for="venueid"> Venue ID : </label> <input type="text"
-					class="form-control" id="venueId" placeholder="Venue ID"
-					name="venueid" value= "<%=venue.getVenueID()%>" >    
-				     
-				      
+					class="form-control" id="venueId" placeholder="Venue ID" value= "<%=venue.getVenueID()%>" disabled>
+					<input type="hidden" name="venueid" value= "<%=venue.getVenueID()%>" >    
+				     			      
 					
 			</div>     
 		</div>  
@@ -88,16 +87,6 @@
 			</div>
 		</div>
 				
-	
-		<div class="meal">
-
-			<div class="form-group">
-			
-					<label for="availability"> Availability : </label> <input type="text"
-					class="form-control" id="Availability" placeholder="Availability"
-					name="avail" value= "<%=venue.getAvailability()%>" >
-			</div>
-		</div>	
 	
 			<Br>
 		 

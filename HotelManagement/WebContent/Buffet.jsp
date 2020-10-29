@@ -16,14 +16,12 @@
 </head>
 <body >
 
-<%  
+<%  float price1, price2, price3;   
 
-  float price1, price2, price3;   
-
-  EventImpl eventimpl = new EventImpl();
-  price1 = eventimpl.getMealPrice(111); 
-  price2 = eventimpl.getMealPrice(222); 
-  price3 = eventimpl.getMealPrice(333); 
+EventImpl eventimpl = new EventImpl();
+price1 = eventimpl.getMealPrice(111); 
+price2 = eventimpl.getMealPrice(222); 
+price3 = eventimpl.getMealPrice(333); 
 
 
 %>

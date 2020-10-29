@@ -110,7 +110,6 @@
 		</div>	
 		
 	
-
 		
 		
 		<div class="meal">
@@ -166,9 +165,9 @@
 			<div class="form-group">
 		
 		 <p>Payment Method:
- 			 <input type="radio" id="cash" name="pay" value="Cash">
+ 			 <input type="radio" id="cash" name="pay" value="Cash" required>
   				<label for="cash">Cash</label> 
- 			 <input type="radio" id="card" name="pay" value="Card">
+ 			 <input type="radio" id="card" name="pay" value="Card" required>
  				 <label for="card">Card</label> </p>
  				 
  			</div>

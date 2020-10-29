@@ -81,14 +81,14 @@
      font-family: verdana;
 } 
 
-.hallss ol li {
+.hallss ul li {
   background: #b0c4de;
   padding: 0.5px;
   margin-left: 35px;
 }
 
 
-.hallss ol {
+.hallss ul {
   background: #778899;
   padding: 20px;
 }
@@ -108,6 +108,7 @@
 p{
 	
 	text-align: center;
+	
 
 }
 

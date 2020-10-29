@@ -69,7 +69,7 @@
       <br><br>
      
       <input type="submit" value="Search" class="button"> 
-   
+ 
     
  </form> 
  
@@ -101,7 +101,7 @@ if(halls!=null){
 
 <div class = hallss>
 
-<ol>
+<ul>
   <li>Hall 1 -Empire BallRoom   </li>
   <li>Hall 2 -Imperial BallRoom  </li>
   <li>Hall 3 -RainBow BallRoom  </li>
@@ -114,7 +114,7 @@ if(halls!=null){
   <li>Hall 10 -Cedar  </li>
   <li>Hall 11 -Ebony  </li>
   <li>Hall 12 -Aspen  </li>
-</ol>
+</ul>
 
 </div>
 
@@ -127,6 +127,6 @@ if(halls!=null){
 </div>
 
 </body>
-<br> <br> <br>
+<br> <br> <br> 
 <%@include file="Footer.jsp"%>
 </html>

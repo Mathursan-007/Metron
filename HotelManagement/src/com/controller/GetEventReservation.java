@@ -47,7 +47,7 @@ public class GetEventReservation extends HttpServlet {
 		eventreservation = eventimpl.getEventReservation(reservationId); 
 		
 		float price = eventimpl.getVenueCost(request.getParameter("venuetype"));
-		
+	  	
 		request.setAttribute("EventReservation", eventreservation); 
 		
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/GetEventReservation.jsp");

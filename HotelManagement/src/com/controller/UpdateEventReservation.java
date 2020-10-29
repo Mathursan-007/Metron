@@ -55,7 +55,6 @@ public class UpdateEventReservation extends HttpServlet {
 		eventreservation.setPhoneNo(request.getParameter("contact"));
 		eventreservation.setEventName(request.getParameter("eventname"));
 		eventreservation.setVenue(request.getParameter("venuetype"));
-		eventreservation.setPrice(Float.parseFloat(request.getParameter("price")));
 		eventreservation.setNo_of_Guests(Integer.parseInt(request.getParameter("noOfguest")));
 		eventreservation.setDate(request.getParameter("date"));
 		eventreservation.setTime(request.getParameter("time"));

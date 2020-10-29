@@ -48,11 +48,10 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 
 
 <body class="w3-light-grey">
-
 <%
    String un=(String)session.getAttribute("un");
    if(un!=null){%>
-	
+
 		<%@include file="Header2.jsp" %>
 		<script>
 		document.getElementById("try").className = " ";
@@ -69,7 +68,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<nav class="w3-sidebar w3-collapse w3-animate-left vidya" style="z-index:3;width:300px;" id="mySidebar"><br>
 			  <div class="w3-container w3-row">
 			    <div class="w3-col s4">
-			      <img src="images/eventmngr.jpg" style="width:100px;height:100px;border-radius:50%;margin-top:30px;margin-left:80px;">
+			      <img src="images/eventmngr.jpg" style="width:130px;height:130px;border-radius:50%;margin-top:30px;margin-left:80px;">
 			    </div>
 			  </div>
 			  
@@ -79,11 +78,11 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
 			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding " onclick="button1()"><i class="fa fa-calendar-plus-o fa-fw"></i> New Reservation</a>
-			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-calendar-check-o fa-fw"></i>  View Reservation Details</a>
-			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-cutlery fa-fw"></i>  New Meal Plan</a>
-			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-list-alt fa-fw"></i>   View Meal Plan Details</a> 
-			    <a href="#Butt5" id="test5" class="w3-bar-item w3-button w3-padding" onclick="button5()"><i class="fa fa-plus-square fa-fw"></i>  Add Venue</a>
-			    <a href="#Butt6" id="test6" class="w3-bar-item w3-button w3-padding" onclick="button6()"><i class="fa fa-check-square fa-fw"></i>  View Venue Details</a>
+			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-calendar-check-o fa-fw"></i>  View Reservations</a>
+	
+			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-cutlery fa-fw"></i>  View Meal Plan </a> 
+
+			    <a href="#Butt6" id="test6" class="w3-bar-item w3-button w3-padding" onclick="button6()"><i class="fa fa-check-square fa-fw"></i>  View Venues</a>
 
 			      
 			   
@@ -106,13 +105,12 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			<div style="background:#8f9dd7;height:800px;" id="Butt2"><%@include file="ListEventReservation.jsp"%></div>
 			
 			
-			<div style="background:#8f9dd7;height:800px;" id="Butt3"><%@include file="AddMealPlan.jsp"%></div> 
+		
 			
 				
 			<div style="background:#8f9dd7;height:1000px;" id="Butt4"><%@include file="ListMealPlan.jsp"%></div>
 			
 			
-			<div style="background:#8f9dd7;height:1000px;" id="Butt5"><%@include file="AddVenue.jsp"%></div>
 			
 			
 			<div style="background:#8f9dd7;height:1000px;" id="Butt6"><%@include file="ListVenue.jsp"%></div>
@@ -147,12 +145,11 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
   	}
 	}
 		</script>
-   <%}else if(un==null){
+  <%}else if(un==null){
 
 	response.sendRedirect("Login.jsp");
 
 }%> 
-	
 
 </body>
 </html>

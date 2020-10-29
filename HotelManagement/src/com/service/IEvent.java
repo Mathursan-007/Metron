@@ -20,7 +20,7 @@ public interface IEvent {
 	public void deleteMealPlan(int packageId);
 	
 	public float getMealPrice(int id);
-	
+	   
 /* Venue */
 	
 	public void addVenue(Venue venue);

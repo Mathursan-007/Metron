@@ -49,7 +49,7 @@ public class AddEventReservation extends HttpServlet {
 		
 		float amount =  eventimpl.getVenueCost(request.getParameter("venuetype"));
 		eventreservation.setPrice(amount); 
- 		
+			 		
 		
 		int ReservationID = eventimpl.generateEventReservationid();
 		
@@ -58,7 +58,7 @@ public class AddEventReservation extends HttpServlet {
 		eventreservation.setNIC(request.getParameter("nic"));
 		eventreservation.setPhoneNo(request.getParameter("contact"));
 		eventreservation.setEventName(request.getParameter("eventname"));
-		eventreservation.setVenue(request.getParameter("venuetype"));   
+		eventreservation.setVenue(request.getParameter("venuetype"));
 		eventreservation.setNo_of_Guests(Integer.parseInt(request.getParameter("noOfguest")));
 		eventreservation.setDate(request.getParameter("date"));
 		eventreservation.setTime(request.getParameter("time"));

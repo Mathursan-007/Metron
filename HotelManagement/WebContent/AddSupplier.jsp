@@ -33,7 +33,7 @@
       <input type="number" class="form-control" id="Contact_No" placeholder="07xxxxxxxx" name="Contact_No" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required>
       <br><br><br>
       <label for="Email"> Email : </label>
-      <input type="text" class="form-control" id="Email" placeholder="abc@gmail.com" name="Email"  required>
+      <input type="text" class="form-control" id="Email" placeholder="abc@gmail.com" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
       <br><br><br>
       <label for="Address"> Address : </label>
       <input type="text" class="form-control" id="Address" placeholder="Address" name="Address" required>

@@ -52,12 +52,15 @@
 ArrayList<Income> income=new ArrayList<>(); 
 ArrayList<Expense> expense=new ArrayList<>();
 
+String Start_date=request.getParameter("Start_Date");
+String End_date=request.getParameter("End_Date");
+
 
 FinanceImpl financeImpl = new FinanceImpl();
 
-income = financeImpl.generateIncome("2020-01-01", "2020-12-31");
+income = financeImpl.generateIncome(Start_date,End_date);
 
-expense = financeImpl.generateExpense("2020-01-01", "2020-12-31");
+expense = financeImpl.generateExpense(Start_date,End_date);
 float TotalIncome=0, TotalExpense=0;
 
 Document document = new Document();
@@ -80,11 +83,13 @@ document.add(p);
 document.add(p1);
 
 
-float[] colsWidth = {1f, 1f, 1f};
+float[] colsWidth = {2f, 1f, 1f};
 
 
 
 Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
+Font boldFont1 = new Font(Font.FontFamily.TIMES_ROMAN, 13, Font.BOLD,BaseColor.RED);
+Font boldFont2 = new Font(Font.FontFamily.TIMES_ROMAN, 13, Font.BOLD,BaseColor.BLUE);
 
 PdfPTable table1 = new PdfPTable(colsWidth);
 
@@ -101,21 +106,55 @@ table1.setHorizontalAlignment(Element.ALIGN_LEFT);
 Phrase Description = new Phrase("Description", boldFont );
 Phrase Amount = new Phrase("Amount", boldFont );
 Phrase Amount1 = new Phrase("Amount", boldFont );
-Phrase TxtIncome = new Phrase("Income", boldFont );
-Phrase TxtExpense = new Phrase("Expense", boldFont );
+Phrase TxtIncome = new Phrase("Income", boldFont2 );
+Phrase TxtExpense = new Phrase("Expense", boldFont2 );
 Phrase TxtIncomeTotal = new Phrase("Total Income", boldFont );
 Phrase TxtExpenseTotal = new Phrase("Total Expense", boldFont );
-Phrase TxtProfit = new Phrase("Net Profit", boldFont );
-Phrase TxtLoss = new Phrase("Net Loss", boldFont );
-
-table1.addCell(Description);
-table1.addCell(Amount);
-table1.addCell(Amount1);
+Phrase TxtProfit = new Phrase("Net Profit", boldFont1 );
+Phrase TxtLoss = new Phrase("Net Loss", boldFont1 );
 
 
-table1.addCell(TxtIncome);
+		PdfPCell cell = new PdfPCell();
+        PdfPCell cell1 = new PdfPCell();
+        PdfPCell cell2 = new PdfPCell();
+        PdfPCell cell3 = new PdfPCell();
+        PdfPCell cell4 = new PdfPCell();
+        PdfPCell cell5 = new PdfPCell();
+        PdfPCell cell6 = new PdfPCell();
+        PdfPCell cell7 = new PdfPCell();
+        PdfPCell cell8 = new PdfPCell();
+
+
+        cell.addElement(Description);
+        cell.setFixedHeight(25);
+        cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+        table1.addCell(cell);
+        
+        cell1.addElement(Amount);
+        cell1.setFixedHeight(25);
+        cell1.setBackgroundColor(BaseColor.LIGHT_GRAY);
+        table1.addCell(cell1);
+
+        cell2.addElement(Amount1);
+        cell2.setFixedHeight(25);
+        cell2.setBackgroundColor(BaseColor.LIGHT_GRAY);
+        table1.addCell(cell2);
+        
+        
+        
+        
+        
+
+
+        
+ cell3.addElement(TxtIncome);
+ cell3.setFixedHeight(25);        
+ table1.addCell(cell3);       
+
 table1.addCell("");
 table1.addCell("");
+
+
 
 for(Income inc:income) {
 	TotalIncome=TotalIncome+inc.getAmount();
@@ -125,13 +164,27 @@ for(Income inc:income) {
 	table1.addCell("");	
 }
 
-table1.addCell(TxtIncomeTotal);
+
+
+cell4.addElement(TxtIncomeTotal);
+cell4.setFixedHeight(25); 
+cell4.setBackgroundColor(BaseColor.LIGHT_GRAY);
+table1.addCell(cell4);
+
 table1.addCell("");
 table1.addCell(TotalIncome+"");
 
-table1.addCell(TxtExpense);
+
+
+cell5.addElement(TxtExpense);
+cell5.setFixedHeight(25);        
+table1.addCell(cell5);
+
+
 table1.addCell("");
 table1.addCell("");
+
+
 
 for(Expense exp:expense) {
 	TotalExpense=TotalExpense+exp.getAmount();
@@ -141,19 +194,31 @@ for(Expense exp:expense) {
 	table1.addCell("");	
 }
 
-table1.addCell(TxtExpenseTotal);
+cell6.addElement(TxtExpenseTotal);
+cell6.setFixedHeight(25); 
+cell6.setBackgroundColor(BaseColor.LIGHT_GRAY);
+table1.addCell(cell6);
+
 table1.addCell("");
 table1.addCell(TotalExpense+"");
 
+
+
 float value=TotalIncome-TotalExpense;
 if(value>=0) {
-	table1.addCell(TxtProfit);
+	cell7.addElement(TxtProfit);
+	cell7.setFixedHeight(25);        
+	table1.addCell(cell7);
+
 	table1.addCell("");
 	table1.addCell(value+"");
 
 }else
 {
-	table1.addCell(TxtLoss);
+	cell8.addElement(TxtLoss);
+	cell8.setFixedHeight(25);        
+	table1.addCell(cell8);
+	
 	table1.addCell("");
 	table1.addCell(value+"");
 }

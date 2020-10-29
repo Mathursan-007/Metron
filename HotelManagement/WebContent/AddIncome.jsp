@@ -29,10 +29,11 @@
       <label for="Category"> Category : </label>
       <select class="form-control" input type="text" name="Category" id="Category"  required>
       						<option value="">--Choose a department--</option>
-						    <option value="Front Desk Department">Front Desk Department</option>
-						    <option value="Extra Service Department">Extra Service Department</option>
-						    <option value="Transport Department">Transport Department</option>
-						    <option value="Event Management Department">Event Management Department</option>
+						    <option value="Room">Room</option>
+						    <option value="Extra Service">Extra Service </option>
+						    <option value="Transport">Transport </option>
+						    <option value="Event Management">Event Management </option>
+						    <option value="Restaurant">Restaurant</option>
 						</select>
       <br><br><br>
       <label for="Amount"> Amount : </label>
@@ -55,6 +56,10 @@
              
 			 </div>  
             <input type="Submit" value="ADD" class="button">
+            
+            
+            
+            
     </div>
     </div>
        

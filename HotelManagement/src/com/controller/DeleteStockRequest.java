@@ -47,7 +47,7 @@ public class DeleteStockRequest extends HttpServlet {
 		
 		
 		
-		request.setAttribute("value", 4);
+		request.setAttribute("value", 6); // page redirect
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 		dispatcher.forward(request, response);
 	}

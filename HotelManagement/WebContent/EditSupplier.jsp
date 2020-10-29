@@ -27,10 +27,10 @@
   <h2>Edit Supplier</h2>
  
       <label for="Supplier_ID">Supplier_ID : </label>
-      <input type="text" class="form-control" id="SupplierID" placeholder="Supplier_ID" name="Supplier_ID" value="<%=suppliers.getSupplier_ID() %>" required>
+      <input type="text" class="form-control" id="SupplierID" placeholder="Supplier_ID" name="Supplier_ID" value="<%=suppliers.getSupplier_ID() %>"  readonly="readonly" required>
       <br><br><br>
       <label for="Name"> Name : </label>
-      <input type="text" class="form-control" id="Name" placeholder="Name" name="Name" value="<%=suppliers.getName() %>" required>
+      <input type="text" class="form-control" id="Name" placeholder="Name" name="Name" value="<%=suppliers.getName() %>" readonly="readonly" required>
       <br><br><br>
       <label for="Type"> Type : </label>
       <input type="text" class="form-control" id="Type" placeholder="Type" name="Type" value="<%=suppliers.getType() %>" required>

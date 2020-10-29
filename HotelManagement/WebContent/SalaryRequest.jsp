@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 
 		<div class = " card-container">
-			<div class = "upper-container">
+			<div class = "upper-container2">
 					
 			
 			<div style = "margin-left:50px">
@@ -93,26 +93,20 @@ $(document).ready(function(){
          
                
                
-               <form action="./DeleteSalaryRequest" method="post">
-			   
-               <input type="hidden" name="Request_ID" value="<%=sal.getRequest_ID()%>">
+                <form action="./DeleteSalaryRequest" method="post">
+                
+                <input type="hidden" name="Request_ID" value="<%=sal.getRequest_ID()%>">
                
                <td><button type = "submit" class = "btn btn-success" name = "confirm">Confirm</button></a></td>
                
-               
-                <form action="./DeleteSalaryRequest" method="post">
+			   </form>
+			   
+			   
+			   <form action="./DeleteSalaryRequest" method="post">
 			   
                <input type="hidden" name="Request_ID" value="<%=sal.getRequest_ID()%>">
                
                <td><button type = "submit" class = "btn btn-danger" name = "delete">Delete</button></a></td>
-               
-               
-			   
-			   
-		
-               
-               
-         
                
                
                </form>

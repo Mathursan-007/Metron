@@ -14,67 +14,64 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Search Expense</title>
-
+<link rel="stylesheet" type="text/css" href="styles/Expense.css" />
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
 <link rel="stylesheet" type="text/css" href="styles/Utility.css" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+<script>
+
+window.onload=function(){
+	
+	document.getElementById("download").addEventListener("click",()=> {
+		const invoice =this.document.getElementById("invoice");
+		console.log(invoice);
+		console.log(window);
+		var opt={
+				
+				filename:'Expense.pdf',
+				imagey:{type:'jpeg',quality:0.98},
+				html2canvas:{scale :5},
+				jsPDF:{unit:'in',formate:'letter',orientation:'portrait'}
+				
+		};
+		html2pdf().from(invoice).set(opt).save();
+		
+	});
+	
+	
+}
+
+
+
+</script>
 
 
 
 </head>
 <body class="bt">
 
+<div class="back">
+<button  id="download" class="btn btn-success ">Download Report</button>
+</div>
+<div id="invoice">
 
-	<form method="post" action="./SearchExpense"   >
- 
-  <div class = "expense1">
 
-  <div class="form-group">
- 
- 		<label for="fname">Start Date:</label>
-  		<input type="date" id="Start_Date" name="Start_Date"><br><br>
-  
-  		<label for="lname">End Date:</label>
-  		<input type="date" id=End_Date name="End_Date"><br><br>
-  		
-      <div class = "bck">
-             <button onclick="goBack()">Print Report</button>
-             
-             
-             
-             <script>
-				function goBack() {
-  				window.history.back();
-				}
-			</script>
-             
-			 </div>  
- 
-            <input type="Submit" value="Search" class="button">
-    </div>
-    </div>
-       
-
-  </form>
  
 
 
-<% Expense expen =(Expense)request.getAttribute("expense");%>
+<div class ="tab">
+<table style="margin-left:-230px;">
 
-
- <%if(expen!=null) { %>
- 
-
-			
-		<h1 style="margin-left:900px;">Expense for a month</h1>
-	
-
-<table align="right">
+<h1 style="margin-left:260px; margin-top:-400px;">Expense for a month</h1>
 
 			<thead>
 				<tr>
 					
-					<th  style="font-size:21px; color:#00008B;">Category</th>
-					<th  style="font-size:21px; color:#00008B;">Amount</th>
+					<th style="font-size:21px; background:#E6E6FA; color:#00008B;">Category</th>
+					<th style="font-size:21px; background:#E6E6FA; color:#00008B;">Amount</th>
 					
 				</tr>
 			</thead>
@@ -83,8 +80,13 @@
          <%
               IFinance expense = new FinanceImpl();
               ArrayList<Expense> search=new ArrayList<>();
+              
+              
+              String Start_date= (String) request.getParameter("Start_Date");
+              String End_date= (String) request.getParameter("End_Date");
+              
              
-              search = expense.searchExpense(expen.getStart_Date(), expen.getEnd_Date());
+              search = expense.searchExpense(Start_date,End_date);
              
               float total = 0;
               
@@ -113,7 +115,8 @@
 						
 		</table>
 	
-     <%} %>
+      </div>
+</div>
 
 </body>
 </html>

@@ -15,7 +15,7 @@
 			<script src="scripts/nav.js"></script>
 			
 			<script>
-		window.location.href = 'FinanceDashboard.jsp#Butt2';
+		window.location.href = 'FinanceDashboard.jsp#Butt1';
 		var i=${value};
 		
 		if(i==1){
@@ -80,6 +80,7 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			  </div>
 			  <div class="w3-bar-block">
 			    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+			    <a href="#Butt1" id="test1" class="w3-bar-item w3-button w3-padding" onclick="button1()"><i class="fa fa-pie-chart" aria-hidden="true"></i> &nbsp Dashboard </a>
 			    <a href="#Butt2" id="test2" class="w3-bar-item w3-button w3-padding" onclick="button2()"><i class="fa fa-eur" aria-hidden="true"></i> &nbsp Income </a>
 			    <a href="#Butt3" id="test3" class="w3-bar-item w3-button w3-padding" onclick="button3()"><i class="fa fa-paypal" aria-hidden="true"></i> &nbsp Expense </a>
 			    <a href="#Butt4" id="test4" class="w3-bar-item w3-button w3-padding" onclick="button4()"><i class="fa fa-users" aria-hidden="true"></i> &nbsp Suppliers </a>
@@ -98,6 +99,10 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+			
+			
+			<div style="background:white;height:800px; transform: translate(0%, -11%);" id="Butt1"><%@include file="FinanceGraph.jsp" %></div>
+			
 			
 		
 			<div style="background:#8f9dd7;height:800px; transform: translate(0%, -11%);" id="Butt2"><%@include file="Income.jsp" %></div>
@@ -121,11 +126,11 @@ background: radial-gradient(circle, rgba(190,189,203,1) 0%, rgba(174,174,221,1) 
 			</div> 
 		</div>
 		<script src="scripts/Utility.js"></script>
+<%}else if(un==null){
 
-   <%}else if(un==null){
+ response.sendRedirect("Login.jsp");
 
-	response.sendRedirect("Login.jsp");
+}%>
 
-}%> 
 </body>
 </html>

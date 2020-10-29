@@ -58,7 +58,7 @@ public class AddPurchaseOrder extends HttpServlet {
 	IFinance iFinance = new FinanceImpl();
 	iFinance.AddPurchaseOrder(order);
 
-	request.setAttribute("value", 6);
+	request.setAttribute("value", 6); // page redirect 
 	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/FinanceDashboard.jsp");
 	dispatcher.forward(request, response);
 

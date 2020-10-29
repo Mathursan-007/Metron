@@ -14,58 +14,68 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Search Income</title>
-
+<link rel="stylesheet" type="text/css" href="styles/Income.css" />
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
 <link rel="stylesheet" type="text/css" href="styles/Utility.css" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+<script>
+
+window.onload=function(){
+	
+	document.getElementById("download").addEventListener("click",()=> {
+		const invoice =this.document.getElementById("invoice");
+		console.log(invoice);
+		console.log(window);
+		var opt={
+				
+				filename:'Income.pdf',
+				imagey:{type:'jpeg',quality:0.98},
+				html2canvas:{scale :5},
+				jsPDF:{unit:'in',formate:'letter',orientation:'portrait'}
+				
+		};
+		html2pdf().from(invoice).set(opt).save();
+		
+	});
+	
+	
+}
+
+
+
+</script>
 
 
 
 </head>
 <body class="bt">
 
+<div class = "back">
+<button  id="download" class="btn btn-success ">Download Report</button>
+</div>
 
-	<form method="post" action="./SearchIncome"   >
- 
-  <div class = "expense1">
-
-  <div class="form-group">
- 
- 		<label for="fname">Start Date:</label>
-  		<input type="date" id="Start_Date" name="Start_Date"><br><br>
-  
-  		<label for="lname">End Date:</label>
-  		<input type="date" id=End_Date name="End_Date"><br><br>
-  		
-  		
-      
- 
-            <input type="Submit" value="Search" class="button">
-    </div>
-    </div>
-       
-
-  </form>
- 
+<div id="invoice">
 
 
-<% Income incom =(Income)request.getAttribute("income");%>
-
-
- <%if(incom!=null) { %>
  
 
 			
-		<h1>Income for a month</h1>
+		
 	
+<div class ="tab">
+<table style="margin-left:-230px;">
 
-<table align="right">
+<h1 style="margin-left:330px; margin-top:-400px;">Income for a month</h1>
 
 			<thead>
 				<tr>
-					<div class = "colr">
-					<th style="font-size:21px; color:#00008B;">Category</th>
-					<th style="font-size:21px; color:#00008B;">Amount</th>
-					</div>
+					
+					<th style="font-size:21px; background:#E6E6FA; color:#00008B;">Category</th>
+					<th style="font-size:21px; background:#E6E6FA; color:#00008B;">Amount</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -73,14 +83,21 @@
          <%
               IFinance income = new FinanceImpl();
               ArrayList<Income> search=new ArrayList<>();
-             
-              search = income.searchIncome(incom.getStart_Date(), incom.getEnd_Date());
+           
+              
+              String Start_date= (String) request.getParameter("Start_Date");
+              String End_date= (String) request.getParameter("End_Date");
+              
+                     
+              search = income.searchIncome(Start_date,End_date);
              
               float total = 0;
               
+             
+              
              for(Income searc:search){ %>
-            <tr>
-               
+            <tr>               
+                
                <td><%=searc.getCategory()%></td>
              
                <td><%=searc.getAmount()%></td>
@@ -94,8 +111,7 @@
              
                <td style="color:red"><%=total %></td>
                
-               
-                                    
+                  
                
 </tr>
        
@@ -105,8 +121,8 @@
 		
 						
 		</table>
-	
-     <%} %>
+ </div>
+</div>
 
 </body>
 </html>

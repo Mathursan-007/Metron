@@ -20,7 +20,7 @@ import com.util.DBConnection;
 public class FinanceImpl implements IFinance {
 	
 	
-	//Add set of Income
+	//Add Income
 	
 	private static Connection connection;
 	private static PreparedStatement pt;
@@ -43,6 +43,9 @@ public class FinanceImpl implements IFinance {
 		System.out.println(e);
 		}
 		}
+		
+		
+		
 
 		@Override
 		public ArrayList<Income> listTransaction() {
@@ -74,6 +77,8 @@ public class FinanceImpl implements IFinance {
 		return income;
 		}
 		
+		
+		//Get Income
 		
 
 		@Override
@@ -112,7 +117,9 @@ public class FinanceImpl implements IFinance {
 
 		
 		
-		//update set of Income
+		//Update Income
+		
+		
 
 		@Override
 		public void UpdateIncome(Income income) {
@@ -134,9 +141,13 @@ public class FinanceImpl implements IFinance {
 			}
 			
 		}
+		
+		
 
 
-		//delete set of Income
+		//Delete Income
+		
+		
 
 		@Override
 		public void DeleteIncome(int Income_ID) {
@@ -153,8 +164,10 @@ public class FinanceImpl implements IFinance {
 			} 
 			
 		}
+		
 
 		
+		//Search monthly Income
 
 
 	@Override
@@ -177,7 +190,7 @@ public class FinanceImpl implements IFinance {
 				
 				income.setCategory(result.getString(1));
 				income.setAmount(result.getFloat(2));
-				
+											
 				incomes.add(income);
 			}
 			
@@ -196,7 +209,13 @@ public class FinanceImpl implements IFinance {
 	
 	
 	
-	//Add set of Expense
+
+	
+	
+	
+		//Add Expense
+	
+	
 		
 		public void AddExpense(Expense expense) {
 		try {
@@ -214,6 +233,10 @@ public class FinanceImpl implements IFinance {
 		System.out.println(e);
 		}
 		}
+		
+		
+		
+		
 
 		@Override
 		public ArrayList<Expense> exTransaction() {
@@ -246,6 +269,10 @@ public class FinanceImpl implements IFinance {
 
 		return expense;
 		}
+		
+		
+		
+		//Get Expense
 		
 		
 
@@ -282,10 +309,16 @@ public class FinanceImpl implements IFinance {
 			
 			return expense;
 		}
+		
+		
+		
 
 		
 		
-		//update set of Expense
+		//Update Expense
+		
+		
+		
 
 		@Override
 		public void UpdateExpense(Expense expense) {
@@ -311,7 +344,9 @@ public class FinanceImpl implements IFinance {
 		
 		
 
-		//delete set of Expense
+		//Delete Expense
+		
+		
 
 		@Override
 		public void DeleteExpense(int Expense_ID) {
@@ -330,7 +365,9 @@ public class FinanceImpl implements IFinance {
 		}
 		
 		
-		// search expense
+		// Search monthly Expense
+		
+		
 		
 		@Override
 		public  ArrayList<Expense> searchExpense(String Start_Date, String End_Date){
@@ -391,7 +428,12 @@ public class FinanceImpl implements IFinance {
 			//}
 			//}
 		
-		// get salary
+		
+		
+		
+		
+		
+		// Get salary
 
 			@Override
 			public ArrayList<SalaryRequest> listSalary() {
@@ -487,335 +529,351 @@ public class FinanceImpl implements IFinance {
 			
 			
 			
-			// add set of supplier	
+			// Add supplier	
 				
-				public void AddSupplier(Supplier supplier) {
+			public void AddSupplier(Supplier supplier) {
+				try {
+				connection=DBConnection.initializedb();
+				pt=connection.prepareStatement("insert into Supplier_s (Supplier_ID,Name,Type,ContactNo,Email,Address) values(?,?,?,?,?,?)");
+				pt.setString(1, supplier.getSupplier_ID());
+				pt.setString(2, supplier.getName());
+				pt.setString(3, supplier.getType());
+				pt.setString(4, supplier.getContact_No());
+				pt.setString(5, supplier.getEmail());
+				pt.setString(6, supplier.getAddress());
+
+
+
+				pt.execute();
+				
+				} catch (Exception e) {
+					
+				System.out.println(e);
+				
+				}
+			}
+				
+				
+				
+				
+
+				@Override
+				public ArrayList<Supplier> listDetails() {
+				//TODO Auto-generated method stub
+						
+				ArrayList<Supplier> supplier=new ArrayList<>();
+				try {
+				connection=DBConnection.initializedb();
+				ct=connection.prepareCall("Select * from Supplier_s");
+				ResultSet result=ct.executeQuery();
+
+				while(result.next()) {
+				Supplier suppl = new Supplier();
+				
+				suppl.setSupplier_ID(result.getString(1));
+				suppl.setName(result.getString(2));
+				suppl.setType(result.getString(3));
+				suppl.setContact_No(result.getString(4));
+				suppl.setEmail(result.getString(5));
+				suppl.setAddress(result.getString(6));
+
+
+				supplier.add(suppl);
+				}
+					} catch (Exception e) {
+					
+					}
+
+				return supplier;
+			}
+
+					
+					
+					
+				//Get Supplier
+					
+					
+				@Override
+				public Supplier GetSupplier(String Supplier_ID) {
+					// TODO Auto-generated method stub
+						
+				Supplier supplier=new Supplier();
+						
+				try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("select * from Supplier_s where Supplier_ID=?");
+					pt.setString(1, Supplier_ID);
+					ResultSet result=pt.executeQuery();
+							
+				while(result.next()){
+						supplier.setSupplier_ID(result.getString(1));
+						supplier.setName(result.getString(2));
+						supplier.setType(result.getString(3));
+						supplier.setContact_No(result.getString(4));
+						supplier.setEmail(result.getString(5));
+						supplier.setAddress(result.getString(6));
+
+										
+					}
+							
+							
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+						e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+						e.printStackTrace();
+				}
+						
+						
+					return supplier;
+			}
+
+					
+					
+					
+					
+				//Update supplier
+					
+					
+
+				@Override
+				public void UpdateSupplier(Supplier supplier) {
+					// TODO Auto-generated method stub
+						
+				try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("UPDATE Supplier_s SET Name=?, Type=?, ContactNo=?, Email=?, Address=? WHERE Supplier_ID=?");
+					pt.setString(1, supplier.getName());
+					pt.setString(2, supplier.getType());
+					pt.setString(3, supplier.getContact_No());
+					pt.setString(4, supplier.getEmail());
+					pt.setString(5, supplier.getAddress());
+					pt.setString(6, supplier.getSupplier_ID());
+
+					pt.executeUpdate();
+							
+				} catch (Exception e) {
+							
+					}
+						
+			}
+
+					
+
+				//Delete supplier
+					
+					
+					
+
+				@Override
+				public void DeleteSupplier(String Supplier_ID) {
+					// TODO Auto-generated method stub
+						
+				try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("delete from Supplier_s where Supplier_ID=?"); 
+					pt.setString(1, Supplier_ID);
+					pt.execute();
+				} catch (Exception e) {
+							
+					e.printStackTrace();
+				} 
+					
+			}
+					
+					
+				// Add utility
+						
+				public void AddUtility(Utility utility) {
 					try {
 					connection=DBConnection.initializedb();
-					pt=connection.prepareStatement("insert into Supplier_s (Supplier_ID,Name,Type,ContactNo,Email,Address) values(?,?,?,?,?,?)");
-					pt.setString(1, supplier.getSupplier_ID());
-					pt.setString(2, supplier.getName());
-					pt.setString(3, supplier.getType());
-					pt.setString(4, supplier.getContact_No());
-					pt.setString(5, supplier.getEmail());
-					pt.setString(6, supplier.getAddress());
+					pt=connection.prepareStatement("insert into Utility_Bill (UPayment_ID,Category,Amount,Date) values(?,?,?,?)");
+					pt.setInt(1, utility.getPayment_ID());
+					pt.setString(2, utility.getCategory());
+					pt.setFloat(3, utility.getAmount());
+					pt.setString(4, utility.getDate());
 
 
 
 					pt.execute();
+						
 					} catch (Exception e) {
+							
 					System.out.println(e);
 					}
-					}
-				
-				
+					
+				}
+					
+					
+						
+
 
 					@Override
-					public ArrayList<Supplier> listDetails() {
+					public ArrayList<Utility> listExpense() {
 					//TODO Auto-generated method stub
-						
-					ArrayList<Supplier> supplier=new ArrayList<>();
-					try {
-					connection=DBConnection.initializedb();
-					ct=connection.prepareCall("Select * from Supplier_s");
-					ResultSet result=ct.executeQuery();
-
-					while(result.next()) {
-					Supplier suppl = new Supplier();
-
-					suppl.setSupplier_ID(result.getString(1));
-					suppl.setName(result.getString(2));
-					suppl.setType(result.getString(3));
-					suppl.setContact_No(result.getString(4));
-					suppl.setEmail(result.getString(5));
-					suppl.setAddress(result.getString(6));
-
-
-					supplier.add(suppl);
-					}
-
-					} catch (Exception e) {
-
-					}
-
-					return supplier;
-					}
-
-					
-					
-					@Override
-					public Supplier GetSupplier(String Supplier_ID) {
-						// TODO Auto-generated method stub
-						
-						Supplier supplier=new Supplier();
-						
+								
+					ArrayList<Utility> utility=new ArrayList<>();
 						try {
-							connection=DBConnection.initializedb();
-							pt=connection.prepareStatement("select * from Supplier_s where Supplier_ID=?");
-							pt.setString(1, Supplier_ID);
-							ResultSet result=pt.executeQuery();
-							
-							while(result.next()){
-								supplier.setSupplier_ID(result.getString(1));
-								supplier.setName(result.getString(2));
-								supplier.setType(result.getString(3));
-								supplier.setContact_No(result.getString(4));
-								supplier.setEmail(result.getString(5));
-								supplier.setAddress(result.getString(6));
+						connection=DBConnection.initializedb();
+						ct=connection.prepareCall("Select * from Utility_Bill");
+						ResultSet result=ct.executeQuery();
 
-										
-							}
-							
-							
-						} catch (ClassNotFoundException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+						while(result.next()) {
+						Utility util = new Utility();
+
+						util.setPayment_ID(result.getInt(1));
+						util.setCategory(result.getString(2));
+						util.setAmount(result.getFloat(3));
+						util.setDate(result.getString(4));
+
+
+						utility.add(util);
 						}
-						
-						
-						return supplier;
-					}
 
-					
-					
-					//update set of suppliers
-
-					@Override
-					public void UpdateSupplier(Supplier supplier) {
-						// TODO Auto-generated method stub
-						
-						try {
-							connection=DBConnection.initializedb();
-							pt=connection.prepareStatement("UPDATE Supplier_s SET Name=?, Type=?, ContactNo=?, Email=?, Address=? WHERE Supplier_ID=?");
-							pt.setString(1, supplier.getName());
-							pt.setString(2, supplier.getType());
-							pt.setString(3, supplier.getContact_No());
-							pt.setString(4, supplier.getEmail());
-							pt.setString(5, supplier.getAddress());
-							pt.setString(6, supplier.getSupplier_ID());
-
-							pt.executeUpdate();
-							
 						} catch (Exception e) {
-							
+
 						}
-						
+
+						return utility;
 					}
 
-					
-
-					//delete set of suppliers
-
-					@Override
-					public void DeleteSupplier(String Supplier_ID) {
-						// TODO Auto-generated method stub
-						
-						try {
-							connection=DBConnection.initializedb();
-							pt=connection.prepareStatement("delete from Supplier_s where Supplier_ID=?"); 
-							pt.setString(1, Supplier_ID);
-							pt.execute();
-						} catch (Exception e) {
 							
-							e.printStackTrace();
-						} 
-						
-					}
-					
-					
-					// add set of utility
-						
-						public void AddUtility(Utility utility) {
+							
+						//Get Utility
+							
+							
+							
+						@Override
+						public Utility GetUtility(int Payment_ID) {
+							// TODO Auto-generated method stub
+								
+							Utility utility=new Utility();
+								
 							try {
-							connection=DBConnection.initializedb();
-							pt=connection.prepareStatement("insert into Utility_Bill (UPayment_ID,Category,Amount,Date) values(?,?,?,?)");
-							pt.setInt(1, utility.getPayment_ID());
-							pt.setString(2, utility.getCategory());
-							pt.setFloat(3, utility.getAmount());
-							pt.setString(4, utility.getDate());
-
-
-
-							pt.execute();
-							} catch (Exception e) {
-							System.out.println(e);
-							}
-							}
-
-							//Add set of expense
-
-							//public void AddExpense(Expense expense) {
-							//try {
-							//connection=DBConnection.initializedb();
-							//pt=connection.prepareStatement("insert into Expense (Payment_ID,Category,Amount,Date) values(?,?,?,?)");
-							//pt.setInt(1, expense.getPayment_ID());
-							//pt.setString(2, expense.getCategory());
-							//pt.setFloat(3, expense.getAmount());
-							//pt.setString(4, expense.getDate());
-
-
-
-							//pt.execute();
-							//} catch (Exception e) {
-							//System.out.println(e);
-							//}
-							//}
-
-
-							@Override
-							public ArrayList<Utility> listExpense() {
-							//TODO Auto-generated method stub
-								
-							ArrayList<Utility> utility=new ArrayList<>();
-							try {
-							connection=DBConnection.initializedb();
-							ct=connection.prepareCall("Select * from Utility_Bill");
-							ResultSet result=ct.executeQuery();
-
-							while(result.next()) {
-							Utility util = new Utility();
-
-							util.setPayment_ID(result.getInt(1));
-							util.setCategory(result.getString(2));
-							util.setAmount(result.getFloat(3));
-							util.setDate(result.getString(4));
-
-
-							utility.add(util);
-							}
-
-							} catch (Exception e) {
-
-							}
-
-							return utility;
-							}
-
-							
-							
-							@Override
-							public Utility GetUtility(int Payment_ID) {
-								// TODO Auto-generated method stub
-								
-								Utility utility=new Utility();
-								
-								try {
-									connection=DBConnection.initializedb();
-									pt=connection.prepareStatement("select * from Utility_Bill where UPayment_ID=?");
-									pt.setInt(1, Payment_ID);
-									ResultSet result=pt.executeQuery();
+								connection=DBConnection.initializedb();
+								pt=connection.prepareStatement("select * from Utility_Bill where UPayment_ID=?");
+								pt.setInt(1, Payment_ID);
+								ResultSet result=pt.executeQuery();
 									
-									while(result.next()){
-										utility.setPayment_ID(result.getInt(1));
-										utility.setCategory(result.getString(2));
-										utility.setAmount(result.getFloat(3));
-										utility.setDate(result.getString(4));
+							while(result.next()){
+								utility.setPayment_ID(result.getInt(1));
+								utility.setCategory(result.getString(2));
+								utility.setAmount(result.getFloat(3));
+								utility.setDate(result.getString(4));
 
 												
-									}
-									
-									
-								} catch (ClassNotFoundException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								} catch (SQLException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
 								}
 								
-								
-								return utility;
-							}
-
-							
-							
-							//update set of utility
-
-							@Override
-							public void UpdateUtility(Utility utility) {
-								// TODO Auto-generated method stub
-								
-								try {
-									connection=DBConnection.initializedb();
-									pt=connection.prepareStatement("UPDATE Utility_Bill SET Category=?, Amount=?, Date=? WHERE UPayment_ID=?");
-									pt.setString(1, utility.getCategory());
-									pt.setFloat(2, utility.getAmount());
-									pt.setString(3, utility.getDate());
-									pt.setInt(4, utility.getPayment_ID());
-
-									pt.executeUpdate();
 									
-								} catch (Exception e) {
-									
-								}
-								
-							}
-
-							
-
-							//delete set of utility
-
-							@Override
-							public void DeleteUtility(int Payment_ID) {
-								// TODO Auto-generated method stub
-								
-								try {
-									connection=DBConnection.initializedb();
-									pt=connection.prepareStatement("delete from Utility_Bill where UPayment_ID=?"); 
-									pt.setInt(1, Payment_ID);
-									pt.execute();
-								} catch (Exception e) {
-									
-									e.printStackTrace();
-								} 
-								
-							}
-							
-							
-							
-							//salary request delete
-							
-							@Override
-							public void DeleteSalaryRequest(int Request_ID) {
-								// TODO Auto-generated method stub
-								
-								try {
-									connection=DBConnection.initializedb();
-									pt=connection.prepareStatement("delete from Salary_Request where Request_ID=?"); 
-									pt.setInt(1, Request_ID);
-									pt.execute();
-								} catch (Exception e) {
-									
-									e.printStackTrace();
-								} 
-								
+							} catch (ClassNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
 								
+								
+							return utility;
+					}
+
+							
+							
+							
+							
+						//Update Utility
+							
+							
+						@Override
+						public void UpdateUtility(Utility utility) {
+							// TODO Auto-generated method stub
+								
+							try {
+								connection=DBConnection.initializedb();
+								pt=connection.prepareStatement("UPDATE Utility_Bill SET Category=?, Amount=?, Date=? WHERE UPayment_ID=?");
+								pt.setString(1, utility.getCategory());
+								pt.setFloat(2, utility.getAmount());
+								pt.setString(3, utility.getDate());
+								pt.setInt(4, utility.getPayment_ID());
+
+								pt.executeUpdate();
+									
+							} catch (Exception e) {
+									
+							}
+							
+						}
+
+							
+							
+
+						//Delete Utility
+
+						@Override
+						public void DeleteUtility(int Payment_ID) {
+							// TODO Auto-generated method stub
+								
+							try {
+								connection=DBConnection.initializedb();
+								pt=connection.prepareStatement("delete from Utility_Bill where UPayment_ID=?"); 
+								pt.setInt(1, Payment_ID);
+								pt.execute();
+							} catch (Exception e) {
+									
+								e.printStackTrace();
+							} 
+								
+						}
+							
+							
+							
+							
+							
+							
+						//Delete salary request
 						
-							// retrieve stock request
+							
+							
+						@Override
+						public void DeleteSalaryRequest(int Request_ID) {
+							// TODO Auto-generated method stub
+								
+							try {
+								connection=DBConnection.initializedb();
+								pt=connection.prepareStatement("delete from Salary_Request where Request_ID=?"); 
+								pt.setInt(1, Request_ID);
+								pt.execute();
+							} catch (Exception e) {
+									
+								e.printStackTrace();
+							} 
+								
+					}
+								
+							
+						
+						// retrieve stock request
 								
 
-									@Override
-									public ArrayList<StockRequest> listReq() {
-									//TODO Auto-generated method stub
+							@Override
+							public ArrayList<StockRequest> listReq() {
+							//TODO Auto-generated method stub
 										
-									ArrayList<StockRequest> stock=new ArrayList<>();
-									try {
-									connection=DBConnection.initializedb();
-									ct=connection.prepareCall("Select * from Stock_Request");
-									ResultSet result=ct.executeQuery();
+							ArrayList<StockRequest> stock=new ArrayList<>();
+								try {
+								connection=DBConnection.initializedb();
+								ct=connection.prepareCall("Select * from Stock_Request");
+								ResultSet result=ct.executeQuery();
 
-									while(result.next()) {
-										StockRequest stocks = new StockRequest();
+							while(result.next()) {
+								StockRequest stocks = new StockRequest();
 
-										stocks.setRequest_No(result.getInt(1));
-										stocks.setAsset_ID(result.getString(2));
-										stocks.setAsset_Name(result.getString(3));
-										stocks.setQuantity(result.getInt(4));
-										stocks.setDate(result.getString(5));
+								stocks.setRequest_No(result.getInt(1));
+								stocks.setAsset_ID(result.getString(2));
+								stocks.setAsset_Name(result.getString(3));
+								stocks.setQuantity(result.getInt(4));
+								stocks.setDate(result.getString(5));
 
 
 									stock.add(stocks);
@@ -826,174 +884,189 @@ public class FinanceImpl implements IFinance {
 									}
 
 									return stock;
-									}
+							}
 
 									
 									
 								
+							
 									
-									//delete set of stock
-
-									@Override
-									public void DeleteStockRequest(int Request_No) {
-										// TODO Auto-generated method stub
+						//Delete stock
 										
-										try {
-											connection=DBConnection.initializedb();
-											pt=connection.prepareStatement("delete from Stock_Request where ReqNo=?"); 
-											pt.setInt(1, Request_No);
-											pt.execute();
-										} catch (Exception e) {
+
+						@Override
+						public void DeleteStockRequest(int Request_No) {
+							// TODO Auto-generated method stub
+										
+							try {
+							connection=DBConnection.initializedb();
+							pt=connection.prepareStatement("delete from Stock_Request where ReqNo=?"); 
+							pt.setInt(1, Request_No);
+							pt.execute();
+								} catch (Exception e) {
 											
-											e.printStackTrace();
-										} 																
+									e.printStackTrace();
+								} 																
 										
-									}
+						}
 									
 									
 									
-									//Add set of Purchase order
+						//Add Purchase order
 									
-									public void AddPurchaseOrder(PurchaseOrder order) {
-										try {
-										connection=DBConnection.initializedb();
-										pt=connection.prepareStatement("insert into Purchase_Order (ReqNo, AssetID, AssetName,Quantity, Amount, Supplier_ID) values(?,?,?,?,?,?)");
-										pt.setInt(1, order.getRequest_No());
-										pt.setString(2, order.getAsset_ID());
-										pt.setString(3, order.getAsset_Name());
-										pt.setInt(4, order.getQuantity());
-										pt.setFloat(5, order.getAmount());
-										pt.setString(6, order.getSupplier_ID());
+									
+									
+				public void AddPurchaseOrder(PurchaseOrder order) {
+					try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("insert into Purchase_Order (ReqNo, AssetID, AssetName,Quantity, Amount, Supplier_ID) values(?,?,?,?,?,?)");
+					pt.setInt(1, order.getRequest_No());
+					pt.setString(2, order.getAsset_ID());
+					pt.setString(3, order.getAsset_Name());
+					pt.setInt(4, order.getQuantity());
+					pt.setFloat(5, order.getAmount());
+					pt.setString(6, order.getSupplier_ID());
 
 
-										pt.execute();
-										} catch (Exception e) {
-										System.out.println(e);
-										}
-										}
-									
-									
-									
-									
-									// get set of purchase order
-									
-									@Override
-									public PurchaseOrder GetPurchaseOrder(int Request_No) {
-										// TODO Auto-generated method stub
+						pt.execute();
 										
-										PurchaseOrder order=new PurchaseOrder();
-										
-										try {
-											connection=DBConnection.initializedb();
-											pt=connection.prepareStatement("select ReqNo, AssetID, AssetName, Quantity from Stock_Request where ReqNo=?");
-											pt.setInt(1, Request_No);
-											ResultSet result=pt.executeQuery();
+						} catch (Exception e) {
 											
-											while(result.next()){
-												order.setRequest_No(result.getInt(1));
-												order.setAsset_ID(result.getString(2));
-												order.setAsset_Name(result.getString(3));
-												order.setQuantity(result.getInt(4));											
+							System.out.println(e);
+										
+						}
+			}
+									
+									
+									
+									
+				// Get purchase order
+									
+									
+									
+				@Override
+				public PurchaseOrder GetPurchaseOrder(int Request_No) {
+				// TODO Auto-generated method stub
+										
+				PurchaseOrder order=new PurchaseOrder();
+										
+				try {
+				connection=DBConnection.initializedb();
+				pt=connection.prepareStatement("select ReqNo, AssetID, AssetName, Quantity from Stock_Request where ReqNo=?");
+				pt.setInt(1, Request_No);
+				ResultSet result=pt.executeQuery();
+											
+					while(result.next()){
+					order.setRequest_No(result.getInt(1));
+					order.setAsset_ID(result.getString(2));
+					order.setAsset_Name(result.getString(3));
+					order.setQuantity(result.getInt(4));											
 														
-											}
+				}
 											
 											
-										} catch (ClassNotFoundException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (SQLException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
+					} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+								e.printStackTrace();
+					} catch (SQLException e) {
+							// TODO Auto-generated catch block
+								e.printStackTrace();
+					}
 										
 										
-										return order;
-									}
+						return order;
+		}
 
 									
 									
 									
-									// generate income report
+					// Generate p&l income report
 									
-									@Override
-									public  ArrayList<Income> generateIncome(String Start_Date, String End_Date){
-										// TODO Auto-generated method stub
+									
+									
+					@Override
+					public  ArrayList<Income> generateIncome(String Start_Date, String End_Date){
+					// TODO Auto-generated method stub
 										
-										ArrayList<Income> incomes=new ArrayList<>();
+					ArrayList<Income> incomes=new ArrayList<>();
 									      
 										
-										try {
-											connection=DBConnection.initializedb();
-											pt=connection.prepareStatement("SELECT Category, SUM(Amount) FROM Income WHERE Date BETWEEN ? AND ? group by Category");
-											pt.setString(1, Start_Date);
-											pt.setString(2, End_Date);
-											ResultSet result=pt.executeQuery();
+					try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("SELECT Category, SUM(Amount) FROM Income WHERE Date BETWEEN ? AND ? group by Category");
+					pt.setString(1, Start_Date);
+					pt.setString(2, End_Date);
+					ResultSet result=pt.executeQuery();
+																			
 											
-											while(result.next()){
+					while(result.next()){
+										
+						Income income = new Income();
 												
-												Income income = new Income();
+						income.setCategory(result.getString(1));
+						income.setAmount(result.getFloat(2));
 												
-												income.setCategory(result.getString(1));
-												income.setAmount(result.getFloat(2));
-												
-												incomes.add(income);
-											}
+							incomes.add(income);
+						}
 											
-										} catch (ClassNotFoundException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (SQLException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
+						} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+								e.printStackTrace();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+								e.printStackTrace();
+						}
 										
 										
-										return incomes;
+							return incomes;
 										
-									}
+			}
 									
-									 // generate expense report
 									
-									@Override
-									public  ArrayList<Expense> generateExpense(String Start_Date, String End_Date){
-										// TODO Auto-generated method stub
+									
+									
+									
+					// Generate p&l expense report
+									
+									
+									
+									
+					@Override
+					public  ArrayList<Expense> generateExpense(String Start_Date, String End_Date){
+					// TODO Auto-generated method stub
 										
-										ArrayList<Expense> expenses=new ArrayList<>();
+					ArrayList<Expense> expenses=new ArrayList<>();
 									      
 										
-										try {
-											connection=DBConnection.initializedb();
-											pt=connection.prepareStatement("SELECT Category, SUM(Amount) FROM Expense WHERE Date BETWEEN ? AND ? group by Category");
-											pt.setString(1, Start_Date);
-											pt.setString(2, End_Date);
-											ResultSet result=pt.executeQuery();
+					try {
+					connection=DBConnection.initializedb();
+					pt=connection.prepareStatement("SELECT Category, SUM(Amount) FROM Expense WHERE Date BETWEEN ? AND ? group by Category");
+					pt.setString(1, Start_Date);
+					pt.setString(2, End_Date);
+					ResultSet result=pt.executeQuery();
 											
-											while(result.next()){
+					while(result.next()){
 												
-												Expense expense = new Expense();
+						Expense expense = new Expense();
 												
-												expense.setCategory(result.getString(1));
-												expense.setAmount(result.getFloat(2));
+							expense.setCategory(result.getString(1));
+							expense.setAmount(result.getFloat(2));
 												
-												expenses.add(expense);
-											}
+							expenses.add(expense);
+							}
 											
-										} catch (ClassNotFoundException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										} catch (SQLException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
+						} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+									e.printStackTrace();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+									e.printStackTrace();
+						}
 										
 										
-										return expenses;
-										
-									}
-									
-									
-									
-			
+							return expenses;
+								
+						}
 								
 		}
 											

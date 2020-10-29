@@ -12,6 +12,8 @@ import com.model.Utility;
 
 public interface IFinance {
 	
+	//Expense
+	
 	public void AddExpense(Expense expense);
 
 	public ArrayList<Expense> exTransaction();
@@ -25,6 +27,8 @@ public interface IFinance {
 	public ArrayList<Expense> searchExpense(String Start_Date, String End_Date);
 	
 	
+	
+	//Income
 	
 	public void AddIncome(Income income);
 
@@ -40,12 +44,18 @@ public interface IFinance {
 
 	
 	
+	//Salary Request
+	
 	public ArrayList<SalaryRequest> listSalary();
 
 	public void DeleteSalaryRequest(int Request_ID);
 	
 	
 
+	
+	//Supplier
+	
+	
 	public void AddSupplier(Supplier supplier);
 
 	public ArrayList<Supplier> listDetails();
@@ -56,6 +66,9 @@ public interface IFinance {
 
 	public void DeleteSupplier(String Supplier_ID);
 	
+	
+	
+	//Utility
 	
 	
 	public void AddUtility(Utility utility);
@@ -69,12 +82,18 @@ public interface IFinance {
 	public void DeleteUtility(int Payment_ID);
 	
 	
-
+	
+	//Stock Request
+	
+	
+	
 	public ArrayList<StockRequest> listReq();
 
 	public void DeleteStockRequest(int Request_No);
 	
 	
+	
+	//Purchase Order
 	
 	public void AddPurchaseOrder(PurchaseOrder order);
 	
@@ -82,9 +101,12 @@ public interface IFinance {
 	
 	
 	
+	//Pdf Report
+	
 	public ArrayList<Income> generateIncome(String Start_Date, String End_Date);
 	
 	public ArrayList<Expense> generateExpense(String Start_Date, String End_Date);
+	
 	
 	
 

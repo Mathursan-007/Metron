@@ -20,7 +20,7 @@
 
   <div class="form-group">
  
-  <h2>Add Expense</h2>
+  <h2>Add Utility</h2>
  
       <label for="paymentID">Payment_ID : </label>
       <input type="number" class="form-control" id="paymentID" placeholder="Payment_ID" name="paymentID"  required>

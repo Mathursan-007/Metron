@@ -1,82 +1,64 @@
 <%@page import="java.util.ArrayList"%>
-
+    
 <%@ page import="com.service.IFinance" %>  
 <%@ page import="com.service.FinanceImpl"%>  
-
+<%@ page import="com.model.Income" %> 
 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Report</title>
+<title>Search Income</title>
 
 <link rel="stylesheet" type="text/css" href="styles/at.css" />
-
-
-<style>
-
-.tbs{
-		width:100%;
-		height:500px;
-		overflow:auto;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="styles/Utility.css" />
 
 </head>
+
 <body class="bt">
 
 
 
 
+	<form method="post" target="new" action="GenerateP&LReport.jsp">
+	
+	
+ 
+  <div class = "expense2">
 
-		<div class = " card-container">
-			<div class = "upper-container1">
-			
-			<h3>Income Statement Report</h3>
-				 
-			</div>
-			
-			
-			<div class = "lower-container tbs">
-			
-			
-				
-				
-				
-				<p>Generate Profit or Loss Report</p>
-				
-				
-				
-		
-               
-               <div class = "report">
-				<a href="GenerateP&LReport.jsp" class="button" style="margin-left:430px margin-top:350px;"><button class="btn btn-success">Print Report</button></a>
-			 	</div>  
-               
+  <div class="form-group">
+  
+  	<p class="ava">  Yearly Income Statement Report </p>
+ 
+ 		<label for="fname">To:</label>
+  		<input type="date" id="Start_Date" name="Start_Date"><br><br>
+  
+  		<label for="lname">From:</label>
+  		<input type="date" id=End_Date name="End_Date"><br><br>
+  		
+
+           		<div class ="cen">
+				<a href="GenerateP&LReport.jsp"><button class="btn btn-info">Print</button></a>		 	
+              </div>
+    </div>
+    </div>      
+  </form>
+  
+  
+ 
+
+
+
+
          
-               
-               
-               </form>
-             
-     
-               
-           
-   </tr>    
-
-      </tbody>
-
-		
-			
-						
-				</table>
-			</div>		
-			
-			
-		</div>
-		
 </body>
 </html>
+
+
+ 
+         

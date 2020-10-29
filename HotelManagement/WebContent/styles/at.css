@@ -5,6 +5,22 @@ body{
 	
 }
 
+.upper-container2
+{
+	height: 100px;
+	background: #ffffff;
+	
+}
+
+
+.tab
+{
+	margin-top:500px;
+}
+
+
+
+
 .incom
 {
 	margin-top:60px;
@@ -19,13 +35,13 @@ body{
 
 .filter1
 {
-	margin-top:-45px;
+	margin-top:-55px;
 	margin-left:50px;
 }
 
 .filter
 {
-	margin-top:-115px;
+	margin-top:-110px;
 	margin-left:50px;
 	
 }
@@ -114,12 +130,7 @@ h1
 	display: inline-block;
 }
 
-.upper-container
-{
-	height: 50px;
-	background: #ffffff;
-	
-}
+
 
 .upper-container1
 {
@@ -208,7 +219,7 @@ h1
 
 .lower-container
 {
-	height: 90px;
+	height: 500px;
 	background: #ffffff;
 	padding: 20px;
 	padding-top: 70px;

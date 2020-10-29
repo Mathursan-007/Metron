@@ -64,7 +64,6 @@
 	Font fReservation = new Font(Font.FontFamily.COURIER, 15, Font.NORMAL);
 	
 	String txtReservation="Reservation ID : ";
-	
 	Paragraph p2 = new Paragraph(txtReservation,fReservation);
 	p2.setSpacingBefore(30); //leave space before
 	
@@ -83,7 +82,8 @@
 	
 	String txtNoOfRooms="Number of rooms booked : ";
 	Paragraph p4 = new Paragraph(txtNoOfRooms,fNoofRooms);
-	p4.setSpacingBefore(20); //leave space before
+	p4.setSpacingBefore(20); 
+	//leave space before
 	
 	String noOfRooms= guestReservation.getNo_Of_Rooms() + "";
 	

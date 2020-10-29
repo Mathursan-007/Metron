@@ -50,9 +50,9 @@ public class GetRoomCounts extends HttpServlet {
 		
 		room.setCheckIn(checkIn);
 		room.setCheckOut(checkOut);
-		room.setStandardRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,1));
+		room.setStandardRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,3));
 		room.setPremiumRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,2));
-		room.setEliteRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,3));
+		room.setEliteRoomCount(roomimpl.setRoomAvailabilityCount(checkIn,checkOut,1));
 		
 		
 		

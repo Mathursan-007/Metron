@@ -21,7 +21,7 @@
 
 	<section class="ListingRooms">
 	  <!--for demo wrap-->
-	  <span class="jd"> <h1>Reservation Details</h1> </span>
+	  <span class="jd"> <h1>Checked in guest</h1> </span>
 	  
 		  <div class="tbl-header">
 		    <table cellpadding="0" cellspacing="0" border="0" class="Dubu">

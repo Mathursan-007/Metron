@@ -61,12 +61,16 @@
     color: #007ac7;
     border: 2px solid #00e0d8
 }
-
+.viii{
+	background-color: #8f9dd7;
+}
 .ase{
 	padding-top:150px;
-	background-image: linear-gradient(to right top, #c8c8c8, #cacaca, #cccccc, #cfcfcf, #d1d1d1);
+	background-color: #8f9dd7;
 	
 }
+
+
 
 .btns {
     font-size: 16px;

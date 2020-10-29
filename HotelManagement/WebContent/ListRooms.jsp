@@ -114,7 +114,7 @@
 		            	<select class="form-control" name="roomType" id="" required>
 						    <option value="">--Please choose the room type--</option>
 						    <option value="1">Elite Room</option>
-						    <option value="2">Platinum Room</option>
+						    <option value="2">Premium Room</option>
 						    <option value="3">Standard Room</option>
 						</select>
 		            </div>

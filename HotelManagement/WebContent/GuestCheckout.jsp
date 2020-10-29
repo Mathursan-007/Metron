@@ -4,6 +4,7 @@
 <%@ page import="com.service.IRoom" %>  
 <%@ page import="com.service.RoomImpl"%>   
 <%@ page import="com.model.GuestReservation" %>
+<%@ page import="com.model.RoomBill" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,8 @@
 	<style>
 	
 	.fs{
-		margin-left: 35%;      
-    margin-right: 35%;
+		margin-left: 30%;      
+    margin-right: 30%;
     width: auto;
     background:white;
     border-radius:10px;
@@ -58,7 +59,7 @@
 
 </head>
 <body class="csd">
-	<%@include file="Header2.jsp" %>
+	<%@include file="Header.jsp" %>
 	
 	<h1  style="margin-top:150px;text-align:center;font-size: 35px;">Check-out Details </h1>  <br>
 	
@@ -68,13 +69,28 @@
 	<%
 		RoomImpl roomImpl = new RoomImpl();
 		GuestReservation guestReservation = new GuestReservation();
-		
+		ArrayList<RoomBill> bill = new ArrayList();
 		int RRID = Integer.parseInt(request.getParameter("rrid"));
 		
 		guestReservation=roomImpl.getReservation(RRID);
 		guestReservation.setFullName(request.getParameter("fullName"));
+		bill=roomImpl.getBillDetails(RRID);
 		
-		float amount = roomImpl.getCustomerBill(RRID);
+		
+		int a=0;
+		float roomCost=0;
+		
+		for(RoomBill b:bill){
+			if(a==0) {
+				roomCost=b.getAmount();
+				a++;
+			}
+		}
+		
+		
+		
+		
+		float cost = roomImpl.getCustomerBill(RRID)-roomCost;
 	
 	%>
   		
@@ -84,11 +100,11 @@
 	  		<p>Guest Name : <span class="nui"><b><%=guestReservation.getFullName() %></b></span> </p> <br>
 	  		<p>Number of rooms booked : <span class="nui"><b><%=guestReservation.getNo_Of_Rooms() %></b></span> </p> <br>
 	  		<p>Number of guests : <span class="nui"><b><%=guestReservation.getNo_Of_Guests() %></b></span> </p> <br>
-	  		<p>Total Cost : <span class="nui"><b>Rs.<%=amount %> </b> </p> <br>
+	  		<p>Total Cost to be paid : <span class="nui"><b>Rs.<%=cost %> </b> </p> <br>
 	  	</div>	
 	  		
 	  		
-	  		<form action="RoomGuestBill.jsp" method="post">
+	  		<form action="RoomGuestBill.jsp" method="post" target="new">
 	  			<input type="hidden" value="<%=guestReservation.getRoom_RID() %>" name="rrid">
   				<button class="btn btn-outline-success" type="submit">Print Bill</button>
   			</form>
@@ -99,7 +115,7 @@
 	  			<button class="btn btn-outline-danger">Check-out Guest</button>
 	  		</form>
 	  		
-	  		<button class="btn btn-outline-primary" id="myButton" >Go Back</button>
+	  		<button class="btn btn-outline-primary" onclick="NewTab()">Go Back</button>
 	</div>
 
 
@@ -108,8 +124,13 @@
 	<script type="text/javascript">
 
 	document.getElementById("myButton").onclick = function(){
-		location.href = "FrontDeskRoomDashboard.jsp";
+		location.href = "";
+		window.open("FrontDeskRoomDashboard.jsp","_blank");
 	}
+	
+	function NewTab() { 
+        window.open("FrontDeskRoomDashboard.jsp", "_blank"); 
+    } 
 		
 </script>
 

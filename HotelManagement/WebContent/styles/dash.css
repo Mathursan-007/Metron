@@ -257,3 +257,54 @@ input[type=submit]:hover{
 	text-align:center;
 	border: 3px solid dodgerblue;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    color:#ffffff;
+  
+}
+
+.card {
+    padding: 8%;
+    padding-top: 35px;
+    margin-top: 60px;
+    margin-bottom: 80px
+}
+
+input.btn-purple {
+    background-color: #5C6BC0;
+    color: #ffffff;
+}
+
+input.btn-purple:hover {
+    background-color: #008000;
+    color: #ffffff
+}
+
+input.input-box,
+textarea.input-box,select.input-box {
+    background-color: #616161;
+    border: #616161;
+    color: #BDBDBD
+}
+
+input.input-box:focus,
+textarea.input-box:focus,select.input-box:focus {
+    background-color: #000000;
+    color: #BDBDBD
+}
+
+
+::-moz-placeholder {
+    color: #9E9E9E !important
+}

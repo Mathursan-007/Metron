@@ -149,10 +149,10 @@ public class InventoryImpl implements IInventory {
 		@Override
 		public ArrayList<Inventory> listLowInventories() {
 			// TODO Auto-generated method stub
-			ArrayList<Inventory> depInventory=new ArrayList<>();
+			ArrayList<Inventory> inventory=new ArrayList<>();
 			try {
 				connection=DBConnection.initializedb();
-				ct=connection.prepareCall("Select * from Low_Stock");
+				ct=connection.prepareCall("Select * from Low_Inventory where AssetID <> 'Null'");
 				ResultSet result=ct.executeQuery();
 				
 				while(result.next()) {
@@ -163,15 +163,16 @@ public class InventoryImpl implements IInventory {
 					assets.setMinQuantity(result.getInt(3));
 					assets.setAvailableQuantity(result.getInt(4));
 					assets.setTotalQuantity(result.getInt(5));
-					
-					depInventory.add(assets);
+					assets.setStatus(result.getString(6));
+
+					inventory.add(assets);
 				}
 				
 			} catch (Exception e) {
 				
 			}
 			
-			return depInventory;
+			return inventory;
 		}
 		
 		@Override
@@ -284,7 +285,7 @@ public class InventoryImpl implements IInventory {
 			
 			try {
 				connection=DBConnection.initializedb();
-				pt=connection.prepareStatement("select AssetID,AssetName from Low_Stock where AssetID=?");
+				pt=connection.prepareStatement("select AssetID,AssetName from Low_Inventory where AssetID=?");
 				pt.setString(1, AssetID);
 				ResultSet result=pt.executeQuery();
 				

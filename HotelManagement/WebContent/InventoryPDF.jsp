@@ -46,7 +46,6 @@
 		Paragraph p = new Paragraph("Inventory : Metron",FontFactory.getFont(FontFactory.TIMES_BOLD ,19,Font.BOLD,BaseColor.RED));
 		Paragraph ps = new Paragraph();
 		Font f = new Font();
-		PdfPCell cell =new PdfPCell();
 		
 		p.setAlignment(Element.ALIGN_CENTER);
 		ps.add("       ");
@@ -58,6 +57,7 @@
 		float[] colsWidth = {1f, 1f, 1f, 1f};
 		
 		Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 13, Font.BOLD);
+		Font boldFont1 = new Font(Font.FontFamily.TIMES_ROMAN, 13, Font.BOLD,BaseColor.RED);
 
 		PdfPTable table1 = new PdfPTable(colsWidth);
 
@@ -71,7 +71,7 @@
 		Phrase TotalQty = new Phrase("Total Received Stock", boldFont );
 		
 		
-		cell = new PdfPCell();
+		PdfPCell cell = new PdfPCell();
 		PdfPCell cell1 = new PdfPCell();
 		PdfPCell cell2 = new PdfPCell();
 		PdfPCell cell3 = new PdfPCell();

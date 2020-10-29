@@ -12,32 +12,19 @@ public class Inventory {
 	
 	private int TotalQuantity;
 
-	private int ReqNo;
 	
-	private String Date;
+	private String Status;
 	
 
 
-	public int getReqNo() {
-		return ReqNo;
+	public String getStatus() {
+		return Status;
 	}
 
 
 
-	public void setReqNo(int reqNo) {
-		ReqNo = reqNo;
-	}
-
-
-
-	public String getDate() {
-		return Date;
-	}
-
-
-
-	public void setDate(String date) {
-		this.Date = date;
+	public void setStatus(String Status) {
+		this.Status = Status;
 	}
 
 

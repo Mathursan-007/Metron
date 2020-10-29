@@ -49,6 +49,7 @@ public class GetLowStock extends HttpServlet {
 		
 		request.setAttribute("inventory", inventory);
 		
+
 		RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/OrderForm.jsp");
 		dispatcher.forward(request, response);	}
 

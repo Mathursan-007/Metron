@@ -5,6 +5,7 @@ import java.io.File;
 
 
 
+
 import java.io.FileOutputStream;
 import java.util.Date;
 
@@ -12,7 +13,6 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.parser.Line;
-import com.sun.tools.javac.util.Name.Table;
 
 
 public class pdf {
@@ -49,7 +49,7 @@ public class pdf {
 	        Paragraph qty=new Paragraph(q); 
 	        
 
-	       PdfPTable table = new Table(1);
+	    //   PdfPTable table = new Table(1);
 	     
 	        
 	        //name.add(qty.toString().re);

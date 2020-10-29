@@ -280,7 +280,7 @@ ArrayList<Gym> gym=new ArrayList();
 			
 			pt.setString(1,sr.getSpackageID());
 			pt.setString(2, sr.getGpackagename());
-			pt.setInt(3,sr.getRoomNo());
+			pt.setString(3,sr.getRoomNo());
 			pt.setString(4, sr.getCusName());
 			pt.setString(5, sr.getDate());
 			pt.setString(6, sr.getStime());
@@ -308,7 +308,7 @@ ArrayList<Gym> gym=new ArrayList();
 		
 			pt.setString(1,gr.getGpackageID());
 			pt.setString(2, gr.getGpackagename());
-			pt.setInt(3,gr.getRoomNo());
+			pt.setString(3,gr.getRoomNo());
 			pt.setString(4, gr.getCusName());
 			pt.setString(5, gr.getDate());
 		
@@ -345,7 +345,7 @@ ArrayList<SpaReservation> spar=new ArrayList();
 			r.setRID(result.getString(1));
 			r.setSpackageID(result.getString(2));
 			r.setSpackagename(result.getString(3));
-			r.setRoomNo(result.getInt(4));
+			r.setRoomNo(result.getString(4));
 			r.setCusName(result.getString(5));
 			r.setDate(result.getString(6));
 			r.setStime(result.getString(7));
@@ -377,7 +377,7 @@ ArrayList<SpaReservation> spar=new ArrayList();
 				sr.setRID(result.getString(1));
 				sr.setSpackageID(result.getString(2));
 				sr.setSpackagename(result.getString(3));
-				sr.setRoomNo(result.getInt(4));
+				sr.setRoomNo(result.getString(4));
 				sr.setCusName(result.getString(5));
 				sr.setDate(result.getString(6));
 				sr.setStime(result.getString(7));
@@ -405,7 +405,7 @@ ArrayList<SpaReservation> spar=new ArrayList();
 			pt=connection.prepareStatement("update SPA_Reservation set Package_ID=?,Package_Name=?,RoomNo=?,Customer_Name=?,Date=?,STime=?,Etime=? where Reservation_ID=?");
 			pt.setString(1,sr.getSpackageID());
 			pt.setString(2, sr.getGpackagename());
-			pt.setInt(3,sr.getRoomNo());
+			pt.setString(3,sr.getRoomNo());
 			pt.setString(4, sr.getCusName());
 			pt.setString(5, sr.getDate());
 			pt.setString(6, sr.getStime());
@@ -459,7 +459,7 @@ ArrayList<GymReservation> gymr=new ArrayList();
 			r.setRID(result.getString(1));
 			r.setGpackageID(result.getString(2));
 			r.setGpackagename(result.getString(3));
-			r.setRoomNo(result.getInt(4));
+			r.setRoomNo(result.getString(4));
 			r.setCusName(result.getString(5));
 			r.setDate(result.getString(6));
 			 
@@ -516,7 +516,7 @@ SpaReservation ss=new SpaReservation();
 		
 		try {
 			connection=DBConnection.initializedb();
-			pt=connection.prepareStatement("select p.Reservation_ID from SPA_Reservation s,SPAPAYMENT where p.Reservation_ID=s.Reservation_ID" );
+			pt=connection.prepareStatement("select p.Reservation_ID from SPA_Reservation s,SPAPAYMENT p where p.Reservation_ID=s.Reservation_ID" );
 		 
 			ResultSet result=pt.executeQuery();
 			
@@ -614,7 +614,7 @@ ArrayList<SpaReservation> spp=new ArrayList();
 		 pt.setString(1,sp.getRID());
 		pt.setString(2,sp.getSpackageID());
 		pt.setString(3, sp.getGpackagename());
-		pt.setInt(4,sp.getRoomNo());
+		pt.setString(4,sp.getRoomNo());
 		pt.setString(5, sp.getCusName());
 		pt.setString(6, sp.getDate());
 		pt.setString(7, sp.getStime());
@@ -647,9 +647,9 @@ ArrayList<SpaReservation> spp=new ArrayList();
 			while(result.next()){
 				
 				gr.setRID(result.getString(1));
-				 gr.setGpackageID(result.getString(2));
+				gr.setGpackageID(result.getString(2));
 				gr.setGpackagename(result.getString(3));
-				gr.setRoomNo(result.getInt(4));
+				gr.setRoomNo(result.getString(4));
 				gr.setCusName(result.getString(5));
 				gr.setDate(result.getString(6));
 				 
@@ -677,7 +677,7 @@ ArrayList<SpaReservation> spp=new ArrayList();
 			pt=connection.prepareStatement("update GYM_Reservation set Package_ID=?,Package_Name=?,RoomNo=?,Customer_Name=?,Date=?  where Reservation_ID=?");
 			pt.setString(1,sr.getGpackageID());
 			pt.setString(2, sr.getGpackagename());
-			pt.setInt(3,sr.getRoomNo());
+			pt.setString(3,sr.getRoomNo());
 			pt.setString(4, sr.getCusName());
 			pt.setString(5, sr.getDate());
 		
@@ -755,7 +755,7 @@ ArrayList<SpaReservation> spp=new ArrayList();
 			 pt.setString(1,sp.getRID());
 			pt.setString(2,sp.getGpackageID());
 			pt.setString(3, sp.getGpackagename());
-			pt.setInt(4,sp.getRoomNo());
+			pt.setString(4,sp.getRoomNo());
 			pt.setString(5, sp.getCusName());
 			pt.setString(6, sp.getDate());
 			 

@@ -47,7 +47,7 @@ public class AddGTbill extends HttpServlet {
 		gt.setRID(request.getParameter("id"));
 		gt.setGpackageID(request.getParameter("sid"));
 	    gt.setGpackagename(request.getParameter("name"));
-	    gt.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    gt.setRoomNo(request.getParameter("no"));
 	    gt.setCusName(request.getParameter("cname"));
 	    gt.setDate(request.getParameter("date"));
 	     

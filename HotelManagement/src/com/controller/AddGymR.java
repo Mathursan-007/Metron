@@ -47,7 +47,7 @@ public class AddGymR extends HttpServlet {
 		 
 		gymr.setGpackageID(request.getParameter("id"));
 	    gymr.setGpackagename(request.getParameter("name"));
-	    gymr.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    gymr.setRoomNo(request.getParameter("no"));
 	    gymr.setCusName(request.getParameter("cname"));
 	    gymr.setDate(request.getParameter("date"));
 	   

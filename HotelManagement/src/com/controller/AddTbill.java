@@ -46,7 +46,7 @@ public class AddTbill extends HttpServlet {
 		st.setRID(request.getParameter("id"));
 		st.setSpackageID(request.getParameter("sid"));
 	    st.setSpackagename(request.getParameter("name"));
-	    st.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    st.setRoomNo(request.getParameter("no"));
 	    st.setCusName(request.getParameter("cname"));
 	    st.setDate(request.getParameter("date"));
 	    st.setStime(request.getParameter("stime"));

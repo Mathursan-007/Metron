@@ -230,7 +230,7 @@ padding-bottom:200px;
       <br><br><br>
       
        <label for="amount">RoomNo: </label>
-        <select class="form-control" name="id">
+        <select class="form-control" name="no">
         <option value="">Select RoomNO</option>
         <%  for(Room room:Rooms){ %>
         <option value="<%=room.getRoomNo()%>"><%=room.getRoomNo()%></option>

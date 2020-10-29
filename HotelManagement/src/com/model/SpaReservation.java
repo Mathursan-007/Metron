@@ -59,10 +59,10 @@ public class SpaReservation extends Reservation {
 	public void setRID(String rID) {
 		RID = rID;
 	}
-	public int getRoomNo() {
+	public String getRoomNo() {
 		return roomNo;
 	}
-	public void setRoomNo(int roomNo) {
+	public void setRoomNo(String roomNo) {
 		this.roomNo = roomNo;
 	}
 	public String getCusName() {

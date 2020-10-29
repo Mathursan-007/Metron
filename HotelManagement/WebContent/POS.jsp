@@ -24,7 +24,7 @@
                     <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
                         <!-- Credit card form tabs -->
                         <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
-                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Credit Card </a> </li>
+                            <li class="nav-item"> <a data-toggle="pill" href="#credit-card" class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> Card </a> </li>
                             <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> <i class="fa fa-money-bill-alt mr-2"></i> Cash </a> </li>
                             <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> <i class="fas fa-user mr-2"></i> Guest Payment </a> </li>
                         </ul>

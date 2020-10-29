@@ -47,7 +47,7 @@ public class AddSpaR extends HttpServlet {
 		 
 		spar.setSpackageID(request.getParameter("id"));
 	    spar.setSpackagename(request.getParameter("name"));
-	    spar.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    spar.setRoomNo(request.getParameter("no"));
 	    spar.setCusName(request.getParameter("cname"));
 	    spar.setDate(request.getParameter("date"));
 	    spar.setStime(request.getParameter("stime"));

@@ -87,7 +87,7 @@ display: block;
             </thead>
             <%
               ExtraService SRList=new ExtraServiceImp();
-            ArrayList<SpaReservation> spar=new ArrayList();
+            ArrayList<SpaReservation> spar=new ArrayList<>();
             
             SpaReservation sid=new SpaReservation();
             

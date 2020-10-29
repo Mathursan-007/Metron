@@ -47,7 +47,7 @@ public class UpdateGymR extends HttpServlet {
 		gr.setRID(request.getParameter("rid"));
 		gr.setGpackageID(request.getParameter("id"));
 	    gr.setGpackagename(request.getParameter("name"));
-	    gr.setRoomNo(Integer.parseInt(request.getParameter("no")));
+	    gr.setRoomNo(request.getParameter("no"));
 	    gr.setCusName(request.getParameter("cname"));
 	    gr.setDate(request.getParameter("date"));
 	    

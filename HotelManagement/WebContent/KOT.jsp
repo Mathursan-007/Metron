@@ -75,7 +75,7 @@
                         </tbody>
                     </table>
                     </div>
-                  <button type="submit" class="btn btn-primary"  onClick="return checkitem()" style="margin-top:20px;position:relative;left:45%;top:45%"><i class="fa fa-print" aria-hidden="true"></i>Print KOT</button>
+                  <button type="submit" class="btn btn-primary" onClick="return checkitem()" style="margin-top:20px;position:relative;left:45%;top:45%"><i class="fa fa-print" aria-hidden="true"></i>Print KOT</button>
                 
                  </form>  
                 </div>

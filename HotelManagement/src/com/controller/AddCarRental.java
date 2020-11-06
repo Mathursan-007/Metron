@@ -48,6 +48,7 @@ public class AddCarRental extends HttpServlet {
 
 		ITransport  carRentalImpl =new TransportImpl();
 		Integer id=Integer.parseInt(request.getParameter("id"));
+		
 		carRental.setId(Integer.parseInt(request.getParameter("id")));
 		String cusName=request.getParameter("cusName");
 		carRental.setCustomerName(request.getParameter("cusName"));

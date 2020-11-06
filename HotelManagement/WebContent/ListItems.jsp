@@ -22,7 +22,7 @@
 	
 	
 	<h1 class="itHead"  style="padding-top:100px;">ITEMS</h1>
-	<input id="myInput1" type="text" onkeyup="myFunction1()"  placeholder="Search Item..">
+	<input id="myInput1" type="text" onkeyup="myFunction1()"  style="margin-left:20px;" placeholder="Search Item..">
 <br><br>
 	
 	
@@ -185,6 +185,7 @@ function myFunction1() {
 	    }       
 	  }
 	}
+	
 </script>	
     
 </body>

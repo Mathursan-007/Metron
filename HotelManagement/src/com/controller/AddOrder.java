@@ -47,12 +47,13 @@ public class AddOrder extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		RestaurantCustomer rcustomer=new RestaurantCustomer();
+		//RestaurantCustomer rcustomer=new RestaurantCustomer();
 		RestaurantImpl restaurantImpl=new RestaurantImpl();
 		
 		String[] qty=request.getParameterValues("qts");
 		String[] item=request.getParameterValues("items");
 	//	int rcustid=Integer.parseInt(request.getParameter("custid"));
+		
 		String type=request.getParameter("type");
 		int orderid=restaurantImpl.generateOrderid();
 		

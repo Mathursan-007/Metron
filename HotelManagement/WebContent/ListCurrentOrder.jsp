@@ -25,7 +25,7 @@
 <body>
      <div>
                 <h1 class="itHead" style="padding-top:200px;">Pending Orders</h1>
-               <input id="myInput4" type="text" onkeyup="myFunction4()" style="margin-left:0px;" placeholder="Search Order.."> 
+               <input id="myInput4" type="text" onkeyup="myFunction4()" style="margin-left:20px;" placeholder="Search Order.."> 
 <br><br>
                 
                 <div class="scroll">
@@ -68,7 +68,7 @@
 	               </form>
 	               <form action="UpdateOrder.jsp" method="post" target="new">
 	               <input type="hidden" name="orderid"  value="<%=order.getOrderID()%>">
-	               <button class="btn btn-success"  style="margin-right:30px;"><i class="fa fa-plus" aria-hidden="true"></i>Add more</button>
+	               <button class="btn btn-success" onclick="updateorder()"  style="margin-right:30px;"><i class="fa fa-plus" aria-hidden="true"></i>Add more</button>
 	               </form>
 	               <form action="./DeleteOrder" method="post">
 	               <input type="hidden" name="orderid"  value=<%=order.getOrderID() %>>
@@ -106,6 +106,11 @@ function myFunction4() {
 	  }
 	}
 
+function updateorder() {
+	
+		  setTimeout("location.reload(true);",3000);
+	  
+}
 
 </script>     
    

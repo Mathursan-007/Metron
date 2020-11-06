@@ -12,6 +12,7 @@ public class DBConnection {
 		   
 		
 		if (connection == null || connection.isClosed()) {
+			    
 			    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 				String url="jdbc:sqlserver://localhost:1433;databaseName=Hotel";
 			    connection=DriverManager.getConnection(url,"admin","admin");

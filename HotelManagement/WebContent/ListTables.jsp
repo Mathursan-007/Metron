@@ -26,7 +26,7 @@
      
                 
                 <h1 class="itHead" style="padding-top:100px;" >TABLES</h1>
-                  <input id="myInput2" type="text" onkeyup="myFunction2()" style="margin-top:50px;" placeholder="Search Table Status..">
+                  <input id="myInput2" type="text" onkeyup="myFunction2()" style="margin-left:20px;" style="margin-top:50px;" placeholder="Search Table Status..">
 <br><br>
                 
                 <div class="scroll">

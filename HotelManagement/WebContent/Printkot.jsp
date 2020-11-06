@@ -36,6 +36,7 @@
 
                 response.setContentType("application/pdf");
                 
+                
 				Rectangle pageSize = new Rectangle(600,500);
 				Document document = new Document(pageSize);
 				PdfWriter writer=PdfWriter.getInstance(document, response.getOutputStream());

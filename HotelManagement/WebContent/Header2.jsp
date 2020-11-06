@@ -9,6 +9,19 @@
 
 
 <link rel="stylesheet" href="styles/homestyle.css">
+<style>
+
+.btnLogout{
+background:black;
+color:white;
+padding:10px;
+border:1px solid black;
+font-weight:bold;
+font-size: 18px;
+}
+
+
+</style>
 </head>
 <body>
 	
@@ -60,7 +73,7 @@
 				</li>
 				<li class="nav-item" id="try3">
 				 <form action="./Logout" method="post">
-					<button type="submit" class="nav-link" > Logout </button> 
+					<button type="submit" class="btnLogout" > LOGOUT </button>
 				</form>
 				</li>
 			</ul>

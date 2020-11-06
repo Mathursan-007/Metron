@@ -27,14 +27,15 @@ public class EventImpl implements IEvent {
 	public void addMealPlan(MealPlan mealplan) {
 	
 		try {
+			
 			connection=DBConnection.initializedb();
 			pt=connection.prepareStatement("insert into MealPlan ( PackageID, PackageName, Price, Specifications) values (?,?,?,?)");
 			pt.setInt(1, mealplan.getPackageId());
 			pt.setString(2, mealplan.getPackageName());
 			pt.setFloat(3, mealplan.getPrice());
 			pt.setString(4, mealplan.getSpecifications());
-			
 			pt.execute();
+			pt.close();
 			
 			
 		} catch (ClassNotFoundException e) {

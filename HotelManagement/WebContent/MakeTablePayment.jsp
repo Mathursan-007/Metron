@@ -41,6 +41,7 @@
         <h1>Payment Details</h1>
     </div>
     <!-- Credit Card Payment Form - START -->
+    <form action="Restaurant.jsp" onsubmit="myFunction()">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -54,38 +55,39 @@
                     <h1 style="text-align:center">Total Amount</h1>
                     <h3 style="text-align:center">Rs. <%=cost %> </h3>
                     <div class="panel-body">
-                        <form role="form">
+                       
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group"> <label>CARD NUMBER</label>
-                                        <div class="input-group"> <input type="number" class="form-control" placeholder="Valid Card Number" /> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
+                                        <div class="input-group"> <input type="text" class="form-control" placeholder="Valid Card Number" value="4536543212345678" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required> <span class="input-group-addon"><span class="fa fa-credit-card"></span></span> </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-7 col-md-7">
-                                    <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="number" class="form-control" placeholder="MM / YY" /> </div>
+                                    <div class="form-group"> <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label> <input type="text" class="form-control" placeholder="MM / YY"  pattern="[0-1][1-2][/][2-9][0-9]" value="12/27" required> </div>
                                 </div>
                                 <div class="col-xs-5 col-md-5 pull-right">
-                                    <div class="form-group"> <label>CV CODE</label> <input type="number" class="form-control" placeholder="CVC" /> </div>
+                                    <div class="form-group"> <label>CV CODE</label> <input type="text" class="form-control" placeholder="CVC"  pattern="[0-9][0-9][0-9]" value="458" required> </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" /> </div>
+                                    <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" placeholder="Card Owner Name" value="Mark" /> </div>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-xs-12"><a href="Restaurant.jsp"><button id="pay" class="btn btn-success btn-lg btn-block" onClick="myFunction()">Confirm Payment</button></a></div>
+                            <div class="col-xs-12"><button id="pay" class="btn btn-success btn-lg btn-block" >Confirm Payment</button></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
 
 	<%@include file="Footer.jsp" %>

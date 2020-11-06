@@ -90,9 +90,9 @@ public class EmployeeImpl implements IEmployee{
 				employee.setNIC(result.getString(5));
 				employee.setEmail(result.getString(6));
 				employee.setDOB(result.getString(7));
-				employee.setAddress(result.getString(9));
-				employee.setDepartment(result.getString(10));
-				employee.setDesignation(result.getString(11));
+				employee.setAddress(result.getString(8));
+				employee.setDepartment(result.getString(9));
+				employee.setDesignation(result.getString(10));
 				
 			}
 			

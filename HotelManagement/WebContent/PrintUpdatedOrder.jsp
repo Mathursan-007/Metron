@@ -105,7 +105,7 @@
 			     document.add(table);
 			     document.add(new Paragraph("                -------------------------------------------------------------------------------------------------- "));
 			
-			     Paragraph txt3=new Paragraph("Total Number of Items:"+"                                      s      "+String.valueOf(tot),f); 
+			     Paragraph txt3=new Paragraph("Total Number of Items:"+"                                            "+String.valueOf(tot),f); 
 			     
 			     txt3.setAlignment(Element.ALIGN_LEFT);
 			     txt3.setIndentationLeft(60);
